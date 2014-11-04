@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+    <id>weather</id>
+    <name>Weather</name>
+    <description>Plugin pour avoir les information métérologique</description>
+    <icon>fa fa-umbrella</icon>
+    <licence>AGPL</licence>
+    <author>Loïc Gevrey</author>
+    <installation>Aucune</installation>
+    <require>1.10</require>
+    <canBeAction>0</canBeAction>
+    <category>weather</category>
+</info>
+

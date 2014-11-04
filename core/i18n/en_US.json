@@ -1,0 +1,14 @@
+{
+    "plugins\/weather\/core\/template\/dashboard\/current.html": {
+        "Vent": "Vent"
+    },
+    "plugins\/weather\/desktop\/php\/weather.php": {
+        "Liste des equipements méteo": "Liste des equipements méteo",
+        "Général": "Général",
+        "Nom de l'équipement météo": "Nom de l'équipement météo",
+        "WOEID": "WOEID",
+        "Obtenir le code WOEID": "Obtenir le code WOEID",
+        "Météo": "Météo",
+        "Valeur": "Valeur"
+    }
+}
