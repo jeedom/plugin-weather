@@ -232,7 +232,7 @@ class weather extends eqLogic {
                     return 'Avec Averses localisées';
                 case 'Light Rain Shower' :
                     return 'légèrement pluvieux';
-                case 'Light drizzle' :
+                case 'Light Drizzle' :
                     return 'Brumeux';
                 case 'Thunder in the Vicinity' :
                     return 'Orageux localement';
