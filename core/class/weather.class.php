@@ -30,9 +30,8 @@ class weather extends eqLogic {
     public static function pull($_options) {
         $weather = weather::byId($_options['weather_id']);
         if (is_object($weather) && $weather->getIsEnable() == 1) {
-            $weather_xml = $weather->getWeatherFromYahooXml();
-            $sunrise = $weather_xml['astronomy']['sunrise'];
-            $sunset = $weather_xml['astronomy']['sunset'];
+            $sunrise = $weather->getCmd(null, 'sunrise')->execCmd();
+            $sunset = $weather->getCmd(null, 'sunset')->execCmd();
             if ((date('Gi') + 100) >= $sunrise && (date('Gi') + 100 ) < $sunset) {
                 $search = 'sunrise';
             } else {
@@ -84,10 +83,16 @@ class weather extends eqLogic {
                     }
                 }
                 if ($cmd->getLogicalId() != 'sunset') {
-                    cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+                    $result = $cmd->execute();
+                    if ($result !== false) {
+                        cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+                    }
                 }
                 if ($cmd->getLogicalId() != 'sunrise') {
-                    cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+                    $result = $cmd->execute();
+                    if ($result !== false) {
+                        cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+                    }
                 }
             }
             $mc = cache::byKey('weatherWidgetmobile' . $weather->getId());
@@ -682,11 +687,13 @@ class weather extends eqLogic {
 
     public function reschedule() {
         $weather = $this->getWeatherFromYahooXml();
-        if (!is_array($weather)) {
-            return;
+        if (is_array($weather)) {
+            $sunrise = $weather['astronomy']['sunrise'];
+            $sunset = $weather['astronomy']['sunset'];
+        } else {
+            $sunrise = $this->getCmd(null, 'sunrise')->execCmd();
+            $sunset = $this->getCmd(null, 'sunset')->execCmd();
         }
-        $sunrise = $weather['astronomy']['sunrise'];
-        $sunset = $weather['astronomy']['sunset'];
         $next = null;
         if ((date('Gi') + 100) > $sunrise && (date('Gi') + 100) < $sunset) {
             $next = $sunset;
