@@ -30,18 +30,13 @@ class weather extends eqLogic {
     public static function pull($_options) {
         $weather = weather::byId($_options['weather_id']);
         if (is_object($weather) && $weather->getIsEnable() == 1) {
-            $sunrise = $weather->getCmd(null, 'sunrise')->execCmd();
-            $sunset = $weather->getCmd(null, 'sunset')->execCmd();
-            if ((date('Gi') + 100) >= $sunrise && (date('Gi') + 100 ) < $sunset) {
-                $search = 'sunrise';
-            } else {
-                $search = 'sunset';
-            }
             if (jeedom::isDateOk()) {
-                foreach ($weather->getCmd() as $cmd) {
-                    if ($cmd->getConfiguration('data') == $search) {
-                        $cmd->event(date('Hi'));
-                    }
+                $sunrise = $weather->getCmd(null, 'sunrise')->execCmd();
+                $sunset = $weather->getCmd(null, 'sunset')->execCmd();
+                if ((date('Gi') + 100) >= $sunrise && (date('Gi') + 100 ) < $sunset) {
+                    $sunrise->event(date('Gi'));
+                } else {
+                    $sunset->event(date('Gi'));
                 }
             }
             $weather->reschedule();
@@ -686,14 +681,8 @@ class weather extends eqLogic {
     }
 
     public function reschedule() {
-        $weather = $this->getWeatherFromYahooXml();
-        if (is_array($weather)) {
-            $sunrise = $weather['astronomy']['sunrise'];
-            $sunset = $weather['astronomy']['sunset'];
-        } else {
-            $sunrise = $this->getCmd(null, 'sunrise')->execCmd();
-            $sunset = $this->getCmd(null, 'sunset')->execCmd();
-        }
+        $sunrise = $this->getCmd(null, 'sunrise')->execCmd();
+        $sunset = $this->getCmd(null, 'sunset')->execCmd();
         $next = null;
         if ((date('Gi') + 100) > $sunrise && (date('Gi') + 100) < $sunset) {
             $next = $sunset;
