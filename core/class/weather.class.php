@@ -104,33 +104,69 @@ class weather extends eqLogic {
         nodejs::pushUpdate('eventEqLogic', $this->getId());
     }
 
-    public static function getIconFromCondition($_condition) {
+    public static function getIconFromCondition($_condition, $_sunrise = null, $_sunset = null) {
         if (strpos(strtolower($_condition), __('orage', __FILE__)) !== false || strpos(strtolower($_condition), __('storm', __FILE__)) !== false) {
-            return 'meteo-orage';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-orage';
+            } else {
+                return 'meteo-orage';
+            }
         }
         if (strpos(strtolower($_condition), __('brouillard', __FILE__)) !== false || strpos(strtolower($_condition), __('brumeux', __FILE__)) !== false || strpos(strtolower($_condition), __('fog', __FILE__)) !== false) {
-            return 'meteo-brouillard';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-brouillard';
+            } else {
+                return 'meteo-brouillard';
+            }
         }
         if (strpos(strtolower($_condition), __('pluie', __FILE__)) !== false || strpos(strtolower($_condition), __('rain', __FILE__)) !== false) {
-            return 'meteo-pluie';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-pluie';
+            } else {
+                return 'meteo-pluie';
+            }
         }
         if (strpos(strtolower($_condition), __('averse', __FILE__)) !== false || strpos(strtolower($_condition), __('shower', __FILE__)) !== false) {
-            return 'meteo-pluie';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-pluie';
+            } else {
+                return 'meteo-pluie';
+            }
         }
         if (strpos(strtolower($_condition), __('nuage', __FILE__)) !== false || strpos(strtolower($_condition), __('cloud', __FILE__)) !== false) {
-            return 'meteo-nuageux';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-nuageux';
+            } else {
+                return 'meteo-nuit-nuage';
+            }
         }
         if (strpos(strtolower($_condition), __('soleil', __FILE__)) !== false || strpos(strtolower($_condition), __('sun', __FILE__)) !== false) {
-            return 'meteo-soleil';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-soleil';
+            } else {
+                return 'fa fa-moon-o';
+            }
         }
         if (strpos(strtolower($_condition), __('dégagé', __FILE__)) !== false || strpos(strtolower($_condition), __('clear', __FILE__)) !== false) {
-            return 'meteo-soleil';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-soleil';
+            } else {
+                return 'fa fa-moon-o';
+            }
         }
         if (strpos(strtolower($_condition), __('beau', __FILE__)) !== false) {
-            return 'meteo-soleil';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-soleil';
+            } else {
+                return 'meteo-soleil';
+            }
         }
         if (strpos(strtolower($_condition), __('pluvieux', __FILE__)) !== false || strpos(strtolower($_condition), __('rain', __FILE__)) !== false) {
-            return 'meteo-pluie';
+            if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+                return 'meteo-pluie';
+            } else {
+                return 'meteo-pluie';
+            }
         }
         return '';
     }
@@ -775,16 +811,7 @@ class weather extends eqLogic {
             '#forecast#' => $html_forecast,
         );
 
-        $condition = $this->getCmd(null, 'condition_now');
-        if (is_object($condition)) {
-            $replace['#icone#'] = self::getIconFromCondition($condition->execCmd());
-            $replace['#condition#'] = $condition->execCmd();
-            $replace['#collectDate#'] = $condition->getCollectDate();
-        } else {
-            $replace['#icone#'] = '';
-            $replace['#condition#'] = '';
-            $replace['#collectDate#'] = '';
-        }
+
         $temperature = $this->getCmd(null, 'temperature');
         $replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
 
@@ -802,6 +829,19 @@ class weather extends eqLogic {
 
         $sunset = $this->getCmd(null, 'sunset');
         $replace['#sunset#'] = is_object($sunset) ? $sunset->execCmd() : '';
+
+        $condition = $this->getCmd(null, 'condition_now');
+        $sunset_time = is_object($sunset) ? $sunset->execCmd() : null;
+        $sunrise_time = is_object($sunrise) ? $sunrise->execCmd() : null;
+        if (is_object($condition)) {
+            $replace['#icone#'] = self::getIconFromCondition($condition->execCmd(), $sunrise_time, $sunset_time);
+            $replace['#condition#'] = $condition->execCmd();
+            $replace['#collectDate#'] = $condition->getCollectDate();
+        } else {
+            $replace['#icone#'] = '';
+            $replace['#condition#'] = '';
+            $replace['#collectDate#'] = '';
+        }
 
         $html = template_replace($replace, getTemplate('core', $_version, 'current', 'weather'));
         cache::set('weatherWidget' . $_version . $this->getId(), $html, 0);
