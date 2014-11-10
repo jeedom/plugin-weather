@@ -918,12 +918,11 @@ class weather extends eqLogic {
         $this->setCollectDate(date('Y-m-d H:i:s'));
         try {
             $request = new com_http('http://weather.yahooapis.com/forecastrss?w=' . urlencode($this->getConfiguration('city')) . '&u=c');
-            $xmlMeteo = json_encode(self::parseXmlWeather($request->exec(10000, 4)), JSON_UNESCAPED_UNICODE);
+            $result = self::parseXmlWeather($request->exec(30000, 2));
         } catch (Exception $e) {
+            log::add('weather', 'info', 'Error on data fetch : ' . $e->getMessage());
             return '';
         }
-        $result = json_decode($xmlMeteo, true);
-
         $this->_weatherData = $result;
         return $result;
     }
