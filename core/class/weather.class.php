@@ -154,11 +154,11 @@ class weather extends eqLogic {
                 return 'fa fa-moon-o';
             }
         }
-        if (strpos(strtolower($_condition), __('beau', __FILE__)) !== false) {
+        if (strpos(strtolower($_condition), __('beau', __FILE__)) !== false || strpos(strtolower($_condition), __('fair', __FILE__)) !== false) {
             if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
                 return 'meteo-soleil';
             } else {
-                return 'meteo-soleil';
+                return 'fa fa-moon-o';
             }
         }
         if (strpos(strtolower($_condition), __('pluvieux', __FILE__)) !== false || strpos(strtolower($_condition), __('rain', __FILE__)) !== false) {
