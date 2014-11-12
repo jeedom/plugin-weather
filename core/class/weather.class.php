@@ -34,9 +34,9 @@ class weather extends eqLogic {
                 $sunrise = $weather->getCmd(null, 'sunrise')->execCmd();
                 $sunset = $weather->getCmd(null, 'sunset')->execCmd();
                 if ((date('Gi') + 100) >= $sunrise && (date('Gi') + 100 ) < $sunset) {
-                    $sunrise->event(date('Gi'));
+                    $weather->getCmd(null, 'sunrise')->event($sunrise);
                 } else {
-                    $sunset->event(date('Gi'));
+                    $weather->getCmd(null, 'sunset')->event($sunset);
                 }
             }
             $weather->reschedule();
