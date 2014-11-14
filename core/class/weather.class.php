@@ -830,6 +830,9 @@ class weather extends eqLogic {
         $sunset = $this->getCmd(null, 'sunset');
         $replace['#sunset#'] = is_object($sunset) ? $sunset->execCmd() : '';
 
+        $wind_direction = $this->getCmd(null, 'wind_direction');
+        $replace['#wind_direction#'] = is_object($wind_direction) ? $wind_direction->execCmd() : '';
+
         $condition = $this->getCmd(null, 'condition_now');
         $sunset_time = is_object($sunset) ? $sunset->execCmd() : null;
         $sunrise_time = is_object($sunrise) ? $sunrise->execCmd() : null;
