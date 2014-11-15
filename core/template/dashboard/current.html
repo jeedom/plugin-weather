@@ -1,16 +1,15 @@
-<div class="eqLogic-widget eqLogic" style="width: 370px;background-color: #background_color#" data-eqLogic_id="#id#" data-version="dashboard" >
+<div class="eqLogic-widget eqLogic" style="width: 300px;background-color: #background_color#" data-eqLogic_id="#id#" data-version="dashboard" >
     <center><strong><a href="#eqLink#" style="font-size : 1.1em;"> #city# </a></strong></center>
     <div style="position : relative; left : 15px;" class="tooltips" title="#collectDate#">
         <span class="pull-left">
-            <i class="#icone#" style="font-size: 6em;"></i>
+            <i class="#icone#" style="font-size: 4em;"></i>
         </span>
-        <div class="pull-right" id="windDirection#id#" style="width: 150px; height: 100px; margin: 0 auto"></div>
+        <div class="pull-right" id="windDirection#id#" style="width: 85px; height: 85px;margin-right: 20px;margin-top: -20px;"></div>
         <span style="margin-left: 5px;">  #condition# </span><br/> 
-        <span style="margin-left: 5px;">  #temperature# °C / #humidity# % </span><br/>
-        <span style="margin-left: 5px;">  Vent : #windspeed# km/h</span><br/>
-        <span style="margin-left: 5px;">  Pression : #pressure# mb</span><br/>
+        <span style="margin-left: 5px;font-size: 0.8em;">  #temperature# °C / #humidity# % </span><br/>
+        <span style="margin-left: 5px;font-size: 0.8em;">  #windspeed# km/h | #pressure# mb</span>
     </div><br/>
-    <div>
+    <div style="margin-top: -15px;">
         <center>#forecast#</center>
     </div>
     <script>
@@ -43,27 +42,46 @@
                     series: {
                         dataLabels: {
                             enabled: false
-                        }
+                        },
+                        color: '#FFFFFF',
+                    },
+                    gauge: {
+                        dial: {
+                            radius: '90%',
+                            backgroundColor: 'silver',
+                            borderColor: 'silver',
+                            borderWidth: 1,
+                            baseWidth: 6,
+                            topWidth: 1,
+                            baseLength: '75%', // of radius
+                            rearLength: '15%'
+                        },
+                         pivot: {
+                             backgroundColor: 'white',
+                             radius : 0,
+                         }
                     }
                 },
-                // the value axis
+                pane: {background: [{backgroundColor: 'transparent'}]},
                 yAxis: {
                     min: 0,
                     max: 360,
-                    tickWidth: 1,
-                    tickLength: 20,
-                    tickColor: '#999',
-                    tickInterval: 45,
+                    tickWidth: 2,
+                    tickLength: 15,
+                    tickColor: '#FFFFFF',
+                    tickInterval: 90,
+                    lineColor: '#FFFFFF',
+                    lineWidth: 4,
                     labels: {
                         formatter: function () {
                             if (this.value == 360) {
-                                return 'N';
+                                return '<span style="color : #FFFFFF;font-weight:bold;">N</span>';
                             } else if (this.value == 90) {
-                                return 'E';
+                                return '<span style="color : #FFFFFF;font-weight:bold;">E</span>';
                             } else if (this.value == 180) {
-                                return 'S';
+                                return '<span style="color : #FFFFFF;font-weight:bold;">S</span>';
                             } else if (this.value == 270) {
-                                return 'W';
+                                return '<span style="color : #FFFFFF;font-weight:bold;">W</span>';
                             }
                         }
                     },
