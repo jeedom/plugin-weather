@@ -810,8 +810,6 @@ class weather extends eqLogic {
             '#eqLink#' => $this->getLinkToConfiguration(),
             '#forecast#' => $html_forecast,
         );
-
-
         $temperature = $this->getCmd(null, 'temperature');
         $replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
 
@@ -826,12 +824,22 @@ class weather extends eqLogic {
 
         $sunrise = $this->getCmd(null, 'sunrise');
         $replace['#sunrise#'] = is_object($sunrise) ? $sunrise->execCmd() : '';
+        if (strlen($replace['#sunrise#']) == 3) {
+            $replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 1) . ':' . substr($replace['#sunrise#'], 1, 2);
+        } else if (strlen($replace['#sunset#']) == 4) {
+            $replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 2) . ':' . substr($replace['#sunrise#'], 2, 2);
+        }
 
         $sunset = $this->getCmd(null, 'sunset');
         $replace['#sunset#'] = is_object($sunset) ? $sunset->execCmd() : '';
+        if (strlen($replace['#sunset#']) == 3) {
+            $replace['#sunset#'] = substr($replace['#sunset#'], 0, 1) . ':' . substr($replace['#sunset#'], 1, 2);
+        } else if (strlen($replace['#sunset#']) == 4) {
+            $replace['#sunset#'] = substr($replace['#sunset#'], 0, 2) . ':' . substr($replace['#sunset#'], 2, 2);
+        }
 
         $wind_direction = $this->getCmd(null, 'wind_direction');
-        $replace['#wind_direction#'] = is_object($wind_direction) ? $wind_direction->execCmd() : '';
+        $replace['#wind_direction#'] = is_object($wind_direction) ? $wind_direction->execCmd() : 0;
 
         $condition = $this->getCmd(null, 'condition_now');
         $sunset_time = is_object($sunset) ? $sunset->execCmd() : null;

@@ -1,10 +1,14 @@
-<div class="eqLogic-widget eqLogic" style="width: 300px;background-color: #background_color#" data-eqLogic_id="#id#" data-version="dashboard" >
+<div class="eqLogic-widget eqLogic" style="width: 300px;background-color: #background_color#; padding : 0px;" data-eqLogic_id="#id#" data-version="dashboard" >
     <center><strong><a href="#eqLink#" style="font-size : 1.1em;"> #city# </a></strong></center>
     <div style="position : relative; left : 15px;" class="tooltips" title="#collectDate#">
         <span class="pull-left">
             <i class="#icone#" style="font-size: 4em;"></i>
         </span>
-        <div class="pull-right" id="windDirection#id#" style="width: 85px; height: 85px;margin-right: 20px;margin-top: -20px;"></div>
+        <div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
+            <div  id="windDirection#id#" style="width: 80px; height: 80px;"></div>
+            <center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
+            <span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
+        </div>
         <span style="margin-left: 5px;">  #condition# </span><br/> 
         <span style="margin-left: 5px;font-size: 0.8em;">  #temperature# °C / #humidity# % </span><br/>
         <span style="margin-left: 5px;font-size: 0.8em;">  #windspeed# km/h | #pressure# mb</span>
@@ -56,10 +60,10 @@
                             baseLength: '75%', // of radius
                             rearLength: '15%'
                         },
-                         pivot: {
-                             backgroundColor: 'white',
-                             radius : 0,
-                         }
+                        pivot: {
+                            backgroundColor: 'white',
+                            radius: 0,
+                        }
                     }
                 },
                 pane: {background: [{backgroundColor: 'transparent'}]},
@@ -67,7 +71,7 @@
                     min: 0,
                     max: 360,
                     tickWidth: 2,
-                    tickLength: 15,
+                    tickLength: 10,
                     tickColor: '#FFFFFF',
                     tickInterval: 90,
                     lineColor: '#FFFFFF',
