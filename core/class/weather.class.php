@@ -851,6 +851,13 @@ class weather extends eqLogic {
             $replace['#condition#'] = '';
             $replace['#collectDate#'] = '';
         }
+        
+        $parameters = $this->getDisplay('parameters');
+        if (is_array($parameters)) {
+            foreach ($parameters as $key => $value) {
+                $replace['#' . $key . '#'] = $value;
+            }
+        }
 
         $html = template_replace($replace, getTemplate('core', $_version, 'current', 'weather'));
         cache::set('weatherWidget' . $_version . $this->getId(), $html, 0);
