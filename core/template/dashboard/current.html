@@ -17,7 +17,6 @@
         <center>#forecast#</center>
     </div>
     <script>
-        $(function () {
             new Highcharts.Chart({
                 chart: {
                     renderTo: 'windDirection#id#',
@@ -94,14 +93,8 @@
                     }},
                 series: [{
                         name: 'Vent',
-                        data: [#wind_direction#],
-                                tooltip: {
-                                    valueSuffix: ' °'
-                                }
+                        data: [#wind_direction#]
                     }]
-
-            }
-            );
-        });
+            });
     </script>
 </div>
