@@ -76,14 +76,12 @@ class weather extends eqLogic {
                         $cmd->setCollectDate('');
                         $cmd->event($value);
                     }
-                }
-                if ($cmd->getLogicalId() != 'sunset') {
+                }else if ($cmd->getLogicalId() != 'sunset') {
                     $result = $cmd->execute();
                     if ($result !== false) {
                         cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
                     }
-                }
-                if ($cmd->getLogicalId() != 'sunrise') {
+                }else if ($cmd->getLogicalId() != 'sunrise') {
                     $result = $cmd->execute();
                     if ($result !== false) {
                         cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
