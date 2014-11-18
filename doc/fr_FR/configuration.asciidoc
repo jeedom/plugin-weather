@@ -1,5 +1,9 @@
+Le plugin Weather permet d’avoir la météo dans une ville donnée :
+
+image::../images/weather.JPG[]
+
 Il suffit de lui indiquer le WOEID de la ville (un lien permet de le récupérer facilement) pour avoir la météo voulue. 
 Celle-ci apporte plusieurs informations utiles utilisables dans les commandes comme les conditions actuelles, 
 les conditions à venir, l’heure du lever et du coucher du soleil, la vitesse du vent et sa direction, le taux d’humidité, la pression….
 
-image::../images/weather.JPG[]
+
