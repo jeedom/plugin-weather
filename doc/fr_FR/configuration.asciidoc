@@ -1,9 +1,34 @@
-Le plugin Weather permet d’avoir la météo dans une ville donnée :
+Le plugin Weather permet de recevoir des données météorologiques pour une ou plusieurs villes
+
+Une fois installé à partir du Market, on accède à la page du plugin Weather.
+
+A gauche, la liste des modules météo, les villes (il est possible d'avoir les informations de plusieurs villes), et au centre les onglets Général et Météo.
 
 image::../images/weather.JPG[]
 
-Il suffit de lui indiquer le WOEID de la ville (un lien permet de le récupérer facilement) pour avoir la météo voulue. 
-Celle-ci apporte plusieurs informations utiles utilisables dans les commandes comme les conditions actuelles, 
-les conditions à venir, l’heure du lever et du coucher du soleil, la vitesse du vent et sa direction, le taux d’humidité, la pression….
+Pour créer une nouvelle donnée météo il suffit de cliquer sur + dans le menu de gauche. Il est possible de créer plusieurs villes.
+
+image::../images/weather2.JPG[]
+
+L'onglet général permet de donner un nom, une place dans l'arborescence, activer et rendre visible le module météo, puis de configurer sa ville. Pour cela on clique sur le bouton "Obtenir code WOEID"
+
+image::../images/weather3.JPG[]
+
+Cela ouvre un site internet qui demande de rentrer le nom de la ville.
+
+image::../images/weather3.JPG[]
+
+En réponse, on obtient les détails de la ville avec le code WOEID à récupérer. Il suffit de rentrer ce code dans le champ réservé sur l'onglet général du plugin Weather.
+
+image::../images/weather4.JPG[]
+
+On obtient alors sur l'onglet météo du plugin, les détails météorologiques.
+
+image::../images/weather5.JPG[]
+
+On obtiendra ensuite sur le Dashboard ou sur une vue les informations météo de la ville sélectionnée.
+
+image::../images/weather6.JPG[]
+
 
 
