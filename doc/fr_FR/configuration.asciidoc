@@ -8,27 +8,27 @@ image::../images/weather.JPG[]
 
 Pour créer une nouvelle donnée météo il suffit de cliquer sur + dans le menu de gauche. Il est possible de créer plusieurs villes.
 
-image::../images/weather2.JPG[]
+image::../images/weather2.png[]
 
 L'onglet général permet de donner un nom, une place dans l'arborescence, activer et rendre visible le module météo, puis de configurer sa ville. Pour cela on clique sur le bouton "Obtenir code WOEID"
 
-image::../images/weather3.JPG[]
+image::../images/weather3.png[]
 
 Cela ouvre un site internet qui demande de rentrer le nom de la ville.
 
-image::../images/weather3.JPG[]
+image::../images/weather4.png[]
 
 En réponse, on obtient les détails de la ville avec le code WOEID à récupérer. Il suffit de rentrer ce code dans le champ réservé sur l'onglet général du plugin Weather.
 
-image::../images/weather4.JPG[]
+image::../images/weather5.png[]
 
 On obtient alors sur l'onglet météo du plugin, les détails météorologiques.
 
-image::../images/weather5.JPG[]
+image::../images/weather8.png[]
 
 On obtiendra ensuite sur le Dashboard ou sur une vue les informations météo de la ville sélectionnée.
 
-image::../images/weather6.JPG[]
+image::../images/weather7.png[]
 
 
 
