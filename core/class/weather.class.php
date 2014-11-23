@@ -743,13 +743,13 @@ class weather extends eqLogic {
             if (strlen($next) == 3) {
                 $next = date('Y-m-d', strtotime('+1 day' . date('Y-m-d'))) . ' 0' . substr($next, 0, 1) . ':' . substr($next, 1, 3);
             } else {
-                $next = date('Y-m-d', strtotime('+1 day' . date('Y-m-d'))) . substr($next, 0, 2) . ':' . substr($next, 2, 4);
+                $next = date('Y-m-d', strtotime('+1 day' . date('Y-m-d'))) . ' ' . substr($next, 0, 2) . ':' . substr($next, 2, 4);
             }
         } else {
             if (strlen($next) == 3) {
                 $next = date('Y-m-d') . ' 0' . substr($next, 0, 1) . ':' . substr($next, 1, 3);
             } else {
-                $next = date('Y-m-d') . substr($next, 0, 2) . ':' . substr($next, 2, 4);
+                $next = date('Y-m-d') . ' ' . substr($next, 0, 2) . ':' . substr($next, 2, 4);
             }
         }
         $cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
