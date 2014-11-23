@@ -33,6 +33,12 @@ class weather extends eqLogic {
             if (jeedom::isDateOk()) {
                 $sunrise = $weather->getCmd(null, 'sunrise')->execCmd();
                 $sunset = $weather->getCmd(null, 'sunset')->execCmd();
+                if ($sunrise < 600 || $sunrise > 1000) {
+                    $sunrise = 600;
+                }
+                if ($sunset > 2300 || $sunset < 1600) {
+                    $sunrise = 1600;
+                }
                 if ((date('Gi') + 100) >= $sunrise && (date('Gi') + 100 ) < $sunset) {
                     $weather->getCmd(null, 'sunrise')->event($sunrise);
                 } else {
@@ -76,12 +82,12 @@ class weather extends eqLogic {
                         $cmd->setCollectDate('');
                         $cmd->event($value);
                     }
-                }else if ($cmd->getLogicalId() != 'sunset') {
+                } else if ($cmd->getLogicalId() != 'sunset') {
                     $result = $cmd->execute();
                     if ($result !== false) {
                         cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
                     }
-                }else if ($cmd->getLogicalId() != 'sunrise') {
+                } else if ($cmd->getLogicalId() != 'sunrise') {
                     $result = $cmd->execute();
                     if ($result !== false) {
                         cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
@@ -851,7 +857,7 @@ class weather extends eqLogic {
             $replace['#condition#'] = '';
             $replace['#collectDate#'] = '';
         }
-        
+
         $parameters = $this->getDisplay('parameters');
         if (is_array($parameters)) {
             foreach ($parameters as $key => $value) {

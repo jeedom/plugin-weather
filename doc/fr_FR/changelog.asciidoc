@@ -1,0 +1,3 @@
+==== 23/11/2014
+
+- Ajout d'une securité sur l'heure de lever/couché minimum/maximum du soleil (évite que jeedom sur de mauvaise données, declenche le couché du soleil au moment du levée)
