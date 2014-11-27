@@ -180,8 +180,8 @@ class weather extends eqLogic {
             switch ($_condition) {
                 case 'AM Drizzle':
                     return 'Avec Bruine le matin';
-                case 'Drizzle' : 
-                     return 'Avec Bruine';
+                case 'Drizzle' :
+                    return 'Avec Bruine';
                 case 'Showers Early':
                     return 'Peu nuageux';
                 case 'PM Sun':
@@ -250,6 +250,8 @@ class weather extends eqLogic {
                     return 'Pluvieux';
                 case 'Fog':
                     return 'Brumeux';
+                case 'Partial Fog':
+                    return 'Partiellement brumeux';
                 case 'AM Fog/PM Clouds':
                     return 'Brumeux le matin/Nuageux l\'après-midi';
                 case 'Scattered Showers':
