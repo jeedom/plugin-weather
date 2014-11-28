@@ -77,7 +77,7 @@ sendVarToJS('eqType', 'weather');
                  <div class="form-group">
                     <label class="col-sm-3 control-label" >{{Fréquence de rafraichissement des données (par défaut : */30 * * * *)}}</label>
                     <div class="col-sm-2">
-                        <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="refreshCron"/>
+                        <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="refreshCron"/><i class="fa fa-question-circle cursor bt_pageHelp floatright" data-name="cronSyntaxe"></i>
                     </div>
                 </div>
             </fieldset> 
