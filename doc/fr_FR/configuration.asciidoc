@@ -4,7 +4,7 @@ Une fois installé à partir du Market, on accède à la page du plugin Weather.
 
 A gauche, la liste des modules météo, les villes (il est possible d'avoir les informations de plusieurs villes), et au centre les onglets Général et Météo.
 
-image::../images/weather.JPG[]
+image::../images/weather_screenshot1.JPG[]
 
 Pour créer une nouvelle donnée météo il suffit de cliquer sur + dans le menu de gauche. Il est possible de créer plusieurs villes.
 
@@ -28,7 +28,7 @@ image::../images/weather8.png[]
 
 On obtiendra ensuite sur le Dashboard ou sur une vue les informations météo de la ville sélectionnée.
 
-image::../images/weather7.png[]
+image::../images/weather_screenshot2.png[]
 
 
 
