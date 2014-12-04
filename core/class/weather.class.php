@@ -954,7 +954,8 @@ class weather extends eqLogic {
         $this->setCollectDate(date('Y-m-d H:i:s'));
         try {
             $request = new com_http('http://weather.yahooapis.com/forecastrss?w=' . urlencode($this->getConfiguration('city')) . '&u=c');
-            $result = self::parseXmlWeather($request->exec(30000, 2));
+            $xml = $request->exec(30000, 2);
+            $result = self::parseXmlWeather($xml);
         } catch (Exception $e) {
             log::add('weather', 'info', 'Error on data fetch : ' . $e->getMessage());
             return '';
