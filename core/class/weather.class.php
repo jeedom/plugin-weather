@@ -54,45 +54,30 @@ class weather extends eqLogic {
         }
     }
 
-    public static function cronHourly() {
-        foreach (self::byType('weather') as $weather) {
-            if ($weather->getIsEnable() == 1) {
-                $cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($weather->getId())));
-                if (!is_object($cron)) {
-                    $weather->reschedule();
-                } else {
-                    $c = new Cron\CronExpression($cron->getSchedule(), new Cron\FieldFactory);
-                    try {
-                        $c->getNextRunDate();
-                    } catch (Exception $ex) {
-                        $weather->reschedule();
-                    }
-                }
-            }
-        }
-    }
-
     public static function updateWeatherData($_options) {
         $weather = weather::byId($_options['weather_id']);
         if (is_object($weather)) {
-            foreach ($weather->getCmd('info') as $cmd) {
-                if ($cmd->getLogicalId() != 'sunset' && $cmd->getLogicalId() != 'sunrise') {
-                    $value = $cmd->execute();
-                    if ($value != $cmd->execCmd()) {
-                        $cmd->setCollectDate('');
-                        $cmd->event($value);
-                    }
-                } else if ($cmd->getLogicalId() != 'sunset') {
-                    $result = $cmd->execute();
-                    if ($result !== false) {
-                        cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
-                    }
-                } else if ($cmd->getLogicalId() != 'sunrise') {
-                    $result = $cmd->execute();
-                    if ($result !== false) {
-                        cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+            if ($weather->getIsEnable() == 1) {
+                foreach ($weather->getCmd('info') as $cmd) {
+                    if ($cmd->getLogicalId() != 'sunset' && $cmd->getLogicalId() != 'sunrise') {
+                        $value = $cmd->execute();
+                        if ($value != $cmd->execCmd()) {
+                            $cmd->setCollectDate('');
+                            $cmd->event($value);
+                        }
+                    } else if ($cmd->getLogicalId() != 'sunset') {
+                        $result = $cmd->execute();
+                        if ($result !== false) {
+                            cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+                        }
+                    } else if ($cmd->getLogicalId() != 'sunrise') {
+                        $result = $cmd->execute();
+                        if ($result !== false) {
+                            cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+                        }
                     }
                 }
+                $weather->reschedule();
             }
             $mc = cache::byKey('weatherWidgetmobile' . $weather->getId());
             $mc->remove();
