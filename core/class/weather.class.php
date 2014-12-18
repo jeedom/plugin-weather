@@ -54,6 +54,24 @@ class weather extends eqLogic {
         }
     }
 
+    public static function cronHourly() {
+        foreach (self::byType('weather') as $weather) {
+            if ($weather->getIsEnable() == 1) {
+                $cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($weather->getId())));
+                if (!is_object($cron)) {
+                    $weather->reschedule();
+                } else {
+                    try {
+                        $c = new Cron\CronExpression($cron->getSchedule(), new Cron\FieldFactory);
+                        $c->getNextRunDate();
+                    } catch (Exception $ex) {
+                        $weather->reschedule();
+                    }
+                }
+            }
+        }
+    }
+
     public static function updateWeatherData($_options) {
         $weather = weather::byId($_options['weather_id']);
         if (is_object($weather)) {
@@ -77,7 +95,6 @@ class weather extends eqLogic {
                         }
                     }
                 }
-                $weather->reschedule();
             }
             $mc = cache::byKey('weatherWidgetmobile' . $weather->getId());
             $mc->remove();
