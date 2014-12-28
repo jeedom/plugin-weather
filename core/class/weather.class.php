@@ -848,7 +848,7 @@ class weather extends eqLogic {
         $replace['#sunrise#'] = is_object($sunrise) ? $sunrise->execCmd() : '';
         if (strlen($replace['#sunrise#']) == 3) {
             $replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 1) . ':' . substr($replace['#sunrise#'], 1, 2);
-        } else if (strlen($replace['#sunset#']) == 4) {
+        } else if (strlen($replace['#sunrise#']) == 4) {
             $replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 2) . ':' . substr($replace['#sunrise#'], 2, 2);
         }
 
