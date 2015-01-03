@@ -181,161 +181,161 @@ class weather extends eqLogic {
         if (translate::getLanguage() == 'fr_FR') {
             switch ($_condition) {
                 case 'AM Drizzle':
-                    return 'Avec Bruine le matin';
+                return 'Avec Bruine le matin';
                 case 'Drizzle' :
-                    return 'Avec Bruine';
+                return 'Avec Bruine';
                 case 'Showers Early':
-                    return 'Peu nuageux';
+                return 'Peu nuageux';
                 case 'PM Sun':
-                    return 'Ensoleillé l\'après-midi';
+                return 'Ensoleillé l\'après-midi';
                 case 'AM Rain':
-                    return 'Pluvieux le matin';
+                return 'Pluvieux le matin';
                 case 'PM Rain':
-                    return 'Pluvieux l\'après-midi';
+                return 'Pluvieux l\'après-midi';
                 case 'PM Clouds':
-                    return 'Nuageux l\'après-midi';
+                return 'Nuageux l\'après-midi';
                 case 'PM Showers':
-                    return 'Pluvieux l\'après-midi';
+                return 'Pluvieux l\'après-midi';
                 case 'PM Light Rain':
-                    return 'Legèrement pluvieux l\'après-midi';
+                return 'Legèrement pluvieux l\'après-midi';
                 case 'PM Thunderstorms':
-                    return 'Orageux l\'aprés-midi';
+                return 'Orageux l\'aprés-midi';
                 case 'PM Thunderstorms/Wind' :
-                    return 'Orageux et venteux l\'aprés-midi';
+                return 'Orageux et venteux l\'aprés-midi';
                 case 'AM Sun':
-                    return 'Ensoleillé le matin';
+                return 'Ensoleillé le matin';
                 case 'AM Clouds':
-                    return 'Nuageux le matin';
+                return 'Nuageux le matin';
                 case 'AM Clouds/PM Sun':
-                    return 'Nuageux le matin/Ensoleillé l\'après-midi';
+                return 'Nuageux le matin/Ensoleillé l\'après-midi';
                 case 'AM Fog/PM Sun':
-                    return 'Brumeux le matin/Ensoleillé l\'après-midi';
+                return 'Brumeux le matin/Ensoleillé l\'après-midi';
                 case 'Rain/Wind':
-                    return 'Pluvieux et venteux';
+                return 'Pluvieux et venteux';
                 case 'AM Sun/PM Clouds':
-                    return 'Ensoleillé le matin/Nuageux l\'après-midi';
+                return 'Ensoleillé le matin/Nuageux l\'après-midi';
                 case 'Clouds Early/Clearing Late':
-                    return 'Nuageux tôt/Eclaircie tardive';
+                return 'Nuageux tôt/Eclaircie tardive';
                 case 'Partly Cloudy':
-                    return 'Partiellement nuageux';
+                return 'Partiellement nuageux';
                 case 'Mostly Cloudy':
-                    return 'Nuageux';
+                return 'Nuageux';
                 case 'Cloudy':
-                    return 'Nuageux';
+                return 'Nuageux';
                 case 'AM Showers/Wind':
-                    return 'Venteux et pluvieux le matin';
+                return 'Venteux et pluvieux le matin';
                 case 'PM Showers/Wind':
-                    return 'Venteux et pluvieux l\'après-midi';
+                return 'Venteux et pluvieux l\'après-midi';
                 case 'Partly Cloudy/Wind':
-                    return 'Partiellement nuageux / venteux';
+                return 'Partiellement nuageux / venteux';
                 case 'Fair/Windy':
-                    return 'Venteux';
+                return 'Venteux';
                 case 'Sunny':
-                    return 'Ensoleillé';
+                return 'Ensoleillé';
                 case 'Mostly Sunny':
-                    return 'Plutôt ensoleillé';
+                return 'Plutôt ensoleillé';
                 case 'Fair':
-                    return 'Beau';
+                return 'Beau';
                 case 'Clear':
-                    return 'Dégagé';
+                return 'Dégagé';
                 case 'Mostly Clear':
-                    return 'Dégagé';
+                return 'Dégagé';
                 case 'Showers':
-                    return 'Avec des Averses';
+                return 'Avec des Averses';
                 case 'Few showers':
-                    return 'Avec quelques averses';
+                return 'Avec quelques averses';
                 case 'Showers/Wind':
-                    return 'Averses/Vent';
+                return 'Averses/Vent';
                 case 'Light Rain':
-                    return 'Faiblement pluvieux';
+                return 'Faiblement pluvieux';
                 case 'Rain':
-                    return 'Pluvieux';
+                return 'Pluvieux';
                 case 'Fog':
-                    return 'Brumeux';
+                return 'Brumeux';
                 case 'Partial Fog':
-                    return 'Partiellement brumeux';
+                return 'Partiellement brumeux';
                 case 'AM Fog/PM Clouds':
-                    return 'Brumeux le matin/Nuageux l\'après-midi';
+                return 'Brumeux le matin/Nuageux l\'après-midi';
                 case 'Scattered Showers':
-                    return 'Peu nuageux';
+                return 'Peu nuageux';
                 case 'AM Showers':
-                    return 'Pluvieux l\'après-midi';
+                return 'Pluvieux l\'après-midi';
                 case 'PM Tunderstorms':
-                    return 'Orageux l\'après-midi';
+                return 'Orageux l\'après-midi';
                 case 'Light Rain with Thunder':
-                    return 'legèrement pluvieux avec orage';
+                return 'legèrement pluvieux avec orage';
                 case 'Thunder':
-                    return 'Orageux';
+                return 'Orageux';
                 case 'Scattered Thunderstorms' :
-                    return 'Orageux';
+                return 'Orageux';
                 case 'Heavy Rain' :
-                    return 'Fortement pluvieux';
+                return 'Fortement pluvieux';
                 case 'Rain Shower' :
-                    return 'Pluvieux';
+                return 'Pluvieux';
                 case 'Showers Late' :
-                    return 'Avec Averses tardive';
+                return 'Avec Averses tardive';
                 case 'Showers in the Vicinity' :
-                    return 'Avec Averses localisées';
+                return 'Avec Averses localisées';
                 case 'Light Rain Shower' :
-                    return 'légèrement pluvieux';
+                return 'légèrement pluvieux';
                 case 'Light Drizzle' :
-                    return 'Brumeux';
+                return 'Brumeux';
                 case 'Thunder in the Vicinity' :
-                    return 'Orageux localement';
+                return 'Orageux localement';
                 case 'AM Little Rain' :
-                    return 'Légèrement pluvieux le matin';
+                return 'Légèrement pluvieux le matin';
                 case 'AM Light Rain' :
-                    return 'Légèrement pluvieux le matin';
+                return 'Légèrement pluvieux le matin';
                 case 'Thunderstorms' :
-                    return 'Orageux';
+                return 'Orageux';
                 case 'Rain/Thunder' :
-                    return 'Pluvieux/Orageux';
+                return 'Pluvieux/Orageux';
                 case 'Isolated Thunderstorms' :
-                    return 'Orageux localement';
+                return 'Orageux localement';
                 case 'Scattered Thunderstorms/Wind':
-                    return 'Avec Orage dispersé / Venteux';
+                return 'Avec Orage dispersé / Venteux';
                 case 'Light Rain/Wind':
-                    return 'Légèrement pluvieux / Venteux';
+                return 'Légèrement pluvieux / Venteux';
                 case 'Thunderstorms Early':
-                    return 'Orageux';
+                return 'Orageux';
                 case 'Cloudy/Wind' :
-                    return 'Nuageux / Venteux';
+                return 'Nuageux / Venteux';
                 case 'Rain late' :
-                    return 'Pluvieux tardivement';
+                return 'Pluvieux tardivement';
                 case 'PM Light Rain/Wind' :
-                    return 'Légèrement pluvieux et vent';
+                return 'Légèrement pluvieux et vent';
                 case 'Showers Late' :
-                    return 'Tardivement pluvieux';
+                return 'Tardivement pluvieux';
                 case 'Rain Early' :
-                    return 'Pluvieux';
+                return 'Pluvieux';
                 case 'Mostly Clear/Wind' :
-                    return 'Dégagé / Venteux';
+                return 'Dégagé / Venteux';
                 case 'Sunny/Wind' :
-                    return 'Ensoleillé / Venteux';
+                return 'Ensoleillé / Venteux';
                 case 'Rain early':
-                    return 'Pluvieux';
+                return 'Pluvieux';
                 case 'Light Rain/Fog' :
-                    return 'Faiblement pluvieux/Brumeux';
+                return 'Faiblement pluvieux/Brumeux';
                 case 'Light Rain Early' :
-                    return 'Pluvieux le matin';
+                return 'Pluvieux le matin';
                 case 'Mostly Sunny/Wind' :
-                    return 'Ensoleillé avec du vent';
+                return 'Ensoleillé avec du vent';
                 case 'Mist' :
-                    return 'Brumeux';
+                return 'Brumeux';
                 case 'Rain/Windy' :
-                    return 'Pluvieux / Venteux';
+                return 'Pluvieux / Venteux';
                 case 'Light Rain/Windy ' :
-                    return 'Faiblement pluvieux / Venteux';
+                return 'Faiblement pluvieux / Venteux';
                 case 'Mostly Cloudy/Windy' :
-                    return 'Nuageux avec du vent';
+                return 'Nuageux avec du vent';
                 case 'Cloudy/Windy' :
-                    return 'Nuageux / Venteux';
+                return 'Nuageux / Venteux';
                 case 'Light Snow' :
-                    return 'Faiblement neigeux';
+                return 'Faiblement neigeux';
                 case 'Partly Cloudy/Windy' :
-                    return 'Partiellement nuageux / Venteux';
+                return 'Partiellement nuageux / Venteux';
                 default:
-                    return $_condition;
+                return $_condition;
             }
         }
         return $_condition;
@@ -722,6 +722,15 @@ class weather extends eqLogic {
             $cron->setSchedule($this->getConfiguration('refreshCron', '*/30 * * * *'));
             $cron->save();
             self::updateWeatherData(array('weather_id' => intval($this->getId())));
+        }else{
+            $cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
+            if (is_object($cron)) {
+                $cron->remove();
+            }
+            $cron = cron::byClassAndFunction('weather', 'updateWeatherData', array('weather_id' => intval($this->getId())));
+            if (is_object($cron)) {
+                $cron->remove();
+            }
         }
     }
 
@@ -835,7 +844,7 @@ class weather extends eqLogic {
             '#background_color#' => $this->getBackgroundColor($_version),
             '#eqLink#' => $this->getLinkToConfiguration(),
             '#forecast#' => $html_forecast,
-        );
+            );
         $temperature = $this->getCmd(null, 'temperature');
         $replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
 
