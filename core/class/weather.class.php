@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 /* This file is part of Jeedom.
@@ -1057,5 +1058,3 @@ class weatherCmd extends cmd {
 
     /*     * **********************Getteur Setteur*************************** */
 }
-
-?>
