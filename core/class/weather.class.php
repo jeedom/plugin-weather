@@ -336,6 +336,14 @@ class weather extends eqLogic {
                 return 'Partiellement nuageux / Venteux';
                 case 'Heavy Drizzle' :
                 return 'Brumeux';
+                case 'Light Rain Late' :
+                return 'Légèrement pluvieux dans la soirée';
+                case 'AM Rain/Snow' :
+                return 'Pluvieux/Neigeux le matin';
+                case 'Rain/Snow' :
+                return 'Pluvieux/Neigeux';
+                case 'PM Rain/Wind' :
+                return 'Pluvieux/Venteux l\'après midi';
                 default:
                 return $_condition;
             }
