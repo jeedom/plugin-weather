@@ -20,6 +20,12 @@ $(".li_eqLogic").on('click', function(event) {
     return false;
 });
 
+$('#bt_cronGenerator').on('click',function(){
+    jeedom.getCronSelectModal({},function (result) {
+        $('.eqLogicAttr[data-l1key=configuration][data-l2key=refreshCron]').value(result.value);
+    });
+});
+
 function addCmdToTable() {
 }
 
