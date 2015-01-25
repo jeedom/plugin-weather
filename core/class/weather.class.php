@@ -344,6 +344,12 @@ class weather extends eqLogic {
                 return 'Pluvieux et neigeux';
                 case 'PM Rain/Wind' :
                 return 'Pluvieux et venteux l\'après midi';
+                case 'Rain/Snow Late' :
+                return 'Pluvieux et neigeux plus tard';
+                case 'Rain/Snow Showers ' :
+                return 'Pluvieux et neigeux';
+                case 'Shallow Fog' :
+                return 'Faiblement pluvieux';
                 default:
                 return $_condition;
             }
@@ -813,7 +819,7 @@ class weather extends eqLogic {
         $_version = jeedom::versionAlias($_version);
         $mc = cache::byKey('weatherWidget' . $_version . $this->getId());
         if ($mc->getValue() != '') {
-            return $mc->getValue();
+          //  return $mc->getValue();
         }
         $html_forecast = '';
 
@@ -836,6 +842,7 @@ class weather extends eqLogic {
                     $temperature_max = $this->getCmd(null, 'temperature_' . $i . '_max');
                 }
                 $replace['#hight_temperature#'] = is_object($temperature_max) ? $temperature_max->execCmd() : '';
+                $replace['#tempid#'] = is_object($temperature_max) ? $temperature_max->getId() : '';
 
                 if ($i == 0) {
                     $condition = $this->getCmd(null, 'condition');
@@ -843,6 +850,7 @@ class weather extends eqLogic {
                     $condition = $this->getCmd(null, 'condition_' . $i);
                 }
                 $replace['#icone#'] = is_object($condition) ? self::getIconFromCondition($condition->execCmd()) : '';
+                $replace['#conditionid#'] = is_object($condition) ? $condition->getId() : '';
 
                 $html_forecast .= template_replace($replace, $forcast_template);
             }
@@ -857,18 +865,22 @@ class weather extends eqLogic {
             );
         $temperature = $this->getCmd(null, 'temperature');
         $replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
+        $replace['#tempid#'] = is_object($temperature) ? $temperature->getId() : '';
 
         $humidity = $this->getCmd(null, 'humidity');
         $replace['#humidity#'] = is_object($humidity) ? $humidity->execCmd() : '';
 
         $pressure = $this->getCmd(null, 'pressure');
         $replace['#pressure#'] = is_object($pressure) ? $pressure->execCmd() : '';
+        $replace['#pressureid#'] = is_object($pressure) ? $pressure->getId() : '';
 
         $wind_speed = $this->getCmd(null, 'wind_speed');
         $replace['#windspeed#'] = is_object($wind_speed) ? $wind_speed->execCmd() : '';
+        $replace['#windid#'] = is_object($wind_speed) ? $wind_speed->getId() : '';
 
         $sunrise = $this->getCmd(null, 'sunrise');
         $replace['#sunrise#'] = is_object($sunrise) ? $sunrise->execCmd() : '';
+        $replace['#sunid#'] = is_object($sunrise) ? $sunrise->getId() : '';
         if (strlen($replace['#sunrise#']) == 3) {
             $replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 1) . ':' . substr($replace['#sunrise#'], 1, 2);
         } else if (strlen($replace['#sunrise#']) == 4) {
@@ -892,6 +904,7 @@ class weather extends eqLogic {
         if (is_object($condition)) {
             $replace['#icone#'] = self::getIconFromCondition($condition->execCmd(), $sunrise_time, $sunset_time);
             $replace['#condition#'] = $condition->execCmd();
+            $replace['#conditionid#'] = $condition->getId();
             $replace['#collectDate#'] = $condition->getCollectDate();
         } else {
             $replace['#icone#'] = '';

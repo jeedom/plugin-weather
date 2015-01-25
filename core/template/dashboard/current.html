@@ -1,22 +1,25 @@
 <div class="eqLogic-widget eqLogic noResize" style="width: 340px;background-color: #background_color#; padding : 0px; #style#" data-eqLogic_id="#id#" data-version="dashboard" >
-    <center><strong><a href="#eqLink#" style="font-size : 1.1em;"> #city# </a></strong></center>
+<center class="widget-name"><strong><a href="#eqLink#" style="font-size : 1.1em;"> #city# </a></strong></center>
     <div style="position : relative; left : 15px;" class="tooltips" title="#collectDate#">
         <span class="pull-left">
             <i class="#icone#" style="font-size: 4em;"></i>
         </span>
         <div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-            <div  id="windDirection#id#" style="width: 80px; height: 80px;"></div>
-            <center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
-            <span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
+            <div id="windDirection#id#" style="width: 80px; height: 80px;" class="cmd" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
+            <div class="cmd" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
+                <center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
+                <span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
+            </div>
         </div>
-        <span style="margin-left: 5px;">  #condition# </span><br/> 
-        <span style="margin-left: 5px;font-size: 0.8em;">  #temperature# °C / #humidity# % </span><br/>
-        <span style="margin-left: 5px;font-size: 0.8em;">  #windspeed# km/h | #pressure# mb</span>
+        <span style="margin-left: 5px;"class="cmd" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">  #condition# </span><br/> 
+        <span style="margin-left: 5px;font-size: 0.8em;" class="cmd" data-type="info" data-subtype="string" data-cmd_id="#tempid#">  #temperature# °C / #humidity# % </span><br/>
+        <span style="margin-left: 5px;font-size: 0.8em;"class="cmd" data-type="info" data-subtype="string" data-cmd_id="#pressureid#">  #windspeed# km/h | #pressure# mb</span>
     </div><br/>
     <div style="margin-top: -15px;">
         <center>#forecast#</center>
     </div>
     <script>
+        if($('#windDirection#id#').html() != undefined){
             new Highcharts.Chart({
                 chart: {
                     renderTo: 'windDirection#id#',
@@ -91,10 +94,11 @@
                     title: {
                         text: null
                     }},
-                series: [{
+                    series: [{
                         name: 'Vent',
                         data: [#wind_direction#]
                     }]
-            });
-    </script>
+                });
+}
+</script>
 </div>
