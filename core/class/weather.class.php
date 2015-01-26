@@ -346,10 +346,12 @@ class weather extends eqLogic {
                 return 'Pluvieux et venteux l\'après midi';
                 case 'Rain/Snow Late' :
                 return 'Pluvieux et neigeux plus tard';
-                case 'Rain/Snow Showers ' :
+                case 'Rain/Snow Showers' :
                 return 'Pluvieux et neigeux';
                 case 'Shallow Fog' :
                 return 'Faiblement pluvieux';
+                case 'Rain and Snow':
+                return 'Pluvieux et neigeux';
                 default:
                 return $_condition;
             }
