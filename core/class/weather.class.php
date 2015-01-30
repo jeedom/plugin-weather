@@ -356,6 +356,8 @@ class weather extends eqLogic {
                 return 'Legerement brumeux et venteux';
                 case 'Sleet':
                 return 'Neigeux';
+                case 'Snow':
+                return 'Neigeux';
                 default:
                 return $_condition;
             }
