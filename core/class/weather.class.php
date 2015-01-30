@@ -352,8 +352,10 @@ class weather extends eqLogic {
                 return 'Faiblement pluvieux';
                 case 'Rain and Snow':
                 return 'Pluvieux et neigeux';
-                 case 'Light Drizzle/Windy':
+                case 'Light Drizzle/Windy':
                 return 'Legerement brumeux et venteux';
+                case 'Sleet':
+                return 'Neigeux';
                 default:
                 return $_condition;
             }
