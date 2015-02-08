@@ -12,7 +12,7 @@
 "Ajouter une météo": "Wetter hinzufügen",
 "Historiser les données": "Daten in Chronik speichern",
 "Affichage complet en mobile": "Mobil Vollansicht",
-"Fréquence de rafraichissement des données (par défaut : *\/30 * * * *)": "Datenaktualisierungsrate (Standard: * \ / 30 * * * *)"
+"Fréquence de rafraichissement des données (par défaut : *\/30 * * * *)": "Datenaktualisierungsrate (Standard: * \/ 30 * * * *)"
 },
 "plugins\/weather\/core\/class\/weather.class.php": {
 "orage": "Sturm",
