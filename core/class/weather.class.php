@@ -360,6 +360,8 @@ class weather extends eqLogic {
                 return 'Neigeux';
                 case 'Showers Late' :
                 return 'Pluvieux dans la soirée';
+                case 'PM Snow Showers':
+                return 'Neigeux l\'après midi';
                 default:
                 return $_condition;
             }
