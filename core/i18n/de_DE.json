@@ -3,6 +3,7 @@
 "Vent": "Wind"
 },
 "plugins\/weather\/desktop\/php\/weather.php": {
+"Mes météos": "Mein Wetter",
 "Général": "Allgemein",
 "Nom de l'équipement météo": "Gerät-Name vom Wetter ",
 "WOEID": "WOEID",
@@ -37,8 +38,8 @@
 "Pression": "Luftdruck",
 "Condition Actuelle": "Aktueller Zustand",
 "Vitesse du vent": "Windgeschwindigkeit",
-"Direction du vent": "Direction du vent",
-"Coucher du soleil": "Windrichtung",
+"Direction du vent": "Windrichtung",
+"Coucher du soleil": "Sonnenuntergang",
 "Lever du soleil": "Sonnenaufgang",
 "Température Min": "Temperatur Min",
 "Température Max": "Temperatur Max",
