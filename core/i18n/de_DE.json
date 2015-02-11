@@ -3,6 +3,7 @@
 "Vent": "Wind"
 },
 "plugins\/weather\/desktop\/php\/weather.php": {
+"Mes météos": "Mein Wetter",
 "Général": "Allgemein",
 "Nom de l'équipement météo": "Gerät-Name vom Wetter ",
 "WOEID": "WOEID",
