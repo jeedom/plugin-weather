@@ -1,0 +1,16 @@
+{
+    "plugins\/weather\/core\/class\/weather.class.php": {
+        "orage": "orage",
+        "storm": "storm",
+        "brouillard": "brouillard",
+        "brumeux": "brumeux",
+        "fog": "fog",
+        "pluie": "pluie",
+        "rain": "rain",
+        "averse": "averse",
+        "shower": "shower",
+        "nuage": "nuage",
+        "cloud": "cloud",
+        "soleil": "soleil"
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "plugins\/weather\/core\/class\/weather.class.php": {
+        "orage": "orage",
+        "storm": "storm",
+        "brouillard": "brouillard",
+        "brumeux": "brumeux",
+        "fog": "fog",
+        "pluie": "pluie",
+        "rain": "rain",
+        "averse": "averse",
+        "shower": "shower",
+        "nuage": "nuage",
+        "cloud": "cloud",
+        "soleil": "soleil",
+        "sun": "sun",
+        "dégagé": "dégagé",
+        "clear": "clear",
+        "beau": "beau",
+        "fair": "fair",
+        "pluvieux": "pluvieux"
+    },
+    "plugins\/weather\/desktop\/php\/weather.php": {
+        "Ajouter une météo": "Ajouter une météo",
+        "Rechercher": "Rechercher",
+        "Mes météos": "Mes météos",
+        "Général": "Général",
+        "Nom de l'équipement météo": "Nom de l'équipement météo",
+        "Objet parent": "Objet parent",
+        "Aucun": "Aucun",
+        "Activer": "Activer",
+        "Visible": "Visible",
+        "WOEID": "WOEID",
+        "Obtenir le code WOEID": "Obtenir le code WOEID",
+        "Historiser les données": "Historiser les données",
+        "Affichage complet en mobile": "Affichage complet en mobile",
+        "Fréquence de rafraichissement des données (par défaut : *\/30 * * * *)": "Fréquence de rafraichissement des données (par défaut : *\/30 * * * *)",
+        "Météo": "Météo",
+        "Nom": "Nom",
+        "Valeur": "Valeur",
+        "Supprimer": "Supprimer",
+        "Sauvegarder": "Sauvegarder"
+    }
+}
