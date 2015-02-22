@@ -39,5 +39,9 @@
         "Valeur": "Valeur",
         "Supprimer": "Supprimer",
         "Sauvegarder": "Sauvegarder"
+    },
+    "plugins\/weather\/plugin_info\/info.xml": {
+        "Plugin pour avoir les information métérologique": "Plugin pour avoir les information métérologique",
+        "Aucune": "Aucune"
     }
 }
