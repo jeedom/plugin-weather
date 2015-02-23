@@ -839,7 +839,7 @@ class weather extends eqLogic {
 			$forcast_template = getTemplate('core', $_version, 'forecast', 'weather');
 			for ($i = 0; $i < 5; $i++) {
 				$replace = array();
-				$replace['#day#'] = convertDayEnToFr(date('l', strtotime('+' . $i . ' days')));
+				$replace['#day#'] = date_fr(date('l', strtotime('+' . $i . ' days')));
 
 				if ($i == 0) {
 					$temperature_min = $this->getCmd(null, 'temperature_min');
@@ -983,7 +983,7 @@ class weather extends eqLogic {
 			$day = 0;
 			foreach ($yw_forecast['forecast'] as $forecast) {
 				$return['forecast'][$day]['day'] = (string) $forecast['day'][0];
-				$return['forecast'][$day]['day'] = convertDayEnToFr($return['forecast'][$day]['day']);
+				$return['forecast'][$day]['day'] = date_fr($return['forecast'][$day]['day']);
 				$return['forecast'][$day]['condition'] = (string) $forecast['text'][0];
 				$return['forecast'][$day]['condition'] = self::convertCondition($return['forecast'][$day]['condition']);
 				$return['forecast'][$day]['low_temperature'] = (string) $forecast['low'][0];
