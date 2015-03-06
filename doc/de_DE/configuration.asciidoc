@@ -1,0 +1,34 @@
+Das Wetter-Plugin ermöglicht es Ihnen, Wetterdaten für einen oder mehrere Städte zu erhalten.
+
+Einmal vom Markt installiert, können Sie auf die Wetter-Plugin-Seite zugreifen.
+
+Auf der linken Seite ist das Wetter Modul mit der Liste der Städte (ist es möglich, die Informationen mehrerer Städte zu haben), und im Zentrum die Registerkarten Allgemein und Wetter.
+
+image::../images/weather_screenshot1.JPG[]
+
+Um neue Wetterdaten zu erstellen, klicken Sie einfach auf "+ Einen Wetterbericht hinzufügen" in der linken Menüleiste. Es ist möglich, mehrere Orte zu erschaffen.
+
+image::../images/weather2.png[]
+
+Auf der Registerkarte Allgemein können Sie einen Ort in der Baumstruktur zu benennen, und sichtbar zu machen das Wetter-Modul und konfigurieren Sie seine Stadt. Klicken Sie dazu auf die Schaltfläche "WOEID-Code holen"
+
+image::../images/weather3.png[]
+
+Es öffnet sich eine Website, die den Namen der Stadt erfragt.
+
+image::../images/weather4.png[]
+
+Als Antwort erhält man die Details der Stadt unteranderm den WOEID Code.  Diesen Code geben Sie in das Feld auf der Registerkarte Allgemein des Wetter-Plugin ein.
+
+image::../images/weather5.png[]
+
+Wir erhalten dann die Registerkarte das Wetter Plugins, mit den Wetterdaten.
+
+image::../images/weather8.png[]
+
+Man wird dann von der ausgewählten Stadt auf dem Armaturenbrett oder auf der Ansicht, die Wetterberichtinformationen, erhalten. 
+
+image::../images/weather_screenshot2.png[]
+
+
+
