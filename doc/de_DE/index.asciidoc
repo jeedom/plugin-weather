@@ -1,3 +1,4 @@
+:icons:
 == Wetter
 
 === Beschreibung
@@ -10,7 +11,3 @@ include::configuration.asciidoc[]
 '''
 === FAQ
 include::faq.asciidoc[]
-
-'''
-=== Changelog
-include::changelog.asciidoc[]
