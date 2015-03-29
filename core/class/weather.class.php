@@ -353,7 +353,7 @@ class weather extends eqLogic {
 				case 'Rain and Snow':
 					return 'Pluvieux et neigeux';
 				case 'Light Drizzle/Windy':
-					return 'Legerement brumeux et venteux';
+					return 'Légèrement brumeux et venteux';
 				case 'Sleet':
 					return 'Neigeux';
 				case 'Snow':
@@ -362,6 +362,8 @@ class weather extends eqLogic {
 					return 'Pluvieux dans la soirée';
 				case 'PM Snow Showers':
 					return 'Neigeux l\'après midi';
+				case 'Light Rain/Windy':
+					return 'Légèrement pluvieux et venteux';
 				case 'Haze':
 					return 'Brumeux';
 				default:
