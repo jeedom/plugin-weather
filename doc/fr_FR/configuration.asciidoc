@@ -1,8 +1,8 @@
-Le plugin Weather permet de recevoir des données météorologiques pour une ou plusieurs villes, il permet en autre d'avoir les informations de levé et couché du soleil, de temperature, de prevision, de vent...
+Le plugin Weather permet de recevoir des données météorologiques pour une ou plusieurs villes. Il permet entre autre d'avoir les informations de lever et coucher du soleil, de température, de prévision, de vent...
 
 ==== Configuration du plugin
 
-Après avoir installé le plugin il vous suffit de l'activer, ce plugin n'a aucun configuration particuliere : 
+Après avoir installé le plugin, il vous suffit de l'activer. Ce plugin n'a aucune configuration particulière : 
 
 image::../images/weather2.png[]
 
@@ -18,7 +18,7 @@ image::../images/weather11.png[]
 
 [icon="../images/plugin/tip.png"]
 [TIP]
-Comme à beaucoup d'endroits sur Jeedom, mettre la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez, à partir de votre profil, le laisser toujours visible).
+Comme à beaucoup d'endroits sur Jeedom, placer la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez, à partir de votre profil, le laisser toujours visible).
 
 Une fois que vous cliquez sur l'un d'eux, vous obtenez : 
 
@@ -28,7 +28,7 @@ Vous retrouvez ici toute la configuration de votre équipement :
 
 * *Nom de l'équipement météo* : nom de votre équipement météo
 * *Activer* : permet de rendre votre équipement actif
-* *Visible* : le rend visible sur le dashboard
+* *Visible* : rend votre équipement visible sur le dashboard
 * *Objet parent* : indique l'objet parent auquel appartient l'équipement
 * *WOEID* : identifiant unique de la ville, pour l'avoir il faut cliquer sur le bouton "Obtenir code WOEID"
 
@@ -38,21 +38,19 @@ Cela ouvre un site internet qui demande de rentrer le nom de la ville.
 
 image::../images/weather4.png[]
 
-En réponse, on obtient les détails de la ville avec le code WOEID à récupérer. Il suffit de rentrer ce code dans le champ réservé sur l'onglet général du plugin Weather.
+En réponse, vous obtiendrez les détails de la ville avec le code WOEID à récupérer. Il suffit de rentrer ce code dans le champ réservé sur l'onglet général du plugin Weather.
 
 image::../images/weather5.png[]
 
-* *Historiser les données* : indique à Jeedom si il faut historiser ou nom des données (numérique seulement)
-* *Affichage complet en mobile* : permet d'afficher toute les informations météo ou non en mobile
-* *Fréquence de rafraichissement des données* : indique la fréquence à laquelle Jeedom doit rafraichir les données météo (par défaut toute les 30min)
+* *Historiser les données* : indique à Jeedom si il faut historiser ou non des données (numériques seulement)
+* *Affichage complet en mobile* : permet d'afficher toutes les informations météo ou non en mobile
+* *Fréquence de rafraîchissement des données* : indique la fréquence à laquelle Jeedom doit rafraîchir les données météo (par défaut toutes les 30min)
 
-Vous retrouvez en dessus toutes les commandes disponible ainsi que leur valeur
+Vous retrouvez en dessus toutes les commandes disponibles ainsi que leur valeur.
 
 ==== Widget
 
-On obtient alors le widget suivant : 
+Vous obtiendrez alors le widget suivant : 
 
 image::../images/weather_screenshot2.png[]
-
-
 
