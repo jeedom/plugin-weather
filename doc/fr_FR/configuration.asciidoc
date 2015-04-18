@@ -26,10 +26,10 @@ image::../images/weather12.png[]
 
 Vous retrouvez ici toute la configuration de votre équipement : 
 
-* *Nom de l'équipement météo* : nom de votre équipement météo,
-* *Activer* : permet de rendre votre équipement actif,
-* *Visible* : le rend visible sur le dashboard,
-* *Objet parent* : indique l'objet parent auquel appartient l'équipement.
+* *Nom de l'équipement météo* : nom de votre équipement météo
+* *Activer* : permet de rendre votre équipement actif
+* *Visible* : le rend visible sur le dashboard
+* *Objet parent* : indique l'objet parent auquel appartient l'équipement
 * *WOEID* : identifiant unique de la ville, pour l'avoir il faut cliquer sur le bouton "Obtenir code WOEID"
 
 image::../images/weather3.png[]
