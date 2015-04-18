@@ -1,6 +1,6 @@
 [panel,primary]
-.Quelle est la fréquence de rafraichissement de la météo
+.La valeur de la pression ne change jamais
 --
-Le systeme recupère les informations métérologique toute les 30 min. Vous pouvez modifier cette valeur en mode expert (champs Fréquence de rafraichissement des données)
+C'est un socuis connu avec Yahoo weather malheureusement il n'y a pas de solution
 --
 
