@@ -1,6 +1,6 @@
 [panel,primary]
-.La valeur de la pression ne change jamais
+.La valeur de la pression ne change jamais...
 --
-C'est un socuis connu avec Yahoo weather malheureusement il n'y a pas de solution
+C'est un socui connu avec Yahoo Weather, malheureusement il n'y a pas de solution.
 --
 
