@@ -366,6 +366,10 @@ class weather extends eqLogic {
 					return 'Légèrement pluvieux et venteux';
 				case 'Haze':
 					return 'Brumeux';
+				case 'Heavy Rain/Wind':
+					return 'Fortement pluvieux et venteux';
+				case 'AM Light Rain/Wind':
+					return 'Pluvieux et venteux le matin';
 				default:
 					return $_condition;
 			}
