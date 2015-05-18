@@ -33,8 +33,8 @@ class weather extends eqLogic {
 			if (jeedom::isDateOk()) {
 				$sunrise = $weather->getCmd(null, 'sunrise')->execCmd();
 				$sunset = $weather->getCmd(null, 'sunset')->execCmd();
-				if ($sunrise < 600 || $sunrise > 1000) {
-					$sunrise = 600;
+				if ($sunrise < 500 || $sunrise > 1000) {
+					$sunrise = 500;
 				}
 				if ($sunset > 2300 || $sunset < 1600) {
 					$sunset = 1600;
@@ -784,8 +784,8 @@ class weather extends eqLogic {
 	public function reschedule() {
 		$sunrise = $this->getCmd(null, 'sunrise')->execCmd();
 		$sunset = $this->getCmd(null, 'sunset')->execCmd();
-		if ($sunrise < 600 || $sunrise > 1000) {
-			$sunrise = 600;
+		if ($sunrise < 500 || $sunrise > 1000) {
+			$sunrise = 500;
 		}
 		if ($sunset > 2300 || $sunset < 1600) {
 			$sunset = 1600;
