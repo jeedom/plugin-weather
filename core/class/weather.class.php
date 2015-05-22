@@ -63,9 +63,13 @@ class weather extends eqLogic {
 				} else {
 					try {
 						$c = new Cron\CronExpression($cron->getSchedule(), new Cron\FieldFactory);
-						$c->getNextRunDate();
+						if (!$c->isDue()) {
+							$c->getNextRunDate();
+						}
 					} catch (Exception $ex) {
-						$weather->reschedule();
+						if ($c->getPreviousRunDate()->getTimestamp() < (strtotime('now') - 300)) {
+							$weather->reschedule();
+						}
 					}
 				}
 			}
@@ -85,13 +89,13 @@ class weather extends eqLogic {
 						}
 					} else if ($cmd->getLogicalId() != 'sunset') {
 						$result = $cmd->execute();
-						if ($result !== false) {
-							cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+						if ($result !== false && $result !== '' && is_numeric($result) && $result > 0) {
+							cache::set('cmd' . $cmd->getId(), $result, 0);
 						}
 					} else if ($cmd->getLogicalId() != 'sunrise') {
 						$result = $cmd->execute();
-						if ($result !== false) {
-							cache::set('cmd' . $cmd->getId(), $cmd->execute(), 0);
+						if ($result !== false && $result !== '' && is_numeric($result) && $result > 0) {
+							cache::set('cmd' . $cmd->getId(), $result, 0);
 						}
 					}
 				}
@@ -784,10 +788,10 @@ class weather extends eqLogic {
 	public function reschedule() {
 		$sunrise = $this->getCmd(null, 'sunrise')->execCmd();
 		$sunset = $this->getCmd(null, 'sunset')->execCmd();
-		if ($sunrise < 500 || $sunrise > 1000) {
+		if ($sunrise == '' || is_numeric($sunrise) || $sunrise < 500 || $sunrise > 1000) {
 			$sunrise = 500;
 		}
-		if ($sunset > 2300 || $sunset < 1600) {
+		if ($sunset == '' || is_numeric($sunset) || $sunset > 2300 || $sunset < 1600) {
 			$sunset = 1600;
 		}
 		$next = null;
