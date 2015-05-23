@@ -788,10 +788,10 @@ class weather extends eqLogic {
 	public function reschedule() {
 		$sunrise = $this->getCmd(null, 'sunrise')->execCmd();
 		$sunset = $this->getCmd(null, 'sunset')->execCmd();
-		if ($sunrise == '' || is_numeric($sunrise) || $sunrise < 500 || $sunrise > 1000) {
+		if ($sunrise == '' || !is_numeric($sunrise) || $sunrise < 500 || $sunrise > 1000) {
 			$sunrise = 500;
 		}
-		if ($sunset == '' || is_numeric($sunset) || $sunset > 2300 || $sunset < 1600) {
+		if ($sunset == '' || !is_numeric($sunset) || $sunset > 2300 || $sunset < 1600) {
 			$sunset = 1600;
 		}
 		$next = null;
