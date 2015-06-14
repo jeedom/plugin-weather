@@ -889,7 +889,7 @@ class weather extends eqLogic {
 			'#city#' => $this->getConfiguration('city_name'),
 			'#collectDate#' => '',
 			'#background_color#' => $this->getBackgroundColor($_version),
-			'#eqLink#' => $this->getLinkToConfiguration(),
+			'#eqLink#' => ($this->hasRight('w')) ? $this->getLinkToConfiguration() : '#',
 			'#forecast#' => $html_forecast,
 		);
 		$temperature = $this->getCmd(null, 'temperature');
