@@ -107,7 +107,6 @@ class weather extends eqLogic {
 			$weather->toHtml('dashboard');
 			$weather->refreshWidget();
 		}
-
 	}
 
 	public function refreshWidget() {
