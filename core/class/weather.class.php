@@ -76,9 +76,8 @@ class weather extends eqLogic {
 		}
 	}
 
-	public static function updateWeatherData($_options) {
-		$weather = weather::byId($_options['weather_id']);
-		if (is_object($weather)) {
+	public static function cron30() {
+		foreach (self::byType('weather') as $weather) {
 			if ($weather->getIsEnable() == 1) {
 				foreach ($weather->getCmd('info') as $cmd) {
 					if ($cmd->getLogicalId() != 'sunset' && $cmd->getLogicalId() != 'sunrise') {
@@ -108,6 +107,7 @@ class weather extends eqLogic {
 			$weather->toHtml('dashboard');
 			$weather->refreshWidget();
 		}
+
 	}
 
 	public function refreshWidget() {
@@ -756,22 +756,8 @@ class weather extends eqLogic {
 					$cmd->save();
 				}
 			}
-			$cron = cron::byClassAndFunction('weather', 'updateWeatherData', array('weather_id' => intval($this->getId())));
-			if (!is_object($cron)) {
-				$cron = new cron();
-				$cron->setClass('weather');
-				$cron->setFunction('updateWeatherData');
-				$cron->setOption(array('weather_id' => intval($this->getId())));
-			}
-			$cron->setSchedule($this->getConfiguration('refreshCron', '*/30 * * * *'));
-			$cron->save();
-			self::updateWeatherData(array('weather_id' => intval($this->getId())));
 		} else {
 			$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
-			if (is_object($cron)) {
-				$cron->remove();
-			}
-			$cron = cron::byClassAndFunction('weather', 'updateWeatherData', array('weather_id' => intval($this->getId())));
 			if (is_object($cron)) {
 				$cron->remove();
 			}
@@ -780,10 +766,6 @@ class weather extends eqLogic {
 
 	public function preRemove() {
 		$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
-		if (is_object($cron)) {
-			$cron->remove();
-		}
-		$cron = cron::byClassAndFunction('weather', 'updateWeatherData', array('weather_id' => intval($this->getId())));
 		if (is_object($cron)) {
 			$cron->remove();
 		}

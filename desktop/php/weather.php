@@ -96,15 +96,6 @@ foreach (object::all() as $object) {
             <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-l1key="configuration" data-l2key="fullMobileDisplay" />
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-sm-3 control-label" >{{Fréquence de rafraichissement des données (par défaut : */30 * * * *)}}</label>
-        <div class="col-sm-2">
-            <input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="refreshCron"/>
-        </div>
-        <div class="col-sm-1">
-            <i class="fa fa-question-circle cursor floatright" id="bt_cronGenerator"></i>
-        </div>
-    </div>
 </fieldset>
 </form>
 
