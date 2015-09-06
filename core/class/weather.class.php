@@ -829,6 +829,9 @@ class weather extends eqLogic {
 			return '';
 		}
 		$_version = jeedom::versionAlias($_version);
+		if ($this->getDisplay('hideOn' . $_version) == 1) {
+			return '';
+		}
 		$mc = cache::byKey('weatherWidget' . $_version . $this->getId());
 		if ($mc->getValue() != '') {
 			return $mc->getValue();
