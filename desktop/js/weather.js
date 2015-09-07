@@ -15,51 +15,40 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$(".li_eqLogic").on('click', function(event) {
-    printWeather($(this).attr('data-eqLogic_id'));
-    return false;
-});
-
-$('#bt_cronGenerator').on('click',function(){
+ $('#bt_cronGenerator').on('click',function(){
     jeedom.getCronSelectModal({},function (result) {
         $('.eqLogicAttr[data-l1key=configuration][data-l2key=refreshCron]').value(result.value);
     });
 });
 
-function addCmdToTable() {
-}
-
-function printWeather(_weatherEq_id) {
-    $.ajax({// fonction permettant de faire de l'ajax
-        type: "POST", // methode de transmission des données au fichier php
-        url: "plugins/weather/core/ajax/weather.ajax.php", // url du fichier php
-        data: {
-            action: "getWeather",
-            id: _weatherEq_id
-        },
-        dataType: 'json',
-        error: function(request, status, error) {
-            handleAjaxError(request, status, error);
-        },
-        success: function(data) { // si l'appel a bien fonctionné
-            if (data.state != 'ok') {
-                $('#div_alert').showAlert({message: data.result, level: 'danger'});
-                return;
-            }
-            $('#table_weather tbody').empty();
-            $('#div_weather').empty();
-            for (var i in data.result.cmd) {
-                var tr = '<tr>';
-                tr += '<td>' + data.result.cmd[i].name + '</td>';
-                tr += '<td>' + data.result.cmd[i].value;
-                if (data.result.cmd[i].unite != null) {
-                    tr += ' ' + data.result.cmd[i].unite;
-                }
-                tr += '</td>';
-                tr += '</tr>';
-                $('#table_weather tbody').append(tr);
-            }
-
-        }
-    });
+ function addCmdToTable(_cmd) {
+    if (!isset(_cmd)) {
+        var _cmd = {configuration: {}};
+    }
+    if (!isset(_cmd.configuration)) {
+        _cmd.configuration = {};
+    }
+    var tr = '<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">';
+    tr += '<td>';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="id" style="display : none;">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="type" style="display : none;">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="subType" style="display : none;">';
+    tr += '<input class="cmdAttr form-control input-sm" data-l1key="name" style="width : 140px;" placeholder="{{Nom}}"></td>';
+    tr += '<td>';
+    if(!isset(_cmd.type) || _cmd.type == 'info' ){
+        tr += '<span><input type="checkbox" class="cmdAttr bootstrapSwitch" data-size="mini" data-label-text="{{Historiser}}" data-l1key="isHistorized" /></span>';
+    }
+    tr += '</td>';
+    tr += '<td>';
+    if (is_numeric(_cmd.id)) {
+        tr += '<a class="btn btn-default btn-xs cmdAction expertModeVisible" data-action="configure"><i class="fa fa-cogs"></i></a> ';
+        tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
+    }
+    tr += '</tr>';
+    $('#table_cmd tbody').append(tr);
+    $('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+    if (isset(_cmd.type)) {
+        $('#table_cmd tbody tr:last .cmdAttr[data-l1key=type]').value(init(_cmd.type));
+    }
+    jeedom.cmd.changeType($('#table_cmd tbody tr:last'), init(_cmd.subType));
 }

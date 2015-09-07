@@ -87,12 +87,6 @@ foreach (object::all() as $object) {
         </div>
     </div>
     <div class="form-group">
-        <label class="col-sm-3 control-label" >{{Historiser les données}}</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-l1key="configuration" data-l2key="historize" />
-        </div>
-    </div>
-    <div class="form-group">
         <label class="col-sm-3 control-label" >{{Affichage complet en mobile}}</label>
         <div class="col-sm-1">
             <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-l1key="configuration" data-l2key="fullMobileDisplay" />
@@ -102,10 +96,10 @@ foreach (object::all() as $object) {
 </form>
 
 <legend>{{Météo}}</legend>
-<table id="table_weather" class="table table-bordered table-condensed">
+<table id="table_cmd" class="table table-bordered table-condensed">
     <thead>
         <tr>
-            <th>{{Nom}}</th><th>{{Valeur}}</th>
+            <th>{{Nom}}</th><th>{{Options}}</th><th></th>
         </tr>
     </thead>
     <tbody>

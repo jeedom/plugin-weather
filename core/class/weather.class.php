@@ -76,13 +76,19 @@ class weather extends eqLogic {
 		}
 	}
 
-	public static function cron30() {
-		foreach (self::byType('weather') as $weather) {
+	public static function cron30($_eqLogic_id = null) {
+		if ($_eqLogic_id == null) {
+			$eqLogics = array(self::byId($_eqLogic_id));
+		} else {
+			$eqLogics = self::byType('weather');
+		}
+
+		foreach ($eqLogics as $weather) {
 			if ($weather->getIsEnable() == 1) {
 				foreach ($weather->getCmd('info') as $cmd) {
 					if ($cmd->getLogicalId() != 'sunset' && $cmd->getLogicalId() != 'sunrise') {
 						$value = $cmd->execute();
-						if ($value != $cmd->execCmd() || true) {
+						if ($value != $cmd->execCmd(null, 2) || true) {
 							$cmd->setCollectDate('');
 							$cmd->event($value);
 						}
@@ -98,19 +104,15 @@ class weather extends eqLogic {
 						}
 					}
 				}
+				$mc = cache::byKey('weatherWidgetmobile' . $weather->getId());
+				$mc->remove();
+				$mc = cache::byKey('weatherWidgetdashboard' . $weather->getId());
+				$mc->remove();
+				$weather->toHtml('mobile');
+				$weather->toHtml('dashboard');
+				$weather->refreshWidget();
 			}
-			$mc = cache::byKey('weatherWidgetmobile' . $weather->getId());
-			$mc->remove();
-			$mc = cache::byKey('weatherWidgetdashboard' . $weather->getId());
-			$mc->remove();
-			$weather->toHtml('mobile');
-			$weather->toHtml('dashboard');
-			$weather->refreshWidget();
 		}
-	}
-
-	public function refreshWidget() {
-		nodejs::pushUpdate('eventEqLogic', $this->getId());
 	}
 
 	public static function getIconFromCondition($_condition, $_sunrise = null, $_sunset = null) {
@@ -747,6 +749,17 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
+		$refresh = $this->getCmd(null, 'refresh');
+		if (!is_object($refresh)) {
+			$refresh = new weatherCmd();
+			$refresh->setName(__('Rafraichir', __FILE__));
+		}
+		$refresh->setEqLogic_id($this->getId());
+		$refresh->setLogicalId('refresh');
+		$refresh->setType('action');
+		$refresh->setSubType('other');
+		$refresh->save();
+
 		if ($this->getIsEnable() == 1) {
 			$this->reschedule();
 			foreach ($this->getCmd('info') as $cmd) {
@@ -913,6 +926,9 @@ class weather extends eqLogic {
 		$wind_direction = $this->getCmd(null, 'wind_direction');
 		$replace['#wind_direction#'] = is_object($wind_direction) ? $wind_direction->execCmd() : 0;
 
+		$refresh = $this->getCmd(null, 'refresh');
+		$replace['#refresh_id#'] = is_object($refresh) ? $refresh->getId() : '';
+
 		$condition = $this->getCmd(null, 'condition_now');
 		$sunset_time = is_object($sunset) ? $sunset->execCmd() : null;
 		$sunrise_time = is_object($sunrise) ? $sunrise->execCmd() : null;
@@ -1036,59 +1052,56 @@ class weatherCmd extends cmd {
 
 	/*     * *********************Methode d'instance************************* */
 
-	public function dontRemoveCmd() {
-		return true;
-	}
-
 	public function execute($_options = array()) {
-		$eqLogic_weather = $this->getEqLogic();
-		$weather = $eqLogic_weather->getWeatherFromYahooXml();
-
-		if (!is_array($weather)) {
-			sleep(1);
+		if ($this->getLogicalId() == 'refresh') {
+			weather::cron30($this->getEqLogic_id());
+		} else {
+			$eqLogic_weather = $this->getEqLogic();
 			$weather = $eqLogic_weather->getWeatherFromYahooXml();
 			if (!is_array($weather)) {
-				return false;
+				sleep(1);
+				$weather = $eqLogic_weather->getWeatherFromYahooXml();
+				if (!is_array($weather)) {
+					return false;
+				}
 			}
-		}
-
-		if ($this->getConfiguration('day') == -1) {
+			if ($this->getConfiguration('day') == -1) {
+				if ($this->getConfiguration('data') == 'condition') {
+					return $weather['condition']['text'];
+				}
+				if ($this->getConfiguration('data') == 'temp') {
+					return $weather['condition']['temperature'];
+				}
+				if ($this->getConfiguration('data') == 'humidity') {
+					return $weather['atmosphere']['humidity'];
+				}
+				if ($this->getConfiguration('data') == 'pressure') {
+					return $weather['atmosphere']['pressure'];
+				}
+				if ($this->getConfiguration('data') == 'wind_speed') {
+					return $weather['wind']['speed'];
+				}
+				if ($this->getConfiguration('data') == 'wind_direction') {
+					return $weather['wind']['direction'];
+				}
+				if ($this->getConfiguration('data') == 'sunrise') {
+					return $weather['astronomy']['sunrise'];
+				}
+				if ($this->getConfiguration('data') == 'sunset') {
+					return $weather['astronomy']['sunset'];
+				}
+			}
 			if ($this->getConfiguration('data') == 'condition') {
-				return $weather['condition']['text'];
+				return $weather['forecast'][$this->getConfiguration('day')]['condition'];
 			}
-			if ($this->getConfiguration('data') == 'temp') {
-				return $weather['condition']['temperature'];
+			if ($this->getConfiguration('data') == 'low') {
+				return $weather['forecast'][$this->getConfiguration('day')]['low_temperature'];
 			}
-			if ($this->getConfiguration('data') == 'humidity') {
-				return $weather['atmosphere']['humidity'];
+			if ($this->getConfiguration('data') == 'high') {
+				return $weather['forecast'][$this->getConfiguration('day')]['high_temperature'];
 			}
-			if ($this->getConfiguration('data') == 'pressure') {
-				return $weather['atmosphere']['pressure'];
-			}
-			if ($this->getConfiguration('data') == 'wind_speed') {
-				return $weather['wind']['speed'];
-			}
-			if ($this->getConfiguration('data') == 'wind_direction') {
-				return $weather['wind']['direction'];
-			}
-			if ($this->getConfiguration('data') == 'sunrise') {
-				return $weather['astronomy']['sunrise'];
-			}
-			if ($this->getConfiguration('data') == 'sunset') {
-				return $weather['astronomy']['sunset'];
-			}
+			return false;
 		}
-
-		if ($this->getConfiguration('data') == 'condition') {
-			return $weather['forecast'][$this->getConfiguration('day')]['condition'];
-		}
-		if ($this->getConfiguration('data') == 'low') {
-			return $weather['forecast'][$this->getConfiguration('day')]['low_temperature'];
-		}
-		if ($this->getConfiguration('data') == 'high') {
-			return $weather['forecast'][$this->getConfiguration('day')]['high_temperature'];
-		}
-		return false;
 	}
 
 	/*     * **********************Getteur Setteur*************************** */
