@@ -78,9 +78,9 @@ class weather extends eqLogic {
 
 	public static function cron30($_eqLogic_id = null) {
 		if ($_eqLogic_id == null) {
-			$eqLogics = array(self::byId($_eqLogic_id));
-		} else {
 			$eqLogics = self::byType('weather');
+		} else {
+			$eqLogics = array(self::byId($_eqLogic_id));
 		}
 
 		foreach ($eqLogics as $weather) {
@@ -762,12 +762,6 @@ class weather extends eqLogic {
 
 		if ($this->getIsEnable() == 1) {
 			$this->reschedule();
-			foreach ($this->getCmd('info') as $cmd) {
-				if ($cmd->getSubType() == 'numeric' && strpos($cmd->getLogicalId(), 'temperature_') === false) {
-					$cmd->setIsHistorized($this->getConfiguration('historize', 0));
-					$cmd->save();
-				}
-			}
 		} else {
 			$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
 			if (is_object($cron)) {
