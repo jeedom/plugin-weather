@@ -82,7 +82,6 @@ class weather extends eqLogic {
 		} else {
 			$eqLogics = array(self::byId($_eqLogic_id));
 		}
-
 		foreach ($eqLogics as $weather) {
 			if ($weather->getIsEnable() == 1) {
 				foreach ($weather->getCmd('info') as $cmd) {
