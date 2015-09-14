@@ -19,12 +19,9 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 function weather_update() {
-	foreach (eqLogic::byType('weather') as $weather) {
-		$cron = cron::byClassAndFunction('weather', 'updateWeatherData', array('weather_id' => intval($weather->getId())));
-		if (is_object($cron)) {
-			$cron->remove();
-		}
-		$weather->save();
+	$crons = cron::searchClassAndFunction('weather', 'updateWeatherData');
+	foreach ($crons as $cron) {
+		$cron->remove();
 	}
 }
 
