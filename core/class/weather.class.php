@@ -205,7 +205,7 @@ class weather extends eqLogic {
 				case 'PM Thunderstorms':
 					return 'Orageux l\'aprés-midi';
 				case 'AM Thunderstorms':
-					return 'Orageux le';
+					return 'Orageux l\'après-midi';
 				case 'PM Thunderstorms/Wind':
 					return 'Orageux et venteux l\'aprés-midi';
 				case 'AM Thunderstorms/Wind':
