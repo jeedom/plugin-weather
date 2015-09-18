@@ -298,8 +298,10 @@ class weather extends eqLogic {
 					return 'Légèrement pluvieux le matin';
 				case 'Thunderstorms':
 					return 'Orageux';
-				case 'Thunderstorm':
+				case 'Thunderstorms':
 					return 'Orageux';
+				case 'Thundershowers':
+					return 'Averses orageuses';
 				case 'Rain/Thunder':
 					return 'Pluvieux/Orageux';
 				case 'Isolated Thunderstorms':
