@@ -846,7 +846,7 @@ class weather extends eqLogic {
 		}
 		$mc = cache::byKey('weatherWidget' . $_version . $this->getId());
 		if ($mc->getValue() != '') {
-			return $mc->getValue();
+			return preg_replace("/" . preg_quote(self::UIDDELIMITER) . "(.*?)" . preg_quote(self::UIDDELIMITER) . "/", self::UIDDELIMITER . mt_rand() . self::UIDDELIMITER, $mc->getValue());
 		}
 		$html_forecast = '';
 
@@ -889,6 +889,7 @@ class weather extends eqLogic {
 			'#background_color#' => $this->getBackgroundColor($_version),
 			'#eqLink#' => ($this->hasRight('w')) ? $this->getLinkToConfiguration() : '#',
 			'#forecast#' => $html_forecast,
+			'#uid#' => 'weather' . $this->getId() . self::UIDDELIMITER . mt_rand() . self::UIDDELIMITER,
 		);
 		$temperature = $this->getCmd(null, 'temperature');
 		$replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
