@@ -1,6 +1,5 @@
 [panel,primary]
 .La valeur de la pression ne change jamais...
 --
-C'est un socui connu avec Yahoo Weather, malheureusement il n'y a pas de solution.
+C'est un souci connu avec Yahoo Weather, malheureusement il n'y a pas de solution.
 --
-
