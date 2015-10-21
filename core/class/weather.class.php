@@ -392,6 +392,9 @@ class weather extends eqLogic {
 	}
 
 	/*     * *********************Methode d'instance************************* */
+	public function preInsert() {
+		$this->setCategory('heating', 1);
+	}
 
 	public function preSave() {
 		$weather = $this->getWeatherFromYahooXml();
@@ -405,7 +408,6 @@ class weather extends eqLogic {
 		if ($this->getConfiguration('city') == '') {
 			throw new Exception(__('L\identifiant de la ville ne peut être vide', __FILE__));
 		}
-		$this->setCategory('heating', 1);
 	}
 
 	public function postUpdate() {

@@ -2,7 +2,7 @@
 <info>
     <id>weather</id>
     <name>Weather</name>
-    <description>Plugin pour avoir les information métérologique</description>
+    <description>Plugin pour avoir les information météorologique</description>
     <icon>fa fa-umbrella</icon>
     <licence>AGPL</licence>
     <author>Loïc Gevrey</author>
