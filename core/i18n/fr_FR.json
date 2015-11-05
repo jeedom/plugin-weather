@@ -33,7 +33,7 @@
         "Obtenir le code WOEID": "Obtenir le code WOEID",
         "Historiser les données": "Historiser les données",
         "Affichage complet en mobile": "Affichage complet en mobile",
-        "Fréquence de rafraichissement des données (par défaut : *\/30 * * * *)": "Fréquence de rafraichissement des données (par défaut : *\/30 * * * *)",
+        "Fréquence de rafraichissement des données (par défaut : *\/30 * * * *)": "Fréquence de rafraîchissement des données (par défaut : *\/30 * * * *)",
         "Météo": "Météo",
         "Nom": "Nom",
         "Valeur": "Valeur",
@@ -41,7 +41,7 @@
         "Sauvegarder": "Sauvegarder"
     },
     "plugins\/weather\/plugin_info\/info.xml": {
-        "Plugin pour avoir les information métérologique": "Plugin pour avoir les information métérologique",
+        "Plugin pour avoir les information métérologique": "Plugin pour avoir les informations métérologiques",
         "Aucune": "Aucune"
     }
 }
