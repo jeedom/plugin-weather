@@ -963,6 +963,9 @@ class weather extends eqLogic {
 
 	private static function parseXmlWeather($xml) {
 		$weather = simplexml_load_string($xml);
+		if (strtotime($weather->channel->lastBuildDate) < (strtotime('now') - 43200)) {
+			return false;
+		}
 		$return = array();
 		if (is_object($weather)) {
 			$channel_yweather = $weather->channel->children("http://xml.weather.yahoo.com/ns/rss/1.0");
@@ -984,7 +987,6 @@ class weather extends eqLogic {
 					}
 				}
 			}
-
 			$return = array();
 			$return['condition']['text'] = (string) $yw_forecast['condition']['text'][0];
 			$return['condition']['text'] = self::convertCondition($return['condition']['text']);
