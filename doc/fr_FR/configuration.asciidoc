@@ -1,10 +1,10 @@
 Le plugin Weather permet de recevoir des données météorologiques pour une ou plusieurs villes. Il permet entre autre d'avoir les informations de lever et coucher du soleil, de température, de prévision, de vent...
 
-==== Configuration du plugin
+=== Configuration du plugin
 
 Après avoir installé le plugin, il vous suffit de l'activer. Ce plugin n'a aucune configuration particulière.
 
-==== Configuration des équipements
+=== Configuration des équipements
 
 La configuration des équipements SMS est accessible à partir du menu plugin :
 
@@ -16,7 +16,6 @@ Voilà à quoi ressemble la page du plugin Weather (ici avec déjà 1 ville, vou
 
 image::../images/weather11.png[]
 
-[icon="../images/plugin/tip.png"]
 [TIP]
 Comme à beaucoup d'endroits sur Jeedom, placer la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez, à partir de votre profil, le laisser toujours visible).
 
