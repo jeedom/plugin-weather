@@ -43,6 +43,8 @@ image::../images/weather5.png[]
 
 * *Affichage complet en mobile* : permet d'afficher toutes les informations météo ou non en mobile
 
+* *Mode image* : permet d'afficher les widgets avec des images en lieu et place des icones.
+
 Vous retrouvez en dessous toutes les commandes disponibles ainsi que la possibilité d'historiser ou non les valeurs numériques.
 
 Le rafraîchissement des données météo s'effectue toutes les 30min.
