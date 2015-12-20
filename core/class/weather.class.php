@@ -138,7 +138,7 @@ class weather extends eqLogic {
 		}
 		if (strpos(strtolower($_condition), __('averse', __FILE__)) !== false || strpos(strtolower($_condition), __('shower', __FILE__)) !== false) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-pluie';
+				return 'meteo-nuage-soleil-pluie';
 			} else {
 				return 'meteo-pluie';
 			}
@@ -953,6 +953,14 @@ class weather extends eqLogic {
 				$replace['#' . $key . '#'] = $value;
 			}
 		}
+
+		if($this->getConfiguration('modeImage', 0) == 1) {
+			$replace['#visibilityIcon#'] = "none";
+			$replace['#visibilityImage#'] = "block";
+		} else {
+			$replace['#visibilityIcon#'] = "block";
+			$replace['#visibilityImage#'] = "none";
+		}	
 
 		$html = template_replace($replace, getTemplate('core', $_version, 'current', 'weather'));
 		cache::set('weatherWidget' . $_version . $this->getId(), $html, 0);
