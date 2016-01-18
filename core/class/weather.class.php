@@ -127,6 +127,13 @@ class weather extends eqLogic {
 				return 'meteo-brouillard';
 			}
 		}
+		if (strpos(strtolower($_condition), __('neige', __FILE__)) !== false || strpos(strtolower($_condition), __('snow', __FILE__)) !== false) {
+			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+				return 'meteo-neige';
+			} else {
+				return 'meteo-neige';
+			}
+		}
 		if (strpos(strtolower($_condition), __('pluie', __FILE__)) !== false || strpos(strtolower($_condition), __('rain', __FILE__)) !== false) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 				return 'meteo-pluie';
@@ -384,6 +391,8 @@ class weather extends eqLogic {
 					return 'Pluvieux et venteux le matin';
 				case 'Patches of Fog':
 					return 'Legèrement brumeux';
+				case 'AM Snow Showers':
+					return 'Neigeux le matin';
 				default:
 					return $_condition;
 			}
