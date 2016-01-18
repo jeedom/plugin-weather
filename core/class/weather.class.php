@@ -78,39 +78,37 @@ class weather extends eqLogic {
 
 	public static function cron30($_eqLogic_id = null) {
 		if ($_eqLogic_id == null) {
-			$eqLogics = self::byType('weather');
+			$eqLogics = self::byType('weather', true);
 		} else {
 			$eqLogics = array(self::byId($_eqLogic_id));
 		}
 		foreach ($eqLogics as $weather) {
-			if ($weather->getIsEnable() == 1) {
-				foreach ($weather->getCmd('info') as $cmd) {
-					if ($cmd->getLogicalId() != 'sunset' && $cmd->getLogicalId() != 'sunrise') {
-						$value = $cmd->execute();
-						if ($value !== false && $value != $cmd->execCmd(null, 2)) {
-							$cmd->setCollectDate('');
-							$cmd->event($value);
-						}
-					} else if ($cmd->getLogicalId() != 'sunset') {
-						$result = $cmd->execute();
-						if ($result !== false && $result !== '' && is_numeric($result) && $result > 0) {
-							cache::set('cmd' . $cmd->getId(), $result, 0);
-						}
-					} else if ($cmd->getLogicalId() != 'sunrise') {
-						$result = $cmd->execute();
-						if ($result !== false && $result !== '' && is_numeric($result) && $result > 0) {
-							cache::set('cmd' . $cmd->getId(), $result, 0);
-						}
+			foreach ($weather->getCmd('info') as $cmd) {
+				if ($cmd->getLogicalId() != 'sunset' && $cmd->getLogicalId() != 'sunrise') {
+					$value = $cmd->execute();
+					if ($value !== false && $value != $cmd->execCmd(null, 2)) {
+						$cmd->setCollectDate('');
+						$cmd->event($value);
+					}
+				} else if ($cmd->getLogicalId() != 'sunset') {
+					$result = $cmd->execute();
+					if ($result !== false && $result !== '' && is_numeric($result) && $result > 0) {
+						cache::set('cmd' . $cmd->getId(), $result, 0);
+					}
+				} else if ($cmd->getLogicalId() != 'sunrise') {
+					$result = $cmd->execute();
+					if ($result !== false && $result !== '' && is_numeric($result) && $result > 0) {
+						cache::set('cmd' . $cmd->getId(), $result, 0);
 					}
 				}
-				$mc = cache::byKey('weatherWidgetmobile' . $weather->getId());
-				$mc->remove();
-				$mc = cache::byKey('weatherWidgetdashboard' . $weather->getId());
-				$mc->remove();
-				$weather->toHtml('mobile');
-				$weather->toHtml('dashboard');
-				$weather->refreshWidget();
 			}
+			$mc = cache::byKey('weatherWidgetmobile' . $weather->getId());
+			$mc->remove();
+			$mc = cache::byKey('weatherWidgetdashboard' . $weather->getId());
+			$mc->remove();
+			$weather->toHtml('mobile');
+			$weather->toHtml('dashboard');
+			$weather->refreshWidget();
 		}
 	}
 
@@ -954,13 +952,13 @@ class weather extends eqLogic {
 			}
 		}
 
-		if($this->getConfiguration('modeImage', 0) == 1) {
+		if ($this->getConfiguration('modeImage', 0) == 1) {
 			$replace['#visibilityIcon#'] = "none";
 			$replace['#visibilityImage#'] = "block";
 		} else {
 			$replace['#visibilityIcon#'] = "block";
 			$replace['#visibilityImage#'] = "none";
-		}	
+		}
 
 		$html = template_replace($replace, getTemplate('core', $_version, 'current', 'weather'));
 		cache::set('weatherWidget' . $_version . $this->getId(), $html, 0);
