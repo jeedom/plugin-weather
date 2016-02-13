@@ -431,7 +431,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'temp');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -446,7 +445,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'humidity');
 		$weatherCmd->setUnite('%');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -461,7 +459,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'pressure');
 		$weatherCmd->setUnite('Pa');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -476,7 +473,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'condition');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
@@ -491,7 +487,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'wind_speed');
 		$weatherCmd->setUnite('km/h');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -506,7 +501,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'wind_direction');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
@@ -521,7 +515,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'sunset');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -536,7 +529,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'sunrise');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -551,7 +543,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'low');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -566,7 +557,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'high');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -581,7 +571,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'condition');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
@@ -596,7 +585,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'low');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -611,7 +599,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'high');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -626,7 +613,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'low');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -641,7 +627,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'high');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -656,7 +641,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'low');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -671,7 +655,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'high');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -686,7 +669,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'low');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -701,7 +683,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'high');
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
@@ -716,7 +697,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'condition');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
@@ -731,7 +711,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'condition');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
@@ -746,7 +725,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'condition');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
@@ -761,7 +739,6 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('data', 'condition');
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
-		$weatherCmd->setEventOnly(1);
 		$weatherCmd->setSubType('string');
 		$weatherCmd->save();
 
