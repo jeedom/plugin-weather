@@ -86,7 +86,7 @@ class weather extends eqLogic {
 			foreach ($weather->getCmd('info') as $cmd) {
 				if ($cmd->getLogicalId() != 'sunset' && $cmd->getLogicalId() != 'sunrise') {
 					$value = $cmd->execute();
-					if ($value !== false && $value != $cmd->execCmd(null, 2)) {
+					if ($value !== false && $value != $cmd->execCmd()) {
 						$cmd->setCollectDate('');
 						$cmd->event($value);
 					}

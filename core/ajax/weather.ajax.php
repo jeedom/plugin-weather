@@ -17,33 +17,32 @@
  */
 
 try {
-    require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-    include_file('core', 'authentification', 'php');
+	require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
+	include_file('core', 'authentification', 'php');
 
-    if (!isConnect('admin')) {
-        throw new Exception(__('401 - Accès non autorisé', __FILE__));
-    }
+	if (!isConnect('admin')) {
+		throw new Exception(__('401 - Accès non autorisé', __FILE__));
+	}
 
-    if (init('action') == 'getWeather') {
-        $weather = weather::byId(init('id'));
-        if (!is_object($weather)) {
-            throw new Exception(__('Weather inconnu verifié l\'id', __FILE__));
-        }
-        $return = utils::o2a($weather);
-        $return['cmd'] = array();
-       
-            foreach ($weather->getCmd() as $cmd) {
-                $cmd_info = utils::o2a($cmd);
-                $cmd_info['value'] = $cmd->execCmd(null, 0);
-                $return['cmd'][] = $cmd_info;
-            }
-        
-        ajax::success($return);
-    }
+	if (init('action') == 'getWeather') {
+		$weather = weather::byId(init('id'));
+		if (!is_object($weather)) {
+			throw new Exception(__('Weather inconnu verifié l\'id', __FILE__));
+		}
+		$return = utils::o2a($weather);
+		$return['cmd'] = array();
+		foreach ($weather->getCmd() as $cmd) {
+			$cmd_info = utils::o2a($cmd);
+			$cmd_info['value'] = $cmd->execCmd();
+			$return['cmd'][] = $cmd_info;
+		}
 
-    throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
-    /*     * *********Catch exeption*************** */
+		ajax::success($return);
+	}
+
+	throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));
+	/*     * *********Catch exeption*************** */
 } catch (Exception $e) {
-    ajax::error(displayExeption($e), $e->getCode());
+	ajax::error(displayExeption($e), $e->getCode());
 }
 ?>
