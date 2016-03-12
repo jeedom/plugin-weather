@@ -24,6 +24,7 @@ class weather extends eqLogic {
 
 	private $_collectDate = '';
 	private $_weatherData = '';
+	public static $_widgetPossibility = array('custom' => true);
 
 	/*     * ***********************Methode static*************************** */
 
@@ -822,63 +823,44 @@ class weather extends eqLogic {
 	}
 
 	public function toHtml($_version = 'dashboard') {
-		if ($this->getIsEnable() != 1) {
-			return '';
-		}
-		if (!$this->hasRight('r')) {
-			return '';
+		$replace = $this->preToHtml($_version);
+		if (!is_array($replace)) {
+			return $replace;
 		}
 		$_version = jeedom::versionAlias($_version);
-		if ($this->getDisplay('hideOn' . $_version) == 1) {
-			return '';
-		}
-		$mc = cache::byKey('weatherWidget' . $_version . $this->getId());
-		if ($mc->getValue() != '') {
-			return preg_replace("/" . preg_quote(self::UIDDELIMITER) . "(.*?)" . preg_quote(self::UIDDELIMITER) . "/", self::UIDDELIMITER . mt_rand() . self::UIDDELIMITER, $mc->getValue());
-		}
-		$html_forecast = '';
-
+		$replace['#forecast#'] = '';
 		if ($_version != 'mobile' || $this->getConfiguration('fullMobileDisplay', 0) == 1) {
 			$forcast_template = getTemplate('core', $_version, 'forecast', 'weather');
 			for ($i = 0; $i < 5; $i++) {
-				$replace = array();
-				$replace['#day#'] = date_fr(date('l', strtotime('+' . $i . ' days')));
+				$replaceDay = array();
+				$replaceDay['#day#'] = date_fr(date('l', strtotime('+' . $i . ' days')));
 
 				if ($i == 0) {
 					$temperature_min = $this->getCmd(null, 'temperature_min');
 				} else {
 					$temperature_min = $this->getCmd(null, 'temperature_' . $i . '_min');
 				}
-				$replace['#low_temperature#'] = is_object($temperature_min) ? $temperature_min->execCmd() : '';
+				$replaceDay['#low_temperature#'] = is_object($temperature_min) ? $temperature_min->execCmd() : '';
 
 				if ($i == 0) {
 					$temperature_max = $this->getCmd(null, 'temperature_max');
 				} else {
 					$temperature_max = $this->getCmd(null, 'temperature_' . $i . '_max');
 				}
-				$replace['#hight_temperature#'] = is_object($temperature_max) ? $temperature_max->execCmd() : '';
-				$replace['#tempid#'] = is_object($temperature_max) ? $temperature_max->getId() : '';
+				$replaceDay['#hight_temperature#'] = is_object($temperature_max) ? $temperature_max->execCmd() : '';
+				$replaceDay['#tempid#'] = is_object($temperature_max) ? $temperature_max->getId() : '';
 
 				if ($i == 0) {
 					$condition = $this->getCmd(null, 'condition');
 				} else {
 					$condition = $this->getCmd(null, 'condition_' . $i);
 				}
-				$replace['#icone#'] = is_object($condition) ? self::getIconFromCondition($condition->execCmd()) : '';
-				$replace['#conditionid#'] = is_object($condition) ? $condition->getId() : '';
-
-				$html_forecast .= template_replace($replace, $forcast_template);
+				$replaceDay['#icone#'] = is_object($condition) ? self::getIconFromCondition($condition->execCmd()) : '';
+				$replaceDay['#conditionid#'] = is_object($condition) ? $condition->getId() : '';
+				$replace['#forecast#'] .= template_replace($replaceDay, $forcast_template);
 			}
 		}
-		$replace = array(
-			'#id#' => $this->getId(),
-			'#city#' => $this->getConfiguration('city_name'),
-			'#collectDate#' => '',
-			'#background_color#' => $this->getBackgroundColor($_version),
-			'#eqLink#' => ($this->hasRight('w')) ? $this->getLinkToConfiguration() : '#',
-			'#forecast#' => $html_forecast,
-			'#uid#' => 'weather' . $this->getId() . self::UIDDELIMITER . mt_rand() . self::UIDDELIMITER,
-		);
+		$replace['#city#'] = $this->getConfiguration('city_name');
 		$temperature = $this->getCmd(null, 'temperature');
 		$replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
 		$replace['#tempid#'] = is_object($temperature) ? $temperature->getId() : '';
@@ -930,14 +912,6 @@ class weather extends eqLogic {
 			$replace['#condition#'] = '';
 			$replace['#collectDate#'] = '';
 		}
-
-		$parameters = $this->getDisplay('parameters');
-		if (is_array($parameters)) {
-			foreach ($parameters as $key => $value) {
-				$replace['#' . $key . '#'] = $value;
-			}
-		}
-
 		if ($this->getConfiguration('modeImage', 0) == 1) {
 			$replace['#visibilityIcon#'] = "none";
 			$replace['#visibilityImage#'] = "block";
@@ -945,9 +919,8 @@ class weather extends eqLogic {
 			$replace['#visibilityIcon#'] = "block";
 			$replace['#visibilityImage#'] = "none";
 		}
-
 		$html = template_replace($replace, getTemplate('core', $_version, 'current', 'weather'));
-		cache::set('weatherWidget' . $_version . $this->getId(), $html, 0);
+		cache::set('widgetHtml' . $_version . $this->getId(), $html, 0);
 		return $html;
 	}
 
