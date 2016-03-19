@@ -827,10 +827,10 @@ class weather extends eqLogic {
 		if (!is_array($replace)) {
 			return $replace;
 		}
-		$_version = jeedom::versionAlias($_version);
+		$version = jeedom::versionAlias($_version);
 		$replace['#forecast#'] = '';
-		if ($_version != 'mobile' || $this->getConfiguration('fullMobileDisplay', 0) == 1) {
-			$forcast_template = getTemplate('core', $_version, 'forecast', 'weather');
+		if ($version != 'mobile' || $this->getConfiguration('fullMobileDisplay', 0) == 1) {
+			$forcast_template = getTemplate('core', $version, 'forecast', 'weather');
 			for ($i = 0; $i < 5; $i++) {
 				$replaceDay = array();
 				$replaceDay['#day#'] = date_fr(date('l', strtotime('+' . $i . ' days')));
@@ -860,7 +860,6 @@ class weather extends eqLogic {
 				$replace['#forecast#'] .= template_replace($replaceDay, $forcast_template);
 			}
 		}
-		$replace['#city#'] = $this->getConfiguration('city_name');
 		$temperature = $this->getCmd(null, 'temperature');
 		$replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
 		$replace['#tempid#'] = is_object($temperature) ? $temperature->getId() : '';
@@ -919,7 +918,7 @@ class weather extends eqLogic {
 			$replace['#visibilityIcon#'] = "block";
 			$replace['#visibilityImage#'] = "none";
 		}
-		$html = template_replace($replace, getTemplate('core', $_version, 'current', 'weather'));
+		$html = template_replace($replace, getTemplate('core', $version, 'current', 'weather'));
 		cache::set('widgetHtml' . $_version . $this->getId(), $html, 0);
 		return $html;
 	}
