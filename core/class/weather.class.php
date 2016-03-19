@@ -1018,6 +1018,8 @@ class weather extends eqLogic {
 class weatherCmd extends cmd {
 	/*     * *************************Attributs****************************** */
 
+	public static $_widgetPossibility = array('custom' => false);
+
 	/*     * ***********************Methode static*************************** */
 
 	/*     * *********************Methode d'instance************************* */
