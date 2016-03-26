@@ -23,6 +23,14 @@ function weather_update() {
 	foreach ($crons as $cron) {
 		$cron->remove();
 	}
+
+	foreach (weather::byType('weather', true) as $weather) {
+		$weather->save();
+		$cmd = $weather->getCmd('info', 'condition_now');
+		if (is_object($cmd)) {
+			$cmd->remove();
+		}
+	}
 }
 
 ?>
