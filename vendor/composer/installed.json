@@ -1,0 +1,48 @@
+[
+    {
+        "name": "cmfcmf/openweathermap-php-api",
+        "version": "v2.0.11",
+        "version_normalized": "2.0.11.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cmfcmf/OpenWeatherMap-PHP-Api.git",
+            "reference": "78a8675b9380579c6ea90574808dc0a02a022f1d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cmfcmf/OpenWeatherMap-PHP-Api/zipball/78a8675b9380579c6ea90574808dc0a02a022f1d",
+            "reference": "78a8675b9380579c6ea90574808dc0a02a022f1d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-01-31 15:07:52",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Cmfcmf\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christian Flach (cmfcmf)",
+                "email": "cmfcmf.flach@gmail.com",
+                "homepage": "http://cmfcmf.github.io",
+                "role": "Developer"
+            }
+        ],
+        "description": "A php api to parse weather data from OpenWeatherMap.org. This api tries to normalise and abstract the data and remove inconsistencies.",
+        "homepage": "https://github.com/cmfcmf/OpenWeatherMap-PHP-Api",
+        "keywords": [
+            "OpenWeatherMap",
+            "weather",
+            "weather api"
+        ]
+    }
+]

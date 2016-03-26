@@ -17,7 +17,32 @@
         "clear": "clear",
         "beau": "beau",
         "fair": "fair",
-        "pluvieux": "pluvieux"
+        "pluvieux": "pluvieux",
+        "neige": "neige",
+        "snow": "snow",
+        "Température": "Température",
+        "Humidité": "Humidité",
+        "Pression": "Pression",
+        "Condition Actuelle": "Condition Actuelle",
+        "Vitesse du vent": "Vitesse du vent",
+        "Direction du vent": "Direction du vent",
+        "Coucher du soleil": "Coucher du soleil",
+        "Lever du soleil": "Lever du soleil",
+        "Température Min": "Température Min",
+        "Température Max": "Température Max",
+        "Condition": "Condition",
+        "Température Min +1": "Température Min +1",
+        "Température Max +1": "Température Max +1",
+        "Température Min +2": "Température Min +2",
+        "Température Max +2": "Température Max +2",
+        "Température Min +3": "Température Min +3",
+        "Température Max +3": "Température Max +3",
+        "Température Min +4": "Température Min +4",
+        "Température Max +4": "Température Max +4",
+        "Condition +1": "Condition +1",
+        "Condition +2": "Condition +2",
+        "Condition +3": "Condition +3",
+        "Condition +4": "Condition +4"
     },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "Ajouter une météo": "Ajouter une météo",
@@ -38,10 +63,22 @@
         "Nom": "Nom",
         "Valeur": "Valeur",
         "Supprimer": "Supprimer",
-        "Sauvegarder": "Sauvegarder"
+        "Sauvegarder": "Sauvegarder",
+        "Catégorie": "Catégorie",
+        "Mode image": "Mode image",
+        "Options": "Options"
     },
     "plugins\/weather\/plugin_info\/info.xml": {
         "Plugin pour avoir les information métérologique": "Plugin pour avoir les informations métérologiques",
-        "Aucune": "Aucune"
+        "Aucune": "Aucune",
+        "Plugin pour avoir les informations météorologiques": "Plugin pour avoir les informations météorologiques"
+    },
+    "plugins\/weather\/desktop\/js\/weather.js": {
+        "Nom": "Nom",
+        "Historiser": "Historiser",
+        "Tester": "Tester"
+    },
+    "plugins\/weather\/plugin_info\/configuration.php": {
+        "Clef API OpenWeatherMap": "Clef API OpenWeatherMap"
     }
 }

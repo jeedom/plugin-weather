@@ -1,0 +1,6 @@
+[panel,primary]
+.Welche die Aktualisierungs Frequenz hat der Wetterbericht?
+--
+Das System ruft die Wetter Informationen alle 30 Minuten ab. Diesen Wert können Sie im Expertenmodus ändern.(im Feld Datenaktualisierungsrate)
+--
+

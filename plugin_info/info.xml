@@ -6,9 +6,8 @@
     <icon>fa fa-umbrella</icon>
     <licence>AGPL</licence>
     <author>Loïc Gevrey</author>
-    <installation>Aucune</installation>
+    <include type="php">weather.inc</include>
     <require>2.2</require>
-    <canBeAction>0</canBeAction>
     <category>weather</category>
 </info>
 
