@@ -25,7 +25,11 @@ function weather_update() {
 	}
 
 	foreach (weather::byType('weather', true) as $weather) {
-		$weather->save();
+		try {
+			$weather->save();
+		} catch (Exception $e) {
+
+		}
 		$cmd = $weather->getCmd('info', 'condition_now');
 		if (is_object($cmd)) {
 			$cmd->remove();

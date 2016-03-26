@@ -10,6 +10,9 @@ Pour obtenir votre clef api il faut aller link:https://home.openweathermap.org[i
 
 image::../images/weather14.png[]
 
+[IMPORTANT]
+Il faut attendre quelques heures ensuite, le temps que la clef soit active
+
 === Configuration des équipements
 
 La configuration des équipements Météo est accessible à partir du menu plugin :
