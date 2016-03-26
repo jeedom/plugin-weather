@@ -2,11 +2,17 @@ Le plugin Weather permet de recevoir des données météorologiques pour une ou 
 
 === Configuration du plugin
 
-Après avoir installé le plugin, il vous suffit de l'activer. Ce plugin n'a aucune configuration particulière.
+Après avoir installé le plugin, il vous faut l'activer, puis renseigner votre clef api : 
+
+image::../images/weather13.png[]
+
+Pour obtenir votre clef api il faut aller link:https://home.openweathermap.org[ici], et vous créer un compte, ensuite il faut copier votre clef api dans jeedom : 
+
+image::../images/weather14.png[]
 
 === Configuration des équipements
 
-La configuration des équipements SMS est accessible à partir du menu plugin :
+La configuration des équipements Météo est accessible à partir du menu plugin :
 
 image::../images/weather10.png[]
 
@@ -29,21 +35,8 @@ Vous retrouvez ici toute la configuration de votre équipement :
 * *Activer* : permet de rendre votre équipement actif
 * *Visible* : rend votre équipement visible sur le dashboard
 * *Objet parent* : indique l'objet parent auquel appartient l'équipement
-* *WOEID* : identifiant unique de la ville, pour l'avoir il faut cliquer sur le bouton "Obtenir code WOEID"
-
-image::../images/weather3.png[]
-
-Cela ouvre un site internet qui demande de rentrer le nom de la ville.
-
-image::../images/weather4.png[]
-
-En réponse, vous obtiendrez les détails de la ville avec le code WOEID à récupérer. Il suffit de rentrer ce code dans le champ réservé sur l'onglet général du plugin Weather.
-
-image::../images/weather5.png[]
-
+* *Ville* : Il faut mettre le nom de votre ville suivi du code pays, ex : Paris,fr
 * *Affichage complet en mobile* : permet d'afficher toutes les informations météo ou non en mobile
-
-* *Mode image* : permet d'afficher les widgets avec des images en lieu et place des icones.
 
 Vous retrouvez en dessous toutes les commandes disponibles ainsi que la possibilité d'historiser ou non les valeurs numériques.
 

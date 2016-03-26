@@ -86,7 +86,11 @@ class weather extends eqLogic {
 			$eqLogics = array(self::byId($_eqLogic_id));
 		}
 		foreach ($eqLogics as $weather) {
-			$weather->updateWeatherData();
+			try {
+				$weather->updateWeatherData();
+			} catch (Exception $e) {
+				log::add('weather', 'info', $e->getMessage());
+			}
 		}
 	}
 
@@ -660,11 +664,6 @@ class weather extends eqLogic {
 		}
 		$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
 		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
-
-		if ($this->getConfiguration('city_name') != $weather->city->name) {
-			$this->setConfiguration('city_name', $weather->city->name);
-			$this->save(true);
-		}
 
 		$cmd = $this->getCmd('info', 'temperature');
 		if (is_object($cmd) && $cmd->execCmd() != round($weather->temperature->now->getValue(), 1)) {

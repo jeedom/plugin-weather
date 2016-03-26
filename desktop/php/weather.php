@@ -90,12 +90,9 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
    </div>
  </div>
  <div class="form-group">
-  <label class="col-sm-3 control-label">{{WOEID}}</label>
+  <label class="col-sm-3 control-label">{{Ville}}</label>
   <div class="col-sm-3">
-    <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="city" placeholder="WOEID"/>
-  </div>
-  <div class="col-sm-3">
-    <a class="btn btn-default" href="http://isithackday.com/geoplanet-explorer/" target=_blank>{{Obtenir le code WOEID}}</a>
+    <input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="city" />
   </div>
 </div>
 <div class="form-group">
