@@ -16,8 +16,6 @@ La configuration des équipements Météo est accessible à partir du menu plugi
 
 image::../images/weather10.png[]
 
-image::../images/weather2.png[]
-
 Voilà à quoi ressemble la page du plugin Weather (ici avec déjà 1 ville, vous pouvez en mettre autant que vous voulez) :
 
 image::../images/weather11.png[]
