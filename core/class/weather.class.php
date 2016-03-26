@@ -664,6 +664,9 @@ class weather extends eqLogic {
 		}
 		$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
 		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
+		if ($weather == NULL) {
+			return;
+		}
 
 		$cmd = $this->getCmd('info', 'temperature');
 		if (is_object($cmd) && $cmd->execCmd() != round($weather->temperature->now->getValue(), 1)) {
@@ -706,12 +709,12 @@ class weather extends eqLogic {
 		}
 
 		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && $weather->sun->rise->date != NULL && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date))) {
+		if (is_object($cmd) && isset($weather->sun->rise->date) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date))) {
 			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->rise->date)), 0);
 		}
 
 		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && $weather->sun->set->date != NULL && $cmd->execCmd() != date('Gi', strtotime($weather->sun->set->date))) {
+		if (is_object($cmd) && isset($weather->sun->set->date) != NULL && $cmd->execCmd() != date('Gi', strtotime($weather->sun->set->date))) {
 			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->set->date)), 0);
 		}
 
