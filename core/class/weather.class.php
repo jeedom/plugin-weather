@@ -144,7 +144,11 @@ class weather extends eqLogic {
 				return 'fa fa-moon-o';
 			}
 		}
-		return '';
+		if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+			return 'meteo-soleil';
+		} else {
+			return 'fa fa-moon-o';
+		}
 	}
 
 	/*     * *********************Methode d'instance************************* */
