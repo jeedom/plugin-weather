@@ -637,15 +637,16 @@ class weather extends eqLogic {
 		$refresh = $this->getCmd(null, 'refresh');
 		$replace['#refresh_id#'] = is_object($refresh) ? $refresh->getId() : '';
 
-		$condition = $this->getCmd(null, 'condition');
-		$condition_id = $this->getCmd(null, 'condition_id');
 		$sunset_time = is_object($sunset) ? $sunset->execCmd() : null;
 		$sunrise_time = is_object($sunrise) ? $sunrise->execCmd() : null;
+		$condition_id = $this->getCmd(null, 'condition_id');
 		if (is_object($condition_id)) {
 			$replace['#icone#'] = self::getIconFromCondition($condition_id->execCmd(), $sunrise_time, $sunset_time);
 		} else {
 			$replace['#icone#'] = '';
 		}
+
+		$condition = $this->getCmd(null, 'condition');
 		if (is_object($condition)) {
 			$replace['#condition#'] = $condition->execCmd();
 			$replace['#conditionid#'] = $condition->getId();
