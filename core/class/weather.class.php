@@ -667,6 +667,7 @@ class weather extends eqLogic {
 		if ($weather == NULL) {
 			return;
 		}
+		log::add('weather', 'debug', print_r($weather, true));
 
 		$cmd = $this->getCmd('info', 'temperature');
 		if (is_object($cmd) && $cmd->execCmd() != round($weather->temperature->now->getValue(), 1)) {
@@ -709,13 +710,13 @@ class weather extends eqLogic {
 		}
 
 		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && isset($weather->sun->rise->date) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date))) {
-			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->rise->date)), 0);
+		if (is_object($cmd) && isset($weather->sun->rise) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date . ' GMT'))) {
+			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->rise->date . ' GMT')), 0);
 		}
 
 		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && isset($weather->sun->set->date) != NULL && $cmd->execCmd() != date('Gi', strtotime($weather->sun->set->date))) {
-			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->set->date)), 0);
+		if (is_object($cmd) && isset($weather->sun->rise) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->set->date . ' GMT'))) {
+			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->set->date . ' GMT')), 0);
 		}
 
 		$forecast = $owm->getWeatherForecast($this->getConfiguration('city'), 'metric', 'fr', '', 4);
