@@ -710,6 +710,11 @@ class weather extends eqLogic {
 			$cmd->event($weather->temperature->min->getValue());
 		}
 
+		$cmd = $this->getCmd('info', 'temperature_max');
+		if (is_object($cmd) && $cmd->execCmd() != $weather->temperature->max->getValue()) {
+			$cmd->event($weather->temperature->max->getValue());
+		}
+
 		$cmd = $this->getCmd('info', 'sunrise');
 		if (is_object($cmd) && isset($weather->sun->rise) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date . ' GMT'))) {
 			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->rise->date . ' GMT')), 0);
