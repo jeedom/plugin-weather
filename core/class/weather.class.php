@@ -781,7 +781,6 @@ class weather extends eqLogic {
 				}
 			}
 		}
-		$this->reschedule();
 		$this->refreshWidget();
 	}
 
