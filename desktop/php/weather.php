@@ -101,12 +101,6 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
     <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-l1key="configuration" data-l2key="fullMobileDisplay" />
   </div>
 </div>
-<div class="form-group">
-  <label class="col-sm-3 control-label" >{{Mode image}}</label>
-  <div class="col-sm-1">
-    <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-l1key="configuration" data-l2key="modeImage" />
-  </div>
-</div>
 </fieldset>
 </form>
 
