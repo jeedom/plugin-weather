@@ -672,7 +672,6 @@ class weather extends eqLogic {
 		if ($weather == NULL) {
 			return;
 		}
-		log::add('weather', 'debug', print_r($weather, true));
 
 		$cmd = $this->getCmd('info', 'temperature');
 		if (is_object($cmd) && $cmd->execCmd() != round($weather->temperature->now->getValue(), 1)) {
