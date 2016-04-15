@@ -719,12 +719,12 @@ class weather extends eqLogic {
 		}
 
 		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && isset($weather->sun->rise) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date . ' GMT'))) {
+		if (is_object($cmd) && isset($weather->sun->rise) && isset($weather->sun->rise->date) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date . ' GMT'))) {
 			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->rise->date . ' GMT')), 0);
 		}
 
 		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && isset($weather->sun->rise) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->set->date . ' GMT'))) {
+		if (is_object($cmd) && isset($weather->sun->set) && isset($weather->sun->set->date) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->set->date . ' GMT'))) {
 			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->set->date . ' GMT')), 0);
 		}
 
