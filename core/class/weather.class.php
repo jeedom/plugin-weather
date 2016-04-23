@@ -23,9 +23,6 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class weather extends eqLogic {
 	/*     * *************************Attributs****************************** */
-
-	private $_collectDate = '';
-	private $_weatherData = '';
 	public static $_widgetPossibility = array('custom' => true);
 
 	/*     * ***********************Methode static*************************** */
