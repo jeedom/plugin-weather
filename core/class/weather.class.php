@@ -675,46 +675,55 @@ class weather extends eqLogic {
 
 		$cmd = $this->getCmd('info', 'temperature');
 		if (is_object($cmd) && $cmd->execCmd() != round($weather->temperature->now->getValue(), 1)) {
+			$cmd->setCollectDate('');
 			$cmd->event(round($weather->temperature->now->getValue(), 1));
 		}
 
 		$cmd = $this->getCmd('info', 'humidity');
 		if (is_object($cmd) && $cmd->execCmd() != $weather->humidity->getValue()) {
+			$cmd->setCollectDate('');
 			$cmd->event($weather->humidity->getValue());
 		}
 
 		$cmd = $this->getCmd('info', 'pressure');
 		if (is_object($cmd) && $cmd->execCmd() != $weather->pressure->getValue()) {
+			$cmd->setCollectDate('');
 			$cmd->event($weather->pressure->getValue());
 		}
 
 		$cmd = $this->getCmd('info', 'condition');
 		if (is_object($cmd) && $cmd->execCmd() != ucfirst($weather->weather->description)) {
+			$cmd->setCollectDate('');
 			$cmd->event(ucfirst($weather->weather->description));
 		}
 
 		$cmd = $this->getCmd('info', 'condition_id');
 		if (is_object($cmd) && $cmd->execCmd() != ucfirst($weather->weather->id)) {
+			$cmd->setCollectDate('');
 			$cmd->event(ucfirst($weather->weather->id));
 		}
 
 		$cmd = $this->getCmd('info', 'wind_speed');
 		if (is_object($cmd) && $cmd->execCmd() != ($weather->wind->speed->getValue() * 3.6)) {
+			$cmd->setCollectDate('');
 			$cmd->event($weather->wind->speed->getValue() * 3.6);
 		}
 
 		$cmd = $this->getCmd('info', 'wind_direction');
 		if (is_object($cmd) && $cmd->execCmd() != $weather->wind->direction->getValue()) {
+			$cmd->setCollectDate('');
 			$cmd->event($weather->wind->direction->getValue());
 		}
 
 		$cmd = $this->getCmd('info', 'temperature_min');
 		if (is_object($cmd) && $cmd->execCmd() != $weather->temperature->min->getValue()) {
+			$cmd->setCollectDate('');
 			$cmd->event($weather->temperature->min->getValue());
 		}
 
 		$cmd = $this->getCmd('info', 'temperature_max');
 		if (is_object($cmd) && $cmd->execCmd() != $weather->temperature->max->getValue()) {
+			$cmd->setCollectDate('');
 			$cmd->event($weather->temperature->max->getValue());
 		}
 
@@ -755,6 +764,7 @@ class weather extends eqLogic {
 			if ($minTemp != null) {
 				$cmd = $this->getCmd('info', 'temperature_' . $i . '_min');
 				if (is_object($cmd) && $cmd->execCmd() != $minTemp) {
+					$cmd->setCollectDate('');
 					$cmd->event($minTemp);
 				}
 			}
@@ -762,6 +772,7 @@ class weather extends eqLogic {
 			if ($maxTemp != null) {
 				$cmd = $this->getCmd('info', 'temperature_' . $i . '_max');
 				if (is_object($cmd) && $cmd->execCmd() != $maxTemp) {
+					$cmd->setCollectDate('');
 					$cmd->event($maxTemp);
 				}
 			}
@@ -769,6 +780,7 @@ class weather extends eqLogic {
 			if ($condition != null) {
 				$cmd = $this->getCmd('info', 'condition_' . $i);
 				if (is_object($cmd) && $cmd->execCmd() != $condition) {
+					$cmd->setCollectDate('');
 					$cmd->event($condition);
 				}
 			}
@@ -776,6 +788,7 @@ class weather extends eqLogic {
 			if ($condition_id != null) {
 				$cmd = $this->getCmd('info', 'condition_id_' . $i);
 				if (is_object($cmd) && $cmd->execCmd() != $condition_id) {
+					$cmd->setCollectDate('');
 					$cmd->event($condition_id);
 				}
 			}
