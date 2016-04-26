@@ -723,17 +723,16 @@ class weather extends eqLogic {
 			$cmd->setCollectDate('');
 			$cmd->event($weather->temperature->max->getValue());
 		}
-
+		$timezone = config::byKey('timezone', 'core', 'Europe/Brussels');
 		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && isset($weather->sun->rise) && isset($weather->sun->rise->date) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->rise->date . ' GMT'))) {
-			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->rise->date . ' GMT')), 0);
+		if (is_object($cmd) && isset($weather->sun->rise) && $weather->sun->rise instanceof DateTime && $cmd->execCmd() != $weather->sun->rise->setTimezone(new \DateTimezone($timezone))->format('Gi')) {
+			cache::set('cmd' . $cmd->getId(), $weather->sun->rise->setTimezone(new \DateTimezone('Europe/Berlin'))->format('Gi'), 0);
 		}
 
 		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && isset($weather->sun->set) && isset($weather->sun->set->date) && $cmd->execCmd() != date('Gi', strtotime($weather->sun->set->date . ' GMT'))) {
-			cache::set('cmd' . $cmd->getId(), date('Gi', strtotime($weather->sun->set->date . ' GMT')), 0);
+		if (is_object($cmd) && isset($weather->sun->set) && $weather->sun->set instanceof DateTime && $cmd->execCmd() != $weather->sun->set->setTimezone(new \DateTimezone($timezone))->format('Gi')) {
+			cache::set('cmd' . $cmd->getId(), $weather->sun->set->setTimezone(new \DateTimezone('Europe/Berlin'))->format('Gi'), 0);
 		}
-
 		$forecast = $owm->getWeatherForecast($this->getConfiguration('city'), 'metric', 'fr', '', 4);
 		$i = 1;
 
