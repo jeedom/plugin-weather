@@ -235,6 +235,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
+		$weatherCmd->setDisplay('generic_type','WEATHER_SUNSET');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'sunrise');
