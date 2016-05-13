@@ -696,7 +696,7 @@ class weather extends eqLogic {
 		if ($weather == NULL) {
 			return;
 		}
-
+		log::add('weather', 'debug', print_r($weather, true));
 		$cmd = $this->getCmd('info', 'temperature');
 		if (is_object($cmd) && $cmd->execCmd() != round($weather->temperature->now->getValue(), 1)) {
 			$cmd->setCollectDate('');
@@ -739,17 +739,6 @@ class weather extends eqLogic {
 			$cmd->event($weather->wind->direction->getValue());
 		}
 
-		$cmd = $this->getCmd('info', 'temperature_min');
-		if (is_object($cmd) && $cmd->execCmd() != $weather->temperature->min->getValue()) {
-			$cmd->setCollectDate('');
-			$cmd->event($weather->temperature->min->getValue());
-		}
-
-		$cmd = $this->getCmd('info', 'temperature_max');
-		if (is_object($cmd) && $cmd->execCmd() != $weather->temperature->max->getValue()) {
-			$cmd->setCollectDate('');
-			$cmd->event($weather->temperature->max->getValue());
-		}
 		$timezone = config::byKey('timezone', 'core', 'Europe/Brussels');
 		$cmd = $this->getCmd('info', 'sunrise');
 		if (is_object($cmd) && isset($weather->sun->rise) && $weather->sun->rise instanceof DateTime && $cmd->execCmd() != $weather->sun->rise->setTimezone(new \DateTimezone($timezone))->format('Gi')) {
@@ -761,9 +750,8 @@ class weather extends eqLogic {
 			cache::set('cmd' . $cmd->getId(), $weather->sun->set->setTimezone(new \DateTimezone('Europe/Berlin'))->format('Gi'), 0);
 		}
 		$forecast = $owm->getWeatherForecast($this->getConfiguration('city'), 'metric', 'fr', '', 4);
-		$i = 1;
 
-		for ($i = 1; $i < 5; $i++) {
+		for ($i = 0; $i < 5; $i++) {
 			$date = date('Y-m-d', strtotime('+' . $i . ' day'));
 			$maxTemp = null;
 			$minTemp = null;
@@ -782,6 +770,24 @@ class weather extends eqLogic {
 				}
 				$condition_id = $weather->weather->id;
 				$condition = ucfirst($weather->weather->description);
+			}
+			if ($i == 0) {
+				if ($minTemp != null) {
+					$cmd = $this->getCmd('info', 'temperature_min');
+					if (is_object($cmd) && $cmd->execCmd() != $minTemp) {
+						$cmd->setCollectDate('');
+						$cmd->event($minTemp);
+					}
+				}
+
+				if ($maxTemp != null) {
+					$cmd = $this->getCmd('info', 'temperature_max');
+					if (is_object($cmd) && $cmd->execCmd() != $maxTemp) {
+						$cmd->setCollectDate('');
+						$cmd->event($maxTemp);
+					}
+				}
+				continue;
 			}
 
 			if ($minTemp != null) {
