@@ -13,10 +13,10 @@ $eqLogics = eqLogic::byType('weather');
                 <a class="btn btn-default eqLogicAction" style="width : 100%;margin-top : 5px;margin-bottom: 5px;" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter un dispositif}}</a>
                 <li class="filter" style="margin-bottom: 5px;"><input class="filter form-control input-sm" placeholder="{{Rechercher}}" style="width: 100%"/></li>
                 <?php
-                foreach ($eqLogics as $eqLogic) {
-                    echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
-                }
-                ?>
+foreach ($eqLogics as $eqLogic) {
+	echo '<li class="cursor li_eqLogic" data-eqLogic_id="' . $eqLogic->getId() . '"><a>' . $eqLogic->getHumanName(true) . '</a></li>';
+}
+?>
             </ul>
         </div>
     </div>
@@ -51,7 +51,7 @@ foreach ($eqLogics as $eqLogic) {
 }
 ?>
             </div>
-    </div>   
+    </div>
 
 <div class="col-lg-10 col-md-9 col-sm-8 eqLogic" style="border-left: solid 1px #EEE; padding-left: 25px;display: none;">
   <form class="form-horizontal">
@@ -89,13 +89,13 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
 ?>
      </div>
    </div>
-   <div class="form-group">
-    <label class="col-sm-3 control-label" >{{Activer}}</label>
-    <div class="col-sm-9">
-     <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Activer}}" data-l1key="isEnable" checked/>
-     <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-label-text="{{Visible}}" data-l1key="isVisible" checked/>
-   </div>
- </div>
+  <div class="form-group">
+        <label class="col-sm-3 control-label"></label>
+        <div class="col-sm-9">
+            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
+            <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
+        </div>
+    </div>
  <div class="form-group">
   <label class="col-sm-3 control-label">{{Ville}}</label>
   <div class="col-sm-3">
@@ -103,15 +103,10 @@ foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
   </div>
 </div>
 <div class="form-group">
-  <label class="col-sm-3 control-label" >{{Affichage complet en mobile}}</label>
-  <div class="col-sm-1">
-    <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-l1key="configuration" data-l2key="fullMobileDisplay" />
-  </div>
-</div>
-<div class="form-group">
-  <label class="col-sm-3 control-label" >{{Mode image}}</label>
-  <div class="col-sm-1">
-    <input type="checkbox" class="eqLogicAttr bootstrapSwitch" data-l1key="configuration" data-l2key="modeImage" />
+  <label class="col-sm-3 control-label" ></label>
+  <div class="col-sm-9">
+    <label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="fullMobileDisplay" />{{Affichage complet en mobile}}</label>
+<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="modeImage" />{{Mode image}}</label>
   </div>
 </div>
 </fieldset>
