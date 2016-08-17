@@ -170,7 +170,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'humidity');
@@ -183,7 +183,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('%');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_HUMIDITY');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_HUMIDITY');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'pressure');
@@ -196,7 +196,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('Pa');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_PRESSURE');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_PRESSURE');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'wind_speed');
@@ -209,7 +209,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('km/h');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_WIND_SPEED');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_SPEED');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'wind_direction');
@@ -222,7 +222,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('string');
-		$weatherCmd->setDisplay('generic_type','WEATHER_WIND_DIRECTION');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'sunset');
@@ -235,7 +235,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_SUNSET');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_SUNSET');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'sunrise');
@@ -248,7 +248,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_SUNRISE');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_SUNRISE');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_min');
@@ -261,7 +261,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MIN');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_max');
@@ -274,7 +274,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MAX');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition');
@@ -287,7 +287,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('string');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_id');
@@ -300,7 +300,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_ID');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_1_min');
@@ -313,7 +313,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MIN_1');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN_1');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_1_max');
@@ -326,7 +326,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MAX_1');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_1');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_2_min');
@@ -339,7 +339,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MIN_2');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN_2');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_2_max');
@@ -352,7 +352,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MAX_2');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_2');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_3_min');
@@ -365,7 +365,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MIN_3');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN_3');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_3_max');
@@ -378,7 +378,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MAX_3');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_3');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_4_min');
@@ -391,7 +391,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MIN_4');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN_4');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_4_max');
@@ -404,7 +404,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('°C');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_TEMPERATURE_MAX_4');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_4');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_1');
@@ -417,7 +417,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('string');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_1');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_1');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_id_1');
@@ -430,7 +430,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_ID_1');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_1');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_2');
@@ -443,7 +443,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('string');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_2');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_2');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_id_2');
@@ -456,7 +456,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_ID_2');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_2');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_3');
@@ -469,7 +469,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('string');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_3');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_3');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_id_3');
@@ -482,7 +482,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_ID_3');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_3');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_4');
@@ -495,7 +495,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('string');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_4');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_4');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'condition_id_4');
@@ -508,7 +508,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type','WEATHER_CONDITION_ID_4');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_4');
 		$weatherCmd->save();
 
 		$refresh = $this->getCmd(null, 'refresh');
@@ -682,9 +682,7 @@ class weather extends eqLogic {
 			$replace['#condition#'] = '';
 			$replace['#collectDate#'] = '';
 		}
-		$html = template_replace($replace, getTemplate('core', $version, 'current', 'weather'));
-		cache::set('widgetHtml' . $_version . $this->getId(), $html, 0);
-		return $html;
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', 'weather')));
 	}
 
 	public function updateWeatherData() {
