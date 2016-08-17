@@ -122,9 +122,9 @@ class weather extends eqLogic {
 		}
 		if ($_condition_id >= 700 && $_condition_id <= 799) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-brouillard';
+				return 'meteo-vent';
 			} else {
-				return 'meteo-brouillard';
+				return 'meteo-vent';
 			}
 		}
 		if ($_condition_id > 800 && $_condition_id <= 899) {
