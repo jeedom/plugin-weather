@@ -3,9 +3,8 @@
     <id>weather</id>
     <name>Weather</name>
     <description>Plugin pour avoir les informations météorologiques</description>
-    <icon>fa fa-umbrella</icon>
     <licence>AGPL</licence>
-    <author>Loïc Gevrey</author>
+    <author>Loïc</author>
     <include type="php">weather.inc</include>
     <require>2.2</require>
     <category>weather</category>
