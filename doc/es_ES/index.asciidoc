@@ -4,3 +4,7 @@ Plugin permettant de recupérer, d'afficher et d'exploiter des données météro
 "
 == Configuration
 include::configuration.asciidoc[]
+
+"
+
+include::changelog.asciidoc[]
