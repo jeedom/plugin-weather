@@ -1,0 +1,50 @@
+Le plugin Weather permet de recevoir des données météorologiques pour une ou plusieurs villes. Il permet entre autre d'avoir les informations de lever et coucher du soleil, de température, de prévision, de vent...
+
+=== Configuration du plugin
+
+Après avoir installé le plugin, il vous faut l'activer, puis renseigner votre clef api : 
+
+image::../images/weather13.png[]
+
+Pour obtenir votre clef api il faut aller link:https://home.openweathermap.org[ici], et vous créer un compte, ensuite il faut copier votre clef api dans jeedom : 
+
+image::../images/weather14.png[]
+
+[IMPORTANT]
+Il faut attendre quelques heures ensuite, le temps que la clef soit active
+
+=== Configuration des équipements
+
+La configuration des équipements Météo est accessible à partir du menu plugin :
+
+image::../images/weather10.png[]
+
+Voilà à quoi ressemble la page du plugin Weather (ici avec déjà 1 ville, vous pouvez en mettre autant que vous voulez) :
+
+image::../images/weather11.png[]
+
+[TIP]
+Comme à beaucoup d'endroits sur Jeedom, placer la souris tout à gauche permet de faire apparaître un menu d'accès rapide (vous pouvez, à partir de votre profil, le laisser toujours visible).
+
+Une fois que vous cliquez sur l'un d'eux, vous obtenez :
+
+image::../images/weather12.png[]
+
+Vous retrouvez ici toute la configuration de votre équipement :
+
+* *Nom de l'équipement météo* : nom de votre équipement météo
+* *Activer* : permet de rendre votre équipement actif
+* *Visible* : rend votre équipement visible sur le dashboard
+* *Objet parent* : indique l'objet parent auquel appartient l'équipement
+* *Ville* : Il faut mettre le nom de votre ville suivi du code pays, ex : Paris,fr
+* *Affichage complet en mobile* : permet d'afficher toutes les informations météo ou non en mobile
+
+Vous retrouvez en dessous toutes les commandes disponibles ainsi que la possibilité d'historiser ou non les valeurs numériques.
+
+Le rafraîchissement des données météo s'effectue toutes les 30min.
+
+==== Widget
+
+Vous obtiendrez alors le widget suivant :
+
+image::../images/weather_screenshot2.png[]

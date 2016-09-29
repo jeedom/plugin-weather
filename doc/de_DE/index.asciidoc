@@ -1,0 +1,6 @@
+= Wetter
+Plugin zum abrufen, anzeigen und benutzen von meteorologische Daten. 
+
+'''
+== Konfiguration
+include::configuration.asciidoc[]

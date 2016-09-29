@@ -1,0 +1,4 @@
+== FAQ
+
+Der Wert des Drucks ändert sich nie
+Dies ist ein Problem mit Yahoo Wetter, leider gibt es keine Lösung.

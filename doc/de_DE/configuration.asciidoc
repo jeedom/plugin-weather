@@ -1,0 +1,50 @@
+Das Wetter-Plugin ermöglicht es, Wetterdaten für eine oder mehrere Städte zu erhalten. Es ermöglicht unter anderem Informationen von Sonnenaufgang und Sonnenuntergang, Temperatur, Prognose, Wind ...
+
+=== Plugin Konfiguration
+
+Nach der Installation des Plugins, müssen sie es erst aktivieren und den API-Schlüssel eingeben : 
+
+image::../images/weather13.png[]
+
+Um ihren API-Schlüssel zu erhalten, müssen sie link:https://home.openweathermap.org[hier] auf den Link gehen, und ein Konto erstellen, dann müssen sie Ihren API-Schlüssel in Jeedom kopieren : 
+
+image::../images/weather14.png[]
+
+[IMPORTANT]
+Mann muß dann ein paar Stunden warten, bis der Schlüssel aktiv ist.
+
+=== Geräte Konfiguration
+
+Die Konfiguration von Wetter-Geräten ist in dem Plugin-Menü verfügbar :
+
+image::../images/weather10.png[]
+
+Die Wetter-Plugin Seite sieht so aus (hier bereits mit 1 Stadt, sie können so viel sie wollen anlegen) :
+
+image::../images/weather11.png[]
+
+[TIP]
+Wie an vielen Stellen in Jeedom kann mit dem Mauszeiger ganz links, ein Menü mit Schnellzugriff aufgerufen werden (Sie können in Ihrem Profil immer sichtbar einstellen).  
+
+Sobald Sie eines davon anklicken, erhalten Sie :
+
+image::../images/weather12.png[]
+
+Hier finden sie die ganze Konfiguration Ihrer Geräte:
+
+* *Name der Wetterausrüstung* : Name Ihrer Wetterausrüstung 
+* *aktivieren* : erlaubt, Ihr Gerät aktiv zu machen
+* *Sichtbar* : macht Ihr Gerät auf dem Armaturenbrett sichtbar
+* *Eltern-Objekt* : giebt an welchem Eltern Objekt das Gerät angehört
+* *Stadt* : Sie müssen den Namen ihrer Stadt mit den Ländercode eingeben, zum Beispiel Paris, fr
+* *Mobil Vollansicht* : ermöglicht alle Wetterinformationen anzuzeigen oder nicht auf Mobile Geräte
+
+Im folgenden finden Sie alle verfügbaren Befehle und die möglichkeit die Zahlenwerte zu archivieren oder nicht.
+
+Die Wetter-Daten-Aktualisierung erfolgt alle 30 min. 
+
+==== Widget
+
+Dann erhalten Sie das folgende Widget :
+
+image::../images/weather_screenshot2.png[]

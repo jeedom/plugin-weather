@@ -1,0 +1,6 @@
+= Météo
+Plugin permettant de recupérer, d'afficher et d'exploiter des données métérologiques.
+
+"
+== Configuration
+include::configuration.asciidoc[]
