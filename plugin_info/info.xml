@@ -6,7 +6,7 @@
     <licence>AGPL</licence>
     <author>Loïc</author>
     <include type="php">weather.inc</include>
-    <require>2.2</require>
+    <require>2.4</require>
     <category>weather</category>
 </info>
 

@@ -4,7 +4,7 @@
 	"description" : "Plugin pour avoir les informations météorologiques",
 	"licence" : "AGPL",
 	"author" : "Loïc",
-	"require" : "2.3",
+	"require" : "2.4",
 	"category" : "weather",
 	"include" : {"type" : "php" , "file" : "weather.inc" }
 }

@@ -695,47 +695,14 @@ class weather extends eqLogic {
 			return;
 		}
 		log::add('weather', 'debug', print_r($weather, true));
-		$cmd = $this->getCmd('info', 'temperature');
-		if (is_object($cmd) && $cmd->execCmd() != round($weather->temperature->now->getValue(), 1)) {
-			$cmd->setCollectDate('');
-			$cmd->event(round($weather->temperature->now->getValue(), 1));
-		}
-
-		$cmd = $this->getCmd('info', 'humidity');
-		if (is_object($cmd) && $cmd->execCmd() != $weather->humidity->getValue()) {
-			$cmd->setCollectDate('');
-			$cmd->event($weather->humidity->getValue());
-		}
-
-		$cmd = $this->getCmd('info', 'pressure');
-		if (is_object($cmd) && $cmd->execCmd() != $weather->pressure->getValue()) {
-			$cmd->setCollectDate('');
-			$cmd->event($weather->pressure->getValue());
-		}
-
-		$cmd = $this->getCmd('info', 'condition');
-		if (is_object($cmd) && $cmd->execCmd() != ucfirst($weather->weather->description)) {
-			$cmd->setCollectDate('');
-			$cmd->event(ucfirst($weather->weather->description));
-		}
-
-		$cmd = $this->getCmd('info', 'condition_id');
-		if (is_object($cmd) && $cmd->execCmd() != ucfirst($weather->weather->id)) {
-			$cmd->setCollectDate('');
-			$cmd->event(ucfirst($weather->weather->id));
-		}
-
-		$cmd = $this->getCmd('info', 'wind_speed');
-		if (is_object($cmd) && $cmd->execCmd() != ($weather->wind->speed->getValue() * 3.6)) {
-			$cmd->setCollectDate('');
-			$cmd->event($weather->wind->speed->getValue() * 3.6);
-		}
-
-		$cmd = $this->getCmd('info', 'wind_direction');
-		if (is_object($cmd) && $cmd->execCmd() != $weather->wind->direction->getValue()) {
-			$cmd->setCollectDate('');
-			$cmd->event($weather->wind->direction->getValue());
-		}
+		$changed = false;
+		$changed = $changed || $this->checkAndUpdateCmd('temperature', round($weather->temperature->now->getValue(), 1));
+		$changed = $changed || $this->checkAndUpdateCmd('humidity', $weather->humidity->getValue());
+		$changed = $changed || $this->checkAndUpdateCmd('pressure', $weather->pressure->getValue());
+		$changed = $changed || $this->checkAndUpdateCmd('condition', ucfirst($weather->weather->description));
+		$changed = $changed || $this->checkAndUpdateCmd('condition_id', $weather->weather->id);
+		$changed = $changed || $this->checkAndUpdateCmd('wind_speed', $weather->wind->speed->getValue() * 3.6);
+		$changed = $changed || $this->checkAndUpdateCmd('wind_direction', $weather->wind->direction->getValue());
 
 		$timezone = config::byKey('timezone', 'core', 'Europe/Brussels');
 		$cmd = $this->getCmd('info', 'sunrise');
@@ -771,56 +738,29 @@ class weather extends eqLogic {
 			}
 			if ($i == 0) {
 				if ($minTemp != null) {
-					$cmd = $this->getCmd('info', 'temperature_min');
-					if (is_object($cmd) && $cmd->execCmd() != $minTemp) {
-						$cmd->setCollectDate('');
-						$cmd->event($minTemp);
-					}
+					$changed = $changed || $this->checkAndUpdateCmd('temperature_min', $minTemp);
 				}
-
 				if ($maxTemp != null) {
-					$cmd = $this->getCmd('info', 'temperature_max');
-					if (is_object($cmd) && $cmd->execCmd() != $maxTemp) {
-						$cmd->setCollectDate('');
-						$cmd->event($maxTemp);
-					}
+					$changed = $changed || $this->checkAndUpdateCmd('temperature_max', $maxTemp);
 				}
 				continue;
 			}
-
 			if ($minTemp != null) {
-				$cmd = $this->getCmd('info', 'temperature_' . $i . '_min');
-				if (is_object($cmd) && $cmd->execCmd() != $minTemp) {
-					$cmd->setCollectDate('');
-					$cmd->event($minTemp);
-				}
+				$changed = $changed || $this->checkAndUpdateCmd('temperature_' . $i . '_min', $minTemp);
 			}
-
 			if ($maxTemp != null) {
-				$cmd = $this->getCmd('info', 'temperature_' . $i . '_max');
-				if (is_object($cmd) && $cmd->execCmd() != $maxTemp) {
-					$cmd->setCollectDate('');
-					$cmd->event($maxTemp);
-				}
+				$changed = $changed || $this->checkAndUpdateCmd('temperature_' . $i . '_max', $maxTemp);
 			}
-
 			if ($condition != null) {
-				$cmd = $this->getCmd('info', 'condition_' . $i);
-				if (is_object($cmd) && $cmd->execCmd() != $condition) {
-					$cmd->setCollectDate('');
-					$cmd->event($condition);
-				}
+				$changed = $changed || $this->checkAndUpdateCmd('condition_' . $i, $condition);
 			}
-
 			if ($condition_id != null) {
-				$cmd = $this->getCmd('info', 'condition_id_' . $i);
-				if (is_object($cmd) && $cmd->execCmd() != $condition_id) {
-					$cmd->setCollectDate('');
-					$cmd->event($condition_id);
-				}
+				$changed = $changed || $this->checkAndUpdateCmd('condition_id_' . $i, $condition_id);
 			}
 		}
-		$this->refreshWidget();
+		if ($changed) {
+			$this->refreshWidget();
+		}
 	}
 
 }
