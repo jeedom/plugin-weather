@@ -235,6 +235,7 @@ class weather extends eqLogic {
 		$weatherCmd->setUnite('');
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
+		$weatherCmd->setConfiguration('repeatEventManagement', 'always');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_SUNSET');
 		$weatherCmd->save();
 
@@ -249,6 +250,7 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_SUNRISE');
+		$weatherCmd->setConfiguration('repeatEventManagement', 'always');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'temperature_min');
