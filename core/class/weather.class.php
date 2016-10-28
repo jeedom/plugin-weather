@@ -740,24 +740,24 @@ class weather extends eqLogic {
 			}
 			if ($i == 0) {
 				if ($minTemp != null) {
-					$changed = $changed || $this->checkAndUpdateCmd('temperature_min', $minTemp);
+					$changed = $this->checkAndUpdateCmd('temperature_min', $minTemp) || $changed;
 				}
 				if ($maxTemp != null) {
-					$changed = $changed || $this->checkAndUpdateCmd('temperature_max', $maxTemp);
+					$changed = $this->checkAndUpdateCmd('temperature_max', $maxTemp) || $changed;
 				}
 				continue;
 			}
 			if ($minTemp != null) {
-				$changed = $changed || $this->checkAndUpdateCmd('temperature_' . $i . '_min', $minTemp);
+				$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_min', $minTemp) || $changed;
 			}
 			if ($maxTemp != null) {
-				$changed = $changed || $this->checkAndUpdateCmd('temperature_' . $i . '_max', $maxTemp);
+				$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_max', $maxTemp) || $changed;
 			}
 			if ($condition != null) {
-				$changed = $changed || $this->checkAndUpdateCmd('condition_' . $i, $condition);
+				$changed = $this->checkAndUpdateCmd('condition_' . $i, $condition) || $changed;
 			}
 			if ($condition_id != null) {
-				$changed = $changed || $this->checkAndUpdateCmd('condition_id_' . $i, $condition_id);
+				$changed = $this->checkAndUpdateCmd('condition_id_' . $i, $condition_id) || $changed;
 			}
 		}
 		if ($changed) {
