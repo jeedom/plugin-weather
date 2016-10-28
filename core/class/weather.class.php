@@ -698,13 +698,13 @@ class weather extends eqLogic {
 		}
 		log::add('weather', 'debug', print_r($weather, true));
 		$changed = false;
-		$changed = $changed || $this->checkAndUpdateCmd('temperature', round($weather->temperature->now->getValue(), 1));
-		$changed = $changed || $this->checkAndUpdateCmd('humidity', $weather->humidity->getValue());
-		$changed = $changed || $this->checkAndUpdateCmd('pressure', $weather->pressure->getValue());
-		$changed = $changed || $this->checkAndUpdateCmd('condition', ucfirst($weather->weather->description));
-		$changed = $changed || $this->checkAndUpdateCmd('condition_id', $weather->weather->id);
-		$changed = $changed || $this->checkAndUpdateCmd('wind_speed', $weather->wind->speed->getValue() * 3.6);
-		$changed = $changed || $this->checkAndUpdateCmd('wind_direction', $weather->wind->direction->getValue());
+		$changed = $this->checkAndUpdateCmd('temperature', round($weather->temperature->now->getValue(), 1)) || $changed;
+		$changed = $this->checkAndUpdateCmd('humidity', $weather->humidity->getValue()) || $changed;
+		$changed = $this->checkAndUpdateCmd('pressure', $weather->pressure->getValue()) || $changed;
+		$changed = $this->checkAndUpdateCmd('condition', ucfirst($weather->weather->description)) || $changed;
+		$changed = $this->checkAndUpdateCmd('condition_id', $weather->weather->id) || $changed;
+		$changed = $this->checkAndUpdateCmd('wind_speed', $weather->wind->speed->getValue() * 3.6) || $changed;
+		$changed = $this->checkAndUpdateCmd('wind_direction', $weather->wind->direction->getValue()) || $changed;
 
 		$timezone = config::byKey('timezone', 'core', 'Europe/Brussels');
 		$cmd = $this->getCmd('info', 'sunrise');
