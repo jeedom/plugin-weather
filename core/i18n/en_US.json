@@ -66,7 +66,17 @@
         "Sauvegarder": "Save",
         "Catégorie": "Category",
         "Mode image": "Image mode",
-        "Options": "Options"
+        "Options": "Options",
+        "Ajouter un dispositif": "Add a device",
+        "Gestion": "Management",
+        "Ajouter": "Add",
+        "Configuration": "Setup",
+        "Mes Météos": "Mes Météos",
+        "Configuration avancée": "Advanced configuration",
+        "Equipement": "Device",
+        "Commandes": "Commands",
+        "Ville": "Town",
+        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)"
     },
     "plugins/weather/plugin_info/info.xml": {
         "Plugin pour avoir les information métérologique": "Plugin for weather information",
@@ -80,5 +90,8 @@
     },
     "plugins/weather/plugin_info/configuration.php": {
         "Clef API OpenWeatherMap": " API OpenWeatherMap key"
+    },
+    "plugins/weather/plugin_info/info.json": {
+        "Plugin pour avoir les informations météorologiques": "Plugin for weather information"
     }
 }
