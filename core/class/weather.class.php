@@ -119,6 +119,7 @@ class weather extends eqLogic {
 			} else {
 				return 'meteo-pluie';
 			}
+		}
 		if (($_condition_id >= 600 && $_condition_id <= 699) || ($_condition_id == 511)) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 				return 'meteo-neige';
@@ -609,7 +610,7 @@ class weather extends eqLogic {
 			if ($this->getConfiguration('modeImage', 0) == 1) {
 				$forcast_template = getTemplate('core', $version, 'forecastIMG', 'weather');
 			} else {
-			$forcast_template = getTemplate('core', $version, 'forecast', 'weather');
+				$forcast_template = getTemplate('core', $version, 'forecast', 'weather');
 			}
 			for ($i = 0; $i < 5; $i++) {
 				$replaceDay = array();
@@ -697,7 +698,7 @@ class weather extends eqLogic {
 		if ($this->getConfiguration('modeImage', 0) == 1) {
 			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'currentIMG', 'weather')));
 		} else {
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', 'weather')));
+			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', 'weather')));
 		}
 	}
 
