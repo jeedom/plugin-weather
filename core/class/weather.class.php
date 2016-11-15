@@ -106,14 +106,20 @@ class weather extends eqLogic {
 				return 'meteo-brouillard';
 			}
 		}
-		if ($_condition_id >= 500 && $_condition_id <= 599) {
+		if ($_condition_id >= 500 && $_condition_id <= 510) {
+			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
+				return 'meteo-nuage-soleil-pluie';
+			} else {
+				return 'meteo-nuage-soleil-pluie';
+			}
+		}
+		if ($_condition_id >= 520 && $_condition_id <= 599) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 				return 'meteo-pluie';
 			} else {
 				return 'meteo-pluie';
 			}
-		}
-		if ($_condition_id >= 600 && $_condition_id <= 699) {
+		if (($_condition_id >= 600 && $_condition_id <= 699) || ($_condition_id == 511)) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 				return 'meteo-neige';
 			} else {
@@ -600,7 +606,11 @@ class weather extends eqLogic {
 		$version = jeedom::versionAlias($_version);
 		$replace['#forecast#'] = '';
 		if ($version != 'mobile' || $this->getConfiguration('fullMobileDisplay', 0) == 1) {
+			if ($this->getConfiguration('modeImage', 0) == 1) {
+				$forcast_template = getTemplate('core', $version, 'forecastIMG', 'weather');
+			} else {
 			$forcast_template = getTemplate('core', $version, 'forecast', 'weather');
+			}
 			for ($i = 0; $i < 5; $i++) {
 				$replaceDay = array();
 				$replaceDay['#day#'] = date_fr(date('l', strtotime('+' . $i . ' days')));
@@ -684,7 +694,11 @@ class weather extends eqLogic {
 			$replace['#condition#'] = '';
 			$replace['#collectDate#'] = '';
 		}
+		if ($this->getConfiguration('modeImage', 0) == 1) {
+			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'currentIMG', 'weather')));
+		} else {
 		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', 'weather')));
+		}
 	}
 
 	public function updateWeatherData() {
