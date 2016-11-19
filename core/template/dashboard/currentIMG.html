@@ -30,137 +30,128 @@
 
 	if($('#windDirection#uid#').html() != undefined){
 
-
-
-
-
-
-	new Highcharts.Chart({
-		chart: {
-			renderTo: 'windDirection#uid#',
-			type: 'gauge',
-			backgroundColor: null,
-			plotBackgroundColor: null,
-			plotBackgroundImage: null,
-			plotBorderWidth: 0,
-			plotShadow: true,
-			spacingTop: 0,
-			spacingLeft: 0,
-			spacingRight: 0,
-			spacingBottom: 0
-		},
-
-			title: {
-				text: null
-			},
-			credits: {
-					enabled: false
-			},
-			exporting : {
-					enabled: false
+		new Highcharts.Chart({
+			chart: {
+				renderTo: 'windDirection#uid#',
+				type: 'gauge',
+				backgroundColor: null,
+				plotBackgroundColor: null,
+				plotBackgroundImage: null,
+				plotBorderWidth: 0,
+				plotShadow: false,
+				spacingTop: 0,
+				spacingLeft: 0,
+				spacingRight: 0,
+				spacingBottom: 0
 			},
 
-		pane: {
-			startAngle: 0,
-			endAngle: 360,
-			background: [{
-				backgroundColor: {
-					linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-					stops: [
-						[0, '#FFF'],
-						[1, '#333']
-					]
+				title: {
+					text: null
 				},
-				borderWidth: 0,
-				outerRadius: '109%'
-			}, {
-				backgroundColor: {
-					linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-					stops: [
-						[0, '#333'],
-						[1, '#FFF']
-					]
+				credits: {
+						enabled: false
 				},
-				borderWidth: 1,
-				outerRadius: '107%'
-			}, {
-				// default background
-			}, {
-				backgroundColor: '#DDD',
-				borderWidth: 3,
-				outerRadius: '105%',
-				innerRadius: '103%'
-			}]
-		},
+				exporting : {
+						enabled: false
+				},
 
-		yAxis: {
-			min: 0,
-			max: 360,
-			tickWidth: 10,
-			tickLength: 11,
-			tickColor: '#c4c4c4', // Trait N, E, S, O
-			tickInterval: 90,
-			lineColor: '#FFFFFF', // Cercle Blanc
-			lineWidth: 1,
+			pane: {
+				startAngle: 0,
+				endAngle: 360,
+				background: [{
+					backgroundColor: {
+						linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+						stops: [
+							[0, '#FFF'],
+							[1, '#333']
+						]
+					},
+					borderWidth: 0,
+					outerRadius: '109%'
+				}, {
+					backgroundColor: {
+						linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+						stops: [
+							[0, '#333'],
+							[1, '#FFF']
+						]
+					},
+					borderWidth: 1,
+					outerRadius: '107%'
+				}, {
+					// default background
+				}, {
+					backgroundColor: '#DDD',
+					borderWidth: 3,
+					outerRadius: '105%',
+					innerRadius: '103%'
+				}]
+			},
 
-			labels: {
-				distance: -6,
-				formatter: function () {
-					if (this.value == 360) {
-							return '<span style="color : #fb0431;font-weight:bold;">N</span>';
-					} else if (this.value == 90) {
-							return '<span style="color : #000000;font-weight:bold;">E</span>';
-					} else if (this.value == 180) {
-							return '<span style="color : #000000;font-weight:bold;">S</span>';
-					} else if (this.value == 270) {
-							return '<span style="color : #000000;font-weight:bold;">W</span>';
+			yAxis: {
+				min: 0,
+				max: 360,
+				tickWidth: 10,
+				tickLength: 11,
+				tickColor: '#c4c4c4', // Trait N, E, S, O
+				tickInterval: 90,
+				lineColor: '#FFFFFF', // Cercle Blanc
+				lineWidth: 1,
+
+				labels: {
+					distance: -6,
+					formatter: function () {
+						if (this.value == 360) {
+								return '<span style="color : #fb0431;font-weight:bold;">N</span>';
+						} else if (this.value == 90) {
+								return '<span style="color : #000000;font-weight:bold;">E</span>';
+						} else if (this.value == 180) {
+								return '<span style="color : #000000;font-weight:bold;">S</span>';
+						} else if (this.value == 270) {
+								return '<span style="color : #000000;font-weight:bold;">W</span>';
+						}
 					}
+				},
+				title: {
+						text: null
 				}
 			},
-			title: {
-					text: null
-			}
-		},
-		// Aiguilles
-		series: [{
-			name: 'Vent',
-			yAxis: 0,
-			data: [#wind_direction#],
-			dataLabels: {
-				enabled: false
-			},
-			dial: {
-				radius: '88%',
-				baseWidth: 3,
-				baseLength: '0%',
-				rearLength: 0,
-				borderWidth: 1,
-				borderColor: '#9A0000',
-				backgroundColor: '#CC0000',
-			},
-		}, {
-			name: 'Vent',
-			yAxis: 0,
-			data: [#wind_direction#],
-			dataLabels: {
-				enabled: false
-			},
-			dial: {
-				radius: '-88%',
-				baseWidth: 3,
-				baseLength: '0%',
-				rearLength: 0,
-				borderWidth: 1,
-				borderColor: '#1B4684',
-				backgroundColor: '#3465A4',
-			}
-		}]
+			// Aiguilles
+			series: [{
+				name: 'Vent',
+				yAxis: 0,
+				data: [#wind_direction#],
+				dataLabels: {
+					enabled: false
+				},
+				dial: {
+					radius: '88%',
+					baseWidth: 3,
+					baseLength: '0%',
+					rearLength: 0,
+					borderWidth: 1,
+					borderColor: '#9A0000',
+					backgroundColor: '#CC0000',
+				},
+			}, {
+				name: 'Vent',
+				yAxis: 0,
+				data: [#wind_direction#],
+				dataLabels: {
+					enabled: false
+				},
+				dial: {
+					radius: '-88%',
+					baseWidth: 3,
+					baseLength: '0%',
+					rearLength: 0,
+					borderWidth: 1,
+					borderColor: '#1B4684',
+					backgroundColor: '#3465A4',
+				}
+			}]
 
-	});
-
-
-
-
+		});
 
 	}
 	</script>
