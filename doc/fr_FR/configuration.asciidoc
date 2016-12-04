@@ -6,7 +6,7 @@ Après avoir installé le plugin, il vous faut l'activer, puis renseigner votre 
 
 image::../images/weather13.png[]
 
-Pour obtenir votre clef api il faut aller link:https://home.openweathermap.org[ici], et vous créer un compte, ensuite il faut copier votre clef api dans jeedom : 
+Pour obtenir votre clef api il faut aller link:https://home.openweathermap.org[ici], et vous créez un compte, ensuite il faut copier votre clef api dans jeedom : 
 
 image::../images/weather14.png[]
 
@@ -41,7 +41,7 @@ Vous retrouvez ici toute la configuration de votre équipement :
 
 Vous retrouvez en dessous toutes les commandes disponibles ainsi que la possibilité d'historiser ou non les valeurs numériques.
 
-Le rafraîchissement des données météo s'effectue toutes les 30min.
+Le rafraîchissement des données météo s'effectue toutes les 30 mn.
 
 ==== Widget
 
