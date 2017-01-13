@@ -91,7 +91,7 @@ foreach (object::all() as $object) {
           <?php
 foreach (jeedom::getConfiguration('eqLogic:category') as $key => $value) {
 	echo '<label class="checkbox-inline">';
-	echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />' . $value['name'];
+	echo '<input type="checkbox" class="eqLogicAttr" data-l1key="category" data-l2key="' . $key . '" />{{' . $value['name'].'}}';
 	echo '</label>';
 }
 ?>
