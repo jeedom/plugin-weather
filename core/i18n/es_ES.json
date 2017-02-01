@@ -47,7 +47,7 @@
     "plugins/weather/desktop/php/weather.php": {
         "Ajouter une météo": "Añadir tiempo",
         "Rechercher": "Buscar",
-        "Mes météos": "Mis tiempos",
+        "Mes météos": "Mis meteorologías",
         "Général": "General",
         "Nom de l'équipement météo": "Nombre del dispositivo meteorologico",
         "Objet parent": "Objeto padre",
@@ -71,12 +71,12 @@
         "Gestion": "Administración",
         "Ajouter": "Añadir",
         "Configuration": "Configuración ",
-        "Mes Météos": "Mes Météos",
+        "Mes Météos": "Mis meteorologías",
         "Configuration avancée": "Configuración avanzada",
         "Equipement": "Dispositivos",
         "Commandes": "Órdenes",
         "Ville": "Ciudad",
-        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)"
+        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Una vez creada la clave API, es necesario esperar unas horas antes de su activación (antes de su activación, pueden darse problemas durante la autentificación)"
     },
     "plugins/weather/plugin_info/info.xml": {
         "Plugin pour avoir les information métérologique": "Plugin para obtener información meteorológica",
