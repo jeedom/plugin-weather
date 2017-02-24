@@ -17,14 +17,13 @@
 
 namespace Cmfcmf\OpenWeatherMap;
 
-use Cmfcmf\OpenWeatherMap;
 use Cmfcmf\OpenWeatherMap\Util\City;
 use Cmfcmf\OpenWeatherMap\Util\Sun;
 
 /**
  * Weather class returned by Cmfcmf\OpenWeatherMap->getWeather().
  *
- * @see Cmfcmf\OpenWeatherMap::getWeather() The function using it.
+ * @see \Cmfcmf\OpenWeatherMap::getWeather() The function using it.
  */
 class WeatherForecast implements \Iterator
 {
@@ -74,8 +73,9 @@ class WeatherForecast implements \Iterator
      */
     public function __construct($xml, $units, $days)
     {
-        $this->city = new City(-1, $xml->location->name, $xml->location->location['longitude'], $xml->location->location['latitude'], $xml->location->country);
-        $this->sun = new Sun(new \DateTime($xml->sun['rise']), new \DateTime($xml->sun['set']));
+        $this->city = new City($xml->location->location['geobaseid'], $xml->location->name, $xml->location->location['latitude'], $xml->location->location['longitude'], $xml->location->country);
+        $utctz = new \DateTimeZone('UTC');
+        $this->sun = new Sun(new \DateTime($xml->sun['rise'], $utctz), new \DateTime($xml->sun['set'], $utctz));
         $this->lastUpdate = new \DateTime($xml->meta->lastupdate);
 
         $today = new \DateTime();
@@ -90,6 +90,7 @@ class WeatherForecast implements \Iterator
             }
             $forecast = new Forecast($time, $units);
             $forecast->city = $this->city;
+            $forecast->sun = $this->sun;
             $this->forecasts[] = $forecast;
 
             $counter++;
