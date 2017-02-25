@@ -71,12 +71,12 @@
         "Gestion": "Verwaltung",
         "Ajouter": "Hinzufügen",
         "Configuration": "Konfiguration",
-        "Mes Météos": "Mes Météos",
+        "Mes Météos": "Meine Wetterberichte",
         "Configuration avancée": "Erweiterte Konfiguration",
         "Equipement": "Gerät",
         "Commandes": "Befehle",
         "Ville": "Stadt",
-        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)"
+        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Wenn Sie Ihren API-Schlüssel erstellt haben, müssen Sie ein paar Stunden warten, bevor es aktiv wird (in der Zwischenzeit kann es zu Authentifizierungsfehler kommen)."
     },
     "plugins/weather/plugin_info/info.xml": {
         "Plugin pour avoir les information métérologique": "Plugin, um Wetterinformationen zu erhalten",
