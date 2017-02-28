@@ -5,8 +5,8 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3.dev">
-<meta name="author" content="Plugin permettant de recupérer, d'afficher et d'exploiter des données métérologiques.">
-<title>Météo</title>
+<meta name="author" content="Плагин для получения, отображения и использования метеорологических данных.">
+<title>Погода</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -413,19 +413,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Météo</h1>
+<h1>Погода</h1>
 <div class="details">
-<span id="author" class="author">Plugin permettant de recupérer, d'afficher et d'exploiter des données métérologiques.</span><br>
+<span id="author" class="author">Плагин для получения, отображения и использования метеорологических данных.</span><br>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table des matières</div>
+<div id="toctitle">Содержание</div>
 <ul class="sectlevel1">
-<li><a href="#_configuration">1. Configuration</a>
+<li><a href="#_configuration">1. Конфигурация</a>
 <ul class="sectlevel2">
-<li><a href="#_configuration_du_plugin">1.1. Configuration du plugin</a></li>
-<li><a href="#_configuration_des_équipements">1.2. Configuration des équipements</a>
+<li><a href="#_configuration_du_plugin">1.1. Конфигурация плагина</a></li>
+<li><a href="#_configuration_des_équipements">1.2. Конфигурация обородования</a>
 <ul class="sectlevel3">
-<li><a href="#_widget">1.2.1. Widget</a></li>
+<li><a href="#_widget">1.2.1. Виджет (Widjet)</a></li>
 </ul>
 </li>
 </ul>
@@ -440,23 +440,23 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_configuration">1. Configuration</h2>
+<h2 id="_configuration">1. Конфигурация</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Le plugin Weather permet de recevoir des données météorologiques pour une ou plusieurs villes. Il permet entre autre d&#8217;avoir les informations de lever et coucher du soleil, de température, de prévision, de vent&#8230;&#8203;</p>
+<p>Плагин позволяет получать данные о погоде для одного или нескольких городов. Также доступна информация  восхода и захода солнца, температура, прогноз ветра&#8230;&#8203;</p>
 </div>
 <div class="sect2">
-<h3 id="_configuration_du_plugin">1.1. Configuration du plugin</h3>
+<h3 id="_configuration_du_plugin">1.1. Конфигурация плагина</h3>
 <div class="paragraph">
-<p>Après avoir installé le plugin, il vous faut l&#8217;activer, puis renseigner votre clef api :</p>
+<p>После установки плагина, вам необходимо активировать его и ввести ключ API:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/weather13.png" alt="weather13">
+<img src="../ru_RU/images/weather13.png" alt="weather13">
 </div>
 </div>
 <div class="paragraph">
-<p>Pour obtenir votre clef api il faut aller <a href="https://home.openweathermap.org">ici</a>, et vous créez un compte, ensuite il faut copier votre clef api dans jeedom :</p>
+<p>Чтобы получить ключ API Вы должны пойти по ссылке <a href="https://home.openweathermap.org">ici</a> и создать учетную запись. Потом скопируйте ключ API в jeedom:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -470,28 +470,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Il faut attendre quelques heures ensuite, le temps que la clef soit active
+Ключ может стать активным только несколько часов спустя
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_configuration_des_équipements">1.2. Configuration des équipements</h3>
+<h3 id="_configuration_des_équipements">1.2. Конфигурация обородования</h3>
 <div class="paragraph">
-<p>La configuration des équipements Météo est accessible à partir du menu plugin :</p>
+<p>Конфигурация обородования доступна из меню плагинов:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/weather10.png" alt="weather10">
+<img src="../ru_RU/images/weather10.png" alt="weather10">
 </div>
 </div>
 <div class="paragraph">
-<p>Voilà à quoi ressemble la page du plugin Weather (ici avec déjà 1 ville, vous pouvez en mettre autant que vous voulez) :</p>
+<p>Сдесь Вы можете поставить столько оборудований, сколько вы захотите ):</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/weather11.png" alt="weather11">
+<img src="../ru_RU/images/weather11.png" alt="weather11">
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -507,59 +507,60 @@ Comme à beaucoup d&#8217;endroits sur Jeedom, placer la souris tout à gauche p
 </table>
 </div>
 <div class="paragraph">
-<p>Une fois que vous cliquez sur l&#8217;un d&#8217;eux, vous obtenez :</p>
+<p>После того, как вы нажмете на одну из них откроется окно настроек:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/weather12.png" alt="weather12">
+<img src="../ru_RU/images/weather12.png" alt="weather12">
 </div>
 </div>
 <div class="paragraph">
-<p>Vous retrouvez ici toute la configuration de votre équipement :</p>
+<p>Здесь вы найдете всю конфигурацию оборудования:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Nom de l&#8217;équipement météo</strong> : nom de votre équipement météo</p>
+<p><strong>Название метеорологического оборудования</strong> : Название метеорологического оборудования</p>
 </li>
 <li>
-<p><strong>Activer</strong> : permet de rendre votre équipement actif</p>
+<p><strong>Активный</strong> : позволяет ваше активное оборудование</p>
 </li>
 <li>
-<p><strong>Visible</strong> : rend votre équipement visible sur le dashboard</p>
+<p><strong>Видимый</strong> : делает ваше оборудование видимым на приборной панели</p>
 </li>
 <li>
-<p><strong>Objet parent</strong> : indique l&#8217;objet parent auquel appartient l&#8217;équipement</p>
+<p><strong>Родитель</strong> : указывает родитея текущего обородования</p>
 </li>
 <li>
-<p><strong>Ville</strong> : Il faut mettre le nom de votre ville suivi du code pays, ex : Paris,fr</p>
+<p><strong>Город</strong> : город  и если нужно код страны. Например, Kyiv,UA </p>
 </li>
 <li>
-<p><strong>Affichage complet en mobile</strong> : permet d&#8217;afficher toutes les informations météo ou non en mobile</p>
+<p><strong>Во весь екран на мобильном</strong> </p>
+<p><strong>Режим изображения</strong> </p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Vous retrouvez en dessous toutes les commandes disponibles ainsi que la possibilité d&#8217;historiser ou non les valeurs numériques.</p>
+<p>На закладке "Команды" Вы можете найти список всех доступных команд</p>
 </div>
 <div class="paragraph">
-<p>Le rafraîchissement des données météo s&#8217;effectue toutes les 30 mn.</p>
+<p>Данные о погоде обновляются через каждые 30 минут.</p>
 </div>
 <div class="sect3">
-<h4 id="_widget">1.2.1. Widget</h4>
+<h4 id="_widget">1.2.1. Виджет (Widget)</h4>
 <div class="paragraph">
-<p>Vous obtiendrez alors le widget suivant :</p>
+<p>После этого Вы получите следующий виджет:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/weather_screenshot2.png" alt="weather screenshot2">
+<img src="../ru_RU/images/weather_screenshot2.png" alt="weather screenshot2">
 </div>
 </div>
 <hr>
 <div class="ulist">
 <ul>
 <li>
-<p>Correction d&#8217;un bug sur le non déclenchement au lever/coucher du soleil</p>
+
 </li>
 </ul>
 </div>

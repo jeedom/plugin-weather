@@ -1,5 +1,5 @@
-= Météo
-Plugin permettant de recupérer, d'afficher et d'exploiter des données métérologiques.
+= Погода
+Плагин для получения, отображения и использования метеорологических данных.
 
 '''
 == Configuration
