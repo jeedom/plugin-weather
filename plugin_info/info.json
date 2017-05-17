@@ -5,6 +5,5 @@
 	"licence" : "AGPL",
 	"author" : "Loïc",
 	"require" : "2.4",
-	"category" : "weather",
-	"include" : {"type" : "php" , "file" : "weather.inc" }
+	"category" : "weather"
 }
