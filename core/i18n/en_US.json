@@ -19,7 +19,7 @@
         "fair": "fair",
         "pluvieux": "rainy",
         "neige": "snow",
-        "snow": "neige",
+        "snow": "snow",
         "Température": "Temperature",
         "Humidité": "Humidity",
         "Pression": "Pressure",
@@ -47,7 +47,7 @@
     "plugins/weather/desktop/php/weather.php": {
         "Ajouter une météo": "Add weather",
         "Rechercher": "Search",
-        "Mes météos": "My weathers",
+        "Mes météos": "My forecasts",
         "Général": "Main",
         "Nom de l'équipement météo": "Weather device name",
         "Objet parent": "Parent object",
