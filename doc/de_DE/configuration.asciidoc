@@ -2,33 +2,14 @@ Das Wetter-Plugin ermöglicht es, Wetterdaten für eine oder mehrere Städte zu 
 
 === Plugin Konfiguration
 
-Nach der Installation des Plugins, müssen sie es erst aktivieren und den API-Schlüssel eingeben : 
+Après avoir installé le plugin, il vous faut l'activer, puis renseigner votre clef api/ 
 
-image::../images/weather13.png[]
-
-Pour obtenir votre clef api il faut aller link:https://home.openweathermap.org[ici], et vous créez un compte, ensuite il faut copier votre clef api dans jeedom : 
-
-image::../images/weather14.png[]
+Pour obtenir votre clef api il faut aller link:https://home.openweathermap.org[ici], et vous créez un compte, ensuite il faut copier votre clef api dans jeedom.
 
 [IMPORTANT]
 Mann muß dann ein paar Stunden warten, bis der Schlüssel aktiv ist.
 
 === Geräte Konfiguration
-
-Die Konfiguration von Wetter-Geräten ist in dem Plugin-Menü verfügbar :
-
-image::../images/weather10.png[]
-
-Die Wetter-Plugin Seite sieht so aus (hier bereits mit 1 Stadt, sie können so viel sie wollen anlegen) :
-
-image::../images/weather11.png[]
-
-[TIP]
-Wie an vielen Stellen in Jeedom kann mit dem Mauszeiger ganz links, ein Menü mit Schnellzugriff aufgerufen werden (Sie können in Ihrem Profil immer sichtbar einstellen).  
-
-Sobald Sie eines davon anklicken, erhalten Sie :
-
-image::../images/weather12.png[]
 
 Hier finden sie die ganze Konfiguration Ihrer Geräte:
 
@@ -42,9 +23,3 @@ Hier finden sie die ganze Konfiguration Ihrer Geräte:
 Im folgenden finden Sie alle verfügbaren Befehle und die möglichkeit die Zahlenwerte zu archivieren oder nicht.
 
 Le rafraîchissement des données météo s'effectue toutes les 30 mn.
-
-==== Widget
-
-Dann erhalten Sie das folgende Widget :
-
-image::../images/weather_screenshot2.png[]
