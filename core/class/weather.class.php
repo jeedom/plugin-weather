@@ -24,7 +24,7 @@ use Cmfcmf\OpenWeatherMap;
 
 class weather extends eqLogic {
 	/*     * *************************Attributs****************************** */
-	public static $_widgetPossibility = array('custom' => true);
+	public static $_widgetPossibility = array('custom' => true, 'custom::layout' => false);
 
 	/*     * ***********************Methode static*************************** */
 
