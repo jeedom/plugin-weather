@@ -710,7 +710,20 @@ class weather extends eqLogic {
 		$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
 		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
 		if ($weather == NULL) {
-			return;
+			sleep(10);
+			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
+			$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
+			if ($weather == NULL) {
+				return;
+			}
+		}
+		if ($weather->humidity->getValue() == 0) {
+			sleep(10);
+			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
+			$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
+			if ($weather->humidity->getValue() == 0) {
+				return;
+			}
 		}
 		log::add('weather', 'debug', print_r($weather, true));
 		$changed = false;
