@@ -21,5 +21,6 @@ Vous retrouvez ici toute la configuration de votre équipement :
 * *Affichage complet en mobile* : permet d'afficher toutes les informations météo ou non en mobile
 
 Vous retrouvez en dessous toutes les commandes disponibles ainsi que la possibilité d'historiser ou non les valeurs numériques.
+Le code (numéro)en fonction des conditions est disponible ici: https://openweathermap.org/weather-conditions
 
 Le rafraîchissement des données météo s'effectue toutes les 30 mn.
