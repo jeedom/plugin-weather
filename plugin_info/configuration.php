@@ -25,7 +25,7 @@ if (!isConnect('admin')) {
 	<fieldset>
    <div class="form-group">
     <label class="col-lg-4 control-label">{{Clef API OpenWeatherMap}}</label>
-    <div class="col-lg-2">
+    <div class="col-lg-4">
      <input class="configKey form-control" data-l1key="apikey" />
    </div>
  </div>

@@ -714,7 +714,7 @@ class weather extends eqLogic {
 			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
 			$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
 			if ($weather == NULL) {
-				log::add('weather', 'debug', __('(1) Impossible de récuperer les informations météo : ', __FILE__) . json_encode($weather));
+				log::add('weather', 'warning', __('(1) Impossible de récuperer les informations météo : ', __FILE__) . json_encode($weather));
 				return;
 			}
 		}
@@ -723,7 +723,7 @@ class weather extends eqLogic {
 			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
 			$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
 			if ($weather->humidity->getValue() == 0) {
-				log::add('weather', 'debug', __('(2) Impossible de récuperer les informations météo : ', __FILE__) . json_encode($weather));
+				log::add('weather', 'warning', __('(2) Impossible de récuperer les informations météo : ', __FILE__) . json_encode($weather));
 				return;
 			}
 		}
