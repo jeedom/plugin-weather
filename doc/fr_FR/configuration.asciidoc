@@ -28,5 +28,5 @@ Le rafraîchissement des données météo s'effectue toutes les 30 minutes.
 [TIP]
 Nous vous conseillons de vous rendre link:https://openweathermap.org/find?[ici] afin de vérifier si votre ville, village est connu ou pas. Auquel cas il faudra trouver la ville la plus proche connue et saisir cette dernière dans la configuration de votre équipement pour pouvoir récupérer les informations. 
 
-[TIP2]
-Une fois la recherche de votre ville réussie le site openweathermap vous montre les informations disponibles et vous devriez avoir dans votre navigateur une url du type https://openweathermap.org/city/2988507. Ce numéro à la fin de l'url peut également être saisi dans l'équipement Jeedom en lieu et place de Paris,fr.  
+[TIP]
+Une fois la recherche de votre ville réussie le site openweathermap vous montre les informations disponibles et vous devriez avoir dans votre navigateur une url du type https://openweathermap.org/city/2988507. Ce numéro à la fin de l'url peut également être saisi dans l'équipement Jeedom en lieu et place de Paris,fr par exemple  
