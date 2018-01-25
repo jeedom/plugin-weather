@@ -45,7 +45,7 @@
         "Condition +4": "Condition +4"
     },
     "plugins/weather/desktop/php/weather.php": {
-        "Ajouter une météo": "Ajouter une météo",
+        "Ajouter une météo": "menambahkan cuaca",
         "Rechercher": "Mencari",
         "Mes météos": "Mes météos",
         "Général": "Umum",
@@ -67,12 +67,12 @@
         "Catégorie": "Kategori",
         "Mode image": "Mode image",
         "Options": "Pilihan",
-        "Ajouter un dispositif": "Ajouter un dispositif",
+        "Ajouter un dispositif": "Tambahkan Perangkat",
         "Gestion": "Manajemen",
         "Ajouter": "Tambahan",
         "Configuration": "Konfigurasi",
         "Mes Météos": "Mes Météos",
-        "Configuration avancée": "Configuration avancée",
+        "Configuration avancée": "konfigurasi lanjutan",
         "Equipement": "Peralatan",
         "Commandes": "Perintah",
         "Ville": "Kota",

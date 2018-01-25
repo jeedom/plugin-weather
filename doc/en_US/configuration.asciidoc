@@ -11,7 +11,7 @@ Il faut attendre quelques heures ensuite le temps que la clef soit active avant 
 
 === Configuration des équipements
 
-Vous retrouvez ici toute la configuration de votre équipement :
+You can find here the full configuration of your device :
 
 * *Nom de l'équipement météo* : nom de votre équipement météo
 * *Activer* : permet de rendre votre équipement actif

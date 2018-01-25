@@ -67,7 +67,7 @@
         "Catégorie": "Categoria",
         "Mode image": "Mode image",
         "Options": "Opzioni",
-        "Ajouter un dispositif": "Ajouter un dispositif",
+        "Ajouter un dispositif": "Aggiungi dispositivo",
         "Gestion": "Gestione",
         "Ajouter": "Aggiungi",
         "Configuration": "Configurazione",
@@ -75,7 +75,7 @@
         "Configuration avancée": "Configurazione avanzata",
         "Equipement": "Dispositivo",
         "Commandes": "Comandi",
-        "Ville": "Ville",
+        "Ville": "città",
         "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)"
     },
     "plugins/weather/plugin_info/info.xml": {
