@@ -18,8 +18,8 @@
         "beau": "bello",
         "fair": "sereno",
         "pluvieux": "piovoso",
-        "neige": "neige",
-        "snow": "snow",
+        "neige": "neve",
+        "snow": "neve",
         "Température": "Temperatura",
         "Humidité": "Umidità",
         "Pression": "Pressione",
@@ -58,28 +58,28 @@
         "Obtenir le code WOEID": "Recupera codice WOIED",
         "Historiser les données": "Registra dati",
         "Affichage complet en mobile": "Visualizzazione completa su mobile",
-        "Fréquence de rafraichissement des données (par défaut : */30 * * * *)": "Fréquence de rafraîchissement des données (par défaut : */30 * * * *)",
+        "Fréquence de rafraichissement des données (par défaut : */30 * * * *)": "frequenza di aggiornamento dei dati (default: * / 30 * * * *)",
         "Météo": "Meteo",
         "Nom": "Nome",
         "Valeur": "Valore",
         "Supprimer": "Elimina",
         "Sauvegarder": "Salva",
         "Catégorie": "Categoria",
-        "Mode image": "Mode image",
+        "Mode image": "modalità immagine",
         "Options": "Opzioni",
         "Ajouter un dispositif": "Aggiungi dispositivo",
         "Gestion": "Gestione",
         "Ajouter": "Aggiungi",
         "Configuration": "Configurazione",
-        "Mes Météos": "Mes Météos",
+        "Mes Météos": "i miei Meteos",
         "Configuration avancée": "Configurazione avanzata",
         "Equipement": "Dispositivo",
         "Commandes": "Comandi",
         "Ville": "città",
-        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)"
+        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Se hai creato il tuo chiave API è inoltre necessario attendere qualche ora prima che sia attiva (nel frattempo ci può essere un errore di autenticazione)"
     },
     "plugins/weather/plugin_info/info.xml": {
-        "Plugin pour avoir les information métérologique": "Plugin pour avoir les informations métérologiques",
+        "Plugin pour avoir les information métérologique": "Plugin per le informazioni meteorologiche",
         "Aucune": "Nessuno",
         "Plugin pour avoir les informations météorologiques": "Plugin per recuperare informazioni metereologiche"
     },
@@ -89,7 +89,7 @@
         "Tester": "Prova"
     },
     "plugins/weather/plugin_info/configuration.php": {
-        "Clef API OpenWeatherMap": "Clef API OpenWeatherMap"
+        "Clef API OpenWeatherMap": "API Key OpenWeatherMap"
     },
     "plugins/weather/plugin_info/info.json": {
         "Plugin pour avoir les informations météorologiques": "Plugin per recuperare informazioni metereologiche"

@@ -18,31 +18,31 @@
         "beau": "красивый",
         "fair": "ярмарка",
         "pluvieux": "ярмарка",
-        "neige": "neige",
-        "snow": "snow",
+        "neige": "снег",
+        "snow": "снег",
         "Température": "Температура",
         "Humidité": "Влажность",
         "Pression": "Давление",
-        "Condition Actuelle": "Condition Actuelle",
-        "Vitesse du vent": "Vitesse du vent",
+        "Condition Actuelle": "Текущее состояние",
+        "Vitesse du vent": "скорость ветра",
         "Direction du vent": "Направление ветра",
-        "Coucher du soleil": "Coucher du soleil",
-        "Lever du soleil": "Lever du soleil",
-        "Température Min": "Température Min",
-        "Température Max": "Température Max",
-        "Condition": "Condition",
-        "Température Min +1": "Température Min +1",
-        "Température Max +1": "Température Max +1",
-        "Température Min +2": "Température Min +2",
-        "Température Max +2": "Température Max +2",
-        "Température Min +3": "Température Min +3",
-        "Température Max +3": "Température Max +3",
-        "Température Min +4": "Température Min +4",
-        "Température Max +4": "Température Max +4",
-        "Condition +1": "Condition +1",
-        "Condition +2": "Condition +2",
-        "Condition +3": "Condition +3",
-        "Condition +4": "Condition +4"
+        "Coucher du soleil": "закат",
+        "Lever du soleil": "восход солнца",
+        "Température Min": "температура Мин",
+        "Température Max": "Максимальная температура",
+        "Condition": "состояние",
+        "Température Min +1": "Температура Мин 1",
+        "Température Max +1": "Максимальная температура 1",
+        "Température Min +2": "Температура Мин 2",
+        "Température Max +2": "Максимальная температура 2",
+        "Température Min +3": "Температура Мин 3",
+        "Température Max +3": "Максимальная температура 3",
+        "Température Min +4": "Температура Мин 4",
+        "Température Max +4": "Температура Макс 4",
+        "Condition +1": "Состояние 1",
+        "Condition +2": "Состояние 2",
+        "Condition +3": "Условие 3",
+        "Condition +4": "Состояние 4"
     },
     "plugins/weather/desktop/php/weather.php": {
         "Ajouter une météo": "Добавить Погоду",
@@ -58,30 +58,30 @@
         "Obtenir le code WOEID": "Получить WOEID код",
         "Historiser les données": "Записать данные в Историю",
         "Affichage complet en mobile": "Полный мобильный дисплей",
-        "Fréquence de rafraichissement des données (par défaut : */30 * * * *)": "Fréquence de rafraîchissement des données (par défaut : */30 * * * *)",
+        "Fréquence de rafraichissement des données (par défaut : */30 * * * *)": "Частота обновления данных (по умолчанию: * / 30 * * * *)",
         "Météo": "Погода",
         "Nom": "Имя",
         "Valeur": "Значение",
         "Supprimer": "Удалить",
         "Sauvegarder": "Сохранить",
         "Catégorie": "Категория",
-        "Mode image": "Mode image",
+        "Mode image": "режим изображения",
         "Options": "Опции",
         "Ajouter un dispositif": "Добавить устройство",
         "Gestion": "Управление",
         "Ajouter": "Добавить",
         "Configuration": "Конфигурация",
-        "Mes Météos": "Mes Météos",
+        "Mes Météos": "мои Météos",
         "Configuration avancée": "Расширенные настройки",
         "Equipement": "Оборудование",
         "Commandes": "Команды",
         "Ville": "город",
-        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)"
+        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Если вы создали свой ключ API также необходимо подождать несколько часов, прежде чем он активен (в то же время может быть ошибка аутентификации)"
     },
     "plugins/weather/plugin_info/info.xml": {
-        "Plugin pour avoir les information métérologique": "Plugin pour avoir les informations métérologiques",
+        "Plugin pour avoir les information métérologique": "Плагин для метеорологической информации",
         "Aucune": "Нет",
-        "Plugin pour avoir les informations météorologiques": "Plugin pour avoir les informations météorologiques"
+        "Plugin pour avoir les informations météorologiques": "Плагин для информации о погоде"
     },
     "plugins/weather/desktop/js/weather.js": {
         "Nom": "Имя",
@@ -89,9 +89,9 @@
         "Tester": "Тест"
     },
     "plugins/weather/plugin_info/configuration.php": {
-        "Clef API OpenWeatherMap": "Clef API OpenWeatherMap"
+        "Clef API OpenWeatherMap": "API Key OpenWeatherMap"
     },
     "plugins/weather/plugin_info/info.json": {
-        "Plugin pour avoir les informations météorologiques": "Plugin pour avoir les informations météorologiques"
+        "Plugin pour avoir les informations météorologiques": "Плагин для информации о погоде"
     }
 }
