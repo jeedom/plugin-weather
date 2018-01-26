@@ -42,7 +42,15 @@
         "Condition +1": "Durum +1",
         "Condition +2": "Durum +2",
         "Condition +3": "Durum +3",
-        "Condition +4": "Durum +4"
+        "Condition +4": "Durum +4",
+        "Impossible de récuperer les informations météos": "Impossible de récuperer les informations météos",
+        "Impossible de récuperer les informations météos : ": "Impossible de récuperer les informations météos :",
+        "(2) Impossible de récuperer les informations météo : ": "(2) Impossible de récuperer les informations météo :",
+        "Numéro condition": "Numéro condition",
+        "Numéro condition +1": "Numéro condition +1",
+        "Numéro condition +2": "Numéro condition +2",
+        "Numéro condition +3": "Numéro condition +3",
+        "Numéro condition +4": "Numéro condition +4"
     },
     "plugins/weather/desktop/php/weather.php": {
         "Ajouter une météo": "Hava durumu ekle",
