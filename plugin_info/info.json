@@ -5,7 +5,7 @@
 	"licence" : "AGPL",
 	"author" : "Loïc",
 	"require" : "3.0",
-	"category" : "weather",
-	"changelog" : "https://github.com/jeedom/plugin-weather/blob/stable/doc/#language#/changelog.asciidoc",
-	"documentation" : "https://github.com/jeedom/plugin-weather/blob/stable/doc/#language#/index.asciidoc"
+        "category" : "weather",
+        "changelog" : "https://jeedom.github.io/plugin-weather/#language#/changelog",
+        "documentation" : "https://jeedom.github.io/plugin-weather/#language#/"
 }
