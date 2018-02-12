@@ -30,12 +30,12 @@ You can find here the full configuration of your device :
 
 -   **Nom de l’équipement météo** : nom de votre équipement météo
 
--   **Activer** : permet de rendre votre équipement actif
+-   **Enable**: makes your equipment active
 
 -   **Visible** : rend votre équipement visible sur le dashboard
 
 -   **Parent Object** : means the parent object the equipment depend
-    l’équipement
+    equipment
 
 -   **Ville** : Il faut mettre le nom de votre ville suivi du code pays,
     ex : Paris,fr

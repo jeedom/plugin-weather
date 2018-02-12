@@ -30,12 +30,12 @@ Aquí encontrará toda la configuración de su dispositivo:
 
 -   **Nom de l’équipement météo** : nom de votre équipement météo
 
--   **Activer** : permet de rendre votre équipement actif
+-   ** ** Activar: para que su equipo activo
 
 -   **Visible** : rend votre équipement visible sur le dashboard
 
 -   **Objeto padre** : especifica el objeto padre al que pertenece
-    l’équipement
+    equipo
 
 -   **Ville** : Il faut mettre le nom de votre ville suivi du code pays,
     ex : Paris,fr
