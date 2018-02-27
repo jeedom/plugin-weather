@@ -1,6 +1,6 @@
 {
     "plugins/weather/core/class/weather.class.php": {
-        "orage": "Sturm",
+        "orage": "Gewitter",
         "storm": "Sturm",
         "brouillard": "Nebel",
         "brumeux": "nebelig",
@@ -46,14 +46,14 @@
         "Impossible de récuperer les informations météos": "Die Wetterinformationen können nicht abgerufen werden",
         "Impossible de récuperer les informations météos : ": "Die Wetterinformationen können nicht abgerufen werden :",
         "(2) Impossible de récuperer les informations météo : ": "(2) Die Wetterinformationen können nicht abgerufen werden :",
-        "Numéro condition": "Numéro condition",
-        "Numéro condition +1": "Numéro condition +1",
-        "Numéro condition +2": "Numéro condition +2",
-        "Numéro condition +3": "Numéro condition +3",
-        "Numéro condition +4": "Numéro condition +4"
+        "Numéro condition": "Konditionsnummer",
+        "Numéro condition +1": "Konditionsnummer +1",
+        "Numéro condition +2": "Konditionsnummer +2",
+        "Numéro condition +3": "Konditionsnummer +3",
+        "Numéro condition +4": "Konditionsnummer +4"
     },
     "plugins/weather/desktop/php/weather.php": {
-        "Ajouter une météo": "Einen Wetterbericht hinzufügen ",
+        "Ajouter une météo": "Wettervorhersage hinzufügen",
         "Rechercher": "Suche nach",
         "Mes météos": "Mein Wetter",
         "Général": "Allgemein",
@@ -84,10 +84,10 @@
         "Equipement": "Gerät",
         "Commandes": "Befehle",
         "Ville": "Stadt",
-        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Wenn Sie Ihren API-Schlüssel erstellt haben, müssen Sie ein paar Stunden warten, bevor es aktiv wird (in der Zwischenzeit kann es zu Authentifizierungsfehler kommen)."
+        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Wenn Sie gerade erst Ihren API-Schlüssel erstellt haben, müssen Sie möglicherweise einige Stunden warten, bevor er aktiv ist (bis dahin kann es zu Authentifizierungsfehlern kommen)."
     },
     "plugins/weather/plugin_info/info.xml": {
-        "Plugin pour avoir les information métérologique": "Plugin, um Wetterinformationen zu erhalten",
+        "Plugin pour avoir les information métérologique": "Plugin für Wetterinformationen",
         "Aucune": "Ohne",
         "Plugin pour avoir les informations météorologiques": "Plugin, um Wetterinformationen zu erhalten"
     },
