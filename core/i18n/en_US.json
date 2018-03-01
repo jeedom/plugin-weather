@@ -43,14 +43,14 @@
         "Condition +2": "Condition +2",
         "Condition +3": "Condition +3",
         "Condition +4": "Condition +4",
-        "Impossible de récuperer les informations météos": "Impossible de récuperer les informations météos",
-        "Impossible de récuperer les informations météos : ": "Impossible de récuperer les informations météos :",
-        "(2) Impossible de récuperer les informations météo : ": "(2) Impossible de récuperer les informations météo :",
-        "Numéro condition": "Numéro condition",
-        "Numéro condition +1": "Numéro condition +1",
-        "Numéro condition +2": "Numéro condition +2",
-        "Numéro condition +3": "Numéro condition +3",
-        "Numéro condition +4": "Numéro condition +4"
+        "Impossible de récuperer les informations météos": "Unable to retrieve weather informations",
+        "Impossible de récuperer les informations météos : ": "Unable to retrieve weather informations :",
+        "(2) Impossible de récuperer les informations météo : ": "(2) Unable to retrieve weather informations :",
+        "Numéro condition": "Condition number",
+        "Numéro condition +1": "Condition number +1",
+        "Numéro condition +2": "Condition number +2",
+        "Numéro condition +3": "Condition number +3",
+        "Numéro condition +4": "Condition number +4"
     },
     "plugins/weather/desktop/php/weather.php": {
         "Ajouter une météo": "Add weather",
