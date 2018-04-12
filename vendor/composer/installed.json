@@ -1,17 +1,17 @@
 [
     {
         "name": "cmfcmf/openweathermap-php-api",
-        "version": "v2.2.0",
-        "version_normalized": "2.2.0.0",
+        "version": "v2.2.3",
+        "version_normalized": "2.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/cmfcmf/OpenWeatherMap-PHP-Api.git",
-            "reference": "04a0b0ee1168fe50beda534e4795b0eae69fe86b"
+            "reference": "045e7659514b9b54fcf2d86b9f729fe754f60856"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cmfcmf/OpenWeatherMap-PHP-Api/zipball/04a0b0ee1168fe50beda534e4795b0eae69fe86b",
-            "reference": "04a0b0ee1168fe50beda534e4795b0eae69fe86b",
+            "url": "https://api.github.com/repos/cmfcmf/OpenWeatherMap-PHP-Api/zipball/045e7659514b9b54fcf2d86b9f729fe754f60856",
+            "reference": "045e7659514b9b54fcf2d86b9f729fe754f60856",
             "shasum": ""
         },
         "require": {
@@ -20,7 +20,7 @@
         "require-dev": {
             "phpunit/phpunit": "^4.8 || ^5.0.5"
         },
-        "time": "2017-02-08 21:01:58",
+        "time": "2018-01-21T12:18:08+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

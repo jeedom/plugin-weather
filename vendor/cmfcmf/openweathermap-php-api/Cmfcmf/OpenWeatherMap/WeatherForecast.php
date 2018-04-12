@@ -25,121 +25,116 @@ use Cmfcmf\OpenWeatherMap\Util\Sun;
  *
  * @see \Cmfcmf\OpenWeatherMap::getWeather() The function using it.
  */
-class WeatherForecast implements \Iterator
-{
-    /**
-     * A city object.
-     *
-     * @var Util\City
-     */
-    public $city;
+class WeatherForecast implements \Iterator {
+	/**
+	 * A city object.
+	 *
+	 * @var Util\City
+	 */
+	public $city;
 
-    /**
-     * A sun object
-     *
-     * @var Util\Sun
-     */
-    public $sun;
+	/**
+	 * A sun object
+	 *
+	 * @var Util\Sun
+	 */
+	public $sun;
 
-    /**
-     * The time of the last update of this weather data.
-     *
-     * @var \DateTime
-     */
-    public $lastUpdate;
+	/**
+	 * The time of the last update of this weather data.
+	 *
+	 * @var \DateTime
+	 */
+	public $lastUpdate;
 
-    /**
-     * An array of {@link Forecast} objects.
-     *
-     * @var Forecast[]
-     *
-     * @see Forecast The Forecast class.
-     */
-    private $forecasts;
+	/**
+	 * An array of {@link Forecast} objects.
+	 *
+	 * @var Forecast[]
+	 *
+	 * @see Forecast The Forecast class.
+	 */
+	private $forecasts;
 
-    /**
-     * @internal
-     */
-    private $position = 0;
+	/**
+	 * @internal
+	 */
+	private $position = 0;
 
-    /**
-     * Create a new Forecast object.
-     *
-     * @param        $xml
-     * @param string $units
-     * @param int    $days How many days of forecast to receive.
-     *
-     * @internal
-     */
-    public function __construct($xml, $units, $days)
-    {
-        $this->city = new City($xml->location->location['geobaseid'], $xml->location->name, $xml->location->location['latitude'], $xml->location->location['longitude'], $xml->location->country);
-        $utctz = new \DateTimeZone('UTC');
-        $this->sun = new Sun(new \DateTime($xml->sun['rise'], $utctz), new \DateTime($xml->sun['set'], $utctz));
-        $this->lastUpdate = new \DateTime($xml->meta->lastupdate);
+	/**
+	 * Create a new Forecast object.
+	 *
+	 * @param        $xml
+	 * @param string $units
+	 * @param int    $days How many days of forecast to receive.
+	 *
+	 * @internal
+	 */
+	public function __construct($xml, $units, $days) {
+		$this->city = new City($xml->location->location['geobaseid'], $xml->location->name, $xml->location->location['latitude'], $xml->location->location['longitude'], $xml->location->country);
+		$utctz = new \DateTimeZone('UTC');
+		$this->sun = new Sun(new \DateTime($xml->sun['rise'], $utctz), new \DateTime($xml->sun['set'], $utctz));
+		$this->lastUpdate = new \DateTime($xml->meta->lastupdate);
 
-        $today = new \DateTime();
-        $today->setTime(0, 0, 0);
-        $counter = 0;
-        foreach ($xml->forecast->time as $time) {
-            $date = new \DateTime(isset($time['day']) ? $time['day'] : $time['to']);
-            if ($date < $today) {
-                // Sometimes OpenWeatherMap returns results which aren't real
-                // forecasts. The best we can do is to ignore them.
-                continue;
-            }
-            $forecast = new Forecast($time, $units);
-            $forecast->city = $this->city;
-            $forecast->sun = $this->sun;
-            $this->forecasts[] = $forecast;
+		$today = new \DateTime();
+		$today->setTime(0, 0, 0);
+		$counter = 0;
+		if (count($xml->forecast->time) > 0) {
+			foreach ($xml->forecast->time as $time) {
+				$date = new \DateTime(isset($time['day']) ? $time['day'] : $time['to']);
+				if ($date < $today) {
+					// Sometimes OpenWeatherMap returns results which aren't real
+					// forecasts. The best we can do is to ignore them.
+					continue;
+				}
+				$forecast = new Forecast($time, $units);
+				$forecast->city = $this->city;
+				$forecast->sun = $this->sun;
+				$this->forecasts[] = $forecast;
 
-            $counter++;
-            // Make sure to only return the requested number of days.
-            if ($days <= 5 && $counter == $days * 8) {
-                break;
-            } elseif ($days > 5 && $counter == $days) {
-                break;
-            }
-        }
-    }
+				$counter++;
+				// Make sure to only return the requested number of days.
+				if ($days <= 5 && $counter == $days * 8) {
+					break;
+				} elseif ($days > 5 && $counter == $days) {
+					break;
+				}
+			}
+		}
+	}
 
-    /**
-     * @internal
-     */
-    public function rewind()
-    {
-        $this->position = 0;
-    }
+	/**
+	 * @internal
+	 */
+	public function rewind() {
+		$this->position = 0;
+	}
 
-    /**
-     * @internal
-     */
-    public function current()
-    {
-        return $this->forecasts[$this->position];
-    }
+	/**
+	 * @internal
+	 */
+	public function current() {
+		return $this->forecasts[$this->position];
+	}
 
-    /**
-     * @internal
-     */
-    public function key()
-    {
-        return $this->position;
-    }
+	/**
+	 * @internal
+	 */
+	public function key() {
+		return $this->position;
+	}
 
-    /**
-     * @internal
-     */
-    public function next()
-    {
-        ++$this->position;
-    }
+	/**
+	 * @internal
+	 */
+	public function next() {
+		++$this->position;
+	}
 
-    /**
-     * @internal
-     */
-    public function valid()
-    {
-        return isset($this->forecasts[$this->position]);
-    }
+	/**
+	 * @internal
+	 */
+	public function valid() {
+		return isset($this->forecasts[$this->position]);
+	}
 }
