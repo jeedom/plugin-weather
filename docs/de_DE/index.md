@@ -44,7 +44,7 @@ possibilité d’historiser ou non les valeurs numériques. Le code (numéro)
 en fonction des conditions est disponible
 [ici](https://openweathermap.org/weather-conditions)
 
-Le rafraîchissement des données météo s’effectue toutes les 30 minutes.
+Die Wetter-Daten-Aktualisierung erfolgt alle 30 min. 
 
 > **Tip**
 >
@@ -63,7 +63,7 @@ Le rafraîchissement des données météo s’effectue toutes les 30 minutes.
 > peut également être saisi dans l’équipement Jeedom en lieu et place de
 > Paris,fr par exemple
 
-Changelog détaillé :
+Detailliertes Änderungsprotokoll :
 <https://github.com/jeedom/plugin-weather/commits/stable>
 
 -   Correction d’un bug sur les fuseaux horaires
