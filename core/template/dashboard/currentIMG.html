@@ -1,4 +1,4 @@
-<div class="eqLogic-widget eqLogic" style="width: 380px;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" >
+<div class="eqLogic-widget eqLogic" style="width:#width#;height:#height#;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;#style#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" >
 	<span class="statusCmd" style="position : absolute;left : 5px; width : 30px;z-index: 1030;"></span>
 	<i class='fa fa-refresh pull-right cursor refresh' style="margin-top: 3px;margin-right: 3px;"></i>
 	<span class="cmd cmd-widget" data-cmd_id="#refresh_id#" style="display:none;"></span>
@@ -8,11 +8,11 @@
 			<div style="background: url('plugins/weather/core/template/images/#icone#.png') no-repeat center; background-size: 100% 100%; width: 104px; height: 65px;"></div>
 		</span>
 		<div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-				<div id="windDirection#uid#" style="width: 80px; height: 80px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
-				<div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
-						<center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
-						<span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
-				</div>
+			<div id="windDirection#uid#" style="width: 80px; height: 80px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
+			<div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
+				<center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
+				<span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
+			</div>
 		</div>
 		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br/>
 		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#tempid#">#temperature# °C / #humidity# %</span><br/>
@@ -21,138 +21,138 @@
 	<div style="margin-top: -15px;">
 		<center>#forecast#</center>
 	</div>
-
+	
 	<script>
-	$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
-		jeedom.cmd.execute({id: '#refresh_id#'});
-	});
-
-
-	if($('#windDirection#uid#').html() != undefined){
-
-		new Highcharts.Chart({
-			chart: {
-				renderTo: 'windDirection#uid#',
-				type: 'gauge',
-				backgroundColor: null,
-				plotBackgroundColor: null,
-				plotBackgroundImage: null,
-				plotBorderWidth: 0,
-				plotShadow: false,
-				spacingTop: 0,
-				spacingLeft: 0,
-				spacingRight: 0,
-				spacingBottom: 0
-			},
-
+		$('.eqLogic[data-eqLogic_uid=#uid#] .refresh').on('click', function () {
+			jeedom.cmd.execute({id: '#refresh_id#'});
+		});
+		
+		
+		if($('#windDirection#uid#').html() != undefined){
+			
+			new Highcharts.Chart({
+				chart: {
+					renderTo: 'windDirection#uid#',
+					type: 'gauge',
+					backgroundColor: null,
+					plotBackgroundColor: null,
+					plotBackgroundImage: null,
+					plotBorderWidth: 0,
+					plotShadow: false,
+					spacingTop: 0,
+					spacingLeft: 0,
+					spacingRight: 0,
+					spacingBottom: 0
+				},
+				
 				title: {
 					text: null
 				},
 				credits: {
-						enabled: false
+					enabled: false
 				},
 				exporting : {
-						enabled: false
+					enabled: false
 				},
-
-			pane: {
-				startAngle: 0,
-				endAngle: 360,
-				background: [{
-					backgroundColor: {
-						linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-						stops: [
+				
+				pane: {
+					startAngle: 0,
+					endAngle: 360,
+					background: [{
+						backgroundColor: {
+							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+							stops: [
 							[0, '#FFF'],
 							[1, '#333']
-						]
-					},
-					borderWidth: 0,
-					outerRadius: '109%'
-				}, {
-					backgroundColor: {
-						linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-						stops: [
+							]
+						},
+						borderWidth: 0,
+						outerRadius: '109%'
+					}, {
+						backgroundColor: {
+							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+							stops: [
 							[0, '#333'],
 							[1, '#FFF']
-						]
-					},
-					borderWidth: 1,
-					outerRadius: '107%'
-				}, {
-					// default background
-				}, {
-					backgroundColor: '#DDD',
-					borderWidth: 3,
-					outerRadius: '105%',
-					innerRadius: '103%'
-				}]
-			},
-
-			yAxis: {
-				min: 0,
-				max: 360,
-				tickWidth: 10,
-				tickLength: 11,
-				tickColor: '#c4c4c4', // Trait N, E, S, O
-				tickInterval: 90,
-				lineColor: '#FFFFFF', // Cercle Blanc
-				lineWidth: 1,
-
-				labels: {
-					distance: -6,
-					formatter: function () {
-						if (this.value == 360) {
+							]
+						},
+						borderWidth: 1,
+						outerRadius: '107%'
+					}, {
+						// default background
+					}, {
+						backgroundColor: '#DDD',
+						borderWidth: 3,
+						outerRadius: '105%',
+						innerRadius: '103%'
+					}]
+				},
+				
+				yAxis: {
+					min: 0,
+					max: 360,
+					tickWidth: 10,
+					tickLength: 11,
+					tickColor: '#c4c4c4', // Trait N, E, S, O
+					tickInterval: 90,
+					lineColor: '#FFFFFF', // Cercle Blanc
+					lineWidth: 1,
+					
+					labels: {
+						distance: -6,
+						formatter: function () {
+							if (this.value == 360) {
 								return '<span style="color : #fb0431;font-weight:bold;">N</span>';
-						} else if (this.value == 90) {
+							} else if (this.value == 90) {
 								return '<span style="color : #000000;font-weight:bold;">E</span>';
-						} else if (this.value == 180) {
+							} else if (this.value == 180) {
 								return '<span style="color : #000000;font-weight:bold;">S</span>';
-						} else if (this.value == 270) {
+							} else if (this.value == 270) {
 								return '<span style="color : #000000;font-weight:bold;">W</span>';
+							}
 						}
+					},
+					title: {
+						text: null
 					}
 				},
-				title: {
-						text: null
-				}
-			},
-			// Aiguilles
-			series: [{
-				name: 'Vent',
-				yAxis: 0,
-				data: [#wind_direction#],
-				dataLabels: {
-					enabled: false
-				},
-				dial: {
-					radius: '88%',
-					baseWidth: 3,
-					baseLength: '0%',
-					rearLength: 0,
-					borderWidth: 1,
-					borderColor: '#9A0000',
-					backgroundColor: '#CC0000',
-				},
-			}, {
-				name: 'Vent',
-				yAxis: 0,
-				data: [#wind_direction#],
-				dataLabels: {
-					enabled: false
-				},
-				dial: {
-					radius: '-88%',
-					baseWidth: 3,
-					baseLength: '0%',
-					rearLength: 0,
-					borderWidth: 1,
-					borderColor: '#1B4684',
-					backgroundColor: '#3465A4',
-				}
-			}]
-
-		});
-
-	}
+				// Aiguilles
+				series: [{
+					name: 'Vent',
+					yAxis: 0,
+					data: [#wind_direction#],
+					dataLabels: {
+						enabled: false
+					},
+					dial: {
+						radius: '88%',
+						baseWidth: 3,
+						baseLength: '0%',
+						rearLength: 0,
+						borderWidth: 1,
+						borderColor: '#9A0000',
+						backgroundColor: '#CC0000',
+					},
+				}, {
+					name: 'Vent',
+					yAxis: 0,
+					data: [#wind_direction#],
+					dataLabels: {
+						enabled: false
+					},
+					dial: {
+						radius: '-88%',
+						baseWidth: 3,
+						baseLength: '0%',
+						rearLength: 0,
+						borderWidth: 1,
+						borderColor: '#1B4684',
+						backgroundColor: '#3465A4',
+					}
+				}]
+				
+			});
+			
+		}
 	</script>
 </div>
