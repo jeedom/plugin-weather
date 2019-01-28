@@ -94,46 +94,25 @@ class weather extends eqLogic {
 	
 	public static function getIconFromCondition($_condition_id, $_sunrise = null, $_sunset = null) {
 		if ($_condition_id >= 200 && $_condition_id <= 299) {
-			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-orage';
-			} else {
-				return 'meteo-orage';
-			}
+			return 'meteo-orage';
 		}
-		if (($_condition_id >= 300 && $_condition_id <= 399) || $_condition_id == 701) {
-			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-brouillard';
-			} else {
-				return 'meteo-brouillard';
-			}
+		if (($_condition_id >= 300 && $_condition_id <= 399)) {
+			return 'meteo-brouillard';
 		}
 		if ($_condition_id >= 500 && $_condition_id <= 510) {
-			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-nuage-soleil-pluie';
-			} else {
-				return 'meteo-nuage-soleil-pluie';
-			}
+			return 'meteo-nuage-soleil-pluie';
 		}
 		if ($_condition_id >= 520 && $_condition_id <= 599) {
-			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-pluie';
-			} else {
-				return 'meteo-pluie';
-			}
+			return 'meteo-pluie';
 		}
 		if (($_condition_id >= 600 && $_condition_id <= 699) || ($_condition_id == 511)) {
-			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-neige';
-			} else {
-				return 'meteo-neige';
-			}
+			return 'meteo-neige';
 		}
-		if ($_condition_id >= 700 && $_condition_id <= 799) {
-			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-vent';
-			} else {
-				return 'meteo-vent';
-			}
+		if ($_condition_id >= 700 && $_condition_id < 770){
+			return 'meteo-brouillard';
+		}
+		if ($_condition_id >= 770 && $_condition_id < 799){
+			return 'meteo-vent';
 		}
 		if ($_condition_id > 800 && $_condition_id <= 899) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
