@@ -63,7 +63,7 @@ class weather extends eqLogic {
 					$weather->reschedule();
 				} else {
 					try {
-						$c = new Cron\CronExpression($cron->getSchedule(), new Cron\FieldFactory);
+						$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
 						if (!$c->isDue()) {
 							$c->getNextRunDate();
 						}
