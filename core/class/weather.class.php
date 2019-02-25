@@ -206,9 +206,9 @@ class weather extends eqLogic {
 		$weatherCmd->setName(__('Direction du vent', __FILE__));
 		$weatherCmd->setLogicalId('wind_direction');
 		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setUnite('');
+		$weatherCmd->setUnite('°');
 		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('string');
+		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
 		$weatherCmd->save();
 		
