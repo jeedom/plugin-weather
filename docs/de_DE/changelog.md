@@ -1,3 +1,3 @@
 # 28/01/2019
 
-- Le widget peut etre redimmensionné
+- Le widget peut être redimmensionné
