@@ -292,6 +292,19 @@ class weather extends eqLogic {
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID');
 		$weatherCmd->save();
 		
+		$weatherCmd = $this->getCmd(null, 'rain');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pluie', __FILE__));
+		$weatherCmd->setLogicalId('rain');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setUnite('mm');
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN');
+		$weatherCmd->save();
+		
 		$weatherCmd = $this->getCmd(null, 'temperature_1_min');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -498,6 +511,58 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_4');
+		$weatherCmd->save();
+		
+		$weatherCmd = $this->getCmd(null, 'rain_1');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pluie +1', __FILE__));
+		$weatherCmd->setLogicalId('rain_1');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setUnite('mm');
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN_1');
+		$weatherCmd->save();
+		
+		$weatherCmd = $this->getCmd(null, 'rain_2');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pluie +2', __FILE__));
+		$weatherCmd->setLogicalId('rain_2');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setUnite('mm');
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN_2');
+		$weatherCmd->save();
+		
+		$weatherCmd = $this->getCmd(null, 'rain_3');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pluie +3', __FILE__));
+		$weatherCmd->setLogicalId('rain_3');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setUnite('mm');
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN_3');
+		$weatherCmd->save();
+		
+		$weatherCmd = $this->getCmd(null, 'rain_4');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pluie +4', __FILE__));
+		$weatherCmd->setLogicalId('rain_4');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setUnite('mm');
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN_4');
 		$weatherCmd->save();
 		
 		$refresh = $this->getCmd(null, 'refresh');
@@ -715,6 +780,7 @@ class weather extends eqLogic {
 		$changed = $this->checkAndUpdateCmd('condition_id', $weather->weather->id) || $changed;
 		$changed = $this->checkAndUpdateCmd('wind_speed', $weather->wind->speed->getValue() * 3.6) || $changed;
 		$changed = $this->checkAndUpdateCmd('wind_direction', $weather->wind->direction->getValue()) || $changed;
+		$changed = $this->checkAndUpdateCmd('rain', $weather->precipitation->getValue()) || $changed;
 		
 		$timezone = config::byKey('timezone', 'core', 'Europe/Brussels');
 		$cmd = $this->getCmd('info', 'sunrise');
@@ -736,6 +802,7 @@ class weather extends eqLogic {
 			$minTemp = null;
 			$condition_id = null;
 			$condition = null;
+			$rain = 0;
 			foreach ($forecast as $weather) {
 				$sDate = $weather->time->day->format('Y-m-d');
 				if ($date != $sDate) {
@@ -747,6 +814,10 @@ class weather extends eqLogic {
 				if ($minTemp == null || $minTemp > round($weather->temperature->min->getValue(), 1)) {
 					$minTemp = round($weather->temperature->min->getValue(), 1);
 				}
+				
+				$rain += $weather->precipitation->getValue();
+
+
 				$condition_id = $weather->weather->id;
 				$condition = ucfirst($weather->weather->description);
 			}
@@ -757,6 +828,7 @@ class weather extends eqLogic {
 				if ($maxTemp != null) {
 					$changed = $this->checkAndUpdateCmd('temperature_max', $maxTemp) || $changed;
 				}
+				$changed = $this->checkAndUpdateCmd('rain', $rain) || $changed;
 				continue;
 			}
 			if ($minTemp != null) {
@@ -771,6 +843,7 @@ class weather extends eqLogic {
 			if ($condition_id != null) {
 				$changed = $this->checkAndUpdateCmd('condition_id_' . $i, $condition_id) || $changed;
 			}
+			$changed = $this->checkAndUpdateCmd('rain_' . $i, $rain) || $changed;
 		}
 		if ($changed) {
 			$this->refreshWidget();
