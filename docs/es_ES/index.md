@@ -66,13 +66,3 @@ Le rafraîchissement des données météo s’effectue toutes les 30 minutes.
 > <https://openweathermap.org/city/2988507>. Ce numéro à la fin de l’url
 > peut également être saisi dans l’équipement Jeedom en lieu et place de
 > Paris,fr par exemple
-
-Changelog détaillé :
-<https://github.com/jeedom/plugin-weather/commits/stable>
-
--   Correction d’un bug sur les fuseaux horaires
-
--   Correction d’un bug sur le non déclenchement au lever/coucher du
-    soleil
-
-

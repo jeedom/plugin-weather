@@ -62,13 +62,3 @@ Die Wetter-Daten-Aktualisierung erfolgt alle 30 min.
 > <https://openweathermap.org/city/2988507>. Ce numéro à la fin de l’url
 > peut également être saisi dans l’équipement Jeedom en lieu et place de
 > Paris,fr par exemple
-
-Detailliertes Änderungsprotokoll :
-<https://github.com/jeedom/plugin-weather/commits/stable>
-
--   Correction d’un bug sur les fuseaux horaires
-
--   Correction d’un bug sur le non déclenchement au lever/coucher du
-    soleil
-
-

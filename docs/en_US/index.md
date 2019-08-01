@@ -61,13 +61,3 @@ Refreshing weather data is done every 30 minutes.
 > <https://openweathermap.org/city/2988507>. Ce numéro à la fin de l’url
 > peut également être saisi dans l’équipement Jeedom en lieu et place de
 > Paris,fr par exemple
-
-Detailed changelog:
-<https://github.com/jeedom/plugin-weather/commits/stable>
-
--   Fixed a bug on time zones
-
--   Correction d’un bug sur le non déclenchement au lever/coucher du
-    soleil
-
-
