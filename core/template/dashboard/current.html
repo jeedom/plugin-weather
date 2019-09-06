@@ -10,10 +10,10 @@
       <i class="#icone#" style="font-size: 3.5em;"></i>
     </span>
     <div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-      <div id="windDirection#uid#" style="width: 80px; height: 80px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
+      <div id="windDirection#uid#" style="width: 90px; height: 90px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
       <div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
-        <center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
-        <span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
+        <center><i class="fas fa-sun"></i></center>
+        <center><span style="font-size: 0.8em;">#sunrise# | #sunset#</span></center>
       </div>
     </div>
     <span style="margin-left: 5px;font-size: 0.8em;"class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br/>
@@ -85,20 +85,20 @@
           max: 360,
           tickWidth: 2,
           tickLength: 10,
-          tickColor: '#FFFFFF',
+          tickColor: 'var(--link-color)',
           tickInterval: 90,
-          lineColor: '#FFFFFF',
-          lineWidth: 4,
+          lineColor: 'var(--link-color)',
+          lineWidth: 2,
           labels: {
             formatter: function () {
               if (this.value == 360) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">N</span>';
+                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">N</span>';
               } else if (this.value == 90) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">E</span>';
+                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">E</span>';
               } else if (this.value == 180) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">S</span>';
+                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">S</span>';
               } else if (this.value == 270) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">W</span>';
+                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">W</span>';
               }
             }
           },
