@@ -85,20 +85,20 @@
           max: 360,
           tickWidth: 2,
           tickLength: 10,
-          tickColor: 'var(--link-color)',
+          tickColor: '#FFFFFF',
           tickInterval: 90,
-          lineColor: 'var(--link-color)',
+          lineColor: '#FFFFFF',
           lineWidth: 2,
           labels: {
             formatter: function () {
               if (this.value == 360) {
-                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">N</span>';
+                return '<span style="color : #FFFFFF;font-weight:bold;">N</span>';
               } else if (this.value == 90) {
-                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">E</span>';
+                return '<span style="color : #FFFFFF;font-weight:bold;">E</span>';
               } else if (this.value == 180) {
-                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">S</span>';
+                return '<span style="color : #FFFFFF;font-weight:bold;">S</span>';
               } else if (this.value == 270) {
-                return '<span style="color : var(--link-color) !important;font-weight:bold !important;">W</span>';
+                return '<span style="color : #FFFFFF;font-weight:bold;">W</span>';
               }
             }
           },
