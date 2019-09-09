@@ -10,17 +10,17 @@
       <i class="#icone#" style="font-size: 3.5em;"></i>
     </span>
     <div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-      <div id="windDirection#uid#" style="width: 80px; height: 80px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
+      <div id="windDirection#uid#" style="width: 90px; height: 90px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
       <div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
-        <center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
-        <span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
+        <center><i class="fas fa-sun"></i></center>
+        <center><span style="font-size: 0.8em;">#sunrise# | #sunset#</span></center>
       </div>
     </div>
     <span style="margin-left: 5px;font-size: 0.8em;"class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br/>
     <span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#tempid#">#temperature# °C / #humidity# %</span><br/>
     <span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#pressureid#">#windspeed# km/h | #pressure# mb</span>
   </div>
-  <div style="margin-top:10px;">
+  <div style="margin-top:13px;">
     <center>#forecast#</center>
   </div>
   <script>
@@ -70,8 +70,8 @@
               borderWidth: 1,
               baseWidth: 6,
               topWidth: 1,
-              baseLength: '75%', // of radius
-              rearLength: '15%'
+              baseLength: '15%', // of radius
+              rearLength: '75%'
             },
             pivot: {
               backgroundColor: 'white',
@@ -93,7 +93,7 @@
           tickColor: '#FFFFFF',
           tickInterval: 90,
           lineColor: '#FFFFFF',
-          lineWidth: 4,
+          lineWidth: 2,
           labels: {
             formatter: function () {
               if (this.value == 360) {

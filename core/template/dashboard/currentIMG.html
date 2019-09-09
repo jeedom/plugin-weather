@@ -10,17 +10,17 @@
 			<div style="background: url('plugins/weather/core/template/images/#icone#.png') no-repeat center; background-size: 100% 100%; width: 104px; height: 65px;"></div>
 		</span>
 		<div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-			<div id="windDirection#uid#" style="width: 80px; height: 80px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
+			<div id="windDirection#uid#" style="width: 90px; height: 90px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
 			<div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
-				<center style="position: relative;left:-2px;"><i class="fa fa-sun-o"></i></center>
-				<span style="font-size: 0.8em;position: relative;left:10px;">#sunrise# | #sunset#</span>
+				<center><i class="fas fa-sun"></i></center>
+				<center><span style="font-size: 0.8em;">#sunrise# | #sunset#</span></center>
 			</div>
 		</div>
 		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br/>
 		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#tempid#">#temperature# °C / #humidity# %</span><br/>
 		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#pressureid#">#windspeed# km/h | #pressure# mb</span>
 	</div>
-	<div style="margin-top:10px;">
+	<div style="margin-top:13px;">
 		<center>#forecast#</center>
 	</div>
 	<script>
@@ -32,7 +32,7 @@
 				chart: {
 					renderTo: 'windDirection#uid#',
 					type: 'gauge',
-					backgroundColor: null,
+					backgroundColor: 'transparent',
 					plotBackgroundColor: null,
 					plotBackgroundImage: null,
 					plotBorderWidth: 0,
@@ -42,115 +42,75 @@
 					spacingRight: 0,
 					spacingBottom: 0
 				},
-				
 				title: {
 					text: null
 				},
 				credits: {
 					enabled: false
 				},
-				exporting : {
-					enabled: false
-				},
-				
 				pane: {
 					startAngle: 0,
 					endAngle: 360,
-					background: [{
-						backgroundColor: {
-							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-							stops: [
-							[0, '#FFF'],
-							[1, '#333']
-							]
-						},
-						borderWidth: 0,
-						outerRadius: '109%'
-					}, {
-						backgroundColor: {
-							linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-							stops: [
-							[0, '#333'],
-							[1, '#FFF']
-							]
-						},
-						borderWidth: 1,
-						outerRadius: '107%'
-					}, {
-						// default background
-					}, {
-						backgroundColor: '#DDD',
-						borderWidth: 3,
-						outerRadius: '105%',
-						innerRadius: '103%'
-					}]
 				},
-				
+				exporting : {
+					enabled: false
+				},
+				plotOptions: {
+					series: {
+						dataLabels: {
+							enabled: false
+						},
+						color: '#FFFFFF',
+					},
+					gauge: {
+						dial: {
+							radius: '90%',
+							backgroundColor: 'silver',
+							borderColor: 'silver',
+							borderWidth: 1,
+							baseWidth: 6,
+							topWidth: 1,
+							baseLength: '15%', // of radius
+							rearLength: '75%'
+						},
+						pivot: {
+							backgroundColor: 'white',
+							radius: 0,
+						}
+					}
+				},
+				pane: {background: [{backgroundColor: 'transparent'}]},
 				yAxis: {
 					min: 0,
 					max: 360,
-					tickWidth: 10,
-					tickLength: 11,
-					tickColor: '#c4c4c4', // Trait N, E, S, O
+					tickWidth: 2,
+					tickLength: 10,
+					tickColor: '#FFFFFF',
 					tickInterval: 90,
-					lineColor: '#FFFFFF', // Cercle Blanc
-					lineWidth: 1,
-					
+					lineColor: '#FFFFFF',
+					lineWidth: 2,
 					labels: {
-						distance: -6,
 						formatter: function () {
 							if (this.value == 360) {
-								return '<span style="color : #fb0431;font-weight:bold;">N</span>';
+								return '<span style="color : #FFFFFF;font-weight:bold;">N</span>';
 							} else if (this.value == 90) {
-								return '<span style="color : #000000;font-weight:bold;">E</span>';
+								return '<span style="color : #FFFFFF;font-weight:bold;">E</span>';
 							} else if (this.value == 180) {
-								return '<span style="color : #000000;font-weight:bold;">S</span>';
+								return '<span style="color : #FFFFFF;font-weight:bold;">S</span>';
 							} else if (this.value == 270) {
-								return '<span style="color : #000000;font-weight:bold;">W</span>';
+								return '<span style="color : #FFFFFF;font-weight:bold;">W</span>';
 							}
 						}
 					},
 					title: {
 						text: null
-					}
-				},
-				// Aiguilles
-				series: [{
-					name: 'Vent',
-					yAxis: 0,
-					data: [#wind_direction#],
-					dataLabels: {
-						enabled: false
-					},
-					dial: {
-						radius: '88%',
-						baseWidth: 3,
-						baseLength: '0%',
-						rearLength: 0,
-						borderWidth: 1,
-						borderColor: '#9A0000',
-						backgroundColor: '#CC0000',
-					},
-				}, {
-					name: 'Vent',
-					yAxis: 0,
-					data: [#wind_direction#],
-					dataLabels: {
-						enabled: false
-					},
-					dial: {
-						radius: '-88%',
-						baseWidth: 3,
-						baseLength: '0%',
-						rearLength: 0,
-						borderWidth: 1,
-						borderColor: '#1B4684',
-						backgroundColor: '#3465A4',
-					}
-				}]
-				
-			});
-			
-		}
-	</script>
-</div>
+					}},
+					series: [{
+						name: 'Vent',
+						data: [#wind_direction# - 180]
+					}]
+				});
+			}
+		</script>
+	</div>
+	
