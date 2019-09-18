@@ -5,23 +5,25 @@
 	</span>
 	<span class="cmd cmd-widget" data-cmd_id="#refresh_id#" style="display:none;"></span>
 	<center class="widget-name"><a href="#eqLink#" style="font-size : 1.1em;#hideEqLogicName#">#name_display# <span class="object_name">#object_name#</span></a></center>
-	<div style="position : relative; left : 15px;">
-		<span class="pull-left">
-			<div style="background: url('plugins/weather/core/template/images/#icone#.png') no-repeat center; background-size: 100% 100%; width: 104px; height: 65px;"></div>
-		</span>
-		<div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-			<div id="windDirection#uid#" style="width: 90px; height: 90px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
-			<div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
-				<center><i class="fas fa-sun"></i></center>
-				<center><span style="font-size: 0.8em;">#sunrise# | #sunset#</span></center>
+	<div class="verticalAlign">
+		<div style="position : relative; left : 15px;">
+			<span class="pull-left">
+				<div style="background: url('plugins/weather/core/template/images/#icone#.png') no-repeat center; background-size: 100% 100%; width: 104px; height: 65px;"></div>
+			</span>
+			<div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
+				<div id="windDirection#uid#" style="width: 90px; height: 90px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
+				<div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
+					<center><i class="fas fa-sun"></i></center>
+					<center><span style="font-size: 0.8em;">#sunrise# | #sunset#</span></center>
+				</div>
 			</div>
+			<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br/>
+			<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#tempid#">#temperature# °C / #humidity# %</span><br/>
+			<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#pressureid#">#windspeed# km/h | #pressure# mb</span>
 		</div>
-		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br/>
-		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#tempid#">#temperature# °C / #humidity# %</span><br/>
-		<span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#pressureid#">#windspeed# km/h | #pressure# mb</span>
-	</div>
-	<div style="margin-top:13px;">
-		<center>#forecast#</center>
+		<div style="margin-top:8px;">
+			<center>#forecast#</center>
+		</div>
 	</div>
 	<script>
 		$('.eqLogic[data-eqLogic_uid=#uid#] .cmd').on('click', function() {
