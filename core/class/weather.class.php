@@ -125,13 +125,13 @@ class weather extends eqLogic {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 				return 'meteo-soleil';
 			} else {
-				return 'fa fa-moon-o';
+				return 'far fa-moon';
 			}
 		}
 		if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 			return 'meteo-soleil';
 		} else {
-			return 'fa fa-moon-o';
+			return 'far fa-moon';
 		}
 	}
 	
@@ -816,8 +816,8 @@ class weather extends eqLogic {
 				}
 				
 				$rain += $weather->precipitation->getValue();
-
-
+				
+				
 				$condition_id = $weather->weather->id;
 				$condition = ucfirst($weather->weather->description);
 			}
