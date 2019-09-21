@@ -110,9 +110,13 @@
 					series: [{
 						name: 'Vent',
 						data: [#wind_direction# - 180]
-					}]
+					}],
+					tooltip: {
+           				formatter: function () {
+             				return this.y + 180 + '°';
+           				}
+         			},
 				});
 			}
 		</script>
 	</div>
-	
