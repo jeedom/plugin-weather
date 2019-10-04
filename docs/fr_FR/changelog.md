@@ -1,3 +1,7 @@
+# 03/10/2019
+
+- Correction de bugs
+
 # 18/09/2019
 
 - Correction de l'indicateur de direction du vent
