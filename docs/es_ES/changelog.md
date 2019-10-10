@@ -1,3 +1,5 @@
+- Correction de bug sur le déclenchement du levé/couché du soleil
+
 # 03/10/2019
 
 - Corrección de errores
