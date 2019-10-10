@@ -65,8 +65,7 @@ class weather extends eqLogic {
 					try {
 						$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
 						if (!$c->isDue()) {
-							$next = $c->getNextRunDate();+
-							->format('Y-m-d H:i:s')
+							$next = $c->getNextRunDate();
 							if($next->getTimestamp() > (strtotime('now') + 50000)){
 								$weather->reschedule();
 							}
