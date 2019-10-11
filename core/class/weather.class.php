@@ -65,7 +65,10 @@ class weather extends eqLogic {
 					try {
 						$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
 						if (!$c->isDue()) {
-							$c->getNextRunDate();
+							$next = $c->getNextRunDate();
+							if($next->getTimestamp() > (strtotime('now') + 50000)){
+								$weather->reschedule();
+							}
 						}
 					} catch (Exception $ex) {
 						if ($c->getPreviousRunDate()->getTimestamp() < (strtotime('now') - 300)) {
@@ -603,7 +606,7 @@ class weather extends eqLogic {
 			$sunset = 1600;
 		}
 		$next = null;
-		if ((date('Gi') + 100) > $sunrise && (date('Gi') + 100) < $sunset) {
+		if ((date('Gi') + 10) > $sunrise && (date('Gi') + 10) < $sunset) {
 			$next = $sunset;
 		} else {
 			$next = $sunrise;
