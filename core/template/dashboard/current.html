@@ -6,10 +6,10 @@
   <span class="cmd cmd-widget" data-cmd_id="#refresh_id#" style="display:none;"></span>
   <center class="widget-name"><a href="#eqLink#">#name_display# <span class="object_name">#object_name#</span></a></center>
   <div class="verticalAlign">
-    <div style="position : relative; left : 15px;">
+    <div style="position : relative; left : 7px;">
       <span class="pull-left state">
         <br>
-        <i class="#icone#" style="font-size: 3.3em;"></i>
+        <i class="#icone#" style="font-size: 3em;"></i>
       </span>
       <div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
         <div id="windDirection#uid#" style="width: 90px; height: 90px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
@@ -26,6 +26,7 @@
       <center>#forecast#</center>
     </div>
   </div>
+
   <script>
     $('.eqLogic[data-eqLogic_uid=#uid#] .cmd').on('click', function() {
       jeedom.cmd.execute({id: $(this).data('cmd_id')});
@@ -115,9 +116,9 @@
           tooltip: {
            formatter: function () {
              return this.y + 180 + '°';
-           }
-         },
-        });
-      }
-    </script>
-  </div>
+          }
+        },
+      });
+    }
+  </script>
+</div>
