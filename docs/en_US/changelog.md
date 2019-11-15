@@ -1,3 +1,6 @@
+# 14/11/2019
+
+- Amélioration du widget
 - Correction de bug sur le déclenchement du levé/couché du soleil
 
 # 03/10/2019
