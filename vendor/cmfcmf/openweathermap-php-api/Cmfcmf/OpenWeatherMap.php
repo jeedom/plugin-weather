@@ -697,7 +697,11 @@ class OpenWeatherMap
             if (isset($error['message'])) {
                 throw new OWMException($error['message'], isset($error['cod']) ? $error['cod'] : 0);
             } else {
-                throw new OWMException('Unknown fatal error: OpenWeatherMap returned the following json object: ' . $answer);
+                if(!strlen($answer)) {
+                  throw new OWMException('Unknown fatal error: OpenWeatherMap returned an empty object.);
+                } else {
+                  throw new OWMException('Unknown fatal error: OpenWeatherMap returned the following object: ' . htmlentities($answer));
+                }
             }
         }
     }
