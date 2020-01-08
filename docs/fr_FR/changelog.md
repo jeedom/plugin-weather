@@ -1,11 +1,11 @@
 # 07/01/2020
 
-- Augmentation du timeout de connexion
+- Augmentation du délai de connexion
 
 # 14/11/2019
 
 - Amélioration du widget
-- Correction de bug sur le déclenchement du levé/couché du soleil
+- Correction de bug sur le déclenchement du lever/coucher du soleil
 
 # 03/10/2019
 
@@ -21,7 +21,7 @@
 
 # 01/08/2019
 
-- Support de PHP 7.3
+- Prise en charge de PHP 7.3
 
 # 28/01/2019
 
