@@ -1,3 +1,7 @@
+# 07/01/2020
+
+- Augmentation du timeout de connexion
+
 # 14/11/2019
 
 - Amélioration du widget
