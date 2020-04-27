@@ -1,28 +1,28 @@
-# 07/01/2020
+# 
 
-- Augmentation du timeout de connexion
+- 
 
-# 14/11/2019
+# 11/14/2019
 
-- Amélioration du widget
-- Correction de bug sur le déclenchement du levé/couché du soleil
+- Widget improvement
+- 
 
-# 03/10/2019
+# 
 
-- Correction de bugs
+- Bugfix
 
-# 18/09/2019
+# 09/18/2019
 
-- Correction de l'indicateur de direction du vent
+- 
 
-# 06/09/2019
+# 
 
-- Correction de bug des widgets en v4
+- 
 
-# 01/08/2019
+# 08/01/2019
 
-- Support de PHP 7.3
+- Support for php 7.3
 
-# 28/01/2019
+# 
 
-- Le widget peut être redimmensionné
+- 
