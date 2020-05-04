@@ -60,7 +60,7 @@ Los datos meteorológicos se actualizan cada 30 minutos..
 
 > **Tip**
 >
-> Una vez que la búsqueda de su ciudad es exitosa, el sitio Openweathermap
+> Una vez que la búsqueda de su ciudad es exitosa, el sitio openweathermap
 > le muestra la información disponible y debe tener en
 > su navegador una url del tipo
 > <https://openweathermap.org/city/2988507>. Este número al final de la url

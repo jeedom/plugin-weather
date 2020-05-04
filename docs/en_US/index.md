@@ -65,7 +65,7 @@ The weather data is refreshed every 30 minutes.
 > your browser a url of the type
 > <https://openweathermap.org/city/2988507>. This number at the end of the url
 > can also be entered into Jeedom equipment instead of
-> Paris, fr for Example
+> Paris, fr for example
 
 >**IMPORTANT**
 >OpenWeather provides a list of information for the next 120 hours; therefore, based on the current time, we only know part of the information on D + 4. Thus, this prediction on D + 4 is refined to become more precise as the current day progresses.. For this reason, certain information, such as the MAX temperature reached on D + 4 can only make sense at the end of the day..
