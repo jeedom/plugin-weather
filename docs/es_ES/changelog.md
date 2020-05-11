@@ -1,3 +1,7 @@
+>**IMPORTANT**
+>
+>Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto.
+
 # 01/07/2020
 
 - Aumento del tiempo de espera de conexión
