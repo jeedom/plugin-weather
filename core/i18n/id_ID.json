@@ -36,7 +36,7 @@
     "plugins\/weather\/core\/ajax\/weather.ajax.php": {
         "401 - Accès non autorisé": "401 - Akses tidak sah",
         "Weather inconnu verifié l\\'id": "",
-        "Aucune methode correspondante à : ": "Aucune methode correspondante à : "
+        "Aucune methode correspondante à : ": "Aucune methode correspondante à :"
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
         "L\\identifiant de la ville ne peut être vide": "",

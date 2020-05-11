@@ -1,6 +1,6 @@
 # Weather Plugin
 
-The Weather plugin allows you to recover weather data for one or more cities. Among other things, it provides information on sunrise and sunset, temperature, forecast, wind, etc.. The information retrieved comes from the openweathermap website.
+The Weather plugin allows you to recover weather data for one or more cities. Among other things, it provides information on sunrise and sunset, temperature, forecast, wind, etc. The information retrieved comes from the openweathermap website.
 
 # Plugin configuration
 
@@ -17,10 +17,10 @@ To get your API key you have to go [here](https://home.openweathermap.org), crea
 Here you find all the configuration of your equipment :
 
 -   **Weather device name** : name of your weather equipment
--   **Activer** : makes your equipment active
+-   **Activate** : makes your equipment active
 -   **Visible** : makes your equipment visible on the dashboard
 -   **Parent object** : indicates the parent object to which the equipment belongs
--   **Ville** : You must put the name of your city followed by the country code, ex : Paris, fr
+-   **City** : You must put the name of your city followed by the country code, ex : Paris, fr
 -   **Full display on mobile** : displays all weather information or not on mobile
 
 You will find below all the commands available as well as the possibility of historizing or not the numerical values. The code (number) depending on the conditions is available [here](https://openweathermap.org/weather-conditions)
@@ -35,5 +35,5 @@ The weather data is refreshed every 30 minutes.
 >
 > Une fois la recherche de votre ville réussie le site openweathermap vous montre les informations disponibles et vous devriez avoir dans votre navigateur une url du type <https://openweathermap.org/city/2988507>. This number at the end of the url can also be entered in Jeedom equipment instead of Paris, fr for example
 
->**IMPORTANT**
->OpenWeather provides a list of information for the next 120 hours; therefore, based on the current time, we only know part of the information on D + 4. Thus, this prediction on D + 4 is refined to become more precise as the current day progresses.. For this reason, certain information, such as the MAX temperature reached on D + 4 can only make sense at the end of the day..
+>**Important**
+>OpenWeather provides a list of information for the next 120 hours; therefore, based on the current time, we only know part of the information on D + 4. Thus, this prediction on D + 4 is refined to become more precise as the current day progresses. For this reason, certain information, such as the MAX temperature reached on D + 4 can only make sense at the end of the day.

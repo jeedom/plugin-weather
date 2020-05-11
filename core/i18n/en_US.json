@@ -1,7 +1,7 @@
 {
     "plugins\/weather\/plugin_info\/configuration.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Clef API OpenWeatherMap": " API OpenWeatherMap key"
+        "Clef API OpenWeatherMap": "API OpenWeatherMap key"
     },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
