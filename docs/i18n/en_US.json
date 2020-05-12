@@ -1,5 +1,6 @@
 {
     "changelog.md": {
+        "Changelog Weather": "Changelog Weather",
         "Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text",
         "07\/01\/2020": "01\/07\/2020",
         "Augmentation du timeout de connexion": "Increased connection timeout",
