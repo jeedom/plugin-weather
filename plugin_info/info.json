@@ -22,6 +22,7 @@
         "smart",
         "rpi",
         "docker",
-        "diy"
+        "diy",
+        "v4"
     ]
 }
