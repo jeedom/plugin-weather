@@ -657,6 +657,8 @@ class weather extends eqLogic {
 		if ($version != 'mobile' || $this->getConfiguration('fullMobileDisplay', 0) == 1) {
 			if ($this->getConfiguration('modeImage', 0) == 1) {
 				$forcast_template = getTemplate('core', $version, 'forecastIMG', 'weather');
+			} else if ($this->getConfiguration('modeImageAnimee', 0) == 1) {
+				$forcast_template = getTemplate('core', $version, 'forecastSVG', 'weather');
 			} else {
 				$forcast_template = getTemplate('core', $version, 'forecast', 'weather');
 			}
@@ -745,6 +747,8 @@ class weather extends eqLogic {
 		}
 		if ($this->getConfiguration('modeImage', 0) == 1) {
 			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'currentIMG', 'weather')));
+		} else if ($this->getConfiguration('modeImageAnimee', 0) == 1) {
+			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'currentSVG', 'weather')));
 		} else {
 			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', 'weather')));
 		}

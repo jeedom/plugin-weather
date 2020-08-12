@@ -21,6 +21,19 @@
     });
 });
 
+$('input[type=checkbox].eqLogicAttr[data-l1key=configuration][data-l2key=modeImage]').on('change',function(){
+    if(this.checked) {
+        $('input[type=checkbox].eqLogicAttr[data-l1key=configuration][data-l2key=modeImageAnimee]').prop('checked', false);
+    }
+});
+
+$('input[type=checkbox].eqLogicAttr[data-l1key=configuration][data-l2key=modeImageAnimee]').on('change',function(){
+    if(this.checked) {
+        $('input[type=checkbox].eqLogicAttr[data-l1key=configuration][data-l2key=modeImage]').prop('checked', false);
+    }
+});
+
+
  function addCmdToTable(_cmd) {
     if (!isset(_cmd)) {
         var _cmd = {configuration: {}};

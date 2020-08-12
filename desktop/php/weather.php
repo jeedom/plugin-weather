@@ -104,6 +104,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							<div class="col-sm-9">
 								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="fullMobileDisplay" />{{Affichage complet en mobile}}</label>
 								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="modeImage" />{{Mode image}}</label>
+								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="modeImageAnimee" />{{Mode image animée}}</label>
 							</div>
 						</div>
 					</fieldset>
