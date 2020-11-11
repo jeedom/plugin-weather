@@ -76,5 +76,8 @@
         "La ville ne peut être vide": "La ville ne peut être vide",
         "(1) Impossible de récuperer les informations météo : ": "(1) Impossible de récuperer les informations météo : ",
         "(2) Impossible de récuperer les informations météo : ": "(2) Impossible de récuperer les informations météo : "
+    },
+    "info.json": {
+        "Ce plugin vous permet de récuperer les informations météo.On trouve des informations tel que, les conditions, températures,  actuelles et des jours à venir. Vous aurez aussi le taux d'humidité, la force du vent et sa direction, l'heure du lever et du coucher de soleil et plein d'autres. Vous vouliez acheter une station météo, ce plugin vous fera peut être changer d'avis.": "Ce plugin vous permet de récuperer les informations météo.On trouve des informations tel que, les conditions, températures,  actuelles et des jours à venir. Vous aurez aussi le taux d'humidité, la force du vent et sa direction, l'heure du lever et du coucher de soleil et plein d'autres. Vous vouliez acheter une station météo, ce plugin vous fera peut être changer d'avis."
     }
 }

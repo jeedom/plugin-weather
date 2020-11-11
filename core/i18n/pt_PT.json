@@ -76,5 +76,8 @@
         "La ville ne peut être vide": "A cidade não pode estar vazia",
         "(1) Impossible de récuperer les informations météo : ": "(1) Não é possível recuperar as informações meteorológicas:",
         "(2) Impossible de récuperer les informations météo : ": "(2) Impossible de récuperer les informations météo :"
+    },
+    "info.json": {
+        "Ce plugin vous permet de récuperer les informations météo.On trouve des informations tel que, les conditions, températures,  actuelles et des jours à venir. Vous aurez aussi le taux d'humidité, la force du vent et sa direction, l'heure du lever et du coucher de soleil et plein d'autres. Vous vouliez acheter une station météo, ce plugin vous fera peut être changer d'avis.": "Este plug-in permite recuperar informações sobre o tempo, e informações como condições, temperaturas, corrente e dias que se seguem. Você também terá a umidade, a força do vento e sua direção, a hora do nascer e do pôr do sol e muitos outros. Você queria comprar uma estação meteorológica, este plugin pode fazer você mudar de idéia"
     }
 }

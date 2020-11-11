@@ -76,5 +76,8 @@
         "La ville ne peut être vide": "The city cannot be empty",
         "(1) Impossible de récuperer les informations météo : ": "(1) Unable to retrieve weather information:",
         "(2) Impossible de récuperer les informations météo : ": "(2) Unable to retrieve weather informations :"
+    },
+    "info.json": {
+        "Ce plugin vous permet de récuperer les informations météo.On trouve des informations tel que, les conditions, températures,  actuelles et des jours à venir. Vous aurez aussi le taux d'humidité, la force du vent et sa direction, l'heure du lever et du coucher de soleil et plein d'autres. Vous vouliez acheter une station météo, ce plugin vous fera peut être changer d'avis.": "This plugin allows you to retrieve weather information. We find information such as, conditions, temperatures, current and days to come. You will also have the humidity, the strength of the wind and its direction, the time of sunrise and sunset and many others. You wanted to buy a weather station, this plugin may make you change your mind"
     }
 }
