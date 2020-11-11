@@ -4,6 +4,11 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte
 
+# 11/11/2020
+
+- Nouvelle présentation de la liste des objets
+- Ajout du tag "Compatibilité V4"
+
 # 07/01/2020
 
 - Augmentation du timeout de connexion
@@ -11,7 +16,7 @@
 # 14/11/2019
 
 - Amélioration du widget
-- Correction de bug sur le déclenchement du levé/couché du soleil
+- Correction de bug sur le déclenchement du lever/coucher du soleil
 
 # 03/10/2019
 
