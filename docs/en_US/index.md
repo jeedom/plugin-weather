@@ -1,6 +1,6 @@
-# Weather Plugin
+# Weather plugin
 
-The Weather plugin allows you to recover weather data for one or more cities. Among other things, it provides information on sunrise and sunset, temperature, forecast, wind, etc. The information retrieved comes from the openweathermap website.
+The plugin **Weather** allows you to retrieve meteorological data from one or more cities. It gives access, among other things, to weather forecasts, information on sunrise and sunset, temperature, humidity, wind, etc. The information comes from the website **openweathermap**.
 
 # Plugin configuration
 
@@ -10,20 +10,23 @@ To get your API key you have to go [here](https://home.openweathermap.org), crea
 
 > **Important**
 >
-> You have to wait a few hours afterwards until the key is active before you can retrieve information
+> You have to wait a few hours before being able to retrieve information following the creation of the account, while the key is active.
 
 # Equipment configuration
 
-Here you find all the configuration of your equipment :
+Here you find the configuration of your equipment :
 
 -   **Weather device name** : name of your weather equipment
 -   **Activate** : makes your equipment active
 -   **Visible** : makes your equipment visible on the dashboard
 -   **Parent object** : indicates the parent object to which the equipment belongs
--   **City** : You must put the name of your city followed by the country code, ex : Paris, fr
--   **Full display on mobile** : displays all weather information or not on mobile
+-   **City** : You must put the name of your city followed by the country code, *(Ex : Paris, fr)*
 
-You will find below all the commands available as well as the possibility of historizing or not the numerical values. The code (number) depending on the conditions is available [here](https://openweathermap.org/weather-conditions)
+-   **Full display on mobile** : displays all weather information or not on mobile
+-   **Image mode** : to display images instead of icons on the widget
+
+
+By clicking on the tab **Commands**, you will find all the available commands as well as the possibility of logging or not the numerical values. The code (number) according to the conditions can be consulted [at this address](https://openweathermap.org/weather-conditions)
 
 The weather data is refreshed every 30 minutes.
 

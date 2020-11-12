@@ -4,14 +4,19 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
+# 11/11/2020
+
+- Nueva presentación de la lista de objetos
+- Adición de la etiqueta "compatibilidad V4"
+
 # 01/07/2020
 
-- Aumento del tiempo de espera de conexión
+- Mayor tiempo de conexión
 
 # 11/14/2019
 
 - Mejora de widgets
-- Corrección de errores al activar el amanecer / atardecer
+- Corrección de errores en el disparador de amanecer / atardecer
 
 # 10/03/2019
 
@@ -27,7 +32,7 @@
 
 # 01/08/2019
 
-- Soporte para php 7.3
+- Soporte para PHP 7.3
 
 # 28/01/2019
 
