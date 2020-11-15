@@ -4,14 +4,19 @@
 >
 >Zur Erinnerung: Wenn keine Informationen zum Update vorhanden sind, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt
 
+# 11/11/2020
+
+- Neue Darstellung der Objektliste
+- Hinzufügung des Tags "V4-Kompatibilität"
+
 # 01/07/2020
 
-- Erhöhtes Verbindungszeitlimit
+- Erhöhte Verbindungszeit
 
 # 2019.11.14
 
 - Widget-Verbesserung
-- Fehlerbehebung beim Auslösen des Sonnenaufgangs / Sonnenuntergangs
+- Fehlerbehebung am Sunrise / Sunset Trigger
 
 # 10/03/2019
 

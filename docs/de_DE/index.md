@@ -1,6 +1,6 @@
 # Wetter Plugin
 
-Mit dem Wetter-Plugin können Sie Wetterdaten für eine oder mehrere Städte wiederherstellen. Es bietet unter anderem Informationen zu Sonnenaufgang und Sonnenuntergang, Temperatur, Vorhersage, Wind usw. Die abgerufenen Informationen stammen von der openweathermap-Website.
+Das Plugin **Wetter** Ermöglicht das Abrufen von Wetterdaten aus einer oder mehreren Städten. Es bietet unter anderem Zugriff auf Wettervorhersagen, Informationen zu Sonnenaufgang und Sonnenuntergang, Temperatur, Luftfeuchtigkeit, Wind usw. Die Informationen stammen von der Website **openweathermap**.
 
 # Plugin Konfiguration
 
@@ -10,20 +10,23 @@ Um Ihren API-Schlüssel zu erhalten, müssen Sie gehen [hier](https://home.openw
 
 > **Wichtig**
 >
-> Sie müssen einige Stunden warten, bis die Taste aktiv ist, bevor Sie Informationen abrufen können
+> Sie müssen einige Stunden warten, bevor Sie nach der Erstellung des Kontos Informationen abrufen können, während der Schlüssel aktiv ist.
 
 # Gerätekonfiguration
 
-Hier finden Sie die gesamte Konfiguration Ihrer Geräte :
+Hier finden Sie die Konfiguration Ihrer Geräte :
 
 -   **Name der Wetterausrüstung** : Name Ihrer Wetterausrüstung
 -   **Aktivieren** : macht Ihre Ausrüstung aktiv
 -   **Sichtbar** : macht Ihre Ausrüstung auf dem Armaturenbrett sichtbar
 -   **Übergeordnetes Objekt** : Gibt das übergeordnete Objekt an, zu dem das Gerät gehört
--   **Stadt** : Sie müssen den Namen Ihrer Stadt gefolgt von der Landesvorwahl eingeben, z : Paris, fr
--   **Mobil Vollansicht** : Zeigt alle Wetterinformationen an oder nicht auf dem Handy
+-   **Stadt** : Sie müssen den Namen Ihrer Stadt gefolgt von der Landesvorwahl eingeben, *(ex : Paris, fr)*
 
-Nachfolgend finden Sie alle verfügbaren Befehle sowie die Möglichkeit, die numerischen Werte zu historisieren oder nicht. Der Code (Nummer) hängt von den Bedingungen ab [hier](https://openweathermap.org/weather-conditions)
+-   **Mobil Vollansicht** : Zeigt alle Wetterinformationen an oder nicht auf dem Handy
+-   **Bild Modus** : um Bilder anstelle von Symbolen im Widget anzuzeigen
+
+
+Durch Klicken auf die Registerkarte **Befehle**, Sie finden alle verfügbaren Befehle sowie die Möglichkeit, die numerischen Werte zu protokollieren oder nicht. Der Code (Nummer) gemäß den Bedingungen kann eingesehen werden [an dieser Adresse](https://openweathermap.org/weather-conditions)
 
 Die Wetterdaten werden alle 30 Minuten aktualisiert.
 
