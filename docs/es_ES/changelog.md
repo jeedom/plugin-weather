@@ -4,6 +4,12 @@
 >
 >Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
 
+- Rediseño completo del complemento 
+
+>**IMPROTANTE**
+>
+>Es absolutamente necesario reconfigurar el equipo para indicar su latitud / longitud en lugar de la ciudad
+
 # 11/11/2020
 
 - Nueva presentación de la lista de objetos

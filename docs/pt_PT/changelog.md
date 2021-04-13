@@ -4,6 +4,12 @@
 >
 >Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
 
+- Reformulação completa do plugin 
+
+>**IMPROTANTE**
+>
+>Você absolutamente tem que reconfigurar o equipamento para indicar sua latitude / longitude em vez da cidade
+
 # 11/11/2020
 
 - Nova apresentação da lista de objetos
