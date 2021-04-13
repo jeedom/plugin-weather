@@ -4,6 +4,13 @@
 >
 >Pour rappel s'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte
 
+- Refonte complete du plugin 
+
+>**IMPROTANT**
+>
+>Vous Devez absolument reconfigurer l'équipement pour indiquer votre latitude/longitude au lieu de la ville
+
+
 # 07/01/2020
 
 - Augmentation du timeout de connexion

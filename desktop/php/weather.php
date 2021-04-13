@@ -96,9 +96,15 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-3 control-label">{{Ville}}</label>
+							<label class="col-sm-3 control-label">{{Latitude}}</label>
 							<div class="col-sm-3">
-								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="city" />
+								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="lat" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">{{Longitude}}</label>
+							<div class="col-sm-3">
+								<input type="text" class="eqLogicAttr configuration form-control" data-l1key="configuration" data-l2key="long" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -110,7 +116,6 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						</div>
 					</fieldset>
 				</form>
-				<div class="alert alert-info">{{Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)}} </div>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="commandtab">
 				<br/>

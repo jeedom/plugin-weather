@@ -18,9 +18,6 @@
 
 /* * ***************************Includes********************************* */
 require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
-require_once dirname(__FILE__) . '/../../vendor/autoload.php';
-
-use Cmfcmf\OpenWeatherMap;
 
 class weather extends eqLogic {
 	/*     * *************************Attributs****************************** */
@@ -55,7 +52,7 @@ class weather extends eqLogic {
 		}
 	}
 	
-	public static function cronHourly() {
+	public static function cronDaily() {
 		foreach (self::byType('weather') as $weather) {
 			if ($weather->getIsEnable() == 1) {
 				$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($weather->getId())));
@@ -139,14 +136,17 @@ class weather extends eqLogic {
 	}
 	
 	/*     * *********************Methode d'instance************************* */
-	public function preInsert() {
-		$this->setCategory('heating', 1);
+	public function preSave(){
+		if($this->getConfiguration('lat') == ''){
+			$this->setConfiguration('lat',config::byKey('info::latitude'));
+		}
+		if($this->getConfiguration('long') == ''){
+			$this->setConfiguration('long',config::byKey('info::longitude'));
+		}
 	}
 	
-	public function preUpdate() {
-		if ($this->getConfiguration('city') == '') {
-			throw new Exception(__('L\identifiant de la ville ne peut être vide', __FILE__));
-		}
+	public function preInsert() {
+		$this->setCategory('heating', 1);
 	}
 	
 	public function postUpdate() {
@@ -751,102 +751,49 @@ class weather extends eqLogic {
 	}
 	
 	public function updateWeatherData() {
-		if ($this->getConfiguration('city') == '') {
-			throw new Exception(__('La ville ne peut être vide', __FILE__));
+		if ($this->getConfiguration('lat') == '' || $this->getConfiguration('long') == '') {
+			throw new Exception(__('La latitude et la longitude ne peut être vide', __FILE__));
 		}
-		$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
-		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', substr(config::byKey('langague','core', 'fr_FR'),0,2));
-		if ($weather == NULL) {
-			sleep(10);
-			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
-			$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
-			if ($weather == NULL) {
-				log::add('weather', 'warning', __('(1) Impossible de récuperer les informations météo : ', __FILE__) . json_encode($weather));
-				return;
-			}
-		}
-		if ($weather->humidity->getValue() == 0) {
-			sleep(10);
-			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
-			$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
-			if ($weather->humidity->getValue() == 0) {
-				log::add('weather', 'warning', __('(2) Impossible de récuperer les informations météo : ', __FILE__) . json_encode($weather));
-				return;
-			}
-		}
-		log::add('weather', 'debug', print_r($weather, true));
-		$changed = false;
-		$changed = $this->checkAndUpdateCmd('temperature', round($weather->temperature->now->getValue(), 1)) || $changed;
-		$changed = $this->checkAndUpdateCmd('humidity', $weather->humidity->getValue()) || $changed;
-		$changed = $this->checkAndUpdateCmd('pressure', $weather->pressure->getValue()) || $changed;
-		$changed = $this->checkAndUpdateCmd('condition', ucfirst($weather->weather->description)) || $changed;
-		$changed = $this->checkAndUpdateCmd('condition_id', $weather->weather->id) || $changed;
-		$changed = $this->checkAndUpdateCmd('wind_speed', $weather->wind->speed->getValue() * 3.6) || $changed;
-		$changed = $this->checkAndUpdateCmd('wind_direction', $weather->wind->direction->getValue()) || $changed;
-		$changed = $this->checkAndUpdateCmd('rain', $weather->precipitation->getValue()) || $changed;
+		$url = config::byKey('service::cloud::url').'/service/openweathermap';
+		$url .= '?lat='.$this->getConfiguration('lat');
+		$url .= '&long='.$this->getConfiguration('long');
+		$url .= '&lang='.substr(config::byKey('language'),0,2);
+		$request_http = new com_http($url);
+		$request_http->setHeader(array('Autorization: '.sha512(mb_strtolower(config::byKey('market::username')).':'.config::byKey('market::password'))));
+		$datas = json_decode($request_http->exec(10),true);
+		log::add('weather', 'debug',json_encode($datas));
 		
-		$timezone = config::byKey('timezone', 'core', 'Europe/Brussels');
+		$changed = false;
+		$changed = $this->checkAndUpdateCmd('temperature', $datas['data']['today']['temperature']['value']) || $changed;
+		$changed = $this->checkAndUpdateCmd('humidity', $datas['data']['today']['humidity']['value']) || $changed;
+		$changed = $this->checkAndUpdateCmd('pressure', $datas['data']['today']['pressure']['value']) || $changed;
+		$changed = $this->checkAndUpdateCmd('condition', $datas['data']['today']['description']) || $changed;
+		$changed = $this->checkAndUpdateCmd('condition_id', $datas['data']['today']['summary_id']) || $changed;
+		$changed = $this->checkAndUpdateCmd('wind_speed', $datas['data']['today']['wind']['speed']) || $changed;
+		$changed = $this->checkAndUpdateCmd('wind_direction', $datas['data']['today']['wind']['deg']) || $changed;
+		$changed = $this->checkAndUpdateCmd('rain', $datas['data']['today']['rain']['value']) || $changed;
+		$changed = $this->checkAndUpdateCmd('temperature_min', $datas['data']['today']['temperature']['min']) || $changed;
+		$changed = $this->checkAndUpdateCmd('temperature_max', $datas['data']['today']['temperature']['max']) || $changed;
+		
 		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && isset($weather->sun->rise) && $weather->sun->rise instanceof DateTime && $cmd->execCmd() != $weather->sun->rise->setTimezone(new \DateTimezone($timezone))->format('Gi')) {
-			$cmd->setCache('value', $weather->sun->rise->setTimezone(new \DateTimezone($timezone))->format('Gi'));
+		if (is_object($cmd) && $cmd->execCmd() != date('Gi',$datas['data']['today']['sun']['rise'])) {
+			$cmd->setCache('value', date('Gi',$datas['data']['today']['sun']['rise']));
 			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
 		}
 		
 		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && isset($weather->sun->set) && $weather->sun->set instanceof DateTime && $cmd->execCmd() != $weather->sun->set->setTimezone(new \DateTimezone($timezone))->format('Gi')) {
-			$cmd->setCache('value', $weather->sun->set->setTimezone(new \DateTimezone($timezone))->format('Gi'));
+		if (is_object($cmd) && $cmd->execCmd() != date('Gi',$datas['data']['today']['sun']['set'])) {
+			$cmd->setCache('value', date('Gi',$datas['data']['today']['sun']['set']));
 			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
 		}
-		$forecast = $owm->getWeatherForecast($this->getConfiguration('city'), 'metric', 'fr', '', 4);
 		
 		for ($i = 0; $i < 5; $i++) {
 			$date = date('Y-m-d', strtotime('+' . $i . ' day'));
-			$maxTemp = null;
-			$minTemp = null;
-			$condition_id = null;
-			$condition = null;
-			$rain = 0;
-			foreach ($forecast as $weather) {
-				$sDate = $weather->time->day->format('Y-m-d');
-				if ($date != $sDate) {
-					continue;
-				}
-				if ($maxTemp == null || $maxTemp < round($weather->temperature->max->getValue(), 1)) {
-					$maxTemp = round($weather->temperature->max->getValue(), 1);
-				}
-				if ($minTemp == null || $minTemp > round($weather->temperature->min->getValue(), 1)) {
-					$minTemp = round($weather->temperature->min->getValue(), 1);
-				}
-				
-				$rain += $weather->precipitation->getValue();
-				
-				
-				$condition_id = $weather->weather->id;
-				$condition = ucfirst($weather->weather->description);
-			}
-			if ($i == 0) {
-				if ($minTemp != null) {
-					$changed = $this->checkAndUpdateCmd('temperature_min', $minTemp) || $changed;
-				}
-				if ($maxTemp != null) {
-					$changed = $this->checkAndUpdateCmd('temperature_max', $maxTemp) || $changed;
-				}
-				$changed = $this->checkAndUpdateCmd('rain', $rain) || $changed;
-				continue;
-			}
-			if ($minTemp != null) {
-				$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_min', $minTemp) || $changed;
-			}
-			if ($maxTemp != null) {
-				$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_max', $maxTemp) || $changed;
-			}
-			if ($condition != null) {
-				$changed = $this->checkAndUpdateCmd('condition_' . $i, $condition) || $changed;
-			}
-			if ($condition_id != null) {
-				$changed = $this->checkAndUpdateCmd('condition_id_' . $i, $condition_id) || $changed;
-			}
-			$changed = $this->checkAndUpdateCmd('rain_' . $i, $rain) || $changed;
+			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_min', $datas['data']['day +'.($i+1)]['temperature']['min']) || $changed;
+			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_max', $datas['data']['day +'.($i+1)]['temperature']['max']) || $changed;
+			$changed = $this->checkAndUpdateCmd('condition_' . $i, $datas['data']['day +'.($i+1)]['description']) || $changed;
+			$changed = $this->checkAndUpdateCmd('condition_id_' . $i, $datas['data']['day +'.($i+1)]['summary_id']) || $changed;
+			$changed = $this->checkAndUpdateCmd('rain_' . $i, $datas['data']['day +'.($i+1)]['rain']['value']) || $changed;
 		}
 		if ($changed) {
 			$this->refreshWidget();
