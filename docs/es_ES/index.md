@@ -1,6 +1,6 @@
-# Plugin meteorológico
+# Complemento meteorológico
 
-El complemento Weather le permite recuperar datos meteorológicos para una o más ciudades. Entre otras cosas, proporciona información sobre el amanecer y el atardecer, la temperatura, el pronóstico, el viento, etc. La información recuperada proviene del sitio web openweathermap.
+El complemento **Clima** le permite recuperar datos meteorológicos de una o más ciudades. Da acceso, entre otras cosas, a previsiones meteorológicas, información de salida y puesta del sol, temperatura, humedad, viento, etc. La información procede de la web **openweathermap**.
 
 # Configuración del plugin
 
@@ -10,20 +10,23 @@ Para obtener su clave API, debe ir [aquí](https://home.openweathermap.org), cre
 
 > **Importante**
 >
-> Debe esperar algunas horas hasta que la clave esté activa antes de poder recuperar información
+> Tienes que esperar unas horas antes de poder recuperar información tras la creación de la cuenta, mientras la clave está activa.
 
 # Configuración del equipo
 
-Aquí encontrarás toda la configuración de tu equipo :
+Aquí encuentras la configuración de tu equipo :
 
 -   **Nombre del dispositivo meteorológico** : nombre de su equipo meteorológico
 -   **Activar** : activa su equipo
 -   **Visible** : hace que su equipo sea visible en el tablero
 -   **Objeto padre** : indica el objeto padre al que pertenece el equipo
--   **Ciudad** : Debe poner el nombre de su ciudad seguido del código del país, ej : Paris, fr
--   **Visualización completa en móvil** : muestra toda la información meteorológica o no en el móvil
+-   **Ciudad** : Debes poner el nombre de tu ciudad seguido del código del país, *(ex : Paris, fr)*
 
-A continuación encontrará todos los comandos disponibles, así como la posibilidad de historizar o no los valores numéricos. El código (número) según las condiciones está disponible [aquí](https://openweathermap.org/weather-conditions)
+-   **Visualización completa en móvil** : muestra toda la información meteorológica o no en el móvil
+-   **Modo imagen** : para mostrar imágenes en lugar de iconos en el widget
+
+
+Haciendo clic en la pestaña **Comandos**, encontrará todos los comandos disponibles así como la posibilidad de registrar o no los valores numéricos. Se puede consultar el código (número) según las condiciones [a esta dirección](https://openweathermap.org/weather-conditions)
 
 Los datos meteorológicos se actualizan cada 30 minutos.
 

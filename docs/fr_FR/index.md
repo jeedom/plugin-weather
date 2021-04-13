@@ -1,10 +1,10 @@
-# Plugin Météo
+# Plugin Weather
 
-Le plugin Weather permet de récupérer les données météorologiques pour une ou plusieurs villes. Il permet entre autre d’avoir les informations de lever et coucher du soleil, de température, de prévision, de vent, etc. Les informations récupérées viennent du site internet openweathermap.
+Le plugin **Weather** permet de récupérer les données météorologiques d'une ou plusieurs villes. Il donne accès, entre autre, aux prévisions météorologiques, aux informations de lever et coucher du soleil, de température, d'humidité, de vent, etc... Les informations proviennent du site internet **openweathermap**.
 
 # Configuration des équipements
 
-Vous retrouvez ici toute la configuration de votre équipement :
+Vous retrouvez ici la configuration de votre équipement :
 
 -   **Nom de l’équipement météo** : nom de votre équipement météo
 -   **Activer** : permet de rendre votre équipement actif
@@ -13,8 +13,10 @@ Vous retrouvez ici toute la configuration de votre équipement :
 -   **Latitude** : Latitude de l'endroit ou vous voulez la méteo (sous la forme XX.XXXXXXX)
 -   **Longitude** : Longitude de l'endroit ou vous voulez la méteo (sous la forme XX.XXXXXXX)
 -   **Affichage complet en mobile** : permet d’afficher toutes les informations météo ou non en mobile
+-   **Mode image** : pour afficher des images à la place des icônes sur le widget
 
-Vous retrouvez en dessous toutes les commandes disponibles ainsi que la possibilité d’historiser ou non les valeurs numériques. Le code (numéro) en fonction des conditions est disponible [ici](https://openweathermap.org/weather-conditions)
+
+En cliquant sur l'onglet **Commandes**, vous retrouvez toutes les commandes disponibles ainsi que la possibilité d’historiser ou non les valeurs numériques. Le code (numéro) en fonction des conditions est consultable [à cette adresse](https://openweathermap.org/weather-conditions)
 
 Le rafraîchissement des données météo s’effectue toutes les 30 minutes.
 
