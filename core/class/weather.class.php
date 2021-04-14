@@ -762,7 +762,9 @@ class weather extends eqLogic {
 			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_max', $datas['data']['day +'.$i]['temperature']['max']) || $changed;
 			$changed = $this->checkAndUpdateCmd('condition_' . $i, $datas['data']['day +'.$i]['description']) || $changed;
 			$changed = $this->checkAndUpdateCmd('condition_id_' . $i, $datas['data']['day +'.$i]['summary_id']) || $changed;
-			$changed = $this->checkAndUpdateCmd('rain_' . $i, $datas['data']['day +'.$i]['rain']['value']) || $changed;
+			if(isset($datas['data']['day +'.$i]['rain']['value'])){
+				$changed = $this->checkAndUpdateCmd('rain_' . $i, $datas['data']['day +'.$i]['rain']['value']) || $changed;
+			}
 			
 			$this->checkAndUpdateCmd('temperature_' . $i, $datas['data']['day +'.$i]['temperature']['value']);
 			$this->checkAndUpdateCmd('temperature_feels_' . $i, $datas['data']['day +'.$i]['temperature']['feels']);
