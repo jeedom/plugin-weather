@@ -1,7 +1,6 @@
 {
     "plugins\/weather\/plugin_info\/configuration.php": {
-        "401 - Accès non autorisé": "401 - Accès non autorisé",
-        "Clef API OpenWeatherMap": "Clef API OpenWeatherMap"
+        "401 - Accès non autorisé": "401 - Accès non autorisé"
     },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Accès non autorisé",
@@ -21,10 +20,10 @@
         "Catégorie": "Catégorie",
         "Activer": "Activer",
         "Visible": "Visible",
-        "Ville": "Ville",
+        "Latitude": "Latitude",
+        "Longitude": "Longitude",
         "Affichage complet en mobile": "Affichage complet en mobile",
         "Mode image": "Mode image",
-        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)",
         "Nom": "Nom",
         "Options": "Options"
     },
@@ -39,8 +38,9 @@
         "Aucune methode correspondante à : ": "Aucune methode correspondante à : "
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
-        "L\\identifiant de la ville ne peut être vide": "L\\identifiant de la ville ne peut être vide",
         "Température": "Température",
+        "Température ressentie": "Température ressentie",
+        "Visibilité": "Visibilité",
         "Humidité": "Humidité",
         "Pression": "Pression",
         "Vitesse du vent": "Vitesse du vent",
@@ -52,30 +52,24 @@
         "Condition": "Condition",
         "Numéro condition": "Numéro condition",
         "Pluie": "Pluie",
-        "Température Min +1": "Température Min +1",
-        "Température Max +1": "Température Max +1",
-        "Température Min +2": "Température Min +2",
-        "Température Max +2": "Température Max +2",
-        "Température Min +3": "Température Min +3",
-        "Température Max +3": "Température Max +3",
-        "Température Min +4": "Température Min +4",
-        "Température Max +4": "Température Max +4",
-        "Condition +1": "Condition +1",
-        "Numéro condition +1": "Numéro condition +1",
-        "Condition +2": "Condition +2",
-        "Numéro condition +2": "Numéro condition +2",
-        "Condition +3": "Condition +3",
-        "Numéro condition +3": "Numéro condition +3",
-        "Condition +4": "Condition +4",
-        "Numéro condition +4": "Numéro condition +4",
-        "Pluie +1": "Pluie +1",
-        "Pluie +2": "Pluie +2",
-        "Pluie +3": "Pluie +3",
-        "Pluie +4": "Pluie +4",
+        "Neige": "Neige",
+        "Point de rosée": "Point de rosée",
+        "Nuage": "Nuage",
+        "UV": "UV",
+        "Vitesse du vent +'.$i": "Vitesse du vent +'.$i",
+        "Direction du vent +'.$i": "Direction du vent +'.$i",
+        "Température ressentie +'.$i": "Température ressentie +'.$i",
+        "Pression +'.$i": "Pression +'.$i",
+        "Nuage +'.$i": "Nuage +'.$i",
+        "Point de rosée +'.$i": "Point de rosée +'.$i",
+        "Neige +1'.$i": "Neige +1'.$i",
+        "UV +'.$i": "UV +'.$i",
+        "Température Min +'.$i": "Température Min +'.$i",
+        "Température Max +'.$i": "Température Max +'.$i",
+        "Numéro condition +'.$i": "Numéro condition +'.$i",
+        "Pluie +'.$i": "Pluie +'.$i",
         "Rafraichir": "Rafraichir",
-        "La ville ne peut être vide": "La ville ne peut être vide",
-        "(1) Impossible de récuperer les informations météo : ": "(1) Impossible de récuperer les informations météo : ",
-        "(2) Impossible de récuperer les informations météo : ": "(2) Impossible de récuperer les informations météo : "
+        "La latitude et la longitude ne peut être vide": "La latitude et la longitude ne peut être vide"
     },
     "info.json": {
         "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis.": "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis."

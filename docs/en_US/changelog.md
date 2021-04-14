@@ -4,6 +4,12 @@
 >
 >As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
 
+- Complete redesign of the plugin 
+
+>**IMPROTANT**
+>
+>You absolutely have to reconfigure the equipment to indicate your latitude / longitude instead of the city
+
 # 11/11/2020
 
 - New presentation of the list of objects

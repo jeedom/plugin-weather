@@ -1,7 +1,6 @@
 {
     "plugins\/weather\/plugin_info\/configuration.php": {
-        "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Clef API OpenWeatherMap": "API anahtar OpenWeatherMap"
+        "401 - Accès non autorisé": "401 - Yetkisiz erişim"
     },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
@@ -21,10 +20,10 @@
         "Catégorie": "Kategori",
         "Activer": "Etkinleştir",
         "Visible": "Görülebilir",
-        "Ville": "Ilçe",
+        "Latitude": "Latitude",
+        "Longitude": "Longitude",
         "Affichage complet en mobile": "Mobilde tam gösterim",
         "Mode image": "Gösterge modu",
-        "Si vous venez de créer votre clé api il faut peut être patienter quelques heures avant qu'elle soit active (en attendant il peut y avoir une erreur d'authentification)": "API anahtarınızı yeni oluşturduysanız etkinleşene kadar birkaç saat sürebilir (bu arada bir kimlik doğrulama hatası olabilir)",
         "Nom": "İsim",
         "Options": "Opsiyonlar"
     },
@@ -35,12 +34,13 @@
     },
     "plugins\/weather\/core\/ajax\/weather.ajax.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Weather inconnu verifié l\\'id": "",
+        "Weather inconnu verifié l\\'id": "Weather inconnu verifié l\\'id",
         "Aucune methode correspondante à : ": "Aşağıdakilere karşılık gelen bir yöntem yok:"
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
-        "L\\identifiant de la ville ne peut être vide": "",
         "Température": "Sıcaklık",
+        "Température ressentie": "Température ressentie",
+        "Visibilité": "Visibilité",
         "Humidité": "Nem",
         "Pression": "Basınç",
         "Vitesse du vent": "Rüzgar hızı",
@@ -50,34 +50,28 @@
         "Température Min": "Minimum Sıcaklık",
         "Température Max": "Maximum Sıcaklık",
         "Condition": "Durum",
-        "Numéro condition": "",
-        "Pluie": "",
-        "Température Min +1": "Min Sıcaklık +1",
-        "Température Max +1": "Max Sıcaklık +1",
-        "Température Min +2": "Min Sıcaklık +2",
-        "Température Max +2": "Max Sıcaklık +2",
-        "Température Min +3": "Min Sıcaklık +3",
-        "Température Max +3": "Max Sıcaklık +3",
-        "Température Min +4": "Min Sıcaklık +4",
-        "Température Max +4": "Max Sıcaklık +4",
-        "Condition +1": "Durum +1",
-        "Numéro condition +1": "",
-        "Condition +2": "Durum +2",
-        "Numéro condition +2": "",
-        "Condition +3": "Durum +3",
-        "Numéro condition +3": "",
-        "Condition +4": "Durum +4",
-        "Numéro condition +4": "",
-        "Pluie +1": "",
-        "Pluie +2": "",
-        "Pluie +3": "",
-        "Pluie +4": "",
+        "Numéro condition": "Numéro condition",
+        "Pluie": "Pluie",
+        "Neige": "Neige",
+        "Point de rosée": "Point de rosée",
+        "Nuage": "Nuage",
+        "UV": "UV",
+        "Vitesse du vent +'.$i": "Vitesse du vent +'.$i",
+        "Direction du vent +'.$i": "Direction du vent +'.$i",
+        "Température ressentie +'.$i": "Température ressentie +'.$i",
+        "Pression +'.$i": "Pression +'.$i",
+        "Nuage +'.$i": "Nuage +'.$i",
+        "Point de rosée +'.$i": "Point de rosée +'.$i",
+        "Neige +1'.$i": "Neige +1'.$i",
+        "UV +'.$i": "UV +'.$i",
+        "Température Min +'.$i": "Température Min +'.$i",
+        "Température Max +'.$i": "Température Max +'.$i",
+        "Numéro condition +'.$i": "Numéro condition +'.$i",
+        "Pluie +'.$i": "Pluie +'.$i",
         "Rafraichir": "Yenile",
-        "La ville ne peut être vide": "",
-        "(1) Impossible de récuperer les informations météo : ": "",
-        "(2) Impossible de récuperer les informations météo : ": "(2) Impossible de récuperer les informations météo :"
+        "La latitude et la longitude ne peut être vide": "La latitude et la longitude ne peut être vide"
     },
     "info.json": {
-        "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis.": ""
+        "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis.": "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis"
     }
 }
