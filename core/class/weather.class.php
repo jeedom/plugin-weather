@@ -383,7 +383,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Vitesse du vent +'.$i, __FILE__));
+			$weatherCmd->setName(__('Vitesse du vent +', __FILE__).$i);
 			$weatherCmd->setLogicalId('wind_speed_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('km/h');
@@ -396,7 +396,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Direction du vent +'.$i, __FILE__));
+			$weatherCmd->setName(__('Direction du vent +', __FILE__).$i);
 			$weatherCmd->setLogicalId('wind_direction_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°');
@@ -410,7 +410,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Température ressentie +'.$i, __FILE__));
+			$weatherCmd->setName(__('Température ressentie +', __FILE__).$i);
 			$weatherCmd->setLogicalId('temperature_feel_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
@@ -422,7 +422,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Pression +'.$i, __FILE__));
+			$weatherCmd->setName(__('Pression +', __FILE__).$i);
 			$weatherCmd->setLogicalId('pressure_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('Pa');
@@ -434,7 +434,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Nuage +'.$i, __FILE__));
+			$weatherCmd->setName(__('Nuage +', __FILE__).$i);
 			$weatherCmd->setLogicalId('cloud_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setType('info');
@@ -445,7 +445,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Point de rosée +'.$i, __FILE__));
+			$weatherCmd->setName(__('Point de rosée +', __FILE__).$i);
 			$weatherCmd->setLogicalId('dew_point_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
@@ -457,7 +457,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Neige +1'.$i, __FILE__));
+			$weatherCmd->setName(__('Neige +1', __FILE__).$i);
 			$weatherCmd->setLogicalId('snow_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('mm');
@@ -469,7 +469,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('UV +'.$i, __FILE__));
+			$weatherCmd->setName(__('UV +', __FILE__).$i);
 			$weatherCmd->setLogicalId('uv_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setType('info');
@@ -480,7 +480,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Température Min +'.$i, __FILE__));
+			$weatherCmd->setName(__('Température Min +', __FILE__).$i);
 			$weatherCmd->setLogicalId('temperature_'.$i.'_min');
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
@@ -493,7 +493,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Température Max +'.$i, __FILE__));
+			$weatherCmd->setName(__('Température Max +', __FILE__).$i);
 			$weatherCmd->setLogicalId('temperature_'.$i.'_max');
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
@@ -506,7 +506,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Numéro condition +'.$i, __FILE__));
+			$weatherCmd->setName(__('Numéro condition +', __FILE__).$i);
 			$weatherCmd->setLogicalId('condition_id_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('');
@@ -519,7 +519,7 @@ class weather extends eqLogic {
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Pluie +'.$i, __FILE__));
+			$weatherCmd->setName(__('Pluie +', __FILE__).$i);
 			$weatherCmd->setLogicalId('rain_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('mm');
