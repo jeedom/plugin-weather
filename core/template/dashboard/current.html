@@ -43,9 +43,9 @@
       jeedom.cmd.execute({id: $(this).data('cmd_id')});
     });
     let directions#uid# = ['Nord', 'Nord-Est', 'Est', 'Sud-Est', 'Sud', 'Sud-Ouest', 'Ouest', 'Nord-Ouest']
-    let windDir#uid# = directions#uid#[Math.round(#wind_direction# % 360) < 0 ? #wind_direction# + 360 : #wind_direction# / 45) % 8]
+    let windDir#uid# = directions#uid#[Math.round(((#wind_direction# % 360) < 0 ? #wind_direction# + 360 : #wind_direction#) / 45) % 8]
     $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .widget-compass-needle-placer').css('transform', 'rotate(' +#wind_direction# +'deg)')
     $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .state').text(#wind_direction#+'°')
-    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .winDir').html(#wind_direction#)
+    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .winDir').html(windDir#uid#)
   </script>
 </div>
