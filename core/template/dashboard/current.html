@@ -12,7 +12,18 @@
         <i class="#icone#" style="font-size: 3em;"></i>
       </span>
       <div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-        <div id="windDirection#uid#" style="width: 90px; height: 90px;" class="cmd noRefresh" data-type="info" data-subtype="numeric" data-cmd_id="#windid#"></div>
+        <div class="cmd cmd-widget widget-compass" data-type="info" data-subtype="numeric" data-template="compass">
+          <div class="content-lg">
+            <div class="widget-compass-container">
+              <div class="widget-compass-outline"></div>
+              <div class="widget-compass-needle-placer">
+                <div class="widget-compass-needle"></div>
+              </div>
+              <div class="state" style="text-align:center"></div>
+              <div class="winDir" style="text-align:center"></div>
+            </div>
+          </div>
+        </div>
         <div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
           <center><i class="fas fa-sun"></i></center>
           <center><span style="font-size: 0.8em;">#sunrise# | #sunset#</span></center>
@@ -26,99 +37,16 @@
       <center>#forecast#</center>
     </div>
   </div>
-
+  
   <script>
     $('.eqLogic[data-eqLogic_uid=#uid#] .cmd').on('click', function() {
       jeedom.cmd.execute({id: $(this).data('cmd_id')});
     });
-    if($('#windDirection#uid#').html() != undefined){
-      new Highcharts.Chart({
-        chart: {
-          renderTo: 'windDirection#uid#',
-          type: 'gauge',
-          backgroundColor: 'transparent',
-          plotBackgroundColor: null,
-          plotBackgroundImage: null,
-          plotBorderWidth: 0,
-          plotShadow: false,
-          spacingTop: 0,
-          spacingLeft: 0,
-          spacingRight: 0,
-          spacingBottom: 0
-        },
-        title: {
-          text: null
-        },
-        credits: {
-          enabled: false
-        },
-        pane: {
-          startAngle: 0,
-          endAngle: 360,
-        },
-        exporting : {
-          enabled: false
-        },
-        plotOptions: {
-          series: {
-            dataLabels: {
-              enabled: false
-            },
-            color: '#FFFFFF',
-          },
-          gauge: {
-            dial: {
-              radius: '90%',
-              backgroundColor: 'silver',
-              borderColor: 'silver',
-              borderWidth: 1,
-              baseWidth: 6,
-              topWidth: 1,
-              baseLength: '15%', // of radius
-              rearLength: '75%'
-            },
-            pivot: {
-              backgroundColor: 'white',
-              radius: 0,
-            }
-          }
-        },
-        pane: {background: [{backgroundColor: 'transparent'}]},
-        yAxis: {
-          min: 0,
-          max: 360,
-          tickWidth: 2,
-          tickLength: 10,
-          tickColor: '#FFFFFF',
-          tickInterval: 90,
-          lineColor: '#FFFFFF',
-          lineWidth: 2,
-          labels: {
-            formatter: function () {
-              if (this.value == 360) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">N</span>';
-              } else if (this.value == 90) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">E</span>';
-              } else if (this.value == 180) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">S</span>';
-              } else if (this.value == 270) {
-                return '<span style="color : #FFFFFF;font-weight:bold;">W</span>';
-              }
-            }
-          },
-          title: {
-            text: null
-          }},
-          series: [{
-            name: 'Vent',
-            data: [#wind_direction# - 180]
-          }],
-          tooltip: {
-           formatter: function () {
-             return this.y + 180 + '°';
-          }
-        },
-      });
-    }
+    let wind_dir#uid# = (#wind_direction# - 180);
+    let directions#uid# = ['Nord', 'Nord-Est', 'Est', 'Sud-Est', 'Sud', 'Sud-Ouest', 'Ouest', 'Nord-Ouest']
+    let windDir#uid# = directions#uid#[Math.round(((wind_dir#uid# %= 360) < 0 ? wind_dir#uid# + 360 : wind_dir#uid#) / 45) % 8]
+    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .widget-compass-needle-placer').css('transform', 'rotate(' +wind_dir#uid# +'deg)')
+    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .state').text(wind_dir#uid#+'°')
+    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .winDir').html(windDir#uid#)
   </script>
 </div>
