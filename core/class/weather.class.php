@@ -22,11 +22,11 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 class weather extends eqLogic {
 	/*     * *************************Attributs****************************** */
 	public static $_widgetPossibility = array('custom' => true, 'custom::layout' => false);
-	
+
 	/*     * ***********************Methode static*************************** */
-	
+
 	public static function pull($_options) {
-		$weather = weather::byId($_options['weather_id']);
+		$weather = self::byId($_options['weather_id']);
 		if (is_object($weather) && $weather->getIsEnable() == 1) {
 			if (jeedom::isDateOk()) {
 				$sunrise = $weather->getCmd(null, 'sunrise')->execCmd();
@@ -45,17 +45,17 @@ class weather extends eqLogic {
 			}
 			$weather->reschedule();
 		} else {
-			$cron = cron::byClassAndFunction('weather', 'pull', $_options);
+			$cron = cron::byClassAndFunction(__CLASS__, 'pull', $_options);
 			if (is_object($cron)) {
 				$cron->remove();
 			}
 		}
 	}
-	
+
 	public static function cronDaily() {
-		foreach (self::byType('weather') as $weather) {
+		foreach (self::byType(__CLASS__) as $weather) {
 			if ($weather->getIsEnable() == 1) {
-				$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($weather->getId())));
+				$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($weather->getId())));
 				if (!is_object($cron)) {
 					$weather->reschedule();
 				} else {
@@ -76,10 +76,10 @@ class weather extends eqLogic {
 			}
 		}
 	}
-	
+
 	public static function cron30($_eqLogic_id = null) {
 		if ($_eqLogic_id == null) {
-			$eqLogics = self::byType('weather', true);
+			$eqLogics = self::byType(__CLASS__, true);
 		} else {
 			$eqLogics = array(self::byId($_eqLogic_id));
 		}
@@ -87,11 +87,11 @@ class weather extends eqLogic {
 			try {
 				$weather->updateWeatherData();
 			} catch (Exception $e) {
-				log::add('weather', 'info', $e->getMessage());
+				log::add(__CLASS__, 'info', $e->getMessage());
 			}
 		}
 	}
-	
+
 	public static function getIconFromCondition($_condition_id, $_sunrise = null, $_sunset = null) {
 		if ($_condition_id >= 200 && $_condition_id <= 299) {
 			return 'meteo-orage';
@@ -134,7 +134,7 @@ class weather extends eqLogic {
 			return 'far fa-moon';
 		}
 	}
-	
+
 	/*     * *********************Methode d'instance************************* */
 	public function preSave(){
 		if($this->getConfiguration('lat') == ''){
@@ -144,11 +144,11 @@ class weather extends eqLogic {
 			$this->setConfiguration('long',config::byKey('info::longitude'));
 		}
 	}
-	
+
 	public function preInsert() {
 		$this->setCategory('heating', 1);
 	}
-	
+
 	public function postUpdate() {
 		$weatherCmd = $this->getCmd(null, 'temperature');
 		if (!is_object($weatherCmd)) {
@@ -162,7 +162,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'temperature_feel');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -174,7 +174,7 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'visibility');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -185,7 +185,7 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'humidity');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -198,7 +198,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_HUMIDITY');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'pressure');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -211,7 +211,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_PRESSURE');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'wind_speed');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -224,7 +224,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_SPEED');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'wind_direction');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -237,7 +237,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'sunset');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -251,7 +251,7 @@ class weather extends eqLogic {
 		$weatherCmd->setConfiguration('repeatEventManagement', 'always');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_SUNSET');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'sunrise');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -265,7 +265,7 @@ class weather extends eqLogic {
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_SUNRISE');
 		$weatherCmd->setConfiguration('repeatEventManagement', 'always');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'temperature_min');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -278,7 +278,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'temperature_max');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -291,7 +291,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'condition');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -304,7 +304,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('string');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'condition_id');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -317,7 +317,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'rain');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -330,7 +330,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'snow');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -343,7 +343,7 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'dew_point');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -355,7 +355,7 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'cloud');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -366,7 +366,7 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
-		
+
 		$weatherCmd = $this->getCmd(null, 'uv');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -377,13 +377,13 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
-		
-		for($i=1;$i<7;$i++){
+
+		for($i=1; $i<7; $i++) {
 			$weatherCmd = $this->getCmd(null, 'wind_speed_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Vitesse du vent +', __FILE__).$i);
+			$weatherCmd->setName(__('Vitesse du vent', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('wind_speed_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('km/h');
@@ -391,12 +391,12 @@ class weather extends eqLogic {
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_SPEED');
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'wind_direction_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Direction du vent +', __FILE__).$i);
+			$weatherCmd->setName(__('Direction du vent', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('wind_direction_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°');
@@ -404,83 +404,83 @@ class weather extends eqLogic {
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
 			$weatherCmd->save();
-			
-			
+
+
 			$weatherCmd = $this->getCmd(null, 'temperature_feel_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Température ressentie +', __FILE__).$i);
+			$weatherCmd->setName(__('Température ressentie', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('temperature_feel_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
-			$weatherCmd->save();			
-			
+			$weatherCmd->save();
+
 			$weatherCmd = $this->getCmd(null, 'pressure_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Pression +', __FILE__).$i);
+			$weatherCmd->setName(__('Pression', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('pressure_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('Pa');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'cloud_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Nuage +', __FILE__).$i);
+			$weatherCmd->setName(__('Nuage', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('cloud_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
-			$weatherCmd->save();			
-			
+			$weatherCmd->save();
+
 			$weatherCmd = $this->getCmd(null, 'dew_point_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Point de rosée +', __FILE__).$i);
+			$weatherCmd->setName(__('Point de rosée', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('dew_point_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'snow_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Neige +1', __FILE__).$i);
+			$weatherCmd->setName(__('Neige', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('snow_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('mm');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'uv_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('UV +', __FILE__).$i);
+			$weatherCmd->setName(__('UV', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('uv_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'temperature_'.$i.'_min');
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Température Min +', __FILE__).$i);
+			$weatherCmd->setName(__('Température Min', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('temperature_'.$i.'_min');
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
@@ -488,12 +488,12 @@ class weather extends eqLogic {
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN_'.$i);
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'temperature_'.$i.'_max');
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Température Max +', __FILE__).$i);
+			$weatherCmd->setName(__('Température Max', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('temperature_'.$i.'_max');
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
@@ -501,12 +501,12 @@ class weather extends eqLogic {
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_'.$i);
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'condition_id_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Numéro condition +', __FILE__).$i);
+			$weatherCmd->setName(__('Numéro condition', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('condition_id_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('');
@@ -514,12 +514,12 @@ class weather extends eqLogic {
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_'.$i);
 			$weatherCmd->save();
-			
+
 			$weatherCmd = $this->getCmd(null, 'rain_'.$i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
-			$weatherCmd->setName(__('Pluie +', __FILE__).$i);
+			$weatherCmd->setName(__('Pluie', __FILE__) . ' +' . $i);
 			$weatherCmd->setLogicalId('rain_'.$i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('mm');
@@ -528,7 +528,7 @@ class weather extends eqLogic {
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN_'.$i);
 			$weatherCmd->save();
 		}
-		
+
 		$refresh = $this->getCmd(null, 'refresh');
 		if (!is_object($refresh)) {
 			$refresh = new weatherCmd();
@@ -539,22 +539,22 @@ class weather extends eqLogic {
 		$refresh->setType('action');
 		$refresh->setSubType('other');
 		$refresh->save();
-		
+
 		if ($this->getIsEnable() != 1) {
-			$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
+			$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($this->getId())));
 			if (is_object($cron)) {
 				$cron->remove();
 			}
 		}
 	}
-	
+
 	public function preRemove() {
-		$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
+		$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($this->getId())));
 		if (is_object($cron)) {
 			$cron->remove();
 		}
 	}
-	
+
 	public function reschedule() {
 		$sunrise = $this->getCmd(null, 'sunrise')->execCmd();
 		$sunset = $this->getCmd(null, 'sunset')->execCmd();
@@ -573,7 +573,7 @@ class weather extends eqLogic {
 		if ($next == null || $next == '' || !is_numeric($next)) {
 			return;
 		}
-		
+
 		if ($next < (date('Gi') + 10)) {
 			if (strlen($next) == 3) {
 				$next = date('Y-m-d', strtotime('+1 day' . date('Y-m-d'))) . ' 0' . substr($next, 0, 1) . ':' . substr($next, 1, 3);
@@ -587,11 +587,11 @@ class weather extends eqLogic {
 				$next = date('Y-m-d') . ' ' . substr($next, 0, 2) . ':' . substr($next, 2, 4);
 			}
 		}
-		$cron = cron::byClassAndFunction('weather', 'pull', array('weather_id' => intval($this->getId())));
+		$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($this->getId())));
 		if ($next != null) {
 			if (!is_object($cron)) {
 				$cron = new cron();
-				$cron->setClass('weather');
+				$cron->setClass(__CLASS__);
 				$cron->setFunction('pull');
 				$cron->setOption(array('weather_id' => intval($this->getId())));
 				$cron->setLastRun(date('Y-m-d H:i:s'));
@@ -605,7 +605,7 @@ class weather extends eqLogic {
 			}
 		}
 	}
-	
+
 	public function toHtml($_version = 'dashboard') {
 		$replace = $this->preToHtml($_version);
 		if (!is_array($replace)) {
@@ -615,21 +615,21 @@ class weather extends eqLogic {
 		$replace['#forecast#'] = '';
 		if ($version != 'mobile' || $this->getConfiguration('fullMobileDisplay', 0) == 1) {
 			if ($this->getConfiguration('modeImage', 0) == 1) {
-				$forcast_template = getTemplate('core', $version, 'forecastIMG', 'weather');
+				$forcast_template = getTemplate('core', $version, 'forecastIMG', __CLASS__);
 			} else {
-				$forcast_template = getTemplate('core', $version, 'forecast', 'weather');
+				$forcast_template = getTemplate('core', $version, 'forecast', __CLASS__);
 			}
 			for ($i = 0; $i < 5; $i++) {
 				$replaceDay = array();
 				$replaceDay['#day#'] = date_fr(date('l', strtotime('+' . $i . ' days')));
-				
+
 				if ($i == 0) {
 					$temperature_min = $this->getCmd(null, 'temperature_min');
 				} else {
 					$temperature_min = $this->getCmd(null, 'temperature_' . $i . '_min');
 				}
 				$replaceDay['#low_temperature#'] = is_object($temperature_min) ? $temperature_min->execCmd() : '';
-				
+
 				if ($i == 0) {
 					$temperature_max = $this->getCmd(null, 'temperature_max');
 				} else {
@@ -650,18 +650,18 @@ class weather extends eqLogic {
 		$temperature = $this->getCmd(null, 'temperature');
 		$replace['#temperature#'] = is_object($temperature) ? $temperature->execCmd() : '';
 		$replace['#tempid#'] = is_object($temperature) ? $temperature->getId() : '';
-		
+
 		$humidity = $this->getCmd(null, 'humidity');
 		$replace['#humidity#'] = is_object($humidity) ? $humidity->execCmd() : '';
-		
+
 		$pressure = $this->getCmd(null, 'pressure');
 		$replace['#pressure#'] = is_object($pressure) ? $pressure->execCmd() : '';
 		$replace['#pressureid#'] = is_object($pressure) ? $pressure->getId() : '';
-		
+
 		$wind_speed = $this->getCmd(null, 'wind_speed');
 		$replace['#windspeed#'] = is_object($wind_speed) ? $wind_speed->execCmd() : '';
 		$replace['#windid#'] = is_object($wind_speed) ? $wind_speed->getId() : '';
-		
+
 		$sunrise = $this->getCmd(null, 'sunrise');
 		$replace['#sunrise#'] = is_object($sunrise) ? $sunrise->execCmd() : '';
 		$replace['#sunid#'] = is_object($sunrise) ? $sunrise->getId() : '';
@@ -670,7 +670,7 @@ class weather extends eqLogic {
 		} else if (strlen($replace['#sunrise#']) == 4) {
 			$replace['#sunrise#'] = substr($replace['#sunrise#'], 0, 2) . ':' . substr($replace['#sunrise#'], 2, 2);
 		}
-		
+
 		$sunset = $this->getCmd(null, 'sunset');
 		$replace['#sunset#'] = is_object($sunset) ? $sunset->execCmd() : '';
 		if (strlen($replace['#sunset#']) == 3) {
@@ -678,13 +678,13 @@ class weather extends eqLogic {
 		} else if (strlen($replace['#sunset#']) == 4) {
 			$replace['#sunset#'] = substr($replace['#sunset#'], 0, 2) . ':' . substr($replace['#sunset#'], 2, 2);
 		}
-		
+
 		$wind_direction = $this->getCmd(null, 'wind_direction');
 		$replace['#wind_direction#'] = is_object($wind_direction) ? $wind_direction->execCmd() : 0;
-		
+
 		$refresh = $this->getCmd(null, 'refresh');
 		$replace['#refresh_id#'] = is_object($refresh) ? $refresh->getId() : '';
-		
+
 		$sunset_time = is_object($sunset) ? $sunset->execCmd() : null;
 		$sunrise_time = is_object($sunrise) ? $sunrise->execCmd() : null;
 		$condition_id = $this->getCmd(null, 'condition_id');
@@ -693,7 +693,7 @@ class weather extends eqLogic {
 		} else {
 			$replace['#icone#'] = '';
 		}
-		
+
 		$condition = $this->getCmd(null, 'condition');
 		if (is_object($condition)) {
 			$replace['#condition#'] = $condition->execCmd();
@@ -703,12 +703,12 @@ class weather extends eqLogic {
 			$replace['#collectDate#'] = '';
 		}
 		if ($this->getConfiguration('modeImage', 0) == 1) {
-			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'currentIMG', 'weather')));
+			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'currentIMG', __CLASS__)));
 		} else {
-			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', 'weather')));
+			return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'current', __CLASS__)));
 		}
 	}
-	
+
 	public function updateWeatherData() {
 		if ($this->getConfiguration('lat') == '' || $this->getConfiguration('long') == '') {
 			throw new Exception(__('La latitude et la longitude ne peut être vide', __FILE__));
@@ -716,15 +716,15 @@ class weather extends eqLogic {
 		$url = config::byKey('service::cloud::url').'/service/openweathermap';
 		$url .= '?lat='.$this->getConfiguration('lat');
 		$url .= '&long='.$this->getConfiguration('long');
-		$url .= '&lang='.substr(config::byKey('language'),0,2);
+		$url .= '&lang='.substr(config::byKey('language'), 0, 2);
 		$request_http = new com_http($url);
 		$request_http->setHeader(array('Autorization: '.sha512(mb_strtolower(config::byKey('market::username')).':'.config::byKey('market::password'))));
 		$datas = json_decode($request_http->exec(10),true);
-		log::add('weather', 'debug',json_encode($datas));
+		log::add(__CLASS__, 'debug',json_encode($datas));
 		if($datas['state'] != 'ok'){
 			return;
 		}
-		
+
 		$changed = false;
 		$changed = $this->checkAndUpdateCmd('temperature', $datas['data']['today']['temperature']['value']) || $changed;
 		$changed = $this->checkAndUpdateCmd('humidity', $datas['data']['today']['humidity']['value']) || $changed;
@@ -736,26 +736,26 @@ class weather extends eqLogic {
 		$changed = $this->checkAndUpdateCmd('rain', $datas['data']['today']['rain']['value']) || $changed;
 		$changed = $this->checkAndUpdateCmd('temperature_min', $datas['data']['today']['temperature']['min']) || $changed;
 		$changed = $this->checkAndUpdateCmd('temperature_max', $datas['data']['today']['temperature']['max']) || $changed;
-		
+
 		$this->checkAndUpdateCmd('temperature_feel', $datas['data']['today']['temperature']['feels']);
 		$this->checkAndUpdateCmd('visibility', $datas['data']['today']['visibility']['value']);
 		$this->checkAndUpdateCmd('dew_point', $datas['data']['today']['dew_point']['value']);
 		$this->checkAndUpdateCmd('snow', $datas['data']['today']['snow']['value']);
 		$this->checkAndUpdateCmd('uv', $datas['data']['today']['uv']['value']);
 		$this->checkAndUpdateCmd('clouds', $datas['data']['today']['clouds']['all']);
-		
+
 		$cmd = $this->getCmd('info', 'sunrise');
 		if (is_object($cmd) && $cmd->execCmd() != date('Gi',$datas['data']['today']['sun']['rise'])) {
 			$cmd->setCache('value', date('Gi',$datas['data']['today']['sun']['rise']));
 			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
 		}
-		
+
 		$cmd = $this->getCmd('info', 'sunset');
 		if (is_object($cmd) && $cmd->execCmd() != date('Gi',$datas['data']['today']['sun']['set'])) {
 			$cmd->setCache('value', date('Gi',$datas['data']['today']['sun']['set']));
 			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
 		}
-		
+
 		for ($i = 1; $i < 7; $i++) {
 			$date = date('Y-m-d', strtotime('+' . $i . ' day'));
 			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_min', $datas['data']['day +'.$i]['temperature']['min']) || $changed;
@@ -765,7 +765,7 @@ class weather extends eqLogic {
 			if(isset($datas['data']['day +'.$i]['rain']['value'])){
 				$changed = $this->checkAndUpdateCmd('rain_' . $i, $datas['data']['day +'.$i]['rain']['value']) || $changed;
 			}
-			
+
 			$this->checkAndUpdateCmd('temperature_' . $i, $datas['data']['day +'.$i]['temperature']['value']);
 			$this->checkAndUpdateCmd('temperature_feels_' . $i, $datas['data']['day +'.$i]['temperature']['feels']);
 			$this->checkAndUpdateCmd('pressure_' . $i, $datas['data']['day +'.$i]['pressure']['value']);
@@ -780,24 +780,18 @@ class weather extends eqLogic {
 			$this->refreshWidget();
 		}
 	}
-	
+
 }
 
 class weatherCmd extends cmd {
-	/*     * *************************Attributs****************************** */
-	
+
 	public static $_widgetPossibility = array('custom' => false);
-	
-	/*     * ***********************Methode static*************************** */
-	
-	/*     * *********************Methode d'instance************************* */
-	
+
 	public function execute($_options = array()) {
 		if ($this->getLogicalId() == 'refresh') {
 			$this->getEqLogic()->updateWeatherData();
 		}
 		return false;
 	}
-	
-	/*     * **********************Getteur Setteur*************************** */
+
 }
