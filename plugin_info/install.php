@@ -1,5 +1,4 @@
 <?php
-
 /* This file is part of Jeedom.
  *
  * Jeedom is free software: you can redistribute it and/or modify
@@ -27,14 +26,16 @@ function weather_update() {
 	foreach (weather::byType('weather', true) as $weather) {
 		try {
 			$weather->save();
-		} catch (Exception $e) {
-
 		}
+		catch (Exception $e) {}
+
 		$cmd = $weather->getCmd('info', 'condition_now');
 		if (is_object($cmd)) {
 			$cmd->remove();
 		}
 	}
-}
 
-?>
+	if (config::byKey('apikey', 'weather', '') != '') {
+		config::remove('apikey', 'weather');
+	}
+}
