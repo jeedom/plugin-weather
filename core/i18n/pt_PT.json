@@ -1,41 +1,49 @@
 {
-    "plugins\/weather\/plugin_info\/configuration.php": {
-        "401 - Accès non autorisé": "401 - Acesso não autorizado"
-    },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
         "Gestion": "Gestão",
         "Ajouter": "Adicionar",
         "Configuration": "Configuração",
         "Mes Météos": "Meus meteos",
+        "Aucun équipement Météo trouvé, cliquer sur \"Ajouter\" pour commencer": "Nenhum equipamento meteorológico encontrado, clique em \"Adicionar\" para iniciar",
         "Rechercher": "Pesquisa",
+        "Equipement visible": "Equipamento visível",
+        "Equipement non visible": "Equipamento não visível",
         "Configuration avancée": "Configuração avançada",
         "Sauvegarder": "Salvar",
         "Supprimer": "Remover",
         "Equipement": "Equipamento",
         "Commandes": "Comandos",
-        "Nom de l'équipement météo": "Equipamentos clima nome",
+        "Paramètres généraux": "Configurações Gerais",
+        "Nom de l'équipement": "Nome do equipamento",
+        "Nom de l'équipement Météo": "Equipamentos clima nome",
         "Objet parent": "Objeto pai",
         "Aucun": "Nemhum",
         "Catégorie": "Categoria",
+        "Options": "Opções",
         "Activer": "Ativar",
         "Visible": "Visivél",
-        "Latitude": "Latitude",
-        "Longitude": "Longitude",
-        "Affichage complet en mobile": "Exibição móvel completa",
+        "Affichage mobile complet": "Exibição móvel completa",
+        "Cocher la case pour afficher toutes les informations météo sur les appareils mobiles": "Marque a caixa para exibir todas as informações meteorológicas em dispositivos móveis",
         "Mode image": "Modo de imagem",
+        "Cocher la case pour afficher des images à la place d'icônes sur le widget": "Marque a caixa para exibir imagens em vez de ícones no widget",
+        "Coordonnées GPS": "Coordenadas GPS",
+        "Latitude": "Latitude",
+        "Indiquer la latitude du lieu dont il faut récupérer les informations météo": "Indique a latitude do local de onde as informações meteorológicas devem ser recuperadas",
+        "Longitude": "Longitude",
+        "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Indique a longitude do local de onde as informações meteorológicas devem ser recuperadas",
         "Nom": "Nome",
-        "Options": "Opções"
+        "Actions": "Ações"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {
-        "Nom": "Nome",
+        "Nom de la commande": "Nome do comando",
         "Historiser": "Historicizar",
         "Tester": "Teste"
     },
     "plugins\/weather\/core\/ajax\/weather.ajax.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
-        "Weather inconnu verifié l\\'id": "ID verificado do tempo desconhecido",
-        "Aucune methode correspondante à : ": "Aucune methode correspondante à :"
+        "Equipement Météo inconnu, vérifier l\\'id": "Equipamento meteorológico desconhecido, verifique o id",
+        "Aucune méthode correspondante à": "Nenhum método de correspondência"
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
         "Température": "Temperatura",
@@ -56,22 +64,10 @@
         "Point de rosée": "Ponto de condensação da água",
         "Nuage": "Nuvem",
         "UV": "UV",
-        "Vitesse du vent +": "Velocidade do vento +",
-        "Direction du vent +": "Direção do vento +",
-        "Température ressentie +": "Temperatura de feltro +",
-        "Pression +": "Pressão +",
-        "Nuage +": "Cloud +",
-        "Point de rosée +": "Ponto de orvalho +",
-        "Neige +1": "Neve +1",
-        "UV +": "UV +",
-        "Température Min +": "Temperatura mínima +",
-        "Température Max +": "Temperatura máxima +",
-        "Numéro condition +": "Número da condição +",
-        "Pluie +": "Chuva +",
         "Rafraichir": "Legal",
         "La latitude et la longitude ne peut être vide": "Latitude e longitude não podem estar vazias"
     },
     "info.json": {
-        "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis.": "Este plugin permite que você recupere as informações meteorológicas da cidade de sua escolha, como as condições do tempo e as temperaturas atuais e os dias que virão, a taxa de umidade, a força do vento e sua direção, os horários do nascer e do pôr do sol. sol e muito mais. Você queria comprar uma estação meteorológica, este plugin certamente o fará mudar de ideia"
+        "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !": "Este plugin permite que você recupere informações meteorológicas do local de sua escolha, como condições e temperaturas atuais e dos próximos dias, umidade, força e direção do vento, horários de nascer e pôr do sol e muito mais... estação? Este plugin certamente vai fazer você mudar de ideia!"
     }
 }

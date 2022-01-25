@@ -1,41 +1,49 @@
 {
-    "plugins\/weather\/plugin_info\/configuration.php": {
-        "401 - Accès non autorisé": "401-不正アクセス"
-    },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
         "Gestion": "管理",
         "Ajouter": "加えます",
         "Configuration": "コンフィギュレーション",
         "Mes Météos": "私Météos",
+        "Aucun équipement Météo trouvé, cliquer sur \"Ajouter\" pour commencer": "Aucun équipement Météo trouvé, cliquer sur \"Ajouter\" pour commencer",
         "Rechercher": "検索",
+        "Equipement visible": "Equipement visible",
+        "Equipement non visible": "Equipement non visible",
         "Configuration avancée": "高度な構成",
         "Sauvegarder": "セーブ",
         "Supprimer": "取り除きます",
         "Equipement": "設備",
         "Commandes": "コマンド",
-        "Nom de l'équipement météo": "名前気象機器",
+        "Paramètres généraux": "Paramètres généraux",
+        "Nom de l'équipement": "Nom de l'équipement",
+        "Nom de l'équipement Météo": "名前気象機器",
         "Objet parent": "親オブジェクト",
         "Aucun": "何でもありません",
         "Catégorie": "カテゴリ",
+        "Options": "オプション",
         "Activer": "アクティブ",
         "Visible": "目に見えます",
-        "Latitude": "Latitude",
-        "Longitude": "Longitude",
-        "Affichage complet en mobile": "完全なモバイルディスプレイ",
+        "Affichage mobile complet": "Affichage mobile complet",
+        "Cocher la case pour afficher toutes les informations météo sur les appareils mobiles": "Cocher la case pour afficher toutes les informations météo sur les appareils mobiles",
         "Mode image": "ピクチャーモード",
+        "Cocher la case pour afficher des images à la place d'icônes sur le widget": "Cocher la case pour afficher des images à la place d'icônes sur le widget",
+        "Coordonnées GPS": "Coordonnées GPS",
+        "Latitude": "Latitude",
+        "Indiquer la latitude du lieu dont il faut récupérer les informations météo": "Indiquer la latitude du lieu dont il faut récupérer les informations météo",
+        "Longitude": "Longitude",
+        "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Indiquer la longitude du lieu dont il faut récupérer les informations météo",
         "Nom": "表題",
-        "Options": "オプション"
+        "Actions": "Actions"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {
-        "Nom": "表題",
+        "Nom de la commande": "Nom de la commande",
         "Historiser": "Historicize",
         "Tester": "テスト"
     },
     "plugins\/weather\/core\/ajax\/weather.ajax.php": {
         "401 - Accès non autorisé": "401-不正アクセス",
-        "Weather inconnu verifié l\\'id": "Weather inconnu verifié l\\'id",
-        "Aucune methode correspondante à : ": "以下に対応するメソッドはありません："
+        "Equipement Météo inconnu, vérifier l\\'id": "Equipement Météo inconnu, vérifier l\\'id",
+        "Aucune méthode correspondante à": "Aucune méthode correspondante à"
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
         "Température": "温度",
@@ -56,22 +64,10 @@
         "Point de rosée": "Point de rosée",
         "Nuage": "Nuage",
         "UV": "UV",
-        "Vitesse du vent +": "Vitesse du vent +",
-        "Direction du vent +": "Direction du vent +",
-        "Température ressentie +": "Température ressentie +",
-        "Pression +": "Pression +",
-        "Nuage +": "Nuage +",
-        "Point de rosée +": "Point de rosée +",
-        "Neige +1": "Neige +1",
-        "UV +": "UV +",
-        "Température Min +": "Température Min +",
-        "Température Max +": "Température Max +",
-        "Numéro condition +": "Numéro condition +",
-        "Pluie +": "Pluie +",
         "Rafraichir": "クール",
         "La latitude et la longitude ne peut être vide": "La latitude et la longitude ne peut être vide"
     },
     "info.json": {
-        "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis.": "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis"
+        "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !": "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !"
     }
 }

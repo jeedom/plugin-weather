@@ -1,41 +1,49 @@
 {
-    "plugins\/weather\/plugin_info\/configuration.php": {
-        "401 - Accès non autorisé": "401 - Unauthorized access"
-    },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
         "Gestion": "Management",
         "Ajouter": "Add",
         "Configuration": "Setup",
         "Mes Météos": "My forecasts",
+        "Aucun équipement Météo trouvé, cliquer sur \"Ajouter\" pour commencer": "No Weather equipment found, click \"Add\" to start",
         "Rechercher": "Search",
+        "Equipement visible": "Visible equipment",
+        "Equipement non visible": "Equipment not visible",
         "Configuration avancée": "Advanced configuration",
         "Sauvegarder": "Save",
         "Supprimer": "Delete",
         "Equipement": "Equipment",
         "Commandes": "Commands",
-        "Nom de l'équipement météo": "Weather equipment name",
+        "Paramètres généraux": "General settings",
+        "Nom de l'équipement": "Equipment name",
+        "Nom de l'équipement Météo": "Weather equipment name",
         "Objet parent": "Parent object",
         "Aucun": "None",
         "Catégorie": "Category",
+        "Options": "Options",
         "Activer": "Active",
         "Visible": "Visible",
-        "Latitude": "Latitude",
-        "Longitude": "Longitude",
-        "Affichage complet en mobile": "Full display on mobile",
+        "Affichage mobile complet": "Full mobile display",
+        "Cocher la case pour afficher toutes les informations météo sur les appareils mobiles": "Check the box to display all weather information on mobile devices",
         "Mode image": "Image mode",
+        "Cocher la case pour afficher des images à la place d'icônes sur le widget": "Check the box to display images instead of icons on the widget",
+        "Coordonnées GPS": "GPS coordinates",
+        "Latitude": "Latitude",
+        "Indiquer la latitude du lieu dont il faut récupérer les informations météo": "Indicate the latitude of the place from which the weather information must be retrieved",
+        "Longitude": "Longitude",
+        "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Indicate the longitude of the place from which the weather information must be retrieved",
         "Nom": "Name",
-        "Options": "Options"
+        "Actions": "Shares"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {
-        "Nom": "Name",
+        "Nom de la commande": "Command name",
         "Historiser": "Historize",
         "Tester": "Test"
     },
     "plugins\/weather\/core\/ajax\/weather.ajax.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
-        "Weather inconnu verifié l\\'id": "Weather unknown verified id",
-        "Aucune methode correspondante à : ": "No method corresponding to:"
+        "Equipement Météo inconnu, vérifier l\\'id": "Unknown weather equipment, check id",
+        "Aucune méthode correspondante à": "No matching method"
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
         "Température": "Temperature",
@@ -56,22 +64,10 @@
         "Point de rosée": "Dew point",
         "Nuage": "Cloud",
         "UV": "UV",
-        "Vitesse du vent +": "Wind speed +",
-        "Direction du vent +": "Wind direction +",
-        "Température ressentie +": "Felt temperature +",
-        "Pression +": "Pressure +",
-        "Nuage +": "Cloud +",
-        "Point de rosée +": "Dew point +",
-        "Neige +1": "Snow +1",
-        "UV +": "UV +",
-        "Température Min +": "Min temperature +",
-        "Température Max +": "Max temperature +",
-        "Numéro condition +": "Condition number +",
-        "Pluie +": "Rain +",
         "Rafraichir": "Refresh",
         "La latitude et la longitude ne peut être vide": "Latitude and longitude cannot be empty"
     },
     "info.json": {
-        "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis.": "This plugin allows you to retrieve the weather information of the city of your choice such as the weather conditions and the current temperatures and the days to come, the humidity rate, the force of the wind and its direction, the times of sunrise and sunset. sun and more. You wanted to buy a weather station, this plugin will surely make you change your mind"
+        "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !": "This plugin allows you to retrieve weather information from the location of your choice such as current conditions and temperatures and those of the coming days, humidity, wind strength and direction, sunrise and sunset times and much more... You wanted to buy a weather station? This plugin will surely change your mind!"
     }
 }

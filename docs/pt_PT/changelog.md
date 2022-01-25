@@ -2,13 +2,23 @@
 
 >**IMPORTANTE**
 >
->Como lembrete, se não houver informações sobre a atualização, isso significa que se trata apenas da atualização da documentação, tradução ou texto
+>Se não houver informação sobre a atualização, significa que se trata apenas da atualização da documentação, tradução ou texto.
 
-- Reformulação completa do plugin 
+# 24/01/2022
 
->**IMPROTANTE**
+- Otimizações da V4.2
+
+# 26/05/2021
+
+- Novo widget "direção do vento""
+
+# 13/04/2021
+
+- Reformulação completa do plugin
+
+>**EM FORMAÇÃO**
 >
->Você absolutamente tem que reconfigurar o equipamento para indicar sua latitude / longitude em vez da cidade
+>Após esta atualização, será necessário reconfigurar o equipamento **Clima** a fim de fornecer as latitudes e longitudes do local cuja informação meteorológica deve ser recuperada.
 
 # 11/11/2020
 
@@ -42,4 +52,4 @@
 
 # 28/01/2019
 
-- O widget pode ser redimensionado
+- Widget pode ser redimensionado
