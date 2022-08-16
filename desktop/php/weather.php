@@ -13,13 +13,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		<div class="eqLogicThumbnailContainer">
 			<div class="cursor eqLogicAction logoPrimary" data-action="add">
 				<i class="fas fa-plus-circle"></i>
-				<br/>
+				<br />
 				<span>{{Ajouter}}</span>
 			</div>
 			<div class="cursor eqLogicAction logoSecondary" data-action="gotoPluginConf">
 				<i class="fas fa-wrench"></i>
-				<br/>
-				<span >{{Configuration}}</span>
+				<br />
+				<span>{{Configuration}}</span>
 			</div>
 		</div>
 		<legend><i class="icon meteo-soleil"></i> {{Mes Météos}}</legend>
@@ -28,7 +28,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			<?php
 			foreach ($eqLogics as $eqLogic) {
 				$opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
-				echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogic->getId() . '">';
+				echo '<div class="eqLogicDisplayCard cursor ' . $opacity . '" data-eqLogic_id="' . $eqLogic->getId() . '">';
 				echo '<img src="' . $plugin->getPathImgIcon() . '"/>';
 				echo '<br/>';
 				echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
@@ -37,7 +37,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			?>
 		</div>
 	</div>
-	
+
 	<div class="col-xs-12 eqLogic" style="display: none;">
 		<div class="input-group pull-right" style="display:inline-flex">
 			<span class="input-group-btn">
@@ -51,18 +51,18 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		</ul>
 		<div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
 			<div role="tabpanel" class="tab-pane active" id="eqlogictab">
-				<br/>
+				<br />
 				<form class="form-horizontal">
 					<fieldset>
 						<div class="form-group">
 							<label class="col-sm-3 control-label">{{Nom de l'équipement météo}}</label>
 							<div class="col-sm-3">
 								<input type="text" class="eqLogicAttr form-control" data-l1key="id" style="display : none;" />
-								<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement météo}}"/>
+								<input type="text" class="eqLogicAttr form-control" data-l1key="name" placeholder="{{Nom de l'équipement météo}}" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-3 control-label" >{{Objet parent}}</label>
+							<label class="col-sm-3 control-label">{{Objet parent}}</label>
 							<div class="col-sm-3">
 								<select id="sel_object" class="eqLogicAttr form-control" data-l1key="object_id">
 									<option value="">{{Aucun}}</option>
@@ -91,8 +91,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
 						<div class="form-group">
 							<label class="col-sm-3 control-label"></label>
 							<div class="col-sm-9">
-								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked/>{{Activer}}</label>
-								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked/>{{Visible}}</label>
+								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isEnable" checked />{{Activer}}</label>
+								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="isVisible" checked />{{Visible}}</label>
 							</div>
 						</div>
 						<div class="form-group">
@@ -108,7 +108,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-3 control-label" ></label>
+							<label class="col-sm-3 control-label"></label>
 							<div class="col-sm-9">
 								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="fullMobileDisplay" />{{Affichage complet en mobile}}</label>
 								<label class="checkbox-inline"><input type="checkbox" class="eqLogicAttr" data-l1key="configuration" data-l2key="modeImage" />{{Mode image}}</label>
@@ -118,22 +118,25 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				</form>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="commandtab">
-				<br/>
+				<br />
 				<table id="table_cmd" class="table table-bordered table-condensed">
 					<thead>
 						<tr>
-							<th>{{Nom}}</th><th>{{Options}}</th><th></th>
+							<th>{{Nom}}</th>
+							<th>{{Options}}</th>
+							<th>{{Etat}}</th>
+							<th>{{Action}}</th>
 						</tr>
 					</thead>
 					<tbody>
 					</tbody>
 				</table>
-				
+
 			</div>
 		</div>
-		
+
 	</div>
 </div>
 
-<?php include_file('desktop', 'weather', 'js', 'weather');?>
-<?php include_file('core', 'plugin.template', 'js');?>
+<?php include_file('desktop', 'weather', 'js', 'weather'); ?>
+<?php include_file('core', 'plugin.template', 'js'); ?>
