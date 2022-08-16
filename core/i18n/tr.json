@@ -1,41 +1,49 @@
 {
-    "plugins\/weather\/plugin_info\/configuration.php": {
-        "401 - Accès non autorisé": "401 - Yetkisiz erişim"
-    },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
         "Gestion": "Idare",
         "Ajouter": "Ekle",
         "Configuration": "Ayar",
         "Mes Météos": "Hava durumlarim",
+        "Aucun équipement Météo trouvé, cliquer sur \"Ajouter\" pour commencer": "Aucun équipement Météo trouvé, cliquer sur \"Ajouter\" pour commencer",
         "Rechercher": "Arayın",
+        "Equipement visible": "Equipement visible",
+        "Equipement non visible": "Equipement non visible",
         "Configuration avancée": "Gelişmiş ayarlar",
         "Sauvegarder": "Kaydet",
         "Supprimer": "Sil",
         "Equipement": "Cihaz",
         "Commandes": "Komutalar",
-        "Nom de l'équipement météo": "Hava durumu ekipman adı",
+        "Paramètres généraux": "Paramètres généraux",
+        "Nom de l'équipement": "Nom de l'équipement",
+        "Nom de l'équipement Météo": "Hava durumu ekipman adı",
         "Objet parent": "Üst nesne",
         "Aucun": "Hiçbir",
         "Catégorie": "Kategori",
+        "Options": "Opsiyonlar",
         "Activer": "Etkinleştir",
         "Visible": "Görülebilir",
-        "Latitude": "Latitude",
-        "Longitude": "Longitude",
-        "Affichage complet en mobile": "Mobilde tam gösterim",
+        "Affichage mobile complet": "Affichage mobile complet",
+        "Cocher la case pour afficher toutes les informations météo sur les appareils mobiles": "Cocher la case pour afficher toutes les informations météo sur les appareils mobiles",
         "Mode image": "Gösterge modu",
+        "Cocher la case pour afficher des images à la place d'icônes sur le widget": "Cocher la case pour afficher des images à la place d'icônes sur le widget",
+        "Coordonnées GPS": "Coordonnées GPS",
+        "Latitude": "Latitude",
+        "Indiquer la latitude du lieu dont il faut récupérer les informations météo": "Indiquer la latitude du lieu dont il faut récupérer les informations météo",
+        "Longitude": "Longitude",
+        "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Indiquer la longitude du lieu dont il faut récupérer les informations météo",
         "Nom": "İsim",
-        "Options": "Opsiyonlar"
+        "Actions": "Actions"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {
-        "Nom": "İsim",
+        "Nom de la commande": "Nom de la commande",
         "Historiser": "Tarihe göre sırala",
         "Tester": "Test et"
     },
     "plugins\/weather\/core\/ajax\/weather.ajax.php": {
         "401 - Accès non autorisé": "401 - Yetkisiz erişim",
-        "Weather inconnu verifié l\\'id": "Weather inconnu verifié l\\'id",
-        "Aucune methode correspondante à : ": "Aşağıdakilere karşılık gelen bir yöntem yok:"
+        "Equipement Météo inconnu, vérifier l\\'id": "Equipement Météo inconnu, vérifier l\\'id",
+        "Aucune méthode correspondante à": "Aucune méthode correspondante à"
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
         "Température": "Sıcaklık",
@@ -56,22 +64,10 @@
         "Point de rosée": "Point de rosée",
         "Nuage": "Nuage",
         "UV": "UV",
-        "Vitesse du vent +": "Vitesse du vent +",
-        "Direction du vent +": "Direction du vent +",
-        "Température ressentie +": "Température ressentie +",
-        "Pression +": "Pression +",
-        "Nuage +": "Nuage +",
-        "Point de rosée +": "Point de rosée +",
-        "Neige +1": "Neige +1",
-        "UV +": "UV +",
-        "Température Min +": "Température Min +",
-        "Température Max +": "Température Max +",
-        "Numéro condition +": "Numéro condition +",
-        "Pluie +": "Pluie +",
         "Rafraichir": "Yenile",
         "La latitude et la longitude ne peut être vide": "La latitude et la longitude ne peut être vide"
     },
     "info.json": {
-        "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis.": "Ce plugin permet de récuperer les informations météorologiques de la ville de votre choix telles que les conditions météorologiques et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et plus encore. Vous vouliez acheter une station météo, ce plugin vous fera sûrement changer d'avis"
+        "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !": "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !"
     }
 }

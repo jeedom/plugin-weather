@@ -2,13 +2,23 @@
 
 >**Importante**
 >
->Como recordatorio si no hay información sobre la actualización, significa que solo se refiere a la actualización de documentación, traducción o texto
+>Si no hay información sobre la actualización, significa que se trata solo de la actualización de la documentación, la traducción o el texto.
 
-- Rediseño completo del complemento 
+# 24/01/2022
 
->**IMPROTANTE**
+- Optimizaciones V4.2
+
+# 26/05/2021
+
+- Nuevo widget de "dirección del viento""
+
+# 13/04/2021
+
+- Rediseño completo del complemento
+
+>**INFORMACIÓN**
 >
->Es absolutamente necesario reconfigurar el equipo para indicar su latitud / longitud en lugar de la ciudad
+>Tras esta actualización, será necesario reconfigurar el equipo **Clima** para proporcionar las latitudes y longitudes del lugar cuya información meteorológica se va a recuperar.
 
 # 11/11/2020
 
@@ -42,4 +52,4 @@
 
 # 28/01/2019
 
-- El widget puede ser redimensionado
+- El widget se puede cambiar de tamaño

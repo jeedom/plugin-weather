@@ -2,13 +2,23 @@
 
 >**Important**
 >
->As a reminder if there is no information on the update, it means that it only concerns the updating of documentation, translation or text
+>If there is no information on the update, it means that it concerns only the update of documentation, translation or text.
 
-- Complete redesign of the plugin 
+# 01/24/2022
 
->**IMPROTANT**
+- V4.2 optimizations
+
+# 05/26/2021
+
+- New "wind direction" widget"
+
+# 04/13/2021
+
+- Complete redesign of the plugin
+
+>**INFORMATION**
 >
->You absolutely have to reconfigure the equipment to indicate your latitude / longitude instead of the city
+>Following this update, it will be necessary to reconfigure the equipment **Weather** in order to provide the latitudes and longitudes of the place whose meteorological information is to be retrieved.
 
 # 11/11/2020
 
