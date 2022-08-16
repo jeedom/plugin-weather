@@ -33,6 +33,7 @@
         "Longitude": "Längengrad",
         "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Geben Sie den Längengrad des Ortes an, von dem die Wetterinformationen abgerufen werden müssen",
         "Nom": "Name",
+        "Etat": "Bundesland",
         "Actions": "Anteile"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {

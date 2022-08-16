@@ -33,6 +33,7 @@
         "Longitude": "Longitud",
         "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Indicar la longitud del lugar desde donde se debe recuperar la información meteorológica",
         "Nom": "Nombre",
+        "Etat": "Estado",
         "Actions": "Comparte"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {

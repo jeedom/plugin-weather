@@ -33,6 +33,7 @@
         "Longitude": "Longitude",
         "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Indiquer la longitude du lieu dont il faut récupérer les informations météo",
         "Nom": "表題",
+        "Etat": "Etat",
         "Actions": "Actions"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {

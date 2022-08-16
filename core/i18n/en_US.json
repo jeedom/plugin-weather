@@ -33,7 +33,8 @@
         "Longitude": "Longitude",
         "Indiquer la longitude du lieu dont il faut récupérer les informations météo": "Indicate the longitude of the place from which the weather information must be retrieved",
         "Nom": "Name",
-        "Actions": "Shares"
+        "Etat": "State",
+        "Actions": "Actions"
     },
     "plugins\/weather\/desktop\/js\/weather.js": {
         "Nom de la commande": "Command name",
