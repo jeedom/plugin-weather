@@ -63,7 +63,7 @@ class weather extends eqLogic {
 						$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
 						if (!$c->isDue()) {
 							$next = $c->getNextRunDate();
-							if($next->getTimestamp() > (strtotime('now') + 50000)){
+							if ($next->getTimestamp() > (strtotime('now') + 50000)) {
 								$weather->reschedule();
 							}
 						}
@@ -108,10 +108,10 @@ class weather extends eqLogic {
 		if (($_condition_id >= 600 && $_condition_id <= 699) || ($_condition_id == 511)) {
 			return 'meteo-neige';
 		}
-		if ($_condition_id >= 700 && $_condition_id < 770){
+		if ($_condition_id >= 700 && $_condition_id < 770) {
 			return 'meteo-brouillard';
 		}
-		if ($_condition_id >= 770 && $_condition_id < 799){
+		if ($_condition_id >= 770 && $_condition_id < 799) {
 			return 'meteo-vent';
 		}
 		if ($_condition_id > 800 && $_condition_id <= 899) {
@@ -136,12 +136,12 @@ class weather extends eqLogic {
 	}
 
 	/*     * *********************Methode d'instance************************* */
-	public function preSave(){
-		if($this->getConfiguration('lat') == ''){
-			$this->setConfiguration('lat',config::byKey('info::latitude'));
+	public function preSave() {
+		if ($this->getConfiguration('lat') == '') {
+			$this->setConfiguration('lat', config::byKey('info::latitude'));
 		}
-		if($this->getConfiguration('long') == ''){
-			$this->setConfiguration('long',config::byKey('info::longitude'));
+		if ($this->getConfiguration('long') == '') {
+			$this->setConfiguration('long', config::byKey('info::longitude'));
 		}
 	}
 
@@ -161,18 +161,6 @@ class weather extends eqLogic {
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE');
-		$weatherCmd->save();
-
-		$weatherCmd = $this->getCmd(null, 'temperature_feel');
-		if (!is_object($weatherCmd)) {
-			$weatherCmd = new weatherCmd();
-		}
-		$weatherCmd->setName(__('Température ressentie', __FILE__));
-		$weatherCmd->setLogicalId('temperature_feel');
-		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setUnite('°C');
-		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
 		$weatherCmd = $this->getCmd(null, 'visibility');
@@ -331,42 +319,6 @@ class weather extends eqLogic {
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN');
 		$weatherCmd->save();
 
-		$weatherCmd = $this->getCmd(null, 'snow');
-		if (!is_object($weatherCmd)) {
-			$weatherCmd = new weatherCmd();
-		}
-		$weatherCmd->setName(__('Neige', __FILE__));
-		$weatherCmd->setLogicalId('snow');
-		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setUnite('mm');
-		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('numeric');
-		$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN');
-		$weatherCmd->save();
-
-		$weatherCmd = $this->getCmd(null, 'dew_point');
-		if (!is_object($weatherCmd)) {
-			$weatherCmd = new weatherCmd();
-		}
-		$weatherCmd->setName(__('Point de rosée', __FILE__));
-		$weatherCmd->setLogicalId('dew_point');
-		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setUnite('°C');
-		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('numeric');
-		$weatherCmd->save();
-
-		$weatherCmd = $this->getCmd(null, 'cloud');
-		if (!is_object($weatherCmd)) {
-			$weatherCmd = new weatherCmd();
-		}
-		$weatherCmd->setName(__('Nuage', __FILE__));
-		$weatherCmd->setLogicalId('cloud');
-		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('numeric');
-		$weatherCmd->save();
-
 		$weatherCmd = $this->getCmd(null, 'uv');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
@@ -378,13 +330,79 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
-		for($i=1; $i<7; $i++) {
-			$weatherCmd = $this->getCmd(null, 'wind_speed_'.$i);
+		$weatherCmd = $this->getCmd(null, 'air_quality_co');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pollution CO', __FILE__));
+		$weatherCmd->setLogicalId('air_quality_co');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->save();
+
+		$weatherCmd = $this->getCmd(null, 'air_quality_no2');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pollution NO2', __FILE__));
+		$weatherCmd->setLogicalId('air_quality_no2');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->save();
+
+		$weatherCmd = $this->getCmd(null, 'air_quality_o3');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pollution O3', __FILE__));
+		$weatherCmd->setLogicalId('air_quality_o3');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->save();
+
+		$weatherCmd = $this->getCmd(null, 'air_quality_so2');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pollution SO2', __FILE__));
+		$weatherCmd->setLogicalId('air_quality_so2');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->save();
+
+		$weatherCmd = $this->getCmd(null, 'air_quality_pm2.5');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pollution PM2.5', __FILE__));
+		$weatherCmd->setLogicalId('air_quality_pm2.5');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->save();
+
+		$weatherCmd = $this->getCmd(null, 'air_quality_pm10');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('Pollution PM10', __FILE__));
+		$weatherCmd->setLogicalId('air_quality_pm10');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->save();
+
+		for ($i = 1; $i < 7; $i++) {
+			$weatherCmd = $this->getCmd(null, 'wind_speed_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('Vitesse du vent', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('wind_speed_'.$i);
+			$weatherCmd->setLogicalId('wind_speed_' . $i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('km/h');
 			$weatherCmd->setType('info');
@@ -392,12 +410,12 @@ class weather extends eqLogic {
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_SPEED');
 			$weatherCmd->save();
 
-			$weatherCmd = $this->getCmd(null, 'wind_direction_'.$i);
+			$weatherCmd = $this->getCmd(null, 'wind_direction_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('Direction du vent', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('wind_direction_'.$i);
+			$weatherCmd->setLogicalId('wind_direction_' . $i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°');
 			$weatherCmd->setType('info');
@@ -405,128 +423,136 @@ class weather extends eqLogic {
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
 			$weatherCmd->save();
 
-
-			$weatherCmd = $this->getCmd(null, 'temperature_feel_'.$i);
-			if (!is_object($weatherCmd)) {
-				$weatherCmd = new weatherCmd();
-			}
-			$weatherCmd->setName(__('Température ressentie', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('temperature_feel_'.$i);
-			$weatherCmd->setEqLogic_id($this->getId());
-			$weatherCmd->setUnite('°C');
-			$weatherCmd->setType('info');
-			$weatherCmd->setSubType('numeric');
-			$weatherCmd->save();
-
-			$weatherCmd = $this->getCmd(null, 'pressure_'.$i);
-			if (!is_object($weatherCmd)) {
-				$weatherCmd = new weatherCmd();
-			}
-			$weatherCmd->setName(__('Pression', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('pressure_'.$i);
-			$weatherCmd->setEqLogic_id($this->getId());
-			$weatherCmd->setUnite('Pa');
-			$weatherCmd->setType('info');
-			$weatherCmd->setSubType('numeric');
-			$weatherCmd->save();
-
-			$weatherCmd = $this->getCmd(null, 'cloud_'.$i);
-			if (!is_object($weatherCmd)) {
-				$weatherCmd = new weatherCmd();
-			}
-			$weatherCmd->setName(__('Nuage', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('cloud_'.$i);
-			$weatherCmd->setEqLogic_id($this->getId());
-			$weatherCmd->setType('info');
-			$weatherCmd->setSubType('numeric');
-			$weatherCmd->save();
-
-			$weatherCmd = $this->getCmd(null, 'dew_point_'.$i);
-			if (!is_object($weatherCmd)) {
-				$weatherCmd = new weatherCmd();
-			}
-			$weatherCmd->setName(__('Point de rosée', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('dew_point_'.$i);
-			$weatherCmd->setEqLogic_id($this->getId());
-			$weatherCmd->setUnite('°C');
-			$weatherCmd->setType('info');
-			$weatherCmd->setSubType('numeric');
-			$weatherCmd->save();
-
-			$weatherCmd = $this->getCmd(null, 'snow_'.$i);
-			if (!is_object($weatherCmd)) {
-				$weatherCmd = new weatherCmd();
-			}
-			$weatherCmd->setName(__('Neige', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('snow_'.$i);
-			$weatherCmd->setEqLogic_id($this->getId());
-			$weatherCmd->setUnite('mm');
-			$weatherCmd->setType('info');
-			$weatherCmd->setSubType('numeric');
-			$weatherCmd->save();
-
-			$weatherCmd = $this->getCmd(null, 'uv_'.$i);
+			$weatherCmd = $this->getCmd(null, 'uv_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('UV', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('uv_'.$i);
+			$weatherCmd->setLogicalId('uv_' . $i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
 			$weatherCmd->save();
 
-			$weatherCmd = $this->getCmd(null, 'temperature_'.$i.'_min');
+			$weatherCmd = $this->getCmd(null, 'temperature_' . $i . '_min');
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('Température Min', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('temperature_'.$i.'_min');
+			$weatherCmd->setLogicalId('temperature_' . $i . '_min');
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
-			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN_'.$i);
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MIN_' . $i);
 			$weatherCmd->save();
 
-			$weatherCmd = $this->getCmd(null, 'temperature_'.$i.'_max');
+			$weatherCmd = $this->getCmd(null, 'temperature_' . $i . '_max');
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('Température Max', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('temperature_'.$i.'_max');
+			$weatherCmd->setLogicalId('temperature_' . $i . '_max');
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('°C');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
-			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_'.$i);
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_' . $i);
 			$weatherCmd->save();
 
-			$weatherCmd = $this->getCmd(null, 'condition_id_'.$i);
+			$weatherCmd = $this->getCmd(null, 'condition_id_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('Numéro condition', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('condition_id_'.$i);
+			$weatherCmd->setLogicalId('condition_id_' . $i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
-			$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_'.$i);
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_ID_' . $i);
 			$weatherCmd->save();
 
-			$weatherCmd = $this->getCmd(null, 'rain_'.$i);
+			$weatherCmd = $this->getCmd(null, 'rain_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('Pluie', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('rain_'.$i);
+			$weatherCmd->setLogicalId('rain_' . $i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('mm');
 			$weatherCmd->setType('info');
 			$weatherCmd->setSubType('numeric');
-			$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN_'.$i);
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_RAIN_' . $i);
 			$weatherCmd->save();
+
+			if ($i < 4) {
+				$weatherCmd = $this->getCmd(null, 'air_quality_co_' . $i);
+				if (!is_object($weatherCmd)) {
+					$weatherCmd = new weatherCmd();
+				}
+				$weatherCmd->setName(__('Pollution CO', __FILE__) . ' +' . $i);
+				$weatherCmd->setLogicalId('air_quality_co_' . $i);
+				$weatherCmd->setEqLogic_id($this->getId());
+				$weatherCmd->setType('info');
+				$weatherCmd->setSubType('numeric');
+				$weatherCmd->save();
+
+				$weatherCmd = $this->getCmd(null, 'air_quality_no2_' . $i);
+				if (!is_object($weatherCmd)) {
+					$weatherCmd = new weatherCmd();
+				}
+				$weatherCmd->setName(__('Pollution NO2', __FILE__) . ' +' . $i);
+				$weatherCmd->setLogicalId('air_quality_no2_' . $i);
+				$weatherCmd->setEqLogic_id($this->getId());
+				$weatherCmd->setType('info');
+				$weatherCmd->setSubType('numeric');
+				$weatherCmd->save();
+
+				$weatherCmd = $this->getCmd(null, 'air_quality_o3_' . $i);
+				if (!is_object($weatherCmd)) {
+					$weatherCmd = new weatherCmd();
+				}
+				$weatherCmd->setName(__('Pollution O3', __FILE__) . ' +' . $i);
+				$weatherCmd->setLogicalId('air_quality_o3_' . $i);
+				$weatherCmd->setEqLogic_id($this->getId());
+				$weatherCmd->setType('info');
+				$weatherCmd->setSubType('numeric');
+				$weatherCmd->save();
+
+				$weatherCmd = $this->getCmd(null, 'air_quality_so2_' . $i);
+				if (!is_object($weatherCmd)) {
+					$weatherCmd = new weatherCmd();
+				}
+				$weatherCmd->setName(__('Pollution SO2', __FILE__) . ' +' . $i);
+				$weatherCmd->setLogicalId('air_quality_so2_' . $i);
+				$weatherCmd->setEqLogic_id($this->getId());
+				$weatherCmd->setType('info');
+				$weatherCmd->setSubType('numeric');
+				$weatherCmd->save();
+
+				$weatherCmd = $this->getCmd(null, 'air_quality_pm2.5_' . $i);
+				if (!is_object($weatherCmd)) {
+					$weatherCmd = new weatherCmd();
+				}
+				$weatherCmd->setName(__('Pollution PM2.5', __FILE__) . ' +' . $i);
+				$weatherCmd->setLogicalId('air_quality_pm2.5_' . $i);
+				$weatherCmd->setEqLogic_id($this->getId());
+				$weatherCmd->setType('info');
+				$weatherCmd->setSubType('numeric');
+				$weatherCmd->save();
+
+				$weatherCmd = $this->getCmd(null, 'air_quality_pm10_' . $i);
+				if (!is_object($weatherCmd)) {
+					$weatherCmd = new weatherCmd();
+				}
+				$weatherCmd->setName(__('Pollution PM10', __FILE__) . ' +' . $i);
+				$weatherCmd->setLogicalId('air_quality_pm10_' . $i);
+				$weatherCmd->setEqLogic_id($this->getId());
+				$weatherCmd->setType('info');
+				$weatherCmd->setSubType('numeric');
+				$weatherCmd->save();
+			}
 		}
 
 		$refresh = $this->getCmd(null, 'refresh');
@@ -713,18 +739,17 @@ class weather extends eqLogic {
 		if ($this->getConfiguration('lat') == '' || $this->getConfiguration('long') == '') {
 			throw new Exception(__('La latitude et la longitude ne peut être vide', __FILE__));
 		}
-		$url = config::byKey('service::cloud::url').'/service/openweathermap';
-		$url .= '?lat='.$this->getConfiguration('lat');
-		$url .= '&long='.$this->getConfiguration('long');
-		$url .= '&lang='.substr(config::byKey('language'), 0, 2);
+		$url = config::byKey('service::cloud::url') . '/service/weatherapi';
+		$url .= '?lat=' . $this->getConfiguration('lat');
+		$url .= '&long=' . $this->getConfiguration('long');
+		$url .= '&lang=' . substr(config::byKey('language'), 0, 2);
 		$request_http = new com_http($url);
-		$request_http->setHeader(array('Autorization: '.sha512(mb_strtolower(config::byKey('market::username')).':'.config::byKey('market::password'))));
-		$datas = json_decode($request_http->exec(10),true);
-		log::add(__CLASS__, 'debug',json_encode($datas));
-		if($datas['state'] != 'ok'){
+		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
+		$datas = json_decode($request_http->exec(10), true);
+		log::add(__CLASS__, 'debug', json_encode($datas));
+		if ($datas['state'] != 'ok') {
 			return;
 		}
-
 		$changed = false;
 		$changed = $this->checkAndUpdateCmd('temperature', $datas['data']['today']['temperature']['value']) || $changed;
 		$changed = $this->checkAndUpdateCmd('humidity', $datas['data']['today']['humidity']['value']) || $changed;
@@ -737,50 +762,55 @@ class weather extends eqLogic {
 		$changed = $this->checkAndUpdateCmd('temperature_min', $datas['data']['today']['temperature']['min']) || $changed;
 		$changed = $this->checkAndUpdateCmd('temperature_max', $datas['data']['today']['temperature']['max']) || $changed;
 
-		$this->checkAndUpdateCmd('temperature_feel', $datas['data']['today']['temperature']['feels']);
+		$changed = $this->checkAndUpdateCmd('air_quality_co', $datas['data']['today']['air_quality']['co']) || $changed;
+		$changed = $this->checkAndUpdateCmd('air_quality_no2', $datas['data']['today']['air_quality']['no2']) || $changed;
+		$changed = $this->checkAndUpdateCmd('air_quality_o3', $datas['data']['today']['air_quality']['o3']) || $changed;
+		$changed = $this->checkAndUpdateCmd('air_quality_so2', $datas['data']['today']['air_quality']['so2']) || $changed;
+		$changed = $this->checkAndUpdateCmd('air_quality_pm2.5', $datas['data']['today']['air_quality']['pm2_5']) || $changed;
+		$changed = $this->checkAndUpdateCmd('air_quality_pm10', $datas['data']['today']['air_quality']['pm10']) || $changed;
+
 		$this->checkAndUpdateCmd('visibility', $datas['data']['today']['visibility']['value']);
-		$this->checkAndUpdateCmd('dew_point', $datas['data']['today']['dew_point']['value']);
-		$this->checkAndUpdateCmd('snow', $datas['data']['today']['snow']['value']);
 		$this->checkAndUpdateCmd('uv', $datas['data']['today']['uv']['value']);
-		$this->checkAndUpdateCmd('clouds', $datas['data']['today']['clouds']['all']);
 
 		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && $cmd->execCmd() != date('Gi',$datas['data']['today']['sun']['rise'])) {
-			$cmd->setCache('value', date('Gi',$datas['data']['today']['sun']['rise']));
+		if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['rise']))) {
+			$cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['rise'])));
 			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
 		}
 
 		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && $cmd->execCmd() != date('Gi',$datas['data']['today']['sun']['set'])) {
-			$cmd->setCache('value', date('Gi',$datas['data']['today']['sun']['set']));
+		if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['set']))) {
+			$cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['set'])));
 			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
 		}
 
 		for ($i = 1; $i < 7; $i++) {
 			$date = date('Y-m-d', strtotime('+' . $i . ' day'));
-			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_min', $datas['data']['day +'.$i]['temperature']['min']) || $changed;
-			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_max', $datas['data']['day +'.$i]['temperature']['max']) || $changed;
-			$changed = $this->checkAndUpdateCmd('condition_' . $i, $datas['data']['day +'.$i]['description']) || $changed;
-			$changed = $this->checkAndUpdateCmd('condition_id_' . $i, $datas['data']['day +'.$i]['summary_id']) || $changed;
-			if(isset($datas['data']['day +'.$i]['rain']['value'])){
-				$changed = $this->checkAndUpdateCmd('rain_' . $i, $datas['data']['day +'.$i]['rain']['value']) || $changed;
+			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_min', $datas['data']['day +' . $i]['temperature']['min']) || $changed;
+			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_max', $datas['data']['day +' . $i]['temperature']['max']) || $changed;
+			$changed = $this->checkAndUpdateCmd('condition_' . $i, $datas['data']['day +' . $i]['description']) || $changed;
+			$changed = $this->checkAndUpdateCmd('condition_id_' . $i, $datas['data']['day +' . $i]['summary_id']) || $changed;
+			if (isset($datas['data']['day +' . $i]['rain']['value'])) {
+				$changed = $this->checkAndUpdateCmd('rain_' . $i, $datas['data']['day +' . $i]['rain']['value']) || $changed;
 			}
+			$this->checkAndUpdateCmd('temperature_' . $i, $datas['data']['day +' . $i]['temperature']['value']);
+			$this->checkAndUpdateCmd('uv_' . $i, $datas['data']['day +' . $i]['uv']['value']);
+			$this->checkAndUpdateCmd('wind_speed_' . $i, $datas['data']['day +' . $i]['wind']['speed']);
+			$this->checkAndUpdateCmd('wind_direction_' . $i, $datas['data']['day +' . $i]['wind']['deg']);
 
-			$this->checkAndUpdateCmd('temperature_' . $i, $datas['data']['day +'.$i]['temperature']['value']);
-			$this->checkAndUpdateCmd('temperature_feels_' . $i, $datas['data']['day +'.$i]['temperature']['feels']);
-			$this->checkAndUpdateCmd('pressure_' . $i, $datas['data']['day +'.$i]['pressure']['value']);
-			$this->checkAndUpdateCmd('clouds_' . $i, $datas['data']['day +'.$i]['clouds']['all']);
-			$this->checkAndUpdateCmd('uv_' . $i, $datas['data']['day +'.$i]['uv']['value']);
-			$this->checkAndUpdateCmd('snow_' . $i, $datas['data']['day +'.$i]['snow']['value']);
-			$this->checkAndUpdateCmd('dew_point_' . $i, $datas['data']['day +'.$i]['dew_point']['value']);
-			$this->checkAndUpdateCmd('wind_speed_' . $i, $datas['data']['day +'.$i]['wind']['speed']);
-			$this->checkAndUpdateCmd('wind_direction_' . $i, $datas['data']['day +'.$i]['wind']['deg']);
+			if ($i < 4) {
+				$changed = $this->checkAndUpdateCmd('air_quality_co_' . $i, $datas['data']['day +' . $i]['air_quality']['co']) || $changed;
+				$changed = $this->checkAndUpdateCmd('air_quality_no2_' . $i, $datas['data']['day +' . $i]['air_quality']['no2']) || $changed;
+				$changed = $this->checkAndUpdateCmd('air_quality_o3_' . $i, $datas['data']['day +' . $i]['air_quality']['o3']) || $changed;
+				$changed = $this->checkAndUpdateCmd('air_quality_so2_' . $i, $datas['data']['day +' . $i]['air_quality']['so2']) || $changed;
+				$changed = $this->checkAndUpdateCmd('air_quality_pm2.5_' . $i, $datas['data']['day +' . $i]['air_quality']['pm2_5']) || $changed;
+				$changed = $this->checkAndUpdateCmd('air_quality_pm10_' . $i, $datas['data']['day +' . $i]['air_quality']['pm10']) || $changed;
+			}
 		}
 		if ($changed) {
 			$this->refreshWidget();
 		}
 	}
-
 }
 
 class weatherCmd extends cmd {
@@ -793,5 +823,4 @@ class weatherCmd extends cmd {
 		}
 		return false;
 	}
-
 }

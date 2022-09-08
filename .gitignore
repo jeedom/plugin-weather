@@ -2,5 +2,14 @@ nbproject/
 test.php
 core/config/common.config.php
 plugins
-.remote-sync.json
+sftp-config.json
 .project
+.DS_Store
+Thumbs.db
+*.php~
+docs/_site/
+docs/Gemfile.lock
+docs/.sass-cache/
+.remote-sync.json
+data/config.json
+/.vscode
