@@ -14,11 +14,11 @@
         "Supprimer": "Borrar",
         "Equipement": "Dispositivos",
         "Commandes": "Comandos",
-        "Paramètres généraux": "Configuración general",
+        "Paramètres généraux": "Configuraciones generales",
         "Nom de l'équipement": "Nombre del equipo",
         "Nom de l'équipement Météo": "Nombre del dispositivo meteorológico",
         "Objet parent": "Objeto padre",
-        "Aucun": "Ninguna",
+        "Aucun": "Ninguno",
         "Catégorie": "Categoría",
         "Options": "Opciones",
         "Activer": "Activar",
@@ -43,12 +43,11 @@
     },
     "plugins\/weather\/core\/ajax\/weather.ajax.php": {
         "401 - Accès non autorisé": "401 - Acceso no autorizado",
-        "Equipement Météo inconnu, vérifier l\\'id": "Equipo meteorológico desconocido, verifique la identificación",
-        "Aucune méthode correspondante à": "Sin método de coincidencia"
+        "Equipement Météo inconnu, vérifier l\\'id": "Equipo meteorológico desconocido, verifique el ID",
+        "Aucune méthode correspondante à": "Ningún método correspondiente a"
     },
     "plugins\/weather\/core\/class\/weather.class.php": {
         "Température": "Temperatura",
-        "Température ressentie": "Temperatura sentida",
         "Visibilité": "Visibilidad",
         "Humidité": "Humedad",
         "Pression": "Presión",
@@ -61,14 +60,17 @@
         "Condition": "Condición",
         "Numéro condition": "Número de condición",
         "Pluie": "Lluvia",
-        "Neige": "Nieve",
-        "Point de rosée": "Punto de rocío",
-        "Nuage": "Nube",
         "UV": "UV",
+        "Pollution CO": "Contaminación por CO",
+        "Pollution NO2": "Contaminación por NO2",
+        "Pollution O3": "Contaminación por O3",
+        "Pollution SO2": "Contaminación por SO2",
+        "Pollution PM2.5": "Contaminación PM2.5",
+        "Pollution PM10": "Emisiones PM10",
         "Rafraichir": "Refrescar",
         "La latitude et la longitude ne peut être vide": "La latitud y la longitud no pueden estar vacías"
     },
     "info.json": {
-        "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !": "Este complemento le permite recuperar información meteorológica desde la ubicación que elija, como las condiciones y temperaturas actuales y las de los próximos días, humedad, fuerza y dirección del viento, horas de salida y puesta del sol y mucho más ... Quería comprar un clima ¿estación? ¡Este complemento seguramente cambiará de opinión!"
+        "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !": "Este plugin le permite recuperar informaciones meteorológicas desde la ubicación que elija, como las condiciones y temperaturas actuales y las de los próximos días, humedad, fuerza y dirección del viento, horas de salida y puesta del sol y mucho más ... Quería comprar un clima ¿estación? ¡Este complemento seguramente cambiará de opinión!"
     }
 }
