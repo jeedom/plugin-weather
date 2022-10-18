@@ -65,7 +65,10 @@ class weather extends eqLogic {
 					try {
 						$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
 						if (!$c->isDue()) {
-							$c->getNextRunDate();
+							$next = $c->getNextRunDate();
+							if($next->getTimestamp() > (strtotime('now') + 50000)){
+								$weather->reschedule();
+							}
 						}
 					} catch (Exception $ex) {
 						if ($c->getPreviousRunDate()->getTimestamp() < (strtotime('now') - 300)) {
@@ -125,13 +128,13 @@ class weather extends eqLogic {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 				return 'meteo-soleil';
 			} else {
-				return 'fa fa-moon-o';
+				return 'far fa-moon';
 			}
 		}
 		if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 			return 'meteo-soleil';
 		} else {
-			return 'fa fa-moon-o';
+			return 'far fa-moon';
 		}
 	}
 	
@@ -206,9 +209,9 @@ class weather extends eqLogic {
 		$weatherCmd->setName(__('Direction du vent', __FILE__));
 		$weatherCmd->setLogicalId('wind_direction');
 		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setUnite('');
+		$weatherCmd->setUnite('°');
 		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('string');
+		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
 		$weatherCmd->save();
 		
@@ -603,7 +606,7 @@ class weather extends eqLogic {
 			$sunset = 1600;
 		}
 		$next = null;
-		if ((date('Gi') + 100) > $sunrise && (date('Gi') + 100) < $sunset) {
+		if ((date('Gi') + 10) > $sunrise && (date('Gi') + 10) < $sunset) {
 			$next = $sunset;
 		} else {
 			$next = $sunrise;
@@ -752,7 +755,7 @@ class weather extends eqLogic {
 			throw new Exception(__('La ville ne peut être vide', __FILE__));
 		}
 		$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
-		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', 'fr');
+		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', substr(config::byKey('langague','core', 'fr_FR'),0,2));
 		if ($weather == NULL) {
 			sleep(10);
 			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
@@ -816,8 +819,8 @@ class weather extends eqLogic {
 				}
 				
 				$rain += $weather->precipitation->getValue();
-
-
+				
+				
 				$condition_id = $weather->weather->id;
 				$condition = ucfirst($weather->weather->description);
 			}
