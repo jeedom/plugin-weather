@@ -755,7 +755,7 @@ class weather extends eqLogic {
 			throw new Exception(__('La ville ne peut être vide', __FILE__));
 		}
 		$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
-		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', substr(config::byKey('langague','core', 'fr_FR'),0,2));
+		$weather = $owm->getWeather($this->getConfiguration('city'), 'metric', substr(config::byKey('language','core', 'fr_FR'),0,2));
 		if ($weather == NULL) {
 			sleep(10);
 			$owm = new OpenWeatherMap(trim(config::byKey('apikey', 'weather')));
