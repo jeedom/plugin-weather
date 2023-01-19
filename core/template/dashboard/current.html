@@ -1,51 +1,58 @@
-<div class="eqLogic-widget eqLogic allowResize" style="width:#width#;height:#height#;#style#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" data-eqType="#eqType#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#">
-  <span class="statusCmd"></span>
-  <span class="cmd refresh pull-right cursor" data-cmd_id="#refresh_id#">
-    <i class="fas fa-sync"></i>
-  </span>
-  <span class="cmd cmd-widget" data-cmd_id="#refresh_id#" style="display:none;"></span>
-  <center class="widget-name"><a href="#eqLink#">#name_display# <span class="object_name">#object_name#</span></a></center>
-  <div class="verticalAlign">
-    <div style="position : relative; left : 7px;">
-      <span class="pull-left state">
-        <br>
-        <i class="#icone#" style="font-size: 3em;"></i>
-      </span>
-      <div class="pull-right" style="margin-right: 20px;margin-top: 0px;">
-        <div class="cmd cmd-widget widget-compass" data-type="info" data-subtype="numeric" data-template="compass">
-          <div class="content-lg">
-            <div class="widget-compass-container">
-              <div class="widget-compass-outline"></div>
-              <div class="widget-compass-needle-placer">
-                <div class="widget-compass-needle"></div>
-              </div>
-              <div class="state" style="text-align:center"></div>
-              <div class="winDir" style="text-align:center"></div>
-            </div>
-          </div>
-        </div>
-        <div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
-          <center><i class="fas fa-sun"></i></center>
-          <center><span style="font-size: 0.8em;">#sunrise# | #sunset#</span></center>
+<div class="eqLogic eqLogic-widget text-center allowResize" data-eqType="#eqType#" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" data-translate-category="#translate_category#" data-category="#category#" data-tags="#tags#" style="width: #width#;height: #height#;#style#">
+  <div class="widget-name">
+    <span style="color:#background-color#" title="#alert_name#">
+      <i class='#alert_icon#'></i>
+    </span>
+    <span class="cmd refresh pull-right cursor" data-cmd_id="#refresh_id#">
+      <i class="fas fa-sync"></i>
+    </span>
+    <span class="reportModeVisible">#name_display# <span class="object_name">#object_name#</span></span>
+    <a href="#eqLink#" class="reportModeHidden">#name_display# <span class="object_name">#object_name#</span></a>
+  </div>
+  <div class="cmds verticalAlign">
+    <div style="display:inline-block">
+      <div style="display:inline-flex">
+        <i class="#icone#" style="font-size:3em;margin:5px"></i>
+        <div>
+          <span style="font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br />
+          <span style="font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#tempid#">#temperature# °C / #humidity# %</span><br />
+          <span style="font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#pressureid#">#windspeed# km/h | #pressure# mb</span>
         </div>
       </div>
-      <span style="margin-left: 5px;font-size: 0.8em;"class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#conditionid#">#condition#</span><br/>
-      <span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#tempid#">#temperature# °C / #humidity# %</span><br/>
-      <span style="margin-left: 5px;font-size: 0.8em;" class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#pressureid#">#windspeed# km/h | #pressure# mb</span>
+      <div style="margin-top:8px;">
+        #forecast#
+      </div>
     </div>
-    <div style="margin-top:8px;">
-      <center>#forecast#</center>
+    <div class="cmd cmd-widget widget-compass" data-type="info" data-subtype="numeric" data-template="compass" style="display:inline-block">
+      <div class="content">
+        <div class="widget-compass-container">
+          <div class="widget-compass-outline"></div>
+          <div class="widget-compass-needle-placer">
+            <div class="widget-compass-needle"></div>
+          </div>
+        </div>
+        <div class="state">
+          <div class="value"></div>
+          <div class="winDir"></div>
+        </div>
+      </div>
+      <div class="cmd noRefresh" data-type="info" data-subtype="string" data-cmd_id="#sunid#">
+        <i class="fas fa-sun"></i>
+        <div style="font-size: 0.8em;">#sunrise# | #sunset#</div>
+      </div>
     </div>
   </div>
-  
   <script>
-    $('.eqLogic[data-eqLogic_uid=#uid#] .cmd').on('click', function() {
-      jeedom.cmd.execute({id: $(this).data('cmd_id')});
-    });
-    let directions#uid# = ['Nord', 'Nord-Est', 'Est', 'Sud-Est', 'Sud', 'Sud-Ouest', 'Ouest', 'Nord-Ouest']
-    let windDir#uid# = directions#uid#[Math.round(((#wind_direction# % 360) < 0 ? #wind_direction# + 360 : #wind_direction#) / 45) % 8]
-    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .widget-compass-needle-placer').css('transform', 'rotate(' +#wind_direction# +'deg)')
-    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .state').text(#wind_direction#+'°')
-    $('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass .winDir').html(windDir#uid#)
+    var _options = { display_value: parseFloat('#wind_direction#') }
+    var directions = ['Nord', 'Nord-Est', 'Est', 'Sud-Est', 'Sud', 'Sud-Ouest', 'Ouest', 'Nord-Ouest']
+    var windDir = directions[Math.round(((_options.display_value %= 360) < 0 ? _options.display_value + 360 : _options.display_value) / 45) % 8]
+    var compass = document.querySelector('.eqLogic[data-eqLogic_uid=#uid#] .widget-compass')
+    compass.querySelector('.widget-compass-needle-placer').style.transform = 'rotate(' + _options.display_value + 'deg)'
+    compass.querySelector('.value').innerHTML = _options.display_value + '°'
+    compass.querySelector('.winDir').innerHTML = windDir
+
+    document.querySelector('.eqLogic[data-eqLogic_uid="#uid#"] .refresh').addEventListener('click', function() {
+      jeedom.cmd.execute({ id: '#refresh_id#' })
+    })
   </script>
 </div>
