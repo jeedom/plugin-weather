@@ -71,6 +71,6 @@
         "La latitude et la longitude ne peut être vide": "Latitude and longitude cannot be empty"
     },
     "info.json": {
-        "Ce plugin permet de récuperer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et celles des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo ? Ce plugin vous fera sûrement changer d'avis !": "This plugin allows you to retrieve weather information from the location of your choice such as current conditions and temperatures and those of the coming days, humidity, wind strength and direction, sunrise and sunset times and much more... You wanted to buy a weather station? This plugin will surely change your mind!"
+        "Ce plugin permet de récupérer les informations météorologiques du lieu de votre choix telles que les conditions et les températures actuelles et des jours à venir, le taux d'humidité, la force du vent et sa direction, les heures de lever et coucher du soleil et bien plus encore... Vous vouliez acheter une station météo? Ce plugin vous fera sûrement changer d'avis!": "This plugin allows you to retrieve meteorological information from the location of your choice such as the current and future conditions and temperatures, the humidity level, the strength of the wind and its direction, the times of sunrise and sunset and much more... You wanted to buy a weather station? This plugin will surely change your mind!"
     }
 }
