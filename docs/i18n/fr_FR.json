@@ -39,23 +39,18 @@
     "index.md": {
         "Plugin Weather": "Plugin Weather",
         "Weather": "Weather",
-        "OpenWeatherMap": "OpenWeatherMap",
         "Le plugin": "Le plugin",
         "permet de récupérer les données météorologiques d'une ou plusieurs villes": "permet de récupérer les données météorologiques d'une ou plusieurs villes",
-        "Les informations proviennent du site internet": "Les informations proviennent du site internet",
-        "qui donne accès, entre autre, aux prévisions, aux informations de lever et coucher du soleil, de température, d'humidité, de vent, etc": "qui donne accès, entre autre, aux prévisions, aux informations de lever et coucher du soleil, de température, d'humidité, de vent, etc",
         "Le rafraîchissement de ces données s'effectue toutes les 30 minutes": "Le rafraîchissement de ces données s'effectue toutes les 30 minutes",
-        "INFORMATION": "INFORMATION",
-        "OpenWeather fournit une liste d'informations sur les 120 heures à venir": "OpenWeather fournit une liste d'informations sur les 120 heures à venir",
-        "De ce fait, en fonction de l'heure actuelle, nous ne connaissons qu'une partie des informations à J+4": "De ce fait, en fonction de l'heure actuelle, nous ne connaissons qu'une partie des informations à J+4",
-        "Ainsi, cette prédiction à J+4 s'affine pour devenir plus précise au fur et à mesure de la journée courante": "Ainsi, cette prédiction à J+4 s'affine pour devenir plus précise au fur et à mesure de la journée courante",
-        "Pour cette raison, certaines informations, comme la température MAX atteinte à J+4 ne pourront faire sens qu'en fin de journée": "Pour cette raison, certaines informations, comme la température MAX atteinte à J+4 ne pourront faire sens qu'en fin de journée",
+        "IMPORTANT": "IMPORTANT",
+        "Suite a la configuration et l'activation de l'équipement il faut absolument lancer une mise à jour manuel des données pour que le plugin se mette à jour ou attendre 30min pour la mise à jour automatique": "Suite a la configuration et l'activation de l'équipement il faut absolument lancer une mise à jour manuel des données pour que le plugin se mette à jour ou attendre 30min pour la mise à jour automatique",
         "Configuration": "Configuration",
         "Configuration du plugin": "Configuration du plugin",
         "Ce plugin ne nécessite pas de configuration particulière et doit simplement être activé après l'installation": "Ce plugin ne nécessite pas de configuration particulière et doit simplement être activé après l'installation",
         "Configuration des équipements": "Configuration des équipements",
         "Plugins → Météo → Weather": "Plugins → Météo → Weather",
         "Les équipements Météo sont accessibles à partir du menu": "Les équipements Météo sont accessibles à partir du menu",
+        "INFORMATION": "INFORMATION",
         "+ Ajouter": "+ Ajouter",
         "Le bouton": "Le bouton",
         "permet d'ajouter un nouvel équipement Météo": "permet d'ajouter un nouvel équipement Météo",
@@ -83,10 +78,6 @@
         "Longitude du lieu dont vous souhaitez récupérer la méteo": "Longitude du lieu dont vous souhaitez récupérer la méteo",
         "Commandes": "Commandes",
         "En cliquant sur l'onglet": "En cliquant sur l'onglet",
-        "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques": "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques",
-        "à cette adresse": "à cette adresse",
-        "Numéro condition": "Numéro condition",
-        "La commande": "La commande",
-        "donne un code relatif à la condition en cours dont vous pourrez trouver plus d'informations": "donne un code relatif à la condition en cours dont vous pourrez trouver plus d'informations"
+        "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques": "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques"
     }
 }
