@@ -2,6 +2,10 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Weather",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "If there is no information on the update, it means that it concerns only the update of documentation, translation or text",
+        "19\/01\/2023": "01\/19\/2023",
+        "Révision des templates de widgets desktop en pur javascript": "Revision of desktop widget templates in pure javascript",
+        "Prise en charge de l'affichage du graphique de fond de tuile": "Support tile background graph display",
+        "Version minimale du core Jeedom requise": "Minimum Jeedom core version required",
         "24\/01\/2022": "01\/24\/2022",
         "Optimisations V4.2": "V4.2 optimizations",
         "26\/05\/2021": "05\/26\/2021",
