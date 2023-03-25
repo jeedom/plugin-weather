@@ -746,7 +746,7 @@ class weather extends eqLogic {
 		$request_http = new com_http($url);
 		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
 		$datas = json_decode($request_http->exec(10), true);
-		log::add(__CLASS__, 'debug', json_encode($datas));
+		log::add(__CLASS__, 'debug', $url . ' : ' . json_encode($datas));
 		if ($datas['state'] != 'ok') {
 			return;
 		}
