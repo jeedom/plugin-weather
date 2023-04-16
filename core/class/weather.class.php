@@ -93,39 +93,23 @@ class weather extends eqLogic {
 	}
 
 	public static function getIconFromCondition($_condition_id, $_sunrise = null, $_sunset = null) {
-		if ($_condition_id >= 200 && $_condition_id <= 299) {
+		if (in_array($_condition_id, array(1087, 1273, 1276, 1279, 1282))) {
 			return 'meteo-orage';
 		}
-		if (($_condition_id >= 300 && $_condition_id <= 399)) {
+		if (in_array($_condition_id, array(1135, 1030, 1072, 1147, 1150, 1153, 1168, 1171))) {
 			return 'meteo-brouillard';
 		}
-		if ($_condition_id >= 500 && $_condition_id <= 510) {
-			return 'meteo-nuage-soleil-pluie';
-		}
-		if ($_condition_id >= 520 && $_condition_id <= 599) {
+		if (in_array($_condition_id, array(1189, 1195, 1063, 1180, 1186, 1201, 1240, 1243, 1246,))) {
 			return 'meteo-pluie';
 		}
-		if (($_condition_id >= 600 && $_condition_id <= 699) || ($_condition_id == 511)) {
+		if (in_array($_condition_id, array(1066, 1069, 1114, 1117, 1204, 1210, 1213, 1216, 1219, 1222, 1225, 1237, 1249, 1252, 1255, 1258, 1261, 1264))) {
 			return 'meteo-neige';
 		}
-		if ($_condition_id >= 700 && $_condition_id < 770) {
-			return 'meteo-brouillard';
-		}
-		if ($_condition_id >= 770 && $_condition_id < 799) {
-			return 'meteo-vent';
-		}
-		if ($_condition_id > 800 && $_condition_id <= 899) {
+		if (in_array($_condition_id, array(1006, 1003, 1009))) {
 			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
 				return 'meteo-nuageux';
 			} else {
 				return 'meteo-nuit-nuage';
-			}
-		}
-		if ($_condition_id == 800) {
-			if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
-				return 'meteo-soleil';
-			} else {
-				return 'far fa-moon';
 			}
 		}
 		if ($_sunrise == null || (date('Gi') >= $_sunrise && date('Gi') < $_sunset)) {
