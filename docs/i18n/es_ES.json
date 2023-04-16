@@ -87,6 +87,9 @@
         "Longitude du lieu dont vous souhaitez récupérer la méteo": "Longitud del lugar cuyo clima desea recuperar",
         "En cliquant sur l'onglet": "Haciendo clic en la pestaña",
         "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques": "encontramos la lista de todos los comandos disponibles así como la posibilidad de registrar los valores numéricos",
+        "Code méteo": "Código meteorológico",
+        "Vous trouverez": "Usted encontrará",
+        "la signification des differents code météo": "el significado de los diferentes códigos meteorológicos",
         " Weather.": " Clima.",
         " Weather?": " Clima?",
         "Weather ": "Clima ",
@@ -156,6 +159,13 @@
         " Commandes]": " Comandos]",
         "[Commandes]": "[Comandos]",
         "*Commandes*": "*Comandos*",
-        " Commandes*": " Comandos*"
+        " Commandes*": " Comandos*",
+        " ici.": " aquí.",
+        " ici?": " aquí?",
+        "ici ": "aquí ",
+        " ici]": " aquí]",
+        "[ici]": "[aquí]",
+        "*ici*": "*aquí*",
+        " ici*": " aquí*"
     }
 }

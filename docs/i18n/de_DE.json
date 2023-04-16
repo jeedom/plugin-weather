@@ -87,6 +87,9 @@
         "Longitude du lieu dont vous souhaitez récupérer la méteo": "Längengrad des Ortes, dessen Wetter Sie abrufen möchten",
         "En cliquant sur l'onglet": "Durch Klicken auf die Registerkarte",
         "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques": "finden wir die Liste aller verfügbaren Befehle sowie die Möglichkeit, die Zahlenwerte zu protokollieren",
+        "Code méteo": "Wettercode",
+        "Vous trouverez": "Du wirst finden",
+        "la signification des differents code météo": "die Bedeutung der verschiedenen Wettercodes",
         " Weather.": " Wetter.",
         " Weather?": " Wetter?",
         "Weather ": "Wetter ",
@@ -156,6 +159,13 @@
         " Commandes]": " Befehle]",
         "[Commandes]": "[Befehle]",
         "*Commandes*": "*Befehle*",
-        " Commandes*": " Befehle*"
+        " Commandes*": " Befehle*",
+        " ici.": " Hier.",
+        " ici?": " Hier?",
+        "ici ": "Hier ",
+        " ici]": " Hier]",
+        "[ici]": "[Hier]",
+        "*ici*": "*Hier*",
+        " ici*": " Hier*"
     }
 }

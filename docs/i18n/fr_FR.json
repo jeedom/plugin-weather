@@ -78,6 +78,10 @@
         "Longitude du lieu dont vous souhaitez récupérer la méteo": "Longitude du lieu dont vous souhaitez récupérer la méteo",
         "Commandes": "Commandes",
         "En cliquant sur l'onglet": "En cliquant sur l'onglet",
-        "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques": "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques"
+        "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques": "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques",
+        "Code méteo": "Code méteo",
+        "ici": "ici",
+        "Vous trouverez": "Vous trouverez",
+        "la signification des differents code météo": "la signification des differents code météo"
     }
 }

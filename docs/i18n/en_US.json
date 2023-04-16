@@ -87,6 +87,9 @@
         "Longitude du lieu dont vous souhaitez récupérer la méteo": "Longitude of the place whose weather you want to retrieve",
         "En cliquant sur l'onglet": "By clicking on the tab",
         "on retrouve la liste de toutes les commandes disponibles ainsi que la possibilité d'historiser les valeurs numériques": "we find the list of all the commands available as well as the possibility of logging the numerical values",
+        "Code méteo": "Weather code",
+        "Vous trouverez": "You will find",
+        "la signification des differents code météo": "the meaning of the different weather codes",
         " Weather.": " Weather.",
         " Weather?": " Weather?",
         "Weather ": "Weather ",
@@ -156,6 +159,13 @@
         " Commandes]": " Commands]",
         "[Commandes]": "[Commands]",
         "*Commandes*": "*Commands*",
-        " Commandes*": " Commands*"
+        " Commandes*": " Commands*",
+        " ici.": " here.",
+        " ici?": " here?",
+        "ici ": "here ",
+        " ici]": " here]",
+        "[ici]": "[here]",
+        "*ici*": "*here*",
+        " ici*": " here*"
     }
 }
