@@ -21,6 +21,16 @@ $eqLogics = eqLogic::byType($plugin->getId());
 				<br />
 				<span>{{Configuration}}</span>
 			</div>
+			<?php
+			$jeedomVersion  = jeedom::version() ?? '0';
+			$displayInfo = version_compare($jeedomVersion, '4.4.0', '>=');
+			if ($displayInfo) {
+				echo '<div class="cursor eqLogicAction info" data-action="createCommunityPost">';
+				echo '<i class="fas fa-ambulance"></i><br>';
+				echo '<span>{{Community}}</span>';
+				echo '</div>';
+			}
+			?>
 		</div>
 		<legend><i class="icon meteo-soleil"></i> {{Mes Météos}}</legend>
 		<?php
@@ -65,7 +75,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation"><a class="eqLogicAction cursor" aria-controls="home" role="tab" data-action="returnToThumbnailDisplay"><i class="fas fa-arrow-circle-left"></i></a></li>
 			<li role="presentation" class="active"><a href="#eqlogictab" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-tachometer-alt"></i> {{Equipement}}</a></li>
-			<li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fas fa-list-alt"></i> {{Commandes}}</a></li>
+			<li role="presentation"><a href="#commandtab" aria-controls="profile" role="tab" data-toggle="tab"><i class="fas fa-list"></i> {{Commandes}}</a></li>
 		</ul>
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="eqlogictab">
@@ -152,7 +162,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							<th class="hidden-xs" style="min-width:50px;width:70px;">ID</th>
 							<th style="min-width:150px;width:300px;">{{Nom}}</th>
 							<th style="min-width:100px;">{{Options}}</th>
-							<th>{{Etat}}</th>
+							<th>{{Valeur}}</th>
 							<th style="min-width:100px;width:200px;">{{Actions}}</th>
 						</tr>
 					</thead>
