@@ -2,6 +2,10 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Tempo",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Se não houver informação sobre a atualização, significa que se trata apenas da atualização da documentação, tradução ou texto",
+        "22\/02\/2024": "22\/02\/2024",
+        "Refonte complete du plugin": "Reformulação completa do plugin",
+        "Utilisation d'une nouvelle source de données, plus besoin de compte de votre coté tout passe par le cloud Jeedom": "Uso de uma nova fonte de dados, sem necessidade de conta do seu lado, tudo passa pela nuvem Jeedom",
+        "Préparation pour jeedom 4.4": "Preparando-se para Jeedom 4.4",
         "19\/01\/2023": "19\/01\/2023",
         "Révision des templates de widgets desktop en pur javascript": "Revisão de modelos de widgets de desktop em javascript puro",
         "Prise en charge de l'affichage du graphique de fond de tuile": "Suporte à exibição do gráfico de plano de fundo do bloco",
