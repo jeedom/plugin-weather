@@ -53,6 +53,9 @@ class weather extends eqLogic {
 	}
 
 	public static function cronDaily() {
+		$debutJourneeVeille = date("Y-m-d 00:00:00", strtotime("yesterday"));
+		$finJourneeVeille = date("Y-m-d 23:59:59", strtotime("yesterday"));
+
 		foreach (self::byType(__CLASS__) as $weather) {
 			if ($weather->getIsEnable() == 1) {
 				$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($weather->getId())));
@@ -73,6 +76,16 @@ class weather extends eqLogic {
 						}
 					}
 				}
+
+				// Calcul DJU Jour
+				$temperature = $weather->getCmd(null, 'temperature');
+				$djuJourCmd = $weather->getCmd(null, 'dju_jour');
+				if(is_object($temperature) && is_object($djuJourCmd)) {
+					$moyenneJour = history::getTemporalAvg($temperature->getId(), $debutJourneeVeille, $finJourneeVeille);
+					$djuJourCmd->event(max(0, 18 - $moyenneJour));
+					$djuJourCmd->save();
+				}
+
 			}
 		}
 	}
@@ -88,6 +101,23 @@ class weather extends eqLogic {
 				$weather->updateWeatherData();
 			} catch (Exception $e) {
 				log::add(__CLASS__, 'info', $e->getMessage());
+			}
+		}
+	}
+
+	public static function cronHourly() {
+		// Calcul DJU Heure
+		$heureActuelle = date("Y-m-d H:i:s");
+		$heurePrecedente = date("Y-m-d H:i:s", strtotime("-1 hour"));
+		foreach (self::byType(__CLASS__) as $weather) {
+			if ($weather->getIsEnable() == 1) {
+				$temperature = $weather->getCmd(null, 'temperature');
+				$djuHeureCmd = $weather->getCmd(null, 'dju_heure');
+				if(is_object($temperature) && is_object($djuHeureCmd)) {
+					$moyenne = history::getTemporalAvg($temperature->getId(), $heurePrecedente, $heureActuelle);
+					$djuHeureCmd->event(max(0, 18 - $moyenne));
+					$djuHeureCmd->save();
+				}
 			}
 		}
 	}
@@ -142,6 +172,7 @@ class weather extends eqLogic {
 		$weatherCmd->setLogicalId('temperature');
 		$weatherCmd->setEqLogic_id($this->getId());
 		$weatherCmd->setUnite('°C');
+		$weatherCmd->setIsHistorized(1);
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE');
@@ -369,12 +400,23 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
-		$weatherCmd = $this->getCmd(null, 'air_quality_pm10');
+		$weatherCmd = $this->getCmd(null, 'dju_heure');
 		if (!is_object($weatherCmd)) {
 			$weatherCmd = new weatherCmd();
 		}
-		$weatherCmd->setName(__('Pollution PM10', __FILE__));
-		$weatherCmd->setLogicalId('air_quality_pm10');
+		$weatherCmd->setName(__('DJU Horaire', __FILE__));
+		$weatherCmd->setLogicalId('dju_heure');
+		$weatherCmd->setEqLogic_id($this->getId());
+		$weatherCmd->setType('info');
+		$weatherCmd->setSubType('numeric');
+		$weatherCmd->save();
+
+		$weatherCmd = $this->getCmd(null, 'dju_jour');
+		if (!is_object($weatherCmd)) {
+			$weatherCmd = new weatherCmd();
+		}
+		$weatherCmd->setName(__('DJU Journalier', __FILE__));
+		$weatherCmd->setLogicalId('dju_jour');
 		$weatherCmd->setEqLogic_id($this->getId());
 		$weatherCmd->setType('info');
 		$weatherCmd->setSubType('numeric');
