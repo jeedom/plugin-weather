@@ -53,41 +53,101 @@ class weather extends eqLogic {
 	}
 
 	public static function cronDaily() {
-		$debutJourneeVeille = date("Y-m-d 00:00:00", strtotime("yesterday"));
-		$finJourneeVeille = date("Y-m-d 23:59:59", strtotime("yesterday"));
+		if(config::byKey('calculDJU', 'weather') == 1) {
 
-		foreach (self::byType(__CLASS__) as $weather) {
-			if ($weather->getIsEnable() == 1) {
-				$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($weather->getId())));
-				if (!is_object($cron)) {
-					$weather->reschedule();
-				} else {
-					try {
-						$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
-						if (!$c->isDue()) {
-							$next = $c->getNextRunDate();
-							if ($next->getTimestamp() > (strtotime('now') + 50000)) {
+			$temperatureReference = config::byKey('temperatureReference', 'weather');
+			$methodeDJU = config::byKey('methodeDJU', 'weather');
+
+			foreach (self::byType(__CLASS__) as $weather) {
+				if ($weather->getIsEnable() == 1) {
+					$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($weather->getId())));
+					if (!is_object($cron)) {
+						$weather->reschedule();
+					} else {
+						try {
+							$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
+							if (!$c->isDue()) {
+								$next = $c->getNextRunDate();
+								if ($next->getTimestamp() > (strtotime('now') + 50000)) {
+									$weather->reschedule();
+								}
+							}
+						} catch (Exception $ex) {
+							if ($c->getPreviousRunDate()->getTimestamp() < (strtotime('now') - 300)) {
 								$weather->reschedule();
 							}
 						}
-					} catch (Exception $ex) {
-						if ($c->getPreviousRunDate()->getTimestamp() < (strtotime('now') - 300)) {
-							$weather->reschedule();
-						}
 					}
-				}
 
-				// Calcul DJU Jour
-				$temperature = $weather->getCmd(null, 'temperature');
-				$djuJourCmd = $weather->getCmd(null, 'dju_jour');
-				if(is_object($temperature) && is_object($djuJourCmd)) {
-					$moyenneJour = history::getTemporalAvg($temperature->getId(), $debutJourneeVeille, $finJourneeVeille);
-					$djuJourCmd->event(max(0, 18 - $moyenneJour));
-					$djuJourCmd->save();
-				}
+					$temperature = $weather->getCmd(null, 'temperature');
+					$djuJourEteCmd = $weather->getCmd(null, 'dju_jour_clim');
+					$djuJourHiverCmd = $weather->getCmd(null, 'dju_jour_chauffage');
+					$djuMoisEteCmd = $weather->getCmd(null, 'dju_mois_clim');
+					$djuMoisHiverCmd = $weather->getCmd(null, 'dju_mois_chauffage');
+					$djuAnneeEteCmd = $weather->getCmd(null, 'dju_annee_clim');
+					$djuAnneeHiverCmd = $weather->getCmd(null, 'dju_annee_chauffage');
 
+					if (is_object($temperature) && is_object($djuJourEteCmd) && is_object($djuJourHiverCmd) && is_object($djuMoisEteCmd) && is_object($djuMoisHiverCmd) && is_object($djuAnneeEteCmd) && is_object($djuAnneeHiverCmd)) {
+					
+						// Calcul DJU Mois
+						if (date('d') == '1') {
+							$debutJourneeM1 = date("Y-m-d 00:00:00", strtotime("-30 days"));
+							$finJourneeM1 = date("Y-m-d 23:59:59", strtotime("-30 days"));
+	
+							$result = weather::calculDJU($methodeDJU, $temperature->getId(), $debutJourneeM1, $finJourneeM1, $temperatureReference);
+							$djuHiver = $result[0];
+							$djuEte = $result[1];
+							$djuMoisHiverCmd->event($djuHiver);
+							$djuMoisHiverCmd->save();
+							$djuMoisEteCmd->event($djuEte);
+							$djuMoisEteCmd->save();
+						} 
+						
+						// Calcul DJU Année
+						if (date('z') == '0') {
+							$debutJourneeA1 = date("Y-m-d 00:00:00", strtotime("-365 days"));
+							$finJourneeA1 = date("Y-m-d 23:59:59", strtotime("-365 days"));
+
+							$result = weather::calculDJU($methodeDJU, $temperature->getId(), $debutJourneeA1, $finJourneeA1, $temperatureReference);
+							$djuHiver = $result[0];
+							$djuEte = $result[1];
+							$djuAnneeHiverCmd->event($djuHiver);
+							$djuAnneeHiverCmd->save();
+							$djuAnneeEteCmd->event($djuEte);
+							$djuAnneeEteCmd->save();
+						} 
+						
+						// Calcul DJU Jour
+						$debutJourneeVeille = date("Y-m-d 00:00:00", strtotime("yesterday"));
+						$finJourneeVeille = date("Y-m-d 23:59:59", strtotime("yesterday"));
+						$result = weather::calculDJU($methodeDJU, $temperature->getId(), $debutJourneeVeille, $finJourneeVeille, $temperatureReference);
+						$djuHiver = $result[0];
+						$djuEte = $result[1];
+						log::add('weather', 'debug', 'mmomo');
+						$djuJourHiverCmd->event($djuHiver);
+						$djuJourHiverCmd->save();
+						$djuJourEteCmd->event($djuEte);
+						$djuJourEteCmd->save();
+					}
+					
+
+				}
 			}
 		}
+	}
+
+	public static function calculDJU($methodeDJU, $temperatureID, $start, $end, $temperatureReference) {
+		if ($methodeDJU == 'meteo') {
+			$moyenne = history::getTemporalAvg($temperatureID, $start, $end);
+			$djuHiver = max(0, $temperatureReference - $moyenne);
+			$djuEte = max(0, $moyenne - $temperatureReference);
+		} elseif ($methodeDJU == 'profEnergie') {
+			$min = scenarioExpression::minBetween($temperatureID, $start, $end);
+			$max = scenarioExpression::maxBetween($temperatureID, $start, $end);
+			$djuHiver = ($temperatureReference - $min) * (0.08 + 0.42 * ($temperatureReference - $min) / ($max - $min));
+			$djuEte = ($max - $temperatureReference) * (0.08 + 0.42 * ($max - $temperatureReference) / ($max - $min));
+		}
+		return array($djuHiver, $djuEte);
 	}
 
 	public static function cron30($_eqLogic_id = null) {
@@ -106,17 +166,27 @@ class weather extends eqLogic {
 	}
 
 	public static function cronHourly() {
-		// Calcul DJU Heure
-		$heureActuelle = date("Y-m-d H:i:s");
-		$heurePrecedente = date("Y-m-d H:i:s", strtotime("-1 hour"));
-		foreach (self::byType(__CLASS__) as $weather) {
-			if ($weather->getIsEnable() == 1) {
-				$temperature = $weather->getCmd(null, 'temperature');
-				$djuHeureCmd = $weather->getCmd(null, 'dju_heure');
-				if(is_object($temperature) && is_object($djuHeureCmd)) {
-					$moyenne = history::getTemporalAvg($temperature->getId(), $heurePrecedente, $heureActuelle);
-					$djuHeureCmd->event(max(0, 18 - $moyenne));
-					$djuHeureCmd->save();
+		if(config::byKey('calculDJU', 'weather') == 1) {
+			// Calcul DJU Heure
+			$heureActuelle = date("Y-m-d H:i:s");
+			$heurePrecedente = date("Y-m-d H:i:s", strtotime("-1 hour"));
+			$temperatureReference = config::byKey('temperatureReference', 'weather');
+			$methodeDJU = config::byKey('methodeDJU', 'weather');
+
+			foreach (self::byType(__CLASS__) as $weather) {
+				if ($weather->getIsEnable() == 1) {
+					$temperature = $weather->getCmd(null, 'temperature');
+					$djuHeureHiverCmd = $weather->getCmd(null, 'dju_heure_chauffage');
+					$djuHeureEteCmd = $weather->getCmd(null, 'dju_heure_clim');
+					if(is_object($temperature) && is_object($djuHeureHiverCmd) && is_object($djuHeureEteCmd)) {
+						$result = weather::calculDJU($methodeDJU, $temperature->getId(), $heureActuelle, $heurePrecedente, $temperatureReference);
+						$djuHiver = $result[0];
+						$djuEte = $result[1];
+						$djuHeureHiverCmd->event($djuHiver);
+						$djuHeureHiverCmd->save();
+						$djuHeureEteCmd->event($djuEte);
+						$djuHeureEteCmd->save();
+					}
 				}
 			}
 		}
@@ -400,27 +470,96 @@ class weather extends eqLogic {
 		$weatherCmd->setSubType('numeric');
 		$weatherCmd->save();
 
-		$weatherCmd = $this->getCmd(null, 'dju_heure');
-		if (!is_object($weatherCmd)) {
-			$weatherCmd = new weatherCmd();
-		}
-		$weatherCmd->setName(__('DJU Horaire', __FILE__));
-		$weatherCmd->setLogicalId('dju_heure');
-		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('numeric');
-		$weatherCmd->save();
+		if(config::byKey('calculDJU', 'weather') == 1)  {
 
-		$weatherCmd = $this->getCmd(null, 'dju_jour');
-		if (!is_object($weatherCmd)) {
-			$weatherCmd = new weatherCmd();
+			$weatherCmd = $this->getCmd(null, 'dju_heure_clim');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Horaire Climatisation', __FILE__));
+			$weatherCmd->setLogicalId('dju_heure_clim');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'dju_heure_chauffage');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Horaire Chauffage', __FILE__));
+			$weatherCmd->setLogicalId('dju_heure_chauffage');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'dju_jour_clim');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Journalier Climatisation', __FILE__));
+			$weatherCmd->setLogicalId('dju_jour_clim');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'dju_jour_chauffage');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Journalier Chauffage', __FILE__));
+			$weatherCmd->setLogicalId('dju_jour_chauffage');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'dju_mois_clim');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Mensuel Climatisation', __FILE__));
+			$weatherCmd->setLogicalId('dju_mois_clim');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'dju_mois_chauffage');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Mensuel Chauffage', __FILE__));
+			$weatherCmd->setLogicalId('dju_mois_chauffage');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'dju_annee_clim');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Annuel Climatisation', __FILE__));
+			$weatherCmd->setLogicalId('dju_annee_clim');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'dju_annee_chauffage');
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('DJU Annuel Chauffage', __FILE__));
+			$weatherCmd->setLogicalId('dju_annee_chauffage');
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
 		}
-		$weatherCmd->setName(__('DJU Journalier', __FILE__));
-		$weatherCmd->setLogicalId('dju_jour');
-		$weatherCmd->setEqLogic_id($this->getId());
-		$weatherCmd->setType('info');
-		$weatherCmd->setSubType('numeric');
-		$weatherCmd->save();
 
 		for ($i = 1; $i < 7; $i++) {
 			$weatherCmd = $this->getCmd(null, 'wind_speed_' . $i);
