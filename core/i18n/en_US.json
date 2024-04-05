@@ -1,4 +1,11 @@
 {
+    "plugins\/weather\/plugin_info\/configuration.php": {
+        "Calcul des Degrés Jours Unifiés (DJU)": "Calculation of Unified Degree Days (DJU)",
+        "Méthode de calcul": "Calculation method",
+        "Météo": "Weather report",
+        "Professionnels de l'énergie": "Energy professionals",
+        "Température de référence": "Reference temperature"
+    },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Unauthorized access",
         "Gestion": "Management",
@@ -66,6 +73,14 @@
         "Pollution O3": "O3 pollution",
         "Pollution SO2": "SO2 pollution",
         "Pollution PM2.5": "PM2.5 Pollution",
+        "DJU Horaire Climatisation": "DJU Air Conditioning Schedule",
+        "DJU Horaire Chauffage": "DJU Heating Schedule",
+        "DJU Journalier Climatisation": "DJU Daily Air Conditioning",
+        "DJU Journalier Chauffage": "DJU Daily Heating",
+        "DJU Mensuel Climatisation": "DJU Monthly Air conditioning",
+        "DJU Mensuel Chauffage": "DJU Monthly Heating",
+        "DJU Annuel Climatisation": "DJU Annual Air Conditioning",
+        "DJU Annuel Chauffage": "DJU Annual Heating",
         "Pollution PM10": "PM10 emissions",
         "Rafraichir": "Refresh",
         "La latitude et la longitude ne peut être vide": "Latitude and longitude cannot be empty"

@@ -1,4 +1,11 @@
 {
+    "plugins\/weather\/plugin_info\/configuration.php": {
+        "Calcul des Degrés Jours Unifiés (DJU)": "Cálculo de Graus-dia Unificados (DJU)",
+        "Méthode de calcul": "Método de cálculo",
+        "Météo": "Previsão do tempo",
+        "Professionnels de l'énergie": "Profissionais de energia",
+        "Température de référence": "Temperatura de referência"
+    },
     "plugins\/weather\/desktop\/php\/weather.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
         "Gestion": "Gerir",
@@ -66,6 +73,14 @@
         "Pollution O3": "Poluição O3",
         "Pollution SO2": "Poluição SO2",
         "Pollution PM2.5": "Poluição PM2,5",
+        "DJU Horaire Climatisation": "Cronograma de Ar Condicionado DJU",
+        "DJU Horaire Chauffage": "Cronograma de aquecimento DJU",
+        "DJU Journalier Climatisation": "DJU Ar Condicionado Diário",
+        "DJU Journalier Chauffage": "Aquecimento Diário DJU",
+        "DJU Mensuel Climatisation": "DJU Mensal Ar condicionado",
+        "DJU Mensuel Chauffage": "Aquecimento Mensal DJU",
+        "DJU Annuel Climatisation": "Ar Condicionado Anual DJU",
+        "DJU Annuel Chauffage": "Aquecimento Anual DJU",
         "Pollution PM10": "Emissões de PM10",
         "Rafraichir": "Recarregar",
         "La latitude et la longitude ne peut être vide": "Latitude e longitude não podem estar vazias"
