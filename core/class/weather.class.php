@@ -53,32 +53,29 @@ class weather extends eqLogic {
 	}
 
 	public static function cronDaily() {
-		if(config::byKey('calculDJU', 'weather') == 1) {
-
-			$temperatureReference = config::byKey('temperatureReference', 'weather');
-			$methodeDJU = config::byKey('methodeDJU', 'weather');
-
-			foreach (self::byType(__CLASS__) as $weather) {
-				if ($weather->getIsEnable() == 1) {
-					$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($weather->getId())));
-					if (!is_object($cron)) {
-						$weather->reschedule();
-					} else {
-						try {
-							$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
-							if (!$c->isDue()) {
-								$next = $c->getNextRunDate();
-								if ($next->getTimestamp() > (strtotime('now') + 50000)) {
-									$weather->reschedule();
-								}
-							}
-						} catch (Exception $ex) {
-							if ($c->getPreviousRunDate()->getTimestamp() < (strtotime('now') - 300)) {
+		foreach (self::byType(__CLASS__) as $weather) {
+			if ($weather->getIsEnable() == 1) {
+				$cron = cron::byClassAndFunction(__CLASS__, 'pull', array('weather_id' => intval($weather->getId())));
+				if (!is_object($cron)) {
+					$weather->reschedule();
+				} else {
+					try {
+						$c = new Cron\CronExpression(checkAndFixCron($cron->getSchedule()), new Cron\FieldFactory);
+						if (!$c->isDue()) {
+							$next = $c->getNextRunDate();
+							if ($next->getTimestamp() > (strtotime('now') + 50000)) {
 								$weather->reschedule();
 							}
 						}
+					} catch (Exception $ex) {
+						if ($c->getPreviousRunDate()->getTimestamp() < (strtotime('now') - 300)) {
+							$weather->reschedule();
+						}
 					}
-
+				}
+				if(config::byKey('calculDJU', 'weather') == 1) {
+					$temperatureReference = config::byKey('temperatureReference', 'weather');
+					$methodeDJU = config::byKey('methodeDJU', 'weather');
 					$temperature = $weather->getCmd(null, 'temperature');
 					$djuJourEteCmd = $weather->getCmd(null, 'dju_jour_clim');
 					$djuJourHiverCmd = $weather->getCmd(null, 'dju_jour_chauffage');
@@ -86,9 +83,7 @@ class weather extends eqLogic {
 					$djuMoisHiverCmd = $weather->getCmd(null, 'dju_mois_chauffage');
 					$djuAnneeEteCmd = $weather->getCmd(null, 'dju_annee_clim');
 					$djuAnneeHiverCmd = $weather->getCmd(null, 'dju_annee_chauffage');
-
 					if (is_object($temperature) && is_object($djuJourEteCmd) && is_object($djuJourHiverCmd) && is_object($djuMoisEteCmd) && is_object($djuMoisHiverCmd) && is_object($djuAnneeEteCmd) && is_object($djuAnneeHiverCmd)) {
-					
 						// Calcul DJU Mois
 						if (date('d') == '1') {
 							$debutJourneeM1 = date("Y-m-d 00:00:00", strtotime("-30 days"));
@@ -107,7 +102,6 @@ class weather extends eqLogic {
 						if (date('z') == '0') {
 							$debutJourneeA1 = date("Y-m-d 00:00:00", strtotime("-365 days"));
 							$finJourneeA1 = date("Y-m-d 23:59:59", strtotime("-365 days"));
-
 							$result = weather::calculDJU($methodeDJU, $temperature->getId(), $debutJourneeA1, $finJourneeA1, $temperatureReference);
 							$djuHiver = $result[0];
 							$djuEte = $result[1];
@@ -129,8 +123,6 @@ class weather extends eqLogic {
 						$djuJourEteCmd->event($djuEte);
 						$djuJourEteCmd->save();
 					}
-					
-
 				}
 			}
 		}
