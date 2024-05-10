@@ -4,9 +4,14 @@
 >
 >S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
+# 23/04/2024
+
+- Version minimale du core Jeedom requise : 4.4
+- Correction de bugs sur Jeedom 4.4
+
 # 22/02/2024
 
-- Refonte complete du plugin
+- Refonte complète du plugin
 - Utilisation d'une nouvelle source de données, plus besoin de compte de votre coté tout passe par le cloud Jeedom
 - Correction de bugs sur Jeedom 4.4
 
