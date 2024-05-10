@@ -4,7 +4,6 @@
 >
 >S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte.
 
-<<<<<<< HEAD
 # 10/05/2024
 
 - Correction d'un bug sur la replanification des levé/couché de soleil
