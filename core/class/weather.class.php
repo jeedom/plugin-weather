@@ -929,16 +929,18 @@ class weather extends eqLogic {
 		$this->checkAndUpdateCmd('visibility', $datas['data']['today']['visibility']['value']);
 		$this->checkAndUpdateCmd('uv', $datas['data']['today']['uv']['value']);
 
-		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['rise']))) {
-			$cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['rise'])));
-			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
-		}
+		if(isset($datas['data']['today']['sun'])) {
+			$cmd = $this->getCmd('info', 'sunrise');
+		  if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['rise']))) {
+			  $cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['rise'])));
+			  $cmd->setCache('collectDate', date('Y-m-d H:i:s'));
+		  }
 
-		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['set']))) {
-			$cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['set'])));
-			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
+		  $cmd = $this->getCmd('info', 'sunset');
+		  if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['set']))) {
+			  $cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['set'])));
+			  $cmd->setCache('collectDate', date('Y-m-d H:i:s'));
+		  }
 		}
 
 		for ($i = 1; $i < 7; $i++) {
