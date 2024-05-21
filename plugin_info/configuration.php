@@ -32,7 +32,6 @@ if (!isConnect()) {
       </div>
     </div>
 
-    <?php if(config::byKey('calculDJU', 'weather') == 1) { ?>
     <div id="divCalcul">
       <div class="form-group">
         <label class="col-sm-3 control-label">{{Méthode de calcul}}</label>
@@ -61,8 +60,7 @@ if (!isConnect()) {
         </div>
       </div>
     </div>
-    <?php } ?>
-
+    
   </fieldset>
 </form>
 
