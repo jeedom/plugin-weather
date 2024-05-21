@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Weather",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Si no hay información sobre la actualización, significa que se trata solo de la actualización de la documentación, la traducción o el texto",
+        "Correction d'un bug rare sur l'heure de levé\/couché de soleil qui pouvait tomber a 1h du matin": "Se corrigió un error poco común en la hora de salida y puesta del sol que podía caer a la 1 a.m",
+        "Correction de bugs": "Correcciones de errores",
         "10\/05\/2024": "10\/05\/2024",
         "Correction d'un bug sur la replanification des levé\/couché de soleil": "Se corrigió un error al reprogramar el amanecer\/atardecer",
         "23\/04\/2024": "23\/04\/2024",
@@ -31,7 +33,6 @@
         "Amélioration du widget": "Mejora de widgets",
         "Correction de bug sur le déclenchement du lever\/coucher du soleil": "Corrección de errores en el disparador de amanecer \/ atardecer",
         "03\/10\/2019": "10\/03\/2019",
-        "Correction de bugs": "Correcciones de errores",
         "18\/09\/2019": "09\/18\/2019",
         "Correction de l'indicateur de direction du vent": "Corrección del indicador de dirección del viento",
         "06\/09\/2019": "06\/09\/2019",
