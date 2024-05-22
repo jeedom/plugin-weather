@@ -916,29 +916,36 @@ class weather extends eqLogic {
 		$changed = $this->checkAndUpdateCmd('wind_speed', $datas['data']['today']['wind']['speed']) || $changed;
 		$changed = $this->checkAndUpdateCmd('wind_direction', $datas['data']['today']['wind']['deg']) || $changed;
 		$changed = $this->checkAndUpdateCmd('rain', $datas['data']['today']['rain']['value']) || $changed;
-		$changed = $this->checkAndUpdateCmd('temperature_min', $datas['data']['today']['temperature']['min']) || $changed;
-		$changed = $this->checkAndUpdateCmd('temperature_max', $datas['data']['today']['temperature']['max']) || $changed;
 
-		$changed = $this->checkAndUpdateCmd('air_quality_co', $datas['data']['today']['air_quality']['co']) || $changed;
-		$changed = $this->checkAndUpdateCmd('air_quality_no2', $datas['data']['today']['air_quality']['no2']) || $changed;
-		$changed = $this->checkAndUpdateCmd('air_quality_o3', $datas['data']['today']['air_quality']['o3']) || $changed;
-		$changed = $this->checkAndUpdateCmd('air_quality_so2', $datas['data']['today']['air_quality']['so2']) || $changed;
-		$changed = $this->checkAndUpdateCmd('air_quality_pm2.5', $datas['data']['today']['air_quality']['pm2_5']) || $changed;
-		$changed = $this->checkAndUpdateCmd('air_quality_pm10', $datas['data']['today']['air_quality']['pm10']) || $changed;
+		if(isset($datas['data']['today']['temperature'])){
+			$changed = $this->checkAndUpdateCmd('temperature_min', $datas['data']['today']['temperature']['min']) || $changed;
+			$changed = $this->checkAndUpdateCmd('temperature_max', $datas['data']['today']['temperature']['max']) || $changed;
+		}
+		
+		if(isset($datas['data']['today']['air_quality'])){
+			$changed = $this->checkAndUpdateCmd('air_quality_co', $datas['data']['today']['air_quality']['co']) || $changed;
+			$changed = $this->checkAndUpdateCmd('air_quality_no2', $datas['data']['today']['air_quality']['no2']) || $changed;
+			$changed = $this->checkAndUpdateCmd('air_quality_o3', $datas['data']['today']['air_quality']['o3']) || $changed;
+			$changed = $this->checkAndUpdateCmd('air_quality_so2', $datas['data']['today']['air_quality']['so2']) || $changed;
+			$changed = $this->checkAndUpdateCmd('air_quality_pm2.5', $datas['data']['today']['air_quality']['pm2_5']) || $changed;
+			$changed = $this->checkAndUpdateCmd('air_quality_pm10', $datas['data']['today']['air_quality']['pm10']) || $changed;
+		}
 
 		$this->checkAndUpdateCmd('visibility', $datas['data']['today']['visibility']['value']);
 		$this->checkAndUpdateCmd('uv', $datas['data']['today']['uv']['value']);
 
-		$cmd = $this->getCmd('info', 'sunrise');
-		if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['rise']))) {
-			$cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['rise'])));
-			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
-		}
+		if(isset($datas['data']['today']['sun'])) {
+			$cmd = $this->getCmd('info', 'sunrise');
+		  if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['rise']))) {
+			  $cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['rise'])));
+			  $cmd->setCache('collectDate', date('Y-m-d H:i:s'));
+		  }
 
-		$cmd = $this->getCmd('info', 'sunset');
-		if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['set']))) {
-			$cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['set'])));
-			$cmd->setCache('collectDate', date('Y-m-d H:i:s'));
+		  $cmd = $this->getCmd('info', 'sunset');
+		  if (is_object($cmd) && $cmd->execCmd() != date('Gi', strtotime($datas['data']['today']['sun']['set']))) {
+			  $cmd->setCache('value', date('Gi', strtotime($datas['data']['today']['sun']['set'])));
+			  $cmd->setCache('collectDate', date('Y-m-d H:i:s'));
+		  }
 		}
 
 		for ($i = 1; $i < 7; $i++) {
