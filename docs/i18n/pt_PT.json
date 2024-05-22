@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Tempo",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Se não houver informação sobre a atualização, significa que se trata apenas da atualização da documentação, tradução ou texto",
+        "22\/05\/2024": "22\/05\/2024",
         "Correction d'un bug rare sur l'heure de levé\/couché de soleil qui pouvait tomber a 1h du matin": "Corrigido um bug raro no horário do nascer\/pôr do sol, que poderia cair à 1h",
         "Correction de bugs": "Correções de bugs",
         "10\/05\/2024": "10\/05\/2024",
