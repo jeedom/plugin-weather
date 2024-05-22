@@ -917,12 +917,12 @@ class weather extends eqLogic {
 		$changed = $this->checkAndUpdateCmd('wind_direction', $datas['data']['today']['wind']['deg']) || $changed;
 		$changed = $this->checkAndUpdateCmd('rain', $datas['data']['today']['rain']['value']) || $changed;
 
-		if(isset($datas['data']['today']['temperature'])){
+		if(isset($datas['data']['today']['temperature']['min'])){
 			$changed = $this->checkAndUpdateCmd('temperature_min', $datas['data']['today']['temperature']['min']) || $changed;
 			$changed = $this->checkAndUpdateCmd('temperature_max', $datas['data']['today']['temperature']['max']) || $changed;
 		}
 		
-		if(isset($datas['data']['today']['air_quality'])){
+		if(isset($datas['data']['today']['air_quality']['co'])){
 			$changed = $this->checkAndUpdateCmd('air_quality_co', $datas['data']['today']['air_quality']['co']) || $changed;
 			$changed = $this->checkAndUpdateCmd('air_quality_no2', $datas['data']['today']['air_quality']['no2']) || $changed;
 			$changed = $this->checkAndUpdateCmd('air_quality_o3', $datas['data']['today']['air_quality']['o3']) || $changed;
@@ -960,9 +960,11 @@ class weather extends eqLogic {
 			$this->checkAndUpdateCmd('temperature_' . $i, $datas['data']['day +' . $i]['temperature']['value']);
 			$this->checkAndUpdateCmd('uv_' . $i, $datas['data']['day +' . $i]['uv']['value']);
 			$this->checkAndUpdateCmd('wind_speed_' . $i, $datas['data']['day +' . $i]['wind']['speed']);
-			$this->checkAndUpdateCmd('wind_direction_' . $i, $datas['data']['day +' . $i]['wind']['deg']);
+			if(isset($datas['data']['day +' . $i]['wind']['deg'])){
+				$this->checkAndUpdateCmd('wind_direction_' . $i, $datas['data']['day +' . $i]['wind']['deg']);
+			}
 
-			if ($i < 4) {
+			if ($i < 4 && isset($datas['data']['day +' . $i]['air_quality']['co'])) {
 				$changed = $this->checkAndUpdateCmd('air_quality_co_' . $i, $datas['data']['day +' . $i]['air_quality']['co']) || $changed;
 				$changed = $this->checkAndUpdateCmd('air_quality_no2_' . $i, $datas['data']['day +' . $i]['air_quality']['no2']) || $changed;
 				$changed = $this->checkAndUpdateCmd('air_quality_o3_' . $i, $datas['data']['day +' . $i]['air_quality']['o3']) || $changed;
