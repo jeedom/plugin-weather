@@ -893,12 +893,14 @@ class weather extends eqLogic {
 	}
 
 	public function updateWeatherData() {
-		if ($this->getConfiguration('lat') == '' || $this->getConfiguration('long') == '') {
-			throw new Exception(__('La latitude et la longitude ne peut être vide', __FILE__));
+		$lat = trim($this->getConfiguration('lat'));
+		$long = trim($this->getConfiguration('long'));
+		if ($lat == '' || $long == '') {
+			throw new Exception(__('La latitude et la longitude doivent être renseignées', __FILE__));
 		}
 		$url = config::byKey('service::cloud::url') . '/service/weatherapi';
-		$url .= '?lat=' . $this->getConfiguration('lat');
-		$url .= '&long=' . $this->getConfiguration('long');
+		$url .= '?lat=' . $lat;
+		$url .= '&long=' . $long;
 		$url .= '&lang=' . substr(config::byKey('language'), 0, 2);
 		$request_http = new com_http($url);
 		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
