@@ -2,6 +2,7 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Weather",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Si no hay información sobre la actualización, significa que se trata solo de la actualización de la documentación, la traducción o el texto",
+        "Meilleure gestion des coordonées": "Mejor gestión de datos de contacto",
         "22\/05\/2024": "22\/05\/2024",
         "Correction d'un bug rare sur l'heure de levé\/couché de soleil qui pouvait tomber a 1h du matin": "Se corrigió un error poco común en la hora de salida y puesta del sol que podía caer a la 1 a.m",
         "Correction de bugs": "Correcciones de errores",
