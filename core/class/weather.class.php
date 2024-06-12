@@ -225,6 +225,10 @@ class weather extends eqLogic {
 		$this->setCategory('heating', 1);
 	}
 
+	public function postInsert() {
+		$this->updateWeatherData();
+	}
+
 	public function postUpdate() {
 		$weatherCmd = $this->getCmd(null, 'temperature');
 		if (!is_object($weatherCmd)) {
