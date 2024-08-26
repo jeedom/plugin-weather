@@ -650,7 +650,7 @@ class weather extends eqLogic {
 				$weatherCmd = new weatherCmd();
 			}
 			$weatherCmd->setName(__('Pluie', __FILE__) . ' H+' . $i);
-			$weatherCmd->setLogicalId('rain_' . $i);
+			$weatherCmd->setLogicalId('rain_h' . $i);
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('mm');
 			$weatherCmd->setType('info');
@@ -1093,7 +1093,7 @@ class weather extends eqLogic {
 		}
 
 		for ($i = 1; $i < 4; $i++) {
-			$changed = $this->checkAndUpdateCmd('temperature_h' . $i, $datas['data']['hour +' . $i]['temperature']) || $changed;
+			$changed = $this->checkAndUpdateCmd('temperature_h' . $i, $datas['data']['hour +' . $i]['temperature']['value']) || $changed;
 			$changed = $this->checkAndUpdateCmd('condition_h' . $i, $datas['data']['hour +' . $i]['description']) || $changed;
 			$changed = $this->checkAndUpdateCmd('condition_id_h' . $i, $datas['data']['hour +' . $i]['summary_id']) || $changed;
 			if (isset($datas['data']['hour +' . $i]['rain']['value'])) {
@@ -1110,6 +1110,7 @@ class weather extends eqLogic {
 			$this->checkAndUpdateCmd('visibility_h' . $i, $datas['data']['hour +' . $i]['visibility']['value']);
 			$this->checkAndUpdateCmd('chance_rain_h' . $i, $datas['data']['hour +' . $i]['rain']['chance']);
 			$this->checkAndUpdateCmd('chance_snow_h' . $i, $datas['data']['hour +' . $i]['snow']['chance']);
+			$this->checkAndUpdateCmd('humidity_h' . $i, $datas['data']['hour +' . $i]['humidity']['value']);
 		}
 
 		for ($i = 1; $i < 7; $i++) {
