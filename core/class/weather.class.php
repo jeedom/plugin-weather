@@ -557,6 +557,143 @@ class weather extends eqLogic {
 			$weatherCmd->save();
 		}
 
+
+		for ($i = 1; $i < 4; $i++) {
+			$weatherCmd = $this->getCmd(null, 'wind_speed_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Vitesse du vent', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('wind_speed_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('km/h');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_SPEED');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'wind_direction_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Direction du vent', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('wind_direction_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('°');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'temperature_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Température ', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('temperature_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('°C');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'humidity_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Humidité ', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('humidity_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('%');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_HUMIDITY');
+			$weatherCmd->save();
+			
+			$weatherCmd = $this->getCmd(null, 'uv_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('UV', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('uv_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'visibility_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Visibilité', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('visibility_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'condition_id_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Numéro condition', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('condition_id_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'rain_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Pluie', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('rain_' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('mm');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'chance_rain_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Chance de pluie', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('chance_rain_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('%');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'snow_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Neige', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('snow_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('mm');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+
+			$weatherCmd = $this->getCmd(null, 'chance_snow_h' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Chance de neige', __FILE__) . ' H+' . $i);
+			$weatherCmd->setLogicalId('chance_snow_h' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('%');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->save();
+		}
+
 		for ($i = 1; $i < 7; $i++) {
 			$weatherCmd = $this->getCmd(null, 'wind_speed_' . $i);
 			if (!is_object($weatherCmd)) {
@@ -955,8 +1092,27 @@ class weather extends eqLogic {
 		  }
 		}
 
+		for ($i = 1; $i < 4; $i++) {
+			$changed = $this->checkAndUpdateCmd('temperature_h' . $i, $datas['data']['hour +' . $i]['temperature']) || $changed;
+			$changed = $this->checkAndUpdateCmd('condition_h' . $i, $datas['data']['hour +' . $i]['description']) || $changed;
+			$changed = $this->checkAndUpdateCmd('condition_id_h' . $i, $datas['data']['hour +' . $i]['summary_id']) || $changed;
+			if (isset($datas['data']['hour +' . $i]['rain']['value'])) {
+				$changed = $this->checkAndUpdateCmd('rain_h' . $i, $datas['data']['hour +' . $i]['rain']['value']) || $changed;
+			}
+			if (isset($datas['data']['hour +' . $i]['snow']['value'])) {
+				$changed = $this->checkAndUpdateCmd('snow_h' . $i, $datas['data']['hour +' . $i]['snow']['value']) || $changed;
+			}
+			$this->checkAndUpdateCmd('uv_h' . $i, $datas['data']['hour +' . $i]['uv']['value']);
+			$this->checkAndUpdateCmd('wind_speed_h' . $i, $datas['data']['hour +' . $i]['wind']['speed']);
+			if(isset($datas['data']['hour +' . $i]['wind']['deg'])){
+				$this->checkAndUpdateCmd('wind_direction_h' . $i, $datas['data']['hour +' . $i]['wind']['deg']);
+			}
+			$this->checkAndUpdateCmd('visibility_h' . $i, $datas['data']['hour +' . $i]['visibility']['value']);
+			$this->checkAndUpdateCmd('chance_rain_h' . $i, $datas['data']['hour +' . $i]['rain']['chance']);
+			$this->checkAndUpdateCmd('chance_snow_h' . $i, $datas['data']['hour +' . $i]['snow']['chance']);
+		}
+
 		for ($i = 1; $i < 7; $i++) {
-			$date = date('Y-m-d', strtotime('+' . $i . ' day'));
 			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_min', $datas['data']['day +' . $i]['temperature']['min']) || $changed;
 			$changed = $this->checkAndUpdateCmd('temperature_' . $i . '_max', $datas['data']['day +' . $i]['temperature']['max']) || $changed;
 			$changed = $this->checkAndUpdateCmd('condition_' . $i, $datas['data']['day +' . $i]['description']) || $changed;
