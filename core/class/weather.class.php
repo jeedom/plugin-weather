@@ -897,6 +897,9 @@ class weather extends eqLogic {
 	}
 
 	public function updateWeatherData() {
+        if ($this->getIsEnable() == 0){
+          	return;
+        }
 		if (trim($this->getConfiguration('lat')) == '' || trim($this->getConfiguration('long')) == '') {
 			throw new Exception(__('La latitude et la longitude ne peut être vide', __FILE__));
 		}
