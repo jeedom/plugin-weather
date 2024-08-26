@@ -708,19 +708,6 @@ class weather extends eqLogic {
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_SPEED');
 			$weatherCmd->save();
 
-			$weatherCmd = $this->getCmd(null, 'wind_direction_' . $i);
-			if (!is_object($weatherCmd)) {
-				$weatherCmd = new weatherCmd();
-			}
-			$weatherCmd->setName(__('Direction du vent', __FILE__) . ' +' . $i);
-			$weatherCmd->setLogicalId('wind_direction_' . $i);
-			$weatherCmd->setEqLogic_id($this->getId());
-			$weatherCmd->setUnite('°');
-			$weatherCmd->setType('info');
-			$weatherCmd->setSubType('numeric');
-			$weatherCmd->setDisplay('generic_type', 'WEATHER_WIND_DIRECTION');
-			$weatherCmd->save();
-
 			$weatherCmd = $this->getCmd(null, 'uv_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
@@ -1124,10 +1111,7 @@ class weather extends eqLogic {
 			$this->checkAndUpdateCmd('temperature_' . $i, $datas['data']['day +' . $i]['temperature']['value']);
 			$this->checkAndUpdateCmd('uv_' . $i, $datas['data']['day +' . $i]['uv']['value']);
 			$this->checkAndUpdateCmd('wind_speed_' . $i, $datas['data']['day +' . $i]['wind']['speed']);
-			if(isset($datas['data']['day +' . $i]['wind']['deg'])){
-				$this->checkAndUpdateCmd('wind_direction_' . $i, $datas['data']['day +' . $i]['wind']['deg']);
-			}
-
+			
 			if ($i < 4 && isset($datas['data']['day +' . $i]['air_quality']['co'])) {
 				$changed = $this->checkAndUpdateCmd('air_quality_co_' . $i, $datas['data']['day +' . $i]['air_quality']['co']) || $changed;
 				$changed = $this->checkAndUpdateCmd('air_quality_no2_' . $i, $datas['data']['day +' . $i]['air_quality']['no2']) || $changed;
