@@ -1080,6 +1080,9 @@ class weather extends eqLogic {
 		}
 
 		for ($i = 1; $i < 4; $i++) {
+			if(!isset($datas['data']['hour +' . $i])){
+				continue;
+			}
 			$changed = $this->checkAndUpdateCmd('temperature_h' . $i, $datas['data']['hour +' . $i]['temperature']['value']) || $changed;
 			$changed = $this->checkAndUpdateCmd('condition_h' . $i, $datas['data']['hour +' . $i]['description']) || $changed;
 			$changed = $this->checkAndUpdateCmd('condition_id_h' . $i, $datas['data']['hour +' . $i]['summary_id']) || $changed;
