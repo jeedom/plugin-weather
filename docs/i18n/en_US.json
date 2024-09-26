@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Weather",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "If there is no information on the update, it means that it concerns only the update of documentation, translation or text",
+        "26\/09\/2024": "09\/26\/2024",
+        "Correction d'un warning": "Fixed a warning",
         "26\/08\/2024": "08\/26\/2024",
         "Meilleure gestion des coordonnées": "Better coordinate management",
         "Support des images personnalisées (Jeedom 4.5": "Support for custom images (Jeedom 4.5",
