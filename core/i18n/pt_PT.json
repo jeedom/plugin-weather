@@ -81,6 +81,11 @@
         "DJU Mensuel Chauffage": "Aquecimento Mensal DJU",
         "DJU Annuel Climatisation": "Ar Condicionado Anual DJU",
         "DJU Annuel Chauffage": "Aquecimento Anual DJU",
+        "Température ": "Temperatura",
+        "Humidité ": "Humidade",
+        "Chance de pluie": "Possibilidade de chuva",
+        "Neige": "Neve",
+        "Chance de neige": "Possibilidade de neve",
         "Pollution PM10": "Emissões de PM10",
         "Rafraichir": "Recarregar",
         "La latitude et la longitude ne peut être vide": "Latitude e longitude não podem estar vazias"

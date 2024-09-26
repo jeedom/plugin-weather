@@ -2,7 +2,11 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Tempo",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Se não houver informação sobre a atualização, significa que se trata apenas da atualização da documentação, tradução ou texto",
-        "Meilleure gestion des coordonées": "Melhor gerenciamento de detalhes de contato",
+        "26\/08\/2024": "26\/08\/2024",
+        "Meilleure gestion des coordonnées": "Melhor gerenciamento de detalhes de contato",
+        "Support des images personnalisées (Jeedom 4.5": "Suporte para imagens personalizadas (Jeedom 4.5",
+        "Correction d'une erreur a la création de l'équipement si les coordonnées sont vide": "Corrigido um erro ao criar equipamentos se as coordenadas estivessem vazias",
+        "Ajout des prevision à H+1, H+2 et H+3": "Adição de previsões em H+1, H+2 e H+3",
         "22\/05\/2024": "22\/05\/2024",
         "Correction d'un bug rare sur l'heure de levé\/couché de soleil qui pouvait tomber a 1h du matin": "Corrigido um bug raro no horário do nascer\/pôr do sol, que poderia cair à 1h",
         "Correction de bugs": "Correções de bugs",

@@ -81,6 +81,11 @@
         "DJU Mensuel Chauffage": "DJU Mensuel Chauffage",
         "DJU Annuel Climatisation": "DJU Annuel Climatisation",
         "DJU Annuel Chauffage": "DJU Annuel Chauffage",
+        "Température ": "Температура",
+        "Humidité ": "Влажность",
+        "Chance de pluie": "Chance de pluie",
+        "Neige": "Neige",
+        "Chance de neige": "Chance de neige",
         "Pollution PM10": "Pollution PM10",
         "Rafraichir": "Обновить",
         "La latitude et la longitude ne peut être vide": "La latitude et la longitude ne peut être vide"
