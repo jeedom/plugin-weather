@@ -143,6 +143,7 @@ class weather extends eqLogic {
 	}
 
 	public static function cron30($_eqLogic_id = null) {
+		sleep(rand(0,180));
 		if ($_eqLogic_id == null) {
 			$eqLogics = self::byType(__CLASS__, true);
 		} else {
@@ -1033,7 +1034,7 @@ class weather extends eqLogic {
 		$url .= '&lang=' . substr(config::byKey('language'), 0, 2);
 		$request_http = new com_http($url);
 		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
-		$datas = json_decode($request_http->exec(10), true);
+		$datas = json_decode($request_http->exec(60,6), true);
 		log::add(__CLASS__, 'debug', $url . ' : ' . json_encode($datas));
 		if ($datas['state'] != 'ok') {
 			return;
