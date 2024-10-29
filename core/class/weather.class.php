@@ -1035,10 +1035,15 @@ class weather extends eqLogic {
 		$request_http = new com_http($url);
 		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
 		$datas = json_decode($request_http->exec(60,6), true);
-		log::add(__CLASS__, 'debug', $url . ' : ' . json_encode($datas));
+		if ($datas['state'] != 'ok') {
+			sleep(15);
+			$datas = json_decode($request_http->exec(60,6), true);
+		}
 		if ($datas['state'] != 'ok') {
 			return;
 		}
+
+		log::add(__CLASS__, 'debug', $url . ' : ' . json_encode($datas));
 		$changed = false;
 		$changed = $this->checkAndUpdateCmd('temperature', $datas['data']['today']['temperature']['value']) || $changed;
 		$changed = $this->checkAndUpdateCmd('humidity', $datas['data']['today']['humidity']['value']) || $changed;
