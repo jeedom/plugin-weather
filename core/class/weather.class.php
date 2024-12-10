@@ -746,6 +746,19 @@ class weather extends eqLogic {
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_' . $i);
 			$weatherCmd->save();
 
+			$weatherCmd = $this->getCmd(null, 'condition_' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Condition', __FILE__) . ' +' . $i);
+			$weatherCmd->setLogicalId('condition_' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('numeric');
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_' . $i);
+			$weatherCmd->save();
+
 			$weatherCmd = $this->getCmd(null, 'condition_id_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
