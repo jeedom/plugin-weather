@@ -755,7 +755,7 @@ class weather extends eqLogic {
 			$weatherCmd->setEqLogic_id($this->getId());
 			$weatherCmd->setUnite('');
 			$weatherCmd->setType('info');
-			$weatherCmd->setSubType('numeric');
+			$weatherCmd->setSubType('string');
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_' . $i);
 			$weatherCmd->save();
 
