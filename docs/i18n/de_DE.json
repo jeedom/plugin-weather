@@ -2,6 +2,8 @@
     "changelog.md": {
         "Changelog Weather": "Changelog Wetter",
         "S'il n'y a pas d'information sur la mise à jour, c'est que celle-ci concerne uniquement de la mise à jour de documentation, de traduction ou de texte": "Wenn es keine Informationen über die Aktualisierung gibt, bedeutet dies, dass es sich nur um die Aktualisierung von Dokumentation, Übersetzung oder Text handelt",
+        "31\/12\/2025": "",
+        "Reduction du nombre de requete pour reduire la charge sur les services cloud": "",
         "31\/10\/2024": "31.10.2024",
         "Optimisation de la récupération de la météo": "Optimierung der Wetterabfrage",
         "26\/09\/2024": "26.09.2024",
