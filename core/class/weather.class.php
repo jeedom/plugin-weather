@@ -1047,10 +1047,10 @@ class weather extends eqLogic {
 		$url .= '&lang=' . substr(config::byKey('language'), 0, 2);
 		$request_http = new com_http($url);
 		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
-		$datas = json_decode($request_http->exec(60,6), true);
+		$datas = json_decode($request_http->exec(), true);
 		if ($datas['state'] != 'ok') {
 			sleep(15);
-			$datas = json_decode($request_http->exec(60,6), true);
+			$datas = json_decode($request_http->exec(), true);
 		}
 		if ($datas['state'] != 'ok') {
 			return;
