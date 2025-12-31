@@ -746,6 +746,19 @@ class weather extends eqLogic {
 			$weatherCmd->setDisplay('generic_type', 'WEATHER_TEMPERATURE_MAX_' . $i);
 			$weatherCmd->save();
 
+			$weatherCmd = $this->getCmd(null, 'condition_' . $i);
+			if (!is_object($weatherCmd)) {
+				$weatherCmd = new weatherCmd();
+			}
+			$weatherCmd->setName(__('Condition', __FILE__) . ' +' . $i);
+			$weatherCmd->setLogicalId('condition_' . $i);
+			$weatherCmd->setEqLogic_id($this->getId());
+			$weatherCmd->setUnite('');
+			$weatherCmd->setType('info');
+			$weatherCmd->setSubType('string');
+			$weatherCmd->setDisplay('generic_type', 'WEATHER_CONDITION_' . $i);
+			$weatherCmd->save();
+
 			$weatherCmd = $this->getCmd(null, 'condition_id_' . $i);
 			if (!is_object($weatherCmd)) {
 				$weatherCmd = new weatherCmd();
@@ -1034,10 +1047,10 @@ class weather extends eqLogic {
 		$url .= '&lang=' . substr(config::byKey('language'), 0, 2);
 		$request_http = new com_http($url);
 		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
-		$datas = json_decode($request_http->exec(60,6), true);
+		$datas = json_decode($request_http->exec(), true);
 		if ($datas['state'] != 'ok') {
 			sleep(15);
-			$datas = json_decode($request_http->exec(60,6), true);
+			$datas = json_decode($request_http->exec(), true);
 		}
 		if ($datas['state'] != 'ok') {
 			return;
