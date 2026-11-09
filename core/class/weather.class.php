@@ -1046,7 +1046,23 @@ class weather extends eqLogic {
 		$url .= '&long=' . str_replace(',','.',trim($this->getConfiguration('long')));
 		$url .= '&lang=' . substr(config::byKey('language'), 0, 2);
 		$request_http = new com_http($url);
-		$request_http->setHeader(array('Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
+		$cloudToken = null;
+		if (is_callable(array('repo_market', 'getCloudToken'))) {
+			try {
+				$cloudToken = repo_market::getCloudToken();
+			} catch (Exception $e) {
+				if ($e->getCode() !== 401) {
+					throw $e;
+				}
+			}
+		}
+		if ($cloudToken) {
+			if (strtolower((string) parse_url($request_http->getUrl(), PHP_URL_SCHEME)) !== 'https') {
+				throw new Exception(__('Le service Cloud doit utiliser HTTPS.', __FILE__));
+			}
+			$request_http->setNoSslCheck(false);
+		}
+		$request_http->setHeader(array($cloudToken ? 'Authorization: Bearer ' . $cloudToken : 'Autorization: ' . sha512(mb_strtolower(config::byKey('market::username')) . ':' . config::byKey('market::password'))));
 		$datas = json_decode($request_http->exec(), true);
 		if ($datas['state'] != 'ok') {
 			sleep(15);
